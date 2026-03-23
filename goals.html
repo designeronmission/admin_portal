@@ -970,68 +970,55 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <!-- Goal Header -->
-                    <div class="text-center mb-4">
-                        <div class="me-2"><img src="vendor/images/goals/insurance.png" class="img-goal"></div>
-                        <h5 class="fw-600">Emergency Fund</h5>
-                        <span class="badge badge-emergency px-3 py-1 rounded-pill">6 months expenses</span>
-                    </div>
-
-                    <!-- Goal Stats Grid -->
-                    <div class="row g-3 mb-4">
-                        <div class="col-md-6">
-                            <div class="info-badge h-100">
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Goal Amount:</span>
-                                    <span class="fw-600">$15,000</span>
-                                </div>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Monthly Contribution:</span>
-                                    <span class="fw-600">$300</span>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <span class="text-muted">Spent Amount:</span>
-                                    <span class="fw-600 text-danger">$0</span>
+                                <!-- Goal 1: Emergency Fund -->
+                    <div class="col-md-12 col-lg-12">
+                        <div class="goal-card bg-white p-4 rounded-4 shadow-sm">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-2"><img src="vendor/images/goals/insurance.png" class="img-goal">
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-600 mb-0">Emergency fund</h5>
+                                        <span class="badge badge-emergency px-3 py-1 mt-2 rounded-pill">6 months
+                                            expenses</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="info-badge h-100">
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Current Savings:</span>
-                                    <span class="fw-600 text-success">$8,450</span>
+                            <div class="row g-2 mb-3">
+                                <div class="col-6">
+                                    <div class="stats-mini-box">
+                                        <div class="label">Current savings</div>
+                                        <div class="value">$8,450</div>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span class="text-muted">Start Date:</span>
-                                    <span class="fw-600">Jan 2025</span>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <span class="text-muted">Target Date:</span>
-                                    <span class="fw-600">Dec 2025</span>
+                                <div class="col-6">
+                                    <div class="stats-mini-box">
+                                        <div class="label">Goal amount</div>
+                                        <div class="value">$15,000</div>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="d-flex justify-content-between mb-2 spent-amount"><span>Spent
+                                    Amount:</span><span class="positive">$0</span></div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1"><span
+                                        class="text-muted">Progress</span><span class="fw-600">56%</span></div>
+                                <div class="goals-progress-bar w-100">
+                                    <div class="goals-progress-fill progress-yellow" style="width:56%"></div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2 text-2"><span><i
+                                        class="far fa-calendar-alt me-1 text-muted"></i> Start: Jan 2025</span><span><i
+                                        class="far fa-calendar-check me-1 text-muted"></i> End: Dec 2025</span></div>
+                            <div class="still-to-save"><span><i
+                                        class="fas fa-hourglass-half text-primary me-2"></i>Still to save</span><span
+                                    class="amount">$6,550</span></div>
                         </div>
                     </div>
 
-                    <!-- Progress Bar -->
-                    <div class="mb-4">
-                        <div class="d-flex justify-content-between mb-1">
-                            <span class="text-muted">Progress</span>
-                            <span class="fw-600">56%</span>
-                        </div>
-                        <div class="goals-progress-bar w-100">
-                            <div class="goals-progress-fill progress-yellow" style="width:56%"></div>
-                        </div>
-                    </div>
-
-                    <!-- Still to Save -->
-                    <div class="still-to-save mb-4">
-                        <span><i class="fas fa-hourglass-half text-primary me-2"></i>Still to save</span>
-                        <span class="amount">$6,550</span>
-                    </div>
 
                     <!-- Available by Account -->
-                    <div class="bg-light-1 rounded-3 p-3 mb-4">
+                    <div class="bg-light-1 rounded-3 p-3 mb-4 mt-4">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <i class="fas fa-university text-primary me-2"></i>

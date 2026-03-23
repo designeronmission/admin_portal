@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,261 +18,304 @@
 <body>
     <div id="main-wrapper">
 
-<!-- Minimal header replica from ROJA design (clean) -->
-<header id="header" class="border-bottom-0">
-    <div class="container">
-        <div class="header-row">
-            <div class="header-column justify-content-start">
-                <!-- Logo with embossed effect -->
-                <div class="logo me-4 position-relative">
-                    <a class="d-flex" href="#">
-                        <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;" class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
-                    </a>
-                    <!-- Embossed highlight effect -->
-                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;"></div>
-                </div>
+        <!-- Minimal header replica from ROJA design (clean) -->
+        <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
 
-                <!-- Mobile Menu Button -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#header-nav">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-
-            <!-- Centered Navigation with Icons -->
-            <div class="header-column justify-content-center">
-                <nav class="primary-menu navbar navbar-expand-lg">
-                   <div id="header-nav" class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">
-                        <i class="fas fa-chart-pie me-1"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-lightbulb me-1"></i>
-                        <span>Insights</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="budget.html">
-                        <i class="fas fa-wallet me-1"></i>
-                        <span>Budget</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="goals.html">
-                        <i class="fas fa-bullseye me-1"></i>
-                        <span>Goals</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="offers.html">
-                        <i class="fas fa-tag me-1"></i>
-                        <span>Offers</span>
-                    </a>
-                </li>
-            </ul>
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
                     </div>
-                </nav>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                <!-- Notifications Dropdown -->
+                                <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
+                                        <li class="dropdown-header">
+                                            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                                <span class="text-3 fw-600">Notifications</span>
+                                                <span class="badge bg-primary rounded-pill">3 New</span>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-tag text-primary"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">New offer available</span>
+                                                        <span class="text-1 text-muted">Just now</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Budget alert</span>
+                                                        <span class="text-1 text-muted">2 hours ago</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-success-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-check-circle text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Transaction completed</span>
+                                                        <span class="text-1 text-muted">Yesterday</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
+                                                See all Notifications <i class="fas fa-arrow-right ms-1"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <li><a class="dropdown-item" href="#"><i
+                                                    class="fas fa-shield-alt me-2"></i>Security</a></li>
+                                        <li><a class="dropdown-item" href="#"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <li class="dropdown-divider"></li>
+                                        <!-- Transactions Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-exchange-alt me-2"></i>Transactions
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-submenu-list">
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-list me-2"></i>All Transactions</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-arrow-down me-2"></i>Money In</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-arrow-up me-2"></i>Money Out</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-clock me-2"></i>Pending</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-check-circle me-2"></i>Completed</a></li>
+                                                <li class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-download me-2"></i>Export Statements</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <!-- Advance Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-rocket me-2"></i>Advance
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-submenu-list">
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-hand-holding-usd me-2"></i>Get Cash
+                                                        Advance</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-chart-line me-2"></i>Credit Score</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-shield-alt me-2"></i>Fraud Protection</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-lock me-2"></i>Security Settings</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-credit-card me-2"></i>Card Controls</a></li>
+                                                <li class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-robot me-2"></i>AI Insights</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-chart-pie me-2"></i>Analytics</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-submenu-list">
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-envelope me-2"></i>Email Preferences</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-mobile-alt me-2"></i>Push Notifications</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#"><i class="fas fa-sms me-2"></i>SMS
+                                                        Alerts</a></li>
+                                                <li class="dropdown-divider"></li>
+                                                <li>
+                                                    <div class="px-3 py-2">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="marketingNotif" checked>
+                                                            <label class="form-check-label"
+                                                                for="marketingNotif">Marketing</label>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="px-3 py-2">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                id="transactionNotif" checked>
+                                                            <label class="form-check-label"
+                                                                for="transactionNotif">Transactions</label>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-list-ul me-2"></i>Advance List
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-submenu-list">
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-wallet me-2"></i>Digital Wallet</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-coins me-2"></i>Cryptocurrency</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-chart-bar me-2"></i>Investment Portfolio</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-file-invoice me-2"></i>Tax Documents</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-file-signature me-2"></i>Legal Agreements</a>
+                                                </li>
+                                                <li class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-question-circle me-2"></i>Help Center</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-comment me-2"></i>Live Support</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Account Settings -->
+                                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Account
+                                                Settings</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
             </div>
-
-<div class="header-column justify-content-end">
-    <nav class="login-signup navbar navbar-expand">
-        <ul class="navbar-nav align-items-center">
-            <!-- Notifications Dropdown -->
-            <li class="dropdown notifications">
-                <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="text-5"><i class="far fa-bell"></i></span>
-                    <span class="count">3</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
-                    <li class="dropdown-header">
-                        <div class="d-flex justify-content-between align-items-center px-3 py-2">
-                            <span class="text-3 fw-600">Notifications</span>
-                            <span class="badge bg-primary rounded-pill">3 New</span>
-                        </div>
-                    </li>
-                    <li class="dropdown-divider"></li>
-                    <li>
-                        <a class="dropdown-item notification-item" href="#">
-                            <div class="d-flex align-items-start">
-                                <div class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
-                                    <i class="fas fa-tag text-primary"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <span class="fw-600 d-block">New offer available</span>
-                                    <span class="text-1 text-muted">Just now</span>
-                                </div>
-                                <span class="notification-dot"></span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item notification-item" href="#">
-                            <div class="d-flex align-items-start">
-                                <div class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
-                                    <i class="fas fa-exclamation-triangle text-warning"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <span class="fw-600 d-block">Budget alert</span>
-                                    <span class="text-1 text-muted">2 hours ago</span>
-                                </div>
-                                <span class="notification-dot"></span>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item notification-item" href="#">
-                            <div class="d-flex align-items-start">
-                                <div class="notification-icon bg-success-soft rounded-circle p-2 me-3">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                </div>
-                                <div class="flex-grow-1">
-                                    <span class="fw-600 d-block">Transaction completed</span>
-                                    <span class="text-1 text-muted">Yesterday</span>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="dropdown-divider"></li>
-                    <li>
-                        <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
-                            See all Notifications <i class="fas fa-arrow-right ms-1"></i>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <!-- Settings Dropdown (with Profile inside) -->
-            <li class="dropdown settings ms-2">
-                <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="text-5"><i class="fas fa-cog"></i></span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
-                    <!-- Profile Section inside Settings -->
-                    <li class="profile-header">
-                        <div class="d-flex align-items-center px-3 py-3">
-                            <img class="rounded-circle me-3" src="vendor/images/profile-1.png" width="48" height="48" alt="Profile">
-                            <div>
-                                <h6 class="mb-0 fw-600">John Snow</h6>
-                                <span class="text-2 text-muted">john.snow@email.com</span>
-                                <div class="mt-1">
-                                    <span class="badge bg-success rounded-pill">Premium</span>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="dropdown-divider"></li>
-                    
-                    <!-- Profile Links -->
-                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>My Profile</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fas fa-shield-alt me-2"></i>Security</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
-                    
-                    <li class="dropdown-divider"></li>
-                    <!-- Transactions Section -->
-                    <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-exchange-alt me-2"></i>Transactions
-                            <i class="fas fa-chevron-right ms-auto"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-submenu-list">
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-list me-2"></i>All Transactions</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-arrow-down me-2"></i>Money In</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-arrow-up me-2"></i>Money Out</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-clock me-2"></i>Pending</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-check-circle me-2"></i>Completed</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-download me-2"></i>Export Statements</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- Advance Section -->
-                    <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-rocket me-2"></i>Advance
-                            <i class="fas fa-chevron-right ms-auto"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-submenu-list">
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-hand-holding-usd me-2"></i>Get Cash Advance</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-chart-line me-2"></i>Credit Score</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-shield-alt me-2"></i>Fraud Protection</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-lock me-2"></i>Security Settings</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-credit-card me-2"></i>Card Controls</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-robot me-2"></i>AI Insights</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-chart-pie me-2"></i>Analytics</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- Notifications Settings -->
-                    <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-bell me-2"></i>Notifications
-                            <i class="fas fa-chevron-right ms-auto"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-submenu-list">
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-envelope me-2"></i>Email Preferences</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-mobile-alt me-2"></i>Push Notifications</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-sms me-2"></i>SMS Alerts</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li>
-                                <div class="px-3 py-2">
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="marketingNotif" checked>
-                                        <label class="form-check-label" for="marketingNotif">Marketing</label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="px-3 py-2">
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="transactionNotif" checked>
-                                        <label class="form-check-label" for="transactionNotif">Transactions</label>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- List of Advance Sub-items -->
-                    <li class="dropdown-submenu">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-list-ul me-2"></i>Advance List
-                            <i class="fas fa-chevron-right ms-auto"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-submenu-list">
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-wallet me-2"></i>Digital Wallet</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-coins me-2"></i>Cryptocurrency</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-chart-bar me-2"></i>Investment Portfolio</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-invoice me-2"></i>Tax Documents</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-signature me-2"></i>Legal Agreements</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i>Help Center</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fas fa-comment me-2"></i>Live Support</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown-divider"></li>
-                    
-                    <!-- Account Settings -->
-                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Account Settings</a></li>
-                    <li class="dropdown-divider"></li>
-                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</div>
-            
-        </div>
-    </div>
-</header>
+        </header>
 
         <div id="content" class="py-4">
             <div class="container">
@@ -282,25 +326,28 @@
                                 class="rounded-circle img-fluid" src="vendor/images/profile.png" alt="profile"></div>
                         <h2 class="text-4 fw-500 mb-0 text-light">Hi, John Snow</h2>
                     </div>
-               <div class="d-flex flex-wrap gap-2 align-items-center">
-    <div class="bg-light-3 text-dark px-4 py-2  rounded-pill d-flex align-items-center" style="min-height: 40px;">
-        <i class="fas fa-check-circle me-1" style="font-size: 0.9rem;"></i>
-        <span class="fw-500" style="font-size: 0.85rem;">Approved: $25.00</span>
-    </div>
-    <div class="bg-light-3 text-dark px-4 py-2 rounded-pill d-flex align-items-center" style="min-height: 40px;">
-        <i class="fas fa-wallet me-1" style="font-size: 0.9rem;"></i>
-        <span class="fw-500" style="font-size: 0.85rem;">Available Limit: $25.00</span>
-    </div>
-    <button class="btn rounded-pill border btn-primary text-white px-4 py-2 " style="min-height: 40px; font-size: 0.85rem;">
-        <i class="fas fa-hand-holding-usd me-1" style="font-size: 0.9rem;"></i>Get Cash
-    </button>
-</div>
+                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                        <div class="bg-light-3 text-dark px-4 py-2  rounded-pill d-flex align-items-center"
+                            style="min-height: 40px;">
+                            <i class="fas fa-check-circle me-1" style="font-size: 0.9rem;"></i>
+                            <span class="fw-500" style="font-size: 0.85rem;">Approved: $25.00</span>
+                        </div>
+                        <div class="bg-light-3 text-dark px-4 py-2 rounded-pill d-flex align-items-center"
+                            style="min-height: 40px;">
+                            <i class="fas fa-wallet me-1" style="font-size: 0.9rem;"></i>
+                            <span class="fw-500" style="font-size: 0.85rem;">Available Limit: $25.00</span>
+                        </div>
+                        <button class="btn rounded-pill border btn-primary text-white px-4 py-2 "
+                            style="min-height: 40px; font-size: 0.85rem;">
+                            <i class="fas fa-hand-holding-usd me-1" style="font-size: 0.9rem;"></i>Get Cash
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Bank activity selector -->
                 <div class="d-flex align-items-center px-4 py-4 mb-4 flex-wrap bg-white">
-                 <span class="fw-500 text-dark me-3 text-4">Bank Activity Overview</span>
-                  
+                    <span class="fw-500 text-dark me-3 text-4">Bank Activity Overview</span>
+
                     <div class="d-flex align-items-center rounded-pill ms-auto flex-wrap gap-2">
                         <div class="bg-light-1 rounded-pill border px-4 py-2 m-0"><i
                                 class="fas fa-building me-2 text-muted"></i>Main Checking (**9802) <i
@@ -361,9 +408,9 @@
                 <div class="row g-4 mt-4">
                     <!-- left column recent transactions -->
                     <div class="col-lg-6">
-                     
+
                         <div class="bg-white shadow-sm rounded p-4">
-                               <h3 class="text-4 fw-500 mb-4">Recent Bank Transactions</h3>
+                            <h3 class="text-4 fw-500 mb-4">Recent Bank Transactions</h3>
                             <div class="transaction-list">
                                 <!-- item 1 -->
                                 <div
@@ -374,7 +421,7 @@
                                         <div>
                                             <h5 class="mb-0 fw-500 text-4">Restaurants</h5><span
                                                 class="text-muted">Olive Garden</span> <br>
-                                                 <span  class="text-muted">11/03/2026 02:28 AM</span>
+                                            <span class="text-muted">11/03/2026 02:28 AM</span>
                                         </div>
                                     </div>
                                     <span class="text-4 fw-500 success-green">$49.00</span>
@@ -386,8 +433,8 @@
                                                 class="fas fa-gas-pump text-5"></i></div>
                                         <div>
                                             <h5 class="mb-0 fw-500 text-4">Gas</h5><span class="text-muted">Transfer
-                                                </span><br>
-                                                <span  class="text-muted">2/30/2026 03:18 AM</span>
+                                            </span><br>
+                                            <span class="text-muted">2/30/2026 03:18 AM</span>
                                         </div>
                                     </div>
                                     <span class="text-4 fw-500 failure-red">$24.00</span>
@@ -400,7 +447,7 @@
                                         <div>
                                             <h5 class="mb-0 fw-500 text-4">Personal Care</h5><span
                                                 class="text-muted">Bath & Body Works</span> <br>
-                                                <span  class="text-muted">1/15/2026 02:20 AM</span>
+                                            <span class="text-muted">1/15/2026 02:20 AM</span>
                                         </div>
                                     </div>
                                     <span class="text-4 fw-500 success-green">$12.50</span>
@@ -412,8 +459,8 @@
                                                 class="fas fa-tshirt text-5"></i></div>
                                         <div>
                                             <h5 class="mb-0 fw-500 text-4">Clothing</h5><span class="text-muted">Bohme
-                                           </span><br>
-                                           <span  class="text-muted">2/15/2026 12:28 AM</span>
+                                            </span><br>
+                                            <span class="text-muted">2/15/2026 12:28 AM</span>
                                         </div>
                                     </div>
                                     <span class="text-4 fw-500 failure-red">$34.50</span>
@@ -427,7 +474,7 @@
                     </div>
                     <!-- right column credit score simulation (based on ROJA styling) -->
                     <div class="col-lg-6">
-                        
+
                         <div class="bg-white shadow-sm rounded p-4">
                             <h3 class="text-4 fw-500 mb-4">Check Your Credit Score</h3>
                             <!-- Credit Score Gauge Container -->
@@ -465,13 +512,14 @@
 
 
                 <div class="mt-5">
-                   
+
                     <div class="background-bg">
-                         <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-4 fw-500 mb-0">Reminders </h3>
-                        <a href="#" class="text-primary text-decoration-none fw-500">View all Reminders  <i
-                                class="fas fa-arrow-right ms-1"></i></a>
-                    </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="text-4 fw-500 mb-0">Reminders</h3>
+                            <a href="#" class="text-primary text-decoration-none fw-500">View all Reminders <i
+                                    class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+
                         <!-- Bills Carousel with Buttons -->
                         <div class="bills-carousel-wrapper">
                             <!-- Left Scroll Button -->
@@ -481,7 +529,7 @@
 
                             <!-- Horizontal Scroll Container (Hidden Scrollbar) -->
                             <div class="bills-scroll-container" id="bills-scroll-container">
-                                <!-- Bill Card 1 -->
+                                <!-- Bill Card 1 - Credit Card Bill (Pending) -->
                                 <div class="bill-card">
                                     <div class="bill-header">
                                         <div class="bill-icon">
@@ -490,21 +538,23 @@
                                         <div class="bill-info">
                                             <div class="bill-title-row">
                                                 <h5 class="bill-title">Credit Card Bill</h5>
-                                                <span class="bill-date">19th Mar 2026</span>
+                                                <span class="bill-date status-pending">Pending</span>
                                             </div>
+                                            <p class="bill-account text-3">29th Mar 2026</p>
                                             <p class="bill-account">Savings (**9809)</p>
                                         </div>
                                         <div class="bill-footer">
                                             <span class="bill-amount">$56.00</span>
-                                            <a href="#" class="bill-link">
-                                                <i class="fas fa-chevron-right"></i>
+                                            <a href="#" class="bill-link"
+                                                onclick="markAsPaid(this, 'Credit Card Bill', 'Pending')">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                <span class="bill-btn">Mark as Paid</span>
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <!-- Bill Card 2 -->
+                                <!-- Bill Card 2 - Emergency Fund (Overdue) -->
                                 <div class="bill-card">
                                     <div class="bill-header">
                                         <div class="bill-icon">
@@ -513,21 +563,23 @@
                                         <div class="bill-info">
                                             <div class="bill-title-row">
                                                 <h5 class="bill-title">Emergency Fund</h5>
-                                                <span class="bill-date">19th Mar 2026</span>
+                                                <span class="bill-date status-overdue">Overdue</span>
                                             </div>
+                                            <p class="bill-account text-3">20th Mar 2026</p>
                                             <p class="bill-account">Savings (**9809)</p>
                                         </div>
                                         <div class="bill-footer">
                                             <span class="bill-amount">$56.00</span>
-                                            <a href="#" class="bill-link">
-                                                <i class="fas fa-chevron-right"></i>
+                                            <a href="#" class="bill-link"
+                                                onclick="markAsPaid(this, 'Emergency Fund', 'Overdue')">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                <span class="bill-btn">Mark as Paid</span>
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <!-- Bill Card 3 -->
+                                <!-- Bill Card 3 - Utilities Bill (Upcoming) -->
                                 <div class="bill-card">
                                     <div class="bill-header">
                                         <div class="bill-icon">
@@ -536,21 +588,23 @@
                                         <div class="bill-info">
                                             <div class="bill-title-row">
                                                 <h5 class="bill-title">Utilities Bill</h5>
-                                                <span class="bill-date">22nd Mar 2026</span>
+                                                <span class="bill-date status-upcoming">Upcoming</span>
                                             </div>
+                                            <p class="bill-account text-3">22nd Mar 2026</p>
                                             <p class="bill-account">Checking (**4567)</p>
                                         </div>
                                         <div class="bill-footer">
                                             <span class="bill-amount">$89.50</span>
-                                            <a href="#" class="bill-link">
-                                                <i class="fas fa-chevron-right"></i>
+                                            <a href="#" class="bill-link"
+                                                onclick="markAsPaid(this, 'Utilities Bill', 'Upcoming')">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                <span class="bill-btn">Mark as Paid</span>
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <!-- Bill Card 4 -->
+                                <!-- Bill Card 4 - Internet Bill (Pending) -->
                                 <div class="bill-card">
                                     <div class="bill-header">
                                         <div class="bill-icon">
@@ -559,21 +613,23 @@
                                         <div class="bill-info">
                                             <div class="bill-title-row">
                                                 <h5 class="bill-title">Internet Bill</h5>
-                                                <span class="bill-date">25th Mar 2026</span>
+                                                <span class="bill-date status-pending">Pending</span>
                                             </div>
+                                            <p class="bill-account text-3">25th Mar 2026</p>
                                             <p class="bill-account">Savings (**9809)</p>
                                         </div>
                                         <div class="bill-footer">
                                             <span class="bill-amount">$45.99</span>
-                                            <a href="#" class="bill-link">
-                                                <i class="fas fa-chevron-right"></i>
+                                            <a href="#" class="bill-link"
+                                                onclick="markAsPaid(this, 'Internet Bill', 'Pending')">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                <span class="bill-btn">Mark as Paid</span>
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <!-- Bill Card 5 -->
+                                <!-- Bill Card 5 - Rent (Upcoming) -->
                                 <div class="bill-card">
                                     <div class="bill-header">
                                         <div class="bill-icon">
@@ -582,21 +638,23 @@
                                         <div class="bill-info">
                                             <div class="bill-title-row">
                                                 <h5 class="bill-title">Rent</h5>
-                                                <span class="bill-date">1st Apr 2026</span>
+                                                <span class="bill-date status-upcoming">Upcoming</span>
                                             </div>
+                                            <p class="bill-account text-3">1st Apr 2026</p>
                                             <p class="bill-account">Savings (**9809)</p>
                                         </div>
                                         <div class="bill-footer">
                                             <span class="bill-amount">$1,200.00</span>
-                                            <a href="#" class="bill-link">
-                                                <i class="fas fa-chevron-right"></i>
+                                            <a href="#" class="bill-link"
+                                                onclick="markAsPaid(this, 'Rent', 'Upcoming')">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                <span class="bill-btn">Mark as Paid</span>
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <!-- Bill Card 6 -->
+                                <!-- Bill Card 6 - Phone Bill (Pending) -->
                                 <div class="bill-card">
                                     <div class="bill-header">
                                         <div class="bill-icon">
@@ -605,22 +663,24 @@
                                         <div class="bill-info">
                                             <div class="bill-title-row">
                                                 <h5 class="bill-title">Phone Bill</h5>
-                                                <span class="bill-date">5th Apr 2026</span>
+                                                <span class="bill-date status-pending">Pending</span>
                                             </div>
+                                            <p class="bill-account text-3">5th Apr 2026</p>
                                             <p class="bill-account">Checking (**4567)</p>
                                         </div>
                                         <div class="bill-footer">
                                             <span class="bill-amount">$85.00</span>
-                                            <a href="#" class="bill-link">
-                                                <i class="fas fa-chevron-right"></i>
+                                            <a href="#" class="bill-link"
+                                                onclick="markAsPaid(this, 'Phone Bill', 'Pending')">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                <span class="bill-btn">Mark as Paid</span>
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <!-- Bill Card 7 -->
-                                <div class="bill-card">
+                                <!-- Bill Card 7 - Cable Bill (Paid) -->
+                                <div class="bill-card paid-card">
                                     <div class="bill-header">
                                         <div class="bill-icon">
                                             <i class="fas fa-tv text-primary"></i>
@@ -628,21 +688,22 @@
                                         <div class="bill-info">
                                             <div class="bill-title-row">
                                                 <h5 class="bill-title">Cable Bill</h5>
-                                                <span class="bill-date">10th Apr 2026</span>
+                                                <span class="bill-date status-paid">Paid</span>
                                             </div>
+                                            <p class="bill-account text-3">10th Apr 2026</p>
                                             <p class="bill-account">Checking (**4567)</p>
                                         </div>
                                         <div class="bill-footer">
                                             <span class="bill-amount">$65.00</span>
-                                            <a href="#" class="bill-link">
-                                                <i class="fas fa-chevron-right"></i>
+                                            <a href="#" class="bill-link disabled" onclick="return false;">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                <span class="bill-btn">Paid</span>
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
 
-                                <!-- Bill Card 8 -->
+                                <!-- Bill Card 8 - Water Bill (Upcoming) -->
                                 <div class="bill-card">
                                     <div class="bill-header">
                                         <div class="bill-icon">
@@ -651,18 +712,20 @@
                                         <div class="bill-info">
                                             <div class="bill-title-row">
                                                 <h5 class="bill-title">Water Bill</h5>
-                                                <span class="bill-date">15th Apr 2026</span>
+                                                <span class="bill-date status-upcoming">Upcoming</span>
                                             </div>
+                                            <p class="bill-account text-3">15th Apr 2026</p>
                                             <p class="bill-account">Savings (**9809)</p>
                                         </div>
                                         <div class="bill-footer">
                                             <span class="bill-amount">$40.00</span>
-                                            <a href="#" class="bill-link">
-                                                <i class="fas fa-chevron-right"></i>
+                                            <a href="#" class="bill-link"
+                                                onclick="markAsPaid(this, 'Water Bill', 'Upcoming')">
+                                                <i class="fas fa-check-circle me-2"></i>
+                                                <span class="bill-btn">Mark as Paid</span>
                                             </a>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
 
@@ -671,7 +734,6 @@
                                 <i class="fas fa-chevron-right"></i>
                             </button>
                         </div>
-
 
                         <!-- Scroll Indicator -->
                         <div class="scroll-indicator mt-4" id="bills-indicator">
