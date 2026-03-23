@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA-Dashboard</title>
+    <!-- Fonts & Base CSS (same as original ROJA style) -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome (required by the provided style.css structure) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/owl.carousel.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="main-wrapper">
+
+<!-- Minimal header replica from ROJA design (clean) -->
+<header id="header" class="border-bottom-0">
+    <div class="container">
+        <div class="header-row">
+            <div class="header-column justify-content-start">
+                <!-- Logo with embossed effect -->
+                <div class="logo me-4 position-relative">
+                    <a class="d-flex" href="#">
+                        <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;" class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                    </a>
+                    <!-- Embossed highlight effect -->
+                    <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;"></div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#header-nav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <!-- Centered Navigation with Icons -->
+            <div class="header-column justify-content-center">
+                <nav class="primary-menu navbar navbar-expand-lg">
+                   <div id="header-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        <i class="fas fa-chart-pie me-1"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-lightbulb me-1"></i>
+                        <span>Insights</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="budget.html">
+                        <i class="fas fa-wallet me-1"></i>
+                        <span>Budget</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="goals.html">
+                        <i class="fas fa-bullseye me-1"></i>
+                        <span>Goals</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="offers.html">
+                        <i class="fas fa-tag me-1"></i>
+                        <span>Offers</span>
+                    </a>
+                </li>
+            </ul>
+                    </div>
+                </nav>
+            </div>
+
+<div class="header-column justify-content-end">
+    <nav class="login-signup navbar navbar-expand">
+        <ul class="navbar-nav align-items-center">
+            <!-- Notifications Dropdown -->
+            <li class="dropdown notifications">
+                <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="text-5"><i class="far fa-bell"></i></span>
+                    <span class="count">3</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
+                    <li class="dropdown-header">
+                        <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                            <span class="text-3 fw-600">Notifications</span>
+                            <span class="badge bg-primary rounded-pill">3 New</span>
+                        </div>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item notification-item" href="#">
+                            <div class="d-flex align-items-start">
+                                <div class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
+                                    <i class="fas fa-tag text-primary"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <span class="fw-600 d-block">New offer available</span>
+                                    <span class="text-1 text-muted">Just now</span>
+                                </div>
+                                <span class="notification-dot"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item notification-item" href="#">
+                            <div class="d-flex align-items-start">
+                                <div class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
+                                    <i class="fas fa-exclamation-triangle text-warning"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <span class="fw-600 d-block">Budget alert</span>
+                                    <span class="text-1 text-muted">2 hours ago</span>
+                                </div>
+                                <span class="notification-dot"></span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item notification-item" href="#">
+                            <div class="d-flex align-items-start">
+                                <div class="notification-icon bg-success-soft rounded-circle p-2 me-3">
+                                    <i class="fas fa-check-circle text-success"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <span class="fw-600 d-block">Transaction completed</span>
+                                    <span class="text-1 text-muted">Yesterday</span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li>
+                        <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
+                            See all Notifications <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Settings Dropdown (with Profile inside) -->
+            <li class="dropdown settings ms-2">
+                <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="text-5"><i class="fas fa-cog"></i></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                    <!-- Profile Section inside Settings -->
+                    <li class="profile-header">
+                        <div class="d-flex align-items-center px-3 py-3">
+                            <img class="rounded-circle me-3" src="vendor/images/profile-1.png" width="48" height="48" alt="Profile">
+                            <div>
+                                <h6 class="mb-0 fw-600">John Snow</h6>
+                                <span class="text-2 text-muted">john.snow@email.com</span>
+                                <div class="mt-1">
+                                    <span class="badge bg-success rounded-pill">Premium</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    
+                    <!-- Profile Links -->
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>My Profile</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-shield-alt me-2"></i>Security</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+                    
+                    <li class="dropdown-divider"></li>
+                    <!-- Transactions Section -->
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-exchange-alt me-2"></i>Transactions
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-submenu-list">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-list me-2"></i>All Transactions</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-arrow-down me-2"></i>Money In</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-arrow-up me-2"></i>Money Out</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-clock me-2"></i>Pending</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-check-circle me-2"></i>Completed</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-download me-2"></i>Export Statements</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Advance Section -->
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-rocket me-2"></i>Advance
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-submenu-list">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-hand-holding-usd me-2"></i>Get Cash Advance</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-chart-line me-2"></i>Credit Score</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-shield-alt me-2"></i>Fraud Protection</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-lock me-2"></i>Security Settings</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-credit-card me-2"></i>Card Controls</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-robot me-2"></i>AI Insights</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-chart-pie me-2"></i>Analytics</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Notifications Settings -->
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-bell me-2"></i>Notifications
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-submenu-list">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-envelope me-2"></i>Email Preferences</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-mobile-alt me-2"></i>Push Notifications</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sms me-2"></i>SMS Alerts</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <div class="px-3 py-2">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="marketingNotif" checked>
+                                        <label class="form-check-label" for="marketingNotif">Marketing</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="px-3 py-2">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="transactionNotif" checked>
+                                        <label class="form-check-label" for="transactionNotif">Transactions</label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- List of Advance Sub-items -->
+                    <li class="dropdown-submenu">
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-list-ul me-2"></i>Advance List
+                            <i class="fas fa-chevron-right ms-auto"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-submenu-list">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-wallet me-2"></i>Digital Wallet</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-coins me-2"></i>Cryptocurrency</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-chart-bar me-2"></i>Investment Portfolio</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-invoice me-2"></i>Tax Documents</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-file-signature me-2"></i>Legal Agreements</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-question-circle me-2"></i>Help Center</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-comment me-2"></i>Live Support</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown-divider"></li>
+                    
+                    <!-- Account Settings -->
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Account Settings</a></li>
+                    <li class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</div>
+            
+        </div>
+    </div>
+</header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Top header greeting row (like "Hi, John Snow") using ROJA helpers -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <div class="profile-thumb me-3" style="width:50px; height:50px;"><img
+                                class="rounded-circle img-fluid" src="vendor/images/profile.png" alt="profile"></div>
+                        <h2 class="text-4 fw-500 mb-0 text-light">Hi, John Snow</h2>
+                    </div>
+
+                </div>
+
+             <!-- === SUBSCRIPTION CARD (hero) - exactly as requested === -->
+            <div class="subscription-card">
+                <div class="subscription-text">
+                    <div class="subscription-badge">
+                        <i class="fas fa-star-of-life"></i> <span>Exclusive access</span>
+                    </div>
+                    <h2>Subscription Required</h2>
+                    <p>Subscribe now to unlock premium features — available exclusively for our subscribed customers. Get personalized offers, priority support, and financial tools.</p>
+                    <button class="btn-plan" id="getPlanBtn">
+                        Get Plan Now <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="subscription-illustration">
+                    <div class="lock-icon-big">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+            </div>
+
+
+
+                <div class="container-fluid mt-4 pt-4">
+                    <div class="row g-4">
+                        <!-- Handpicked Offers Section - Left Column (col-lg-6) -->
+                        <div class="col-lg-6">
+                            <div class="offers-wrapper">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h3 class="text-4 fw-500 mb-0">Handpicked For You</h3>
+                                    <a href="#" class="view-all">View all <i class="fas fa-arrow-right ms-2"></i></a>
+                                </div>
+
+                                <!-- Scroll Controls -->
+                                <div class="scroll-controls">
+                                    <button class="scroll-btn scroll-left" onclick="scrollOffers('handpicked', 'left')">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button class="scroll-btn scroll-right"
+                                        onclick="scrollOffers('handpicked', 'right')">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Horizontal Scroll Container -->
+                                <div class="horizontal-scroll" id="handpicked-scroll">
+                                    <!-- Offer Card 1 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Protect Your Gadgets</h4>
+                                            <p class="offer-description">Cover your phones and gadgets against damage,
+                                                theft, and breakdowns.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/offers-1.png" alt="Gadget Protection">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 2 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Need Cash Fast?</h4>
+                                            <p class="offer-description">Get approved and receive up to $500 fast, right
+                                                when it matters.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/Get-Cash.png" alt="Get Cash">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 3 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Borrow up to $1,000</h4>
+                                            <p class="offer-description">Use your personal loan to pay off debt, upgrade
+                                                your home.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/cash-advance.png" alt="Cash Advance">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 4 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Cashback Credit Card</h4>
+                                            <p class="offer-description">Get instant cashback on everyday spending.
+                                                whether it's groceries, fuel, dining.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/credit.png" alt="Credit Card">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 5 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Life Insurance</h4>
+                                            <p class="offer-description">Protect your family's future with affordable
+                                                life insurance coverage.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/Insurance.png" alt="Insurance">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 6 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Travel Insurance</h4>
+                                            <p class="offer-description">Comprehensive coverage for your trips
+                                                worldwide.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/offers-1.png" alt="Travel Insurance">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Scroll Indicator -->
+                                <div class="scroll-indicator" id="handpicked-indicator">
+                                    <span class="scroll-dot active"></span>
+                                    <span class="scroll-dot"></span>
+                                    <span class="scroll-dot"></span>
+                                    <span class="scroll-dot"></span>
+                                    <span class="scroll-dot"></span>
+                                    <span class="scroll-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More Offers Section - Right Column (col-lg-6) -->
+                        <div class="col-lg-6">
+                            <div class="offers-wrapper">
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h3 class="text-4 fw-500 mb-0">Offers</h3>
+                                    <a href="#" class="view-all">View all <i class="fas fa-arrow-right ms-2"></i></a>
+                                </div>
+
+                                <!-- Scroll Controls -->
+                                <div class="scroll-controls">
+                                    <button class="scroll-btn scroll-left" onclick="scrollOffers('more', 'left')">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button class="scroll-btn scroll-right" onclick="scrollOffers('more', 'right')">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Horizontal Scroll Container -->
+                                <div class="horizontal-scroll" id="more-scroll">
+                                    <!-- Offer Card 1 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Online Doctor</h4>
+                                            <p class="offer-description">Access professional medical advice anytime,
+                                                anywhere.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/credit.png" alt="Doctor Consultation">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 2 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Flexible Term Loans</h4>
+                                            <p class="offer-description">Designed for planned expenses with affordable
+                                                monthly EMIs.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/Telemedicine.png" alt="Term Loans">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 3 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Travel Insurance</h4>
+                                            <p class="offer-description">Comprehensive coverage for your trips including
+                                                cancellation and medical.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/Insurance.png" alt="Insurance">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 4 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Emergency Fund</h4>
+                                            <p class="offer-description">Build an emergency fund with high-yield savings
+                                                and instant access.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/Get-Cash.png" alt="Emergency Fund">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 5 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Rewards Credit Card</h4>
+                                            <p class="offer-description">Earn points on every purchase and redeem for
+                                                travel, cash, and more.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/credit.png" alt="Rewards Card">
+                                        </div>
+                                    </div>
+
+                                    <!-- Offer Card 6 -->
+                                    <div class="offer-card">
+                                        <div class="card-content">
+                                            <h4 class="offer-title">Gadget Protection</h4>
+                                            <p class="offer-description">Complete protection for all your electronic
+                                                devices.</p>
+                                            <a href="#" class="apply-btn">Apply Now <i
+                                                    class="fas fa-arrow-right ms-2"></i></a>
+                                        </div>
+                                        <div class="card-icon">
+                                            <img src="vendor/images/offers-1.png" alt="Gadget Protection">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Scroll Indicator -->
+                                <div class="scroll-indicator" id="more-indicator">
+                                    <span class="scroll-dot active"></span>
+                                    <span class="scroll-dot"></span>
+                                    <span class="scroll-dot"></span>
+                                    <span class="scroll-dot"></span>
+                                    <span class="scroll-dot"></span>
+                                    <span class="scroll-dot"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+            <!-- Footer with social icons -->
+            <footer id="footer">
+                <div class="container">
+                    <div class="footer-copyright">
+                        <div class="row">
+                            <div class="col-lg">
+                                <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights
+                                    Reserved.
+                                </p>
+                            </div>
+                            <div class="col-lg d-lg-flex justify-content-lg-end">
+                                <ul class="nav justify-content-center">
+                                    <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/raphael@2.3.0/raphael.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/justgage@1.4.0/justgage.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // simple tooltip enable (optional)
+                var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+                tooltipTriggerList.map(function (el) { return new bootstrap.Tooltip(el); });
+                // back to top
+                var btt = document.getElementById('back-to-top');
+                window.addEventListener('scroll', function () { btt.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+                btt.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+            });
+
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // Initialize the speedometer gauge
+                var gauge = new JustGage({
+                    id: "creditSpeedometer",
+                    value: 550,
+                    min: 300,
+                    max: 900,
+                    title: "",
+                    label: "",
+                    levelColors: ["#ff4444", "#ffbb33", "#00C851"],
+                    gaugeWidthScale: 0.8,
+                    counter: true,
+                    hideInnerShadow: true,
+                    shadowOpacity: 0,
+                    shadowSize: 0,
+                    shadowVerticalOffset: 0,
+                    startAnimationTime: 2000,
+                    refreshAnimationTime: 1000,
+                    donut: true,
+                    donutStartAngle: 90,
+                    donutStrokeColor: "#fff",
+                    donutStrokeWidth: 2,
+                    pointer: true,
+                    pointerOptions: {
+                        toplength: 10,
+                        bottomlength: 20,
+                        bottomwidth: 4,
+                        color: "#333",
+                        stroke: "#333",
+                        stroke_width: 2
+                    },
+                    customSectors: {
+                        ranges: [{
+                            from: 300,
+                            to: 550,
+                            color: "#ff4444"
+                        }, {
+                            from: 551,
+                            to: 750,
+                            color: "#ffbb33"
+                        }, {
+                            from: 751,
+                            to: 900,
+                            color: "#00C851"
+                        }]
+                    },
+                    humanFriendly: false,
+                    formatNumber: true,
+                    valueFontColor: "#333",
+                    valueFontFamily: 'Rubik, sans-serif',
+                    valueFontWeight: 900,
+                    valueMinFontSize: 24,
+                    titleFontColor: "#999",
+                    labelFontColor: "#666",
+                    minLabelMinFontSize: 12,
+                    maxLabelMinFontSize: 12
+                });
+
+                // Animate the gauge to show the pointer movement (optional)
+                setTimeout(function () {
+                    gauge.refresh(550);
+                }, 100);
+            });
+
+
+            $(document).ready(function () {
+                $(".owl-carousel").owlCarousel({
+                    autoplay: false,
+                    nav: true,
+                    loop: false,
+                    margin: 30,
+                    slideBy: 1,
+                    stagePadding: 5,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        576: {
+                            items: 1
+                        },
+                        768: {
+                            items: 2
+                        },
+                        992: {
+                            items: 3
+                        }
+                    }
+                });
+            });
+
+
+
+
+
+
+            // Scroll function for left/right buttons
+            function scrollOffers(section, direction) {
+                const container = document.getElementById(section + '-scroll');
+                const scrollAmount = 336; // Card width (320) + gap (16)
+
+                if (direction === 'left') {
+                    container.scrollLeft -= scrollAmount;
+                } else if (direction === 'right') {
+                    container.scrollLeft += scrollAmount;
+                }
+
+                // Update active dots after scrolling
+                setTimeout(() => {
+                    updateActiveDot(section);
+                }, 100);
+            }
+
+            // Update active dot based on scroll position
+            function updateActiveDot(section) {
+                const container = document.getElementById(section + '-scroll');
+                const dots = document.querySelectorAll('#' + section + '-indicator .scroll-dot');
+                const cardWidth = 336; // Card width + gap
+                const scrollPosition = container.scrollLeft;
+                const activeIndex = Math.round(scrollPosition / cardWidth);
+
+                dots.forEach((dot, index) => {
+                    if (index === activeIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+
+                // Enable/disable scroll buttons based on position
+                const leftBtn = document.querySelector('#' + section + '-scroll').closest('.offers-wrapper').querySelector('.scroll-left');
+                const rightBtn = document.querySelector('#' + section + '-scroll').closest('.offers-wrapper').querySelector('.scroll-right');
+                const maxScroll = container.scrollWidth - container.clientWidth;
+
+                if (leftBtn) {
+                    if (container.scrollLeft <= 0) {
+                        leftBtn.classList.add('disabled');
+                    } else {
+                        leftBtn.classList.remove('disabled');
+                    }
+                }
+
+                if (rightBtn) {
+                    if (container.scrollLeft >= maxScroll - 5) {
+                        rightBtn.classList.add('disabled');
+                    } else {
+                        rightBtn.classList.remove('disabled');
+                    }
+                }
+            }
+
+            // Add scroll event listeners to update dots
+            document.addEventListener('DOMContentLoaded', function () {
+                const handpickedScroll = document.getElementById('handpicked-scroll');
+                const moreScroll = document.getElementById('more-scroll');
+
+                if (handpickedScroll) {
+                    handpickedScroll.addEventListener('scroll', function () {
+                        updateActiveDot('handpicked');
+                    });
+                }
+
+                if (moreScroll) {
+                    moreScroll.addEventListener('scroll', function () {
+                        updateActiveDot('more');
+                    });
+                }
+
+                // Initial update
+                setTimeout(() => {
+                    updateActiveDot('handpicked');
+                    updateActiveDot('more');
+                }, 200);
+            });
+
+
+
+
+
+            // Update active dot based on scroll position
+            document.addEventListener('DOMContentLoaded', function () {
+                const scrollContainer = document.querySelector('.bills-scroll-container');
+                const dots = document.querySelectorAll('.dot');
+
+                if (scrollContainer) {
+                    scrollContainer.addEventListener('scroll', function () {
+                        const cardWidth = 340; // Card width (320) + gap (20)
+                        const scrollPosition = scrollContainer.scrollLeft;
+                        const activeIndex = Math.round(scrollPosition / cardWidth);
+
+                        dots.forEach((dot, index) => {
+                            if (index === activeIndex) {
+                                dot.classList.add('active');
+                            } else {
+                                dot.classList.remove('active');
+                            }
+                        });
+                    });
+
+                    // Click on dots to scroll
+                    dots.forEach((dot, index) => {
+                        dot.addEventListener('click', function () {
+                            const cardWidth = 340;
+                            scrollContainer.scrollTo({
+                                left: index * cardWidth,
+                                behavior: 'smooth'
+                            });
+                        });
+                    });
+                }
+            });
+
+
+
+
+            document.addEventListener('DOMContentLoaded', function () {
+                const scrollContainer = document.getElementById('bills-scroll-container');
+                const leftBtn = document.getElementById('bills-scroll-left');
+                const rightBtn = document.getElementById('bills-scroll-right');
+                const dots = document.querySelectorAll('#bills-indicator .dot');
+
+                // Card width including gap (380px card + 24px gap = 404px)
+                const cardWidth = 404;
+
+                // Update button states and active dot
+                function updateControls() {
+                    if (!scrollContainer) return;
+
+                    const scrollLeft = scrollContainer.scrollLeft;
+                    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+                    // Update button states
+                    if (leftBtn) {
+                        if (scrollLeft <= 5) {
+                            leftBtn.classList.add('disabled');
+                        } else {
+                            leftBtn.classList.remove('disabled');
+                        }
+                    }
+
+                    if (rightBtn) {
+                        if (scrollLeft >= maxScroll - 5) {
+                            rightBtn.classList.add('disabled');
+                        } else {
+                            rightBtn.classList.remove('disabled');
+                        }
+                    }
+
+                    // Update active dot
+                    const activeIndex = Math.round(scrollLeft / cardWidth);
+                    dots.forEach((dot, index) => {
+                        if (index === activeIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+
+                // Scroll left
+                if (leftBtn) {
+                    leftBtn.addEventListener('click', function () {
+                        if (leftBtn.classList.contains('disabled')) return;
+
+                        scrollContainer.scrollBy({
+                            left: -cardWidth,
+                            behavior: 'smooth'
+                        });
+
+                        // Update controls after scroll animation
+                        setTimeout(updateControls, 300);
+                    });
+                }
+
+                // Scroll right
+                if (rightBtn) {
+                    rightBtn.addEventListener('click', function () {
+                        if (rightBtn.classList.contains('disabled')) return;
+
+                        scrollContainer.scrollBy({
+                            left: cardWidth,
+                            behavior: 'smooth'
+                        });
+
+                        // Update controls after scroll animation
+                        setTimeout(updateControls, 300);
+                    });
+                }
+
+                // Scroll event listener
+                if (scrollContainer) {
+                    scrollContainer.addEventListener('scroll', function () {
+                        updateControls();
+                    });
+
+                    // Initial update
+                    setTimeout(updateControls, 100);
+                }
+
+                // Click on dots to scroll
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', function () {
+                        scrollContainer.scrollTo({
+                            left: index * cardWidth,
+                            behavior: 'smooth'
+                        });
+
+                        // Update controls after scroll animation
+                        setTimeout(updateControls, 300);
+                    });
+                });
+
+                // Touch device detection - hide buttons on touch devices if needed
+                if ('ontouchstart' in window) {
+                    // Optional: You can keep buttons or hide them based on preference
+                    // For now we keep them visible
+                }
+            });
+
+
+
+
+        </script>
+</body>
+
+</html>
