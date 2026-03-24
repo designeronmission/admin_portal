@@ -4312,8 +4312,7 @@ button.bg-primary:hover {
 }
 
 .bill-link {
-  color: #0e0e0e;
-  background-color: #e5f7e0;
+  color: #ffffff;
   border-radius: 60px;
   margin-top: 10px;
   font-size: 15px;
@@ -4321,17 +4320,16 @@ button.bg-primary:hover {
   display: flex;
   align-items: center;
   line-height: 1;
-  padding: 6px 10px;
+  padding: 9px 12px;
   transform: rotate(-0.2deg);
 }
 
 .bill-link i{
-  color: #10b981;
+  color: #ffffff;
 }
 
 .bill-link:hover {
-  color: #0e0e0e;
-  background-color: #f1ffed;
+  color: #ffffff;
   transform: translateX(4px);
 }
 
@@ -6118,3 +6116,347 @@ button.bg-primary:hover {
     font-size: 1.4rem;
   }
 }
+
+
+
+/* Notifications */
+
+
+       /* Notification Page Styling */
+        .notification-card {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #edf2f7;
+            transition: all 0.2s ease;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        
+        .notification-card:hover {
+            border-color: #131d58;
+            box-shadow: 0 4px 12px rgba(19, 29, 88, 0.08);
+        }
+        
+        .notification-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #edf2f7;
+            background: #fafcff;
+        }
+        
+        .notification-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        
+        .notification-desc {
+            font-size: 0.8rem;
+            color: #64748b;
+            line-height: 1.4;
+        }
+        
+        .notification-body {
+            padding: 16px 24px;
+        }
+        
+        /* Group Toggle Row */
+        .group-toggle-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #edf2f7;
+        }
+        
+        .group-toggle-info {
+            flex: 1;
+        }
+        
+        .group-toggle-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-top: 5px;
+            margin-bottom: 2px;
+        }
+        
+        .group-toggle-desc {
+            font-size: 0.7rem;
+            color: #94a3b8;
+        }
+        
+        /* Notification Item */
+        .notification-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #d6d6d6;
+        }
+        
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        
+        .notification-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+        
+        .notification-item-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1e293b;
+        }
+        
+        /* Channel Options with Toggle Switches */
+        .channel-options {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .channel-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .channel-label {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #64748b;
+            min-width: 45px;
+        }
+        
+        /* Small Switch for Channels */
+        .channel-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+        
+        .channel-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .channel-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+        
+        .channel-slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .channel-slider {
+            background-color: #131d58;
+        }
+        
+        input:checked + .channel-slider:before {
+            transform: translateX(20px);
+        }
+        
+        .channel-toggle.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .channel-toggle.disabled .channel-switch {
+            cursor: not-allowed;
+        }
+        
+        .channel-toggle.disabled input {
+            pointer-events: none;
+        }
+        
+        /* Custom Switch Styling - Large */
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 52px;
+            height: 26px;
+            flex-shrink: 0;
+        }
+        
+        .custom-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .switch-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: 0.3s;
+            border-radius: 34px;
+        }
+        
+        .switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .switch-slider {
+            background-color: #131d58;
+        }
+        
+        input:checked + .switch-slider:before {
+            transform: translateX(26px);
+        }
+        
+        /* Master Toggle */
+        .master-toggle-card {
+            background: linear-gradient(135deg, #f8fafc, #ffffff);
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            border: 1px solid #edf2f7;
+        }
+        
+        .master-toggle-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .master-toggle-info h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .master-toggle-info p {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin: 0;
+        }
+        
+        /* Tab Styling */
+        .notification-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 12px;
+        }
+        
+        .notification-tab {
+            background: transparent;
+            border: none;
+            padding: 8px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #64748b;
+            border-radius: 40px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .notification-tab:hover {
+            color: #131d58;
+            background: #f1f5f9;
+        }
+        
+        .notification-tab.active {
+            background: #131d58;
+            color: white;
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: flex-end;
+            margin-top: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-save {
+            background: #131d58;
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-save:hover {
+            background: #1e2a7a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(19, 29, 88, 0.2);
+        }
+        
+        .btn-cancel {
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            color: #64748b;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-cancel:hover {
+            border-color: #131d58;
+            color: #131d58;
+        }
+        
+        @media (max-width: 768px) {
+            .notification-header {
+                padding: 16px 20px;
+            }
+            .notification-body {
+                padding: 12px 20px;
+            }
+            .channel-options {
+                gap: 16px;
+                justify-content: flex-start;
+            }
+            .action-buttons {
+                flex-direction: column-reverse;
+            }
+            .btn-save, .btn-cancel {
+                width: 100%;
+                text-align: center;
+            }
+            .notification-tabs {
+                justify-content: center;
+            }
+        }

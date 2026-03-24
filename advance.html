@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Get Cash Advance</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="main-wrapper">
+
+        <!-- Minimal header replica from ROJA design (clean) -->
+        <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                <!-- Notifications Dropdown -->
+                                <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
+                                        <li class="dropdown-header">
+                                            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                                <span class="text-3 fw-600">Notifications</span>
+                                                <span class="badge bg-primary rounded-pill">3 New</span>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-tag text-primary"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">New offer available</span>
+                                                        <span class="text-1 text-muted">Just now</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Budget alert</span>
+                                                        <span class="text-1 text-muted">2 hours ago</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-success-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-check-circle text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Transaction completed</span>
+                                                        <span class="text-1 text-muted">Yesterday</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
+                                                See all Notifications <i class="fas fa-arrow-right ms-1"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <li><a class="dropdown-item" href="#"><i
+                                                    class="fas fa-shield-alt me-2"></i>Security</a></li>
+                                        <li><a class="dropdown-item" href="#"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <li class="dropdown-divider"></li>
+                                        <!-- Transactions Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-exchange-alt me-2"></i>Transactions
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-submenu-list">
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-list me-2"></i>All Transactions</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-arrow-down me-2"></i>Money In</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-arrow-up me-2"></i>Money Out</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-clock me-2"></i>Pending</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-check-circle me-2"></i>Completed</a></li>
+                                                <li class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-download me-2"></i>Export Statements</a></li>
+                                            </ul>
+                                        </li>
+
+                                 
+
+                                  <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="notification.html">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                        </li>
+
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance List
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-submenu-list">
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-wallet me-2"></i>Digital Wallet</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-coins me-2"></i>Cryptocurrency</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-chart-bar me-2"></i>Investment Portfolio</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-file-invoice me-2"></i>Tax Documents</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-file-signature me-2"></i>Legal Agreements</a>
+                                                </li>
+                                                <li class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-question-circle me-2"></i>Help Center</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-comment me-2"></i>Live Support</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Account Settings -->
+                                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Account
+                                                Settings</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Header with Breadcrumbs -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-hand-holding-usd text-light me-2"></i> Get Cash Advance</h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light opacity-75">Dashboard</span>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2" style="font-size: 0.7rem;"></i>
+                        <span class="text-light fw-500">Cash Advance</span>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Left Column - Cash Advance Card -->
+                    <div class="col-lg-4">
+                        <div class="bg-white shadow-sm rounded-4 p-4 text-center">
+                            <div class="bg-light-1 rounded-circle p-3 d-inline-flex mb-3">
+                                <i class="fas fa-hand-holding-usd text-primary text-4"></i>
+                            </div>
+                            <h3 class="text-6 fw-700 mb-2">$25.00</h3>
+                            <p class="text-muted mb-3">You are Approved for:</p>
+                            <button class="btn btn-primary rounded-pill px-5 py-2" data-bs-toggle="modal" data-bs-target="#getCashModal">
+                                <i class="fas fa-dollar-sign me-2"></i>Get Cash Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - List of Advances -->
+                    <div class="col-lg-8">
+                        <div class="bg-white shadow-sm rounded-4 p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <h5 class="fw-600 mb-0">List of Advances</h5>
+                                <span class="badge bg-light-2 text-dark text-3 rounded-pill px-3 py-2">Total: $2,450.00</span>
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead class="bg-light-1">
+                                        <tr>
+                                            <th class="py-3">TXN ON</th>
+                                            <th class="py-3">ADV. AMOUNT</th>
+                                            <th class="py-3">Payment Method</th>
+                                            <th class="py-3">DISBURSEMENT</th>
+                                            <th class="py-3">TXN. STATUS</th>
+                                            <th class="py-3">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="py-3">Mar 15, 2026</td>
+                                            <td class="py-3 fw-600">$500.00</td>
+                                            <td class="py-3">Instant Funding</td>
+                                            <td class="py-3">Mar 15, 2026</td>
+                                            <td class="py-3"><span class="badge bg-success rounded-pill px-3 py-1">Completed</span></td>
+                                            <td class="py-3"><a href="#" class="text-primary"><i class="fas fa-eye"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Feb 28, 2026</td>
+                                            <td class="py-3 fw-600">$250.00</td>
+                                            <td class="py-3">Standard ACH</td>
+                                            <td class="py-3">Mar 02, 2026</td>
+                                            <td class="py-3"><span class="badge bg-success rounded-pill px-3 py-1">Completed</span></td>
+                                            <td class="py-3"><a href="#" class="text-primary"><i class="fas fa-eye"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Feb 10, 2026</td>
+                                            <td class="py-3 fw-600">$1,000.00</td>
+                                            <td class="py-3">Instant Funding</td>
+                                            <td class="py-3">Feb 10, 2026</td>
+                                            <td class="py-3"><span class="badge bg-success rounded-pill px-3 py-1">Completed</span></td>
+                                            <td class="py-3"><a href="#" class="text-primary"><i class="fas fa-eye"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Jan 20, 2026</td>
+                                            <td class="py-3 fw-600">$300.00</td>
+                                            <td class="py-3">Standard ACH</td>
+                                            <td class="py-3">Jan 23, 2026</td>
+                                            <td class="py-3"><span class="badge bg-success rounded-pill px-3 py-1">Completed</span></td>
+                                            <td class="py-3"><a href="#" class="text-primary"><i class="fas fa-eye"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="py-3">Jan 05, 2026</td>
+                                            <td class="py-3 fw-600">$400.00</td>
+                                            <td class="py-3">Instant Funding</td>
+                                            <td class="py-3">Jan 05, 2026</td>
+                                            <td class="py-3"><span class="badge bg-success rounded-pill px-3 py-1">Completed</span></td>
+                                            <td class="py-3"><a href="#" class="text-primary"><i class="fas fa-eye"></i></a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="text-center mt-3">
+                                <a href="#" class="text-primary text-decoration-none">View All Transactions <i class="fas fa-arrow-right ms-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Get Cash Modal -->
+    <div class="modal fade" id="getCashModal" tabindex="-1" aria-labelledby="getCashModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h4 class="modal-title fw-500 mt-3 text-4" id="getCashModalLabel">Get Cash Advance</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="stats-mini-box rounded-3 p-3 mb-4 text-center">
+                        <span class="text-muted">Available Advance Limit</span>
+                        <h3 class="text-5 fw-700 text-primary mb-0">$25.00</h3>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-500 mb-3">Select Payment Mode</label>
+                        
+                        <div class="border rounded-3 p-3 mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMode" id="instantFunding" value="instant" checked>
+                                <label class="form-check-label fw-500 mx-2 text-3" for="instantFunding">
+                                    Instant Funding
+                                    <span class="badge bg-success-soft text-success ms-2">Recommended</span>
+                                </label>
+                                <p class="text-muted mt-1 mb-0 ms-2">$2.00 convenience fee • Typically available within minutes</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border rounded-3 p-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="paymentMode" id="standardACH" value="standard">
+                                <label class="form-check-label fw-500 mx-2 text-3" for="standardACH">
+                                    Standard ACH Transfer
+                                </label>
+                                <p class="text-muted mt-1 mb-0 ms-2">No fee • Typically available in 2–3 business days</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-3 mt-4">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="confirmCashBtn">Get Cash <i class="fas fa-arrow-right ms-2"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() {
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            btt.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Confirm Cash button
+            document.getElementById('confirmCashBtn').addEventListener('click', function() {
+                const selectedPayment = document.querySelector('input[name="paymentMode"]:checked');
+                let paymentMethod = '';
+                let fee = '';
+                
+                if (selectedPayment.id === 'instantFunding') {
+                    paymentMethod = 'Instant Funding';
+                    fee = '$2.00 convenience fee';
+                } else {
+                    paymentMethod = 'Standard ACH Transfer';
+                    fee = 'No fee';
+                }
+                
+                alert(`✅ Cash advance of $25.00 requested successfully!\n\nPayment Method: ${paymentMethod}\n${fee}\n\nFunds will be processed shortly.`);
+                bootstrap.Modal.getInstance(document.getElementById('getCashModal')).hide();
+            });
+        });
+    </script>
+</body>
+</html>

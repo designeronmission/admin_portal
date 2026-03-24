@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Manage Notifications</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div id="main-wrapper">
+
+               <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                <!-- Notifications Dropdown -->
+                                <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
+                                        <li class="dropdown-header">
+                                            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                                <span class="text-3 fw-600">Notifications</span>
+                                                <span class="badge bg-primary rounded-pill">3 New</span>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-tag text-primary"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">New offer available</span>
+                                                        <span class="text-1 text-muted">Just now</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Budget alert</span>
+                                                        <span class="text-1 text-muted">2 hours ago</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-success-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-check-circle text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Transaction completed</span>
+                                                        <span class="text-1 text-muted">Yesterday</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
+                                                See all Notifications <i class="fas fa-arrow-right ms-1"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <li><a class="dropdown-item" href="#"><i
+                                                    class="fas fa-shield-alt me-2"></i>Security</a></li>
+                                        <li><a class="dropdown-item" href="#"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <li class="dropdown-divider"></li>
+                                        <!-- Transactions Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-exchange-alt me-2"></i>Transactions
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-submenu-list">
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-list me-2"></i>All Transactions</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-arrow-down me-2"></i>Money In</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-arrow-up me-2"></i>Money Out</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-clock me-2"></i>Pending</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-check-circle me-2"></i>Completed</a></li>
+                                                <li class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-download me-2"></i>Export Statements</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <!-- Advance Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-rocket me-2"></i>Advance
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                        </li>
+
+                                        <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="notification.html">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                        </li>
+
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance List
+                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-submenu-list">
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-wallet me-2"></i>Digital Wallet</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-coins me-2"></i>Cryptocurrency</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-chart-bar me-2"></i>Investment Portfolio</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-file-invoice me-2"></i>Tax Documents</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-file-signature me-2"></i>Legal Agreements</a>
+                                                </li>
+                                                <li class="dropdown-divider"></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-question-circle me-2"></i>Help Center</a></li>
+                                                <li><a class="dropdown-item" href="#"><i
+                                                            class="fas fa-comment me-2"></i>Live Support</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Account Settings -->
+                                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Account
+                                                Settings</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </header> 
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Header with Breadcrumbs -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-bell text-light me-2"></i> Manage Notifications</h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light opacity-75">Dashboard</span>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2" style="font-size: 0.7rem;"></i>
+                        <span class="text-light fw-500">Settings</span>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2" style="font-size: 0.7rem;"></i>
+                        <span class="text-light fw-500">Notifications</span>
+                    </div>
+                </div>
+
+                <!-- Master Toggle -->
+                <div class="master-toggle-card">
+                    <div class="master-toggle-row">
+                        <div class="master-toggle-info">
+                            <h5><i class="fas fa-bell-slash me-2"></i>All Notifications</h5>
+                            <p>Enable or disable all notifications at once</p>
+                        </div>
+                        <label class="custom-switch">
+                            <input type="checkbox" id="masterToggle" checked>
+                            <span class="switch-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="notification-tabs">
+                    <button class="notification-tab active" data-tab="subscription">Subscription</button>
+                    <button class="notification-tab" data-tab="goals">Goals</button>
+                    <button class="notification-tab" data-tab="funding">Funding</button>
+                    <button class="notification-tab" data-tab="repayments">Repayments</button>
+                </div>
+
+                <!-- Subscription Notifications Tab -->
+                <div id="tab-subscription" class="tab-content active">
+                    <div class="notification-card">
+                        <div class="notification-body">
+                            <!-- Group Toggle -->
+                            <div class="group-toggle-row">
+                                <div class="group-toggle-info">
+                                    <h5 class="group-toggle-name mt-2">Subscription Notifications</h5>
+                                    <div class="group-toggle-desc">Get alerts about your subscription status and renewals</div>
+                                </div>
+                                <label class="custom-switch group-toggle" data-group="subscription">
+                                    <input type="checkbox" id="subscriptionGroupToggle" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div id="subscriptionItems">
+                                <div class="notification-item" data-notification="subscriptionRenewalReminder">
+                                    <div class="notification-item-header">
+                                        <span class="notification-item-name">Subscription Renewal Reminder</span>
+                                        <label class="custom-switch item-toggle">
+                                            <input type="checkbox" id="subscriptionRenewalReminder" checked>
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="channel-options">
+                                        <div class="channel-toggle">
+                                            <span class="channel-label">SMS</span>
+                                            <label class="channel-switch">
+                                                <input type="checkbox" class="sms-channel" data-parent="subscriptionRenewalReminder" checked>
+                                                <span class="channel-slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="channel-toggle">
+                                            <span class="channel-label">In-App</span>
+                                            <label class="channel-switch">
+                                                <input type="checkbox" class="inapp-channel" data-parent="subscriptionRenewalReminder" checked>
+                                                <span class="channel-slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="channel-toggle">
+                                            <span class="channel-label">Push</span>
+                                            <label class="channel-switch">
+                                                <input type="checkbox" class="push-channel" data-parent="subscriptionRenewalReminder" checked>
+                                                <span class="channel-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="notification-item" data-notification="subscriptionRenewalSuccess">
+                                    <div class="notification-item-header">
+                                        <span class="notification-item-name">Subscription Renewal Success</span>
+                                        <label class="custom-switch item-toggle">
+                                            <input type="checkbox" id="subscriptionRenewalSuccess" checked>
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="channel-options">
+                                        <div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="subscriptionRenewalSuccess" checked><span class="channel-slider"></span></label></div>
+                                        <div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="subscriptionRenewalSuccess" checked><span class="channel-slider"></span></label></div>
+                                        <div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="subscriptionRenewalSuccess" checked><span class="channel-slider"></span></label></div>
+                                    </div>
+                                </div>
+                                <div class="notification-item" data-notification="subscriptionRenewalFailed">
+                                    <div class="notification-item-header">
+                                        <span class="notification-item-name">Subscription Renewal Failed</span>
+                                        <label class="custom-switch item-toggle">
+                                            <input type="checkbox" id="subscriptionRenewalFailed" checked>
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="channel-options">
+                                        <div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
+                                        <div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
+                                        <div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goals Notifications Tab -->
+                <div id="tab-goals" class="tab-content" style="display: none;">
+                    <div class="notification-card">
+                        <div class="notification-body">
+                            <div class="group-toggle-row">
+                                <div class="group-toggle-info">
+                                    <div class="group-toggle-name">Goals Notifications</div>
+                                    <div class="group-toggle-desc">Track your financial goals and progress</div>
+                                </div>
+                                <label class="custom-switch group-toggle" data-group="goals">
+                                    <input type="checkbox" id="goalsGroupToggle" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            <div id="goalsItems">
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Withdrawal from Goal</span><label class="custom-switch item-toggle"><input type="checkbox" id="goalWithdrawal" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="goalWithdrawal" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="goalWithdrawal" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="goalWithdrawal" checked><span class="channel-slider"></span></label></div></div></div>
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Spent on Goal</span><label class="custom-switch item-toggle"><input type="checkbox" id="goalSpent" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="goalSpent" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="goalSpent" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="goalSpent" checked><span class="channel-slider"></span></label></div></div></div>
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Contributed to Goal</span><label class="custom-switch item-toggle"><input type="checkbox" id="goalContributed" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="goalContributed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="goalContributed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="goalContributed" checked><span class="channel-slider"></span></label></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funding Notifications Tab -->
+                <div id="tab-funding" class="tab-content" style="display: none;">
+                    <div class="notification-card">
+                        <div class="notification-body">
+                            <div class="group-toggle-row">
+                                <div class="group-toggle-info">
+                                    <div class="group-toggle-name">Funding Notifications</div>
+                                    <div class="group-toggle-desc">Get updates about your funding activities</div>
+                                </div>
+                                <label class="custom-switch group-toggle" data-group="funding">
+                                    <input type="checkbox" id="fundingGroupToggle" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            <div id="fundingItems">
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Advance Credited</span><label class="custom-switch item-toggle"><input type="checkbox" id="advanceCredited" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="advanceCredited" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="advanceCredited" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="advanceCredited" checked><span class="channel-slider"></span></label></div></div></div>
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Advance Credit Failed</span><label class="custom-switch item-toggle"><input type="checkbox" id="advanceCreditFailed" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="advanceCreditFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="advanceCreditFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="advanceCreditFailed" checked><span class="channel-slider"></span></label></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repayments Notifications Tab -->
+                <div id="tab-repayments" class="tab-content" style="display: none;">
+                    <div class="notification-card">
+                        <div class="notification-body">
+                            <div class="group-toggle-row">
+                                <div class="group-toggle-info">
+                                    <div class="group-toggle-name">Repayments Notifications</div>
+                                    <div class="group-toggle-desc">Stay informed about your repayment activities</div>
+                                </div>
+                                <label class="custom-switch group-toggle" data-group="repayments">
+                                    <input type="checkbox" id="repaymentsGroupToggle" checked>
+                                    <span class="switch-slider"></span>
+                                </label>
+                            </div>
+                            <div id="repaymentsItems">
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Auto Repayment Success</span><label class="custom-switch item-toggle"><input type="checkbox" id="autoRepaymentSuccess" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="autoRepaymentSuccess" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="autoRepaymentSuccess" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="autoRepaymentSuccess" checked><span class="channel-slider"></span></label></div></div></div>
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Auto Repayment Failed</span><label class="custom-switch item-toggle"><input type="checkbox" id="autoRepaymentFailed" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="autoRepaymentFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="autoRepaymentFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="autoRepaymentFailed" checked><span class="channel-slider"></span></label></div></div></div>
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Manual Repayment Success</span><label class="custom-switch item-toggle"><input type="checkbox" id="manualRepaymentSuccess" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="manualRepaymentSuccess" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="manualRepaymentSuccess" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="manualRepaymentSuccess" checked><span class="channel-slider"></span></label></div></div></div>
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Manual Repayment Failed</span><label class="custom-switch item-toggle"><input type="checkbox" id="manualRepaymentFailed" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="manualRepaymentFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="manualRepaymentFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="manualRepaymentFailed" checked><span class="channel-slider"></span></label></div></div></div>
+                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Repayment Reminder</span><label class="custom-switch item-toggle"><input type="checkbox" id="repaymentReminder" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="repaymentReminder" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="repaymentReminder" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="repaymentReminder" checked><span class="channel-slider"></span></label></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-cancel" id="cancelBtn">Cancel</button>
+                    <button class="btn-save" id="saveBtn">Save Preferences</button>
+                </div>
+
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() {
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            btt.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Tab switching
+            const tabs = document.querySelectorAll('.notification-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    tabContents.forEach(content => content.style.display = 'none');
+                    document.getElementById(`tab-${tabId}`).style.display = 'block';
+                });
+            });
+
+            // Master Toggle functionality
+            const masterToggle = document.getElementById('masterToggle');
+            const allGroupToggles = document.querySelectorAll('.group-toggle input');
+            const allItemToggles = document.querySelectorAll('.item-toggle input');
+            const allChannelToggles = document.querySelectorAll('.channel-switch input');
+            
+            masterToggle.addEventListener('change', function() {
+                const isChecked = this.checked;
+                allGroupToggles.forEach(toggle => {
+                    toggle.checked = isChecked;
+                    toggle.dispatchEvent(new Event('change'));
+                });
+                allItemToggles.forEach(toggle => {
+                    toggle.checked = isChecked;
+                    toggle.dispatchEvent(new Event('change'));
+                });
+                allChannelToggles.forEach(toggle => {
+                    toggle.checked = isChecked;
+                });
+            });
+
+            // Group Toggle functionality
+            const groupToggles = document.querySelectorAll('.group-toggle');
+            groupToggles.forEach(groupToggle => {
+                const groupInput = groupToggle.querySelector('input');
+                const groupName = groupToggle.dataset.group;
+                const itemsContainer = document.getElementById(`${groupName}Items`);
+                
+                if (groupInput && itemsContainer) {
+                    groupInput.addEventListener('change', function() {
+                        const isChecked = this.checked;
+                        const itemToggles = itemsContainer.querySelectorAll('.item-toggle input');
+                        const channelToggles = itemsContainer.querySelectorAll('.channel-switch input');
+                        itemToggles.forEach(toggle => {
+                            toggle.checked = isChecked;
+                            toggle.dispatchEvent(new Event('change'));
+                        });
+                        channelToggles.forEach(toggle => {
+                            toggle.checked = isChecked;
+                        });
+                    });
+                }
+            });
+
+            // Individual Item Toggle functionality
+            const itemToggles = document.querySelectorAll('.item-toggle input');
+            itemToggles.forEach(itemToggle => {
+                itemToggle.addEventListener('change', function() {
+                    const parentItem = this.closest('.notification-item');
+                    const channels = parentItem.querySelectorAll('.channel-switch input');
+                    const isChecked = this.checked;
+                    channels.forEach(channel => {
+                        channel.checked = isChecked;
+                        const channelDiv = channel.closest('.channel-toggle');
+                        if (isChecked) {
+                            channelDiv.classList.remove('disabled');
+                        } else {
+                            channelDiv.classList.add('disabled');
+                        }
+                    });
+                });
+                // Trigger initial state
+                itemToggle.dispatchEvent(new Event('change'));
+            });
+
+            // Save button
+            document.getElementById('saveBtn').addEventListener('click', function() {
+                const preferences = {
+                    master: masterToggle.checked,
+                    subscription: {
+                        enabled: document.getElementById('subscriptionGroupToggle').checked,
+                        items: {
+                            renewalReminder: { enabled: document.getElementById('subscriptionRenewalReminder').checked, channels: getChannels('subscriptionRenewalReminder') },
+                            renewalSuccess: { enabled: document.getElementById('subscriptionRenewalSuccess').checked, channels: getChannels('subscriptionRenewalSuccess') },
+                            renewalFailed: { enabled: document.getElementById('subscriptionRenewalFailed').checked, channels: getChannels('subscriptionRenewalFailed') }
+                        }
+                    },
+                    goals: {
+                        enabled: document.getElementById('goalsGroupToggle').checked,
+                        items: {
+                            withdrawal: { enabled: document.getElementById('goalWithdrawal').checked, channels: getChannels('goalWithdrawal') },
+                            spent: { enabled: document.getElementById('goalSpent').checked, channels: getChannels('goalSpent') },
+                            contributed: { enabled: document.getElementById('goalContributed').checked, channels: getChannels('goalContributed') }
+                        }
+                    },
+                    funding: {
+                        enabled: document.getElementById('fundingGroupToggle').checked,
+                        items: {
+                            advanceCredited: { enabled: document.getElementById('advanceCredited').checked, channels: getChannels('advanceCredited') },
+                            advanceFailed: { enabled: document.getElementById('advanceCreditFailed').checked, channels: getChannels('advanceCreditFailed') }
+                        }
+                    },
+                    repayments: {
+                        enabled: document.getElementById('repaymentsGroupToggle').checked,
+                        items: {
+                            autoSuccess: { enabled: document.getElementById('autoRepaymentSuccess').checked, channels: getChannels('autoRepaymentSuccess') },
+                            autoFailed: { enabled: document.getElementById('autoRepaymentFailed').checked, channels: getChannels('autoRepaymentFailed') },
+                            manualSuccess: { enabled: document.getElementById('manualRepaymentSuccess').checked, channels: getChannels('manualRepaymentSuccess') },
+                            manualFailed: { enabled: document.getElementById('manualRepaymentFailed').checked, channels: getChannels('manualRepaymentFailed') },
+                            reminder: { enabled: document.getElementById('repaymentReminder').checked, channels: getChannels('repaymentReminder') }
+                        }
+                    }
+                };
+                
+                function getChannels(parentId) {
+                    const parent = document.querySelector(`.channel-switch input[data-parent="${parentId}"]`)?.closest('.notification-item');
+                    if (parent) {
+                        return {
+                            sms: parent.querySelector('.sms-channel')?.checked || false,
+                            inapp: parent.querySelector('.inapp-channel')?.checked || false,
+                            push: parent.querySelector('.push-channel')?.checked || false
+                        };
+                    }
+                    return { sms: false, inapp: false, push: false };
+                }
+                
+                alert('✅ Notification preferences saved successfully!');
+                console.log('Saved preferences:', preferences);
+            });
+
+            // Cancel button
+            document.getElementById('cancelBtn').addEventListener('click', function() {
+                if (confirm('Are you sure you want to discard changes?')) {
+                    masterToggle.checked = true;
+                    masterToggle.dispatchEvent(new Event('change'));
+                    alert('Preferences reset to default');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
