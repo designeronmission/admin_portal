@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Payment Methods</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+</head>
+
+<body>
+    <div id="main-wrapper">
+        <!-- Minimal header replica from ROJA design (clean) -->
+        <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                <!-- Notifications Dropdown -->
+                                <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
+                                        <li class="dropdown-header">
+                                            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                                <span class="text-3 fw-600">Notifications</span>
+                                                <span class="badge bg-primary rounded-pill">3 New</span>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-tag text-primary"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">New offer available</span>
+                                                        <span class="text-1 text-muted">Just now</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Budget alert</span>
+                                                        <span class="text-1 text-muted">2 hours ago</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-success-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-check-circle text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Transaction completed</span>
+                                                        <span class="text-1 text-muted">Yesterday</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
+                                                See all Notifications <i class="fas fa-arrow-right ms-1"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <!-- Account Settings -->
+                                            <li><a class="dropdown-item" href="Account.html"><i class="fas fa-user-shield me-2"></i>Account </a></li> 
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance
+                                            </a>
+                                        </li>
+
+  <li><a class="dropdown-item" href="payment-methods.html"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <li class="dropdown-divider"></li>
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="payment-arrangement.html">
+                                                <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
+                                            </a>
+                                        </li>
+                                           <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="#">
+                                                <i class="fas fa-key me-2"></i>Change PIN
+                                            </a>
+                                        </li>
+
+                                        <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="notification.html">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                            </a>
+                                        </li>
+
+                                        <li class="dropdown-divider"></li>
+
+                                        <li class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-credit-card text-light me-2"></i> Payment Methods</h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2"></i>
+                        <span class="text-light fw-500">Payment Methods</span>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Left Column - Sticky Default Card -->
+                    <div class="col-lg-5">
+                        <div class="sticky-sidebar">
+                            <div class="mb-3">
+                                <h3 class="text-5 fw-600 mb-1">Default Card</h3>
+                                <p class="text-muted mb-0">Your primary payment method</p>
+                            </div>
+
+                            <!-- Default Payment Card with Flip -->
+                            <div class="card-flip-container mb-4">
+                                <div class="card-flipper" id="defaultCardFlipper">
+                                    <div class="card-front">
+                                        <div class="payment-card default-card" id="defaultCardFront">
+                                            <div class="card-chip"></div>
+                                            <div class="default-badge">
+                                                <i class="fas fa-check-circle me-1"></i>DEFAULT
+                                            </div>
+                                            <div class="card-number">**** **** **** 2224</div>
+                                            <div class="card-details">
+                                                <div class="card-holder">
+                                                    <span>Card Holder</span>
+                                                    JASON HOLDER F
+                                                </div>
+                                                <div class="card-expiry">
+                                                    <span>Valid Thru</span>
+                                                    <div class="expiry-date">09/31</div>
+                                                </div>
+                                            </div>
+                                            <div class="card-brand">
+                                                <i class="fab fa-cc-visa"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-back">
+                                        <div class="payment-card default-card">
+                                            <div class="cvv-strip"></div>
+                                            <div class="cvv-number" id="defaultCardCVV">***</div>
+                                            <div class="card-details mt-3">
+                                                <div class="card-holder">
+                                                    <span>Card Holder</span>
+                                                    JASON HOLDER F
+                                                </div>
+                                            </div>
+                                            <div class="card-brand">
+                                                <i class="fab fa-cc-visa"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Payment Methods List -->
+                    <div class="col-lg-7">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                            <div>
+                                <h3 class="text-5 fw-600 mb-1">Saved Cards</h3>
+                                <p class="text-muted mb-0">Manage your linked payment methods</p>
+                            </div>
+                            <button class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#addCardModal">
+                                <i class="fas fa-plus-circle me-2"></i>Add New Card
+                            </button>
+                        </div>
+
+                        <div class="bg-white rounded-4 shadow-sm p-4">
+                            <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+                                <i class="fas fa-credit-card text-primary"></i>
+                                <h5 class="fw-600 mb-0">Your Payment Methods</h5>
+                            </div>
+
+                            <div id="paymentMethodsList">
+                                <!-- Default Card Item -->
+                                <div class="payment-method-item default" data-card-id="1" data-card-number="2224" data-card-holder="JASON HOLDER F" data-expiry="09/31" data-brand="visa">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-7">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div class="payment-icon"><i class="fab fa-cc-visa fa-2x"></i></div>
+                                                <div>
+                                                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                                                        <span class="fw-600">Visa ending in 2224</span>
+                                                        <span class="badge bg-warning text-dark">Default</span>
+                                                    </div>
+                                                    <p class="text-muted small mb-0 mt-1">Expires 09/31 • Jason Holder F</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 text-md-end mt-3 mt-md-0">
+                                            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 disabled" disabled>
+                                                <i class="fas fa-check me-1"></i>Default
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger rounded-pill px-3 ms-2 delete-card-btn" data-card-id="1">
+                                                <i class="fas fa-trash-alt me-1"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Additional Card -->
+                                <div class="payment-method-item" data-card-id="2" data-card-number="5678" data-card-holder="SARAH JOHNSON" data-expiry="12/25" data-brand="mastercard">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-7">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div class="payment-icon"><i class="fab fa-cc-mastercard fa-2x"></i></div>
+                                                <div>
+                                                    <span class="fw-600">Mastercard ending in 5678</span>
+                                                    <p class="text-muted small mb-0 mt-1">Expires 12/25 • Sarah Johnson</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 text-md-end mt-3 mt-md-0">
+                                            <button class="btn btn-sm btn-outline-primary rounded-pill px-3 set-default-btn">
+                                                <i class="fas fa-star me-1"></i>Set Default
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger rounded-pill px-3 ms-2 delete-card-btn" data-card-id="2">
+                                                <i class="fas fa-trash-alt me-1"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center pt-3 mt-3 border-top">
+                                <button class="btn btn-light rounded-pill px-4 w-100" data-bs-toggle="modal" data-bs-target="#addCardModal">
+                                    <i class="fas fa-plus-circle me-2 text-primary"></i>
+                                    <span class="fw-500">Add another payment method</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Add New Card Modal -->
+    <div class="modal fade" id="addCardModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <div>
+                        <h5 class="modal-title fw-700">Add New Card</h5>
+                        <p class="text-muted small mb-0">Enter your card details securely</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <!-- Card Preview with Flip -->
+                    <div class="card-flip-container mb-4" id="previewFlipContainer">
+                        <div class="card-flipper" id="previewFlipper">
+                            <div class="card-front">
+                                <div class="card-preview" id="cardPreviewFront">
+                                    <div class="card-chip"></div>
+                                    <div class="card-number" id="previewNumber">**** **** **** ****</div>
+                                    <div class="card-details">
+                                        <div class="card-holder">
+                                            <span>Card Holder</span>
+                                            <span id="previewHolder">YOUR NAME</span>
+                                        </div>
+                                        <div class="card-expiry">
+                                            <span>Valid Thru</span>
+                                            <div class="expiry-date" id="previewExpiry">MM/YY</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-brand" id="previewBrand"><i class="fab fa-cc-visa"></i></div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-preview">
+                                    <div class="cvv-strip"></div>
+                                    <div class="cvv-number" id="previewCVV">***</div>
+                                    <div class="card-details mt-3">
+                                        <div class="card-holder">
+                                            <span>Card Holder</span>
+                                            <span id="previewHolderBack">YOUR NAME</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-brand" id="previewBrandBack"><i class="fab fa-cc-visa"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="addCardForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-500">Card Number</label>
+                            <input type="text" class="form-control rounded-pill" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-500">Card Holder Name</label>
+                            <input type="text" class="form-control rounded-pill" id="cardHolderName" placeholder="JOHN DOE">
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-500">Expiry Date</label>
+                                <input type="text" class="form-control rounded-pill" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-500">CVV</label>
+                                <input type="password" class="form-control rounded-pill" id="cvv" placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                        <div class="mb-4 mt-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="setAsDefaultCard">
+                                <label class="form-check-label" for="setAsDefaultCard">Set as default payment method</label>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3">
+                            <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="saveCardBtn">Add Card</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to top
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() { btt.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+            btt.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+            // Card Preview with CVV Flip
+            const cvvInput = document.getElementById('cvv');
+            const previewFlipper = document.getElementById('previewFlipper');
+            
+            cvvInput.addEventListener('focus', function() {
+                previewFlipper.style.transform = 'rotateY(180deg)';
+            });
+            
+            cvvInput.addEventListener('blur', function() {
+                previewFlipper.style.transform = 'rotateY(0deg)';
+            });
+            
+            cvvInput.addEventListener('input', function() {
+                const cvv = this.value;
+                document.getElementById('previewCVV').innerText = cvv || '***';
+            });
+
+            // Live Card Preview
+            const cardNumberInput = document.getElementById('cardNumber');
+            const cardHolderInput = document.getElementById('cardHolderName');
+            const expiryInput = document.getElementById('expiryDate');
+            
+            cardNumberInput.addEventListener('input', function() {
+                let value = this.value.replace(/\s/g, '');
+                if (value.length > 16) value = value.slice(0, 16);
+                let formatted = '';
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) formatted += ' ';
+                    formatted += value[i];
+                }
+                this.value = formatted;
+                
+                let masked = '';
+                for (let i = 0; i < value.length; i++) {
+                    if (i < value.length - 4) masked += '*';
+                    else masked += value[i];
+                }
+                let maskedFormatted = '';
+                for (let i = 0; i < masked.length; i++) {
+                    if (i > 0 && i % 4 === 0) maskedFormatted += ' ';
+                    maskedFormatted += masked[i];
+                }
+                document.getElementById('previewNumber').innerText = maskedFormatted || '**** **** **** ****';
+                
+                const firstDigit = value[0];
+                const brandIcon = firstDigit === '4' ? '<i class="fab fa-cc-visa"></i>' : (firstDigit === '5' ? '<i class="fab fa-cc-mastercard"></i>' : '<i class="fas fa-credit-card"></i>');
+                document.getElementById('previewBrand').innerHTML = brandIcon;
+                document.getElementById('previewBrandBack').innerHTML = brandIcon;
+            });
+
+            cardHolderInput.addEventListener('input', function() {
+                const value = this.value.toUpperCase();
+                document.getElementById('previewHolder').innerText = value || 'YOUR NAME';
+                document.getElementById('previewHolderBack').innerText = value || 'YOUR NAME';
+            });
+
+            expiryInput.addEventListener('input', function() {
+                let value = this.value.replace('/', '');
+                if (value.length >= 2) value = value.slice(0, 2) + '/' + value.slice(2, 4);
+                this.value = value;
+                document.getElementById('previewExpiry').innerText = value || 'MM/YY';
+            });
+
+            // Update Default Card Display
+            const defaultCardNumber = document.querySelector('#defaultCardFront .card-number');
+            const defaultCardHolder = document.querySelector('#defaultCardFront .card-holder');
+            const defaultExpiry = document.querySelector('#defaultCardFront .expiry-date');
+            const defaultBrandIcon = document.querySelector('#defaultCardFront .card-brand i');
+            const defaultCardBackHolder = document.querySelector('#defaultCardFlipper .card-back .card-holder');
+            const defaultCardType = document.getElementById('defaultCardType');
+            
+            function updateDefaultCard(cardNumber, cardHolder, expiry, brand, cardEnding) {
+                defaultCardNumber.innerHTML = `**** **** **** ${cardEnding || cardNumber}`;
+                defaultCardHolder.innerHTML = `<span>Card Holder</span>${cardHolder.toUpperCase()}`;
+                defaultExpiry.innerHTML = expiry;
+                if (defaultCardBackHolder) {
+                    defaultCardBackHolder.innerHTML = `<span>Card Holder</span>${cardHolder.toUpperCase()}`;
+                }
+                if (brand === 'mastercard') {
+                    defaultBrandIcon.className = 'fab fa-cc-mastercard';
+                    defaultCardType.innerText = 'MASTERCARD';
+                } else {
+                    defaultBrandIcon.className = 'fab fa-cc-visa';
+                    defaultCardType.innerText = 'VISA';
+                }
+            }
+            
+            // Set as Default functionality for existing cards
+            function attachSetDefaultHandler(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const cardItem = this.closest('.payment-method-item');
+                    const cardNumber = cardItem.dataset.cardNumber;
+                    const cardHolder = cardItem.dataset.cardHolder;
+                    const expiry = cardItem.dataset.expiry;
+                    const brand = cardItem.dataset.brand;
+                    
+                    if (confirm(`Set card ending in ${cardNumber} as default?`)) {
+                        // Update default card display
+                        updateDefaultCard(cardNumber, cardHolder, expiry, brand, cardNumber);
+                        
+                        // Update UI - remove default from all cards
+                        document.querySelectorAll('.payment-method-item').forEach(item => {
+                            item.classList.remove('default');
+                            const badge = item.querySelector('.badge.bg-warning');
+                            if (badge) badge.remove();
+                        });
+                        
+                        // Add default to selected card
+                        cardItem.classList.add('default');
+                        const titleDiv = cardItem.querySelector('.col-md-7 div div:first-child');
+                        titleDiv.innerHTML += '<span class="badge bg-warning text-dark ms-2">Default</span>';
+                        
+                        // Update button states
+                        document.querySelectorAll('.set-default-btn').forEach(b => {
+                            if (!b.disabled) {
+                                b.classList.remove('disabled', 'btn-outline-secondary');
+                                b.classList.add('btn-outline-primary');
+                                b.innerHTML = '<i class="fas fa-star me-1"></i>Set Default';
+                                b.disabled = false;
+                            }
+                        });
+                        
+                        // Disable current button
+                        this.classList.remove('btn-outline-primary');
+                        this.classList.add('btn-outline-secondary', 'disabled');
+                        this.innerHTML = '<i class="fas fa-check me-1"></i>Default';
+                        this.disabled = true;
+                        
+                        alert(`Card ending in ${cardNumber} is now default`);
+                    }
+                });
+            }
+            
+            // Attach handlers to existing set default buttons
+            document.querySelectorAll('.set-default-btn').forEach(btn => {
+                attachSetDefaultHandler(btn);
+            });
+
+            // Delete Card functionality
+            document.querySelectorAll('.delete-card-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const cardItem = this.closest('.payment-method-item');
+                    if (cardItem.classList.contains('default')) {
+                        alert('Cannot delete default card. Set another card as default first.');
+                        return;
+                    }
+                    if (confirm('Remove this card?')) {
+                        cardItem.remove();
+                        const activeCount = document.querySelectorAll('.payment-method-item').length;
+                        document.getElementById('activeCardsCount').innerText = activeCount;
+                        alert('Card removed successfully');
+                    }
+                });
+            });
+
+            // Add New Card
+            const saveCardBtn = document.getElementById('saveCardBtn');
+            if (saveCardBtn) {
+                saveCardBtn.addEventListener('click', function() {
+                    const cardNumber = document.getElementById('cardNumber').value.replace(/\s/g, '');
+                    const cardHolder = document.getElementById('cardHolderName').value;
+                    const expiry = document.getElementById('expiryDate').value;
+                    const cvv = document.getElementById('cvv').value;
+                    const setAsDefault = document.getElementById('setAsDefaultCard').checked;
+                    
+                    if (!cardNumber || cardNumber.length < 16) { alert('Please enter a valid 16-digit card number'); return; }
+                    if (!cardHolder) { alert('Please enter card holder name'); return; }
+                    if (!expiry || expiry.length < 5) { alert('Please enter valid expiry date (MM/YY)'); return; }
+                    if (!cvv || cvv.length < 3) { alert('Please enter valid CVV'); return; }
+                    
+                    const last4 = cardNumber.slice(-4);
+                    const brand = cardNumber[0] === '4' ? 'visa' : 'mastercard';
+                    const brandIcon = brand === 'visa' ? 'fab fa-cc-visa' : 'fab fa-cc-mastercard';
+                    const brandName = brand === 'visa' ? 'Visa' : 'Mastercard';
+                    
+                    // Create new card HTML
+                    const newCardHtml = `
+                        <div class="payment-method-item ${setAsDefault ? 'default' : ''}" data-card-id="new" data-card-number="${last4}" data-card-holder="${cardHolder.toUpperCase()}" data-expiry="${expiry}" data-brand="${brand}">
+                            <div class="row align-items-center">
+                                <div class="col-md-7">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="payment-icon"><i class="${brandIcon} fa-2x"></i></div>
+                                        <div>
+                                            <div class="d-flex align-items-center gap-2 flex-wrap">
+                                                <span class="fw-600">${brandName} ending in ${last4}</span>
+                                                ${setAsDefault ? '<span class="badge bg-warning text-dark">Default</span>' : ''}
+                                            </div>
+                                            <p class="text-muted small mb-0 mt-1">Expires ${expiry} • ${cardHolder.toUpperCase()}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 text-md-end mt-3 mt-md-0">
+                                    ${!setAsDefault ? `<button class="btn btn-sm btn-outline-primary rounded-pill px-3 set-default-btn">
+                                        <i class="fas fa-star me-1"></i>Set Default
+                                    </button>` : `<button class="btn btn-sm btn-outline-secondary rounded-pill px-3 disabled" disabled>
+                                        <i class="fas fa-check me-1"></i>Default
+                                    </button>`}
+                                    <button class="btn btn-sm btn-outline-danger rounded-pill px-3 ms-2 delete-card-btn">
+                                        <i class="fas fa-trash-alt me-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    const paymentList = document.getElementById('paymentMethodsList');
+                    paymentList.insertAdjacentHTML('beforeend', newCardHtml);
+                    
+                    if (setAsDefault) {
+                        // Update default card display
+                        updateDefaultCard(last4, cardHolder, expiry, brand, last4);
+                        
+                        // Remove default from all other cards
+                        document.querySelectorAll('.payment-method-item').forEach(item => {
+                            item.classList.remove('default');
+                            const badge = item.querySelector('.badge.bg-warning');
+                            if (badge) badge.remove();
+                        });
+                        
+                        // Add default to new card
+                        const newItem = paymentList.lastElementChild;
+                        newItem.classList.add('default');
+                        const titleDiv = newItem.querySelector('.col-md-7 div div:first-child');
+                        titleDiv.innerHTML += '<span class="badge bg-warning text-dark ms-2">Default</span>';
+                        
+                        // Update button states for all set default buttons
+                        document.querySelectorAll('.set-default-btn').forEach(btn => {
+                            btn.classList.remove('disabled', 'btn-outline-secondary');
+                            btn.classList.add('btn-outline-primary');
+                            btn.innerHTML = '<i class="fas fa-star me-1"></i>Set Default';
+                            btn.disabled = false;
+                        });
+                        
+                        // Disable the new card's set default button
+                        const newCardSetDefaultBtn = newItem.querySelector('.set-default-btn');
+                        if (newCardSetDefaultBtn) {
+                            newCardSetDefaultBtn.classList.remove('btn-outline-primary');
+                            newCardSetDefaultBtn.classList.add('btn-outline-secondary', 'disabled');
+                            newCardSetDefaultBtn.innerHTML = '<i class="fas fa-check me-1"></i>Default';
+                            newCardSetDefaultBtn.disabled = true;
+                        }
+                    }
+                    
+                    // Attach event listeners to new buttons
+                    document.querySelectorAll('.set-default-btn').forEach(btn => {
+                        btn.removeEventListener('click', attachSetDefaultHandler);
+                        attachSetDefaultHandler(btn);
+                    });
+                    
+                    document.querySelectorAll('.delete-card-btn').forEach(btn => {
+                        btn.removeEventListener('click', function() {});
+                        btn.addEventListener('click', function() {
+                            const cardItem = this.closest('.payment-method-item');
+                            if (cardItem.classList.contains('default')) {
+                                alert('Cannot delete default card. Set another card as default first.');
+                                return;
+                            }
+                            if (confirm('Remove this card?')) {
+                                cardItem.remove();
+                                const activeCount = document.querySelectorAll('.payment-method-item').length;
+                                document.getElementById('activeCardsCount').innerText = activeCount;
+                                alert('Card removed successfully');
+                            }
+                        });
+                    });
+                    
+                    // Update active cards count
+                    const activeCount = document.querySelectorAll('.payment-method-item').length;
+                    document.getElementById('activeCardsCount').innerText = activeCount;
+                    
+                    // Show success message and close modal
+                    alert('Card added successfully!');
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('addCardModal'));
+                    modal.hide();
+                    
+                    // Reset form
+                    document.getElementById('addCardForm').reset();
+                    document.getElementById('previewNumber').innerText = '**** **** **** ****';
+                    document.getElementById('previewHolder').innerText = 'YOUR NAME';
+                    document.getElementById('previewHolderBack').innerText = 'YOUR NAME';
+                    document.getElementById('previewExpiry').innerText = 'MM/YY';
+                    document.getElementById('previewCVV').innerText = '***';
+                    previewFlipper.style.transform = 'rotateY(0deg)';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

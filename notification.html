@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
 </head>
 <body>
     <div id="main-wrapper">
 
-               <header id="header" class="border-bottom-0">
+        <!-- Minimal header replica from ROJA design (clean) -->
+        <header id="header" class="border-bottom-0">
             <div class="container">
                 <div class="header-row">
                     <div class="header-column justify-content-start">
@@ -29,14 +31,6 @@
                                 style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
                             </div>
                         </div>
-
-                        <!-- Mobile Menu Button -->
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#header-nav">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </button>
                     </div>
 
                     <!-- Centered Navigation with Icons -->
@@ -154,7 +148,7 @@
                                     <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="text-5"><i class="fas fa-cog"></i></span>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
                                         <!-- Profile Section inside Settings -->
                                         <li class="profile-header">
                                             <div class="d-flex align-items-center px-3 py-3">
@@ -174,40 +168,29 @@
                                         <!-- Profile Links -->
                                         <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My
                                                 Profile</a></li>
-                                        <li><a class="dropdown-item" href="#"><i
-                                                    class="fas fa-shield-alt me-2"></i>Security</a></li>
-                                        <li><a class="dropdown-item" href="#"><i
+                                        <!-- Account Settings -->
+                                             <li><a class="dropdown-item" href="Account.html"><i class="fas fa-user-shield me-2"></i>Account </a></li> 
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance
+                                            </a>
+                                        </li>
+
+  <li><a class="dropdown-item" href="payment-methods.html"><i
                                                     class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
 
                                         <li class="dropdown-divider"></li>
-                                        <!-- Transactions Section -->
+                                        <!-- Payment Arrangement Section -->
                                         <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="#">
-                                                <i class="fas fa-exchange-alt me-2"></i>Transactions
-                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            <a class="dropdown-item" href="payment-arrangement.html">
+                                                <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
                                             </a>
-                                            <ul class="dropdown-menu dropdown-submenu-list">
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-list me-2"></i>All Transactions</a></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-arrow-down me-2"></i>Money In</a></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-arrow-up me-2"></i>Money Out</a></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-clock me-2"></i>Pending</a></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-check-circle me-2"></i>Completed</a></li>
-                                                <li class="dropdown-divider"></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-download me-2"></i>Export Statements</a></li>
-                                            </ul>
                                         </li>
-
-                                        <!-- Advance Section -->
+                                           <!-- Payment Arrangement Section -->
                                         <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="#">
-                                                <i class="fas fa-rocket me-2"></i>Advance
-                                                <i class="fas fa-chevron-right ms-auto"></i>
+                                            <a class="dropdown-item" href="change-pin.html">
+                                                <i class="fas fa-key me-2"></i>Change PIN
                                             </a>
                                         </li>
 
@@ -215,42 +198,11 @@
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="notification.html">
                                                 <i class="fas fa-bell me-2"></i>Notifications
-                                                <i class="fas fa-chevron-right ms-auto"></i>
                                             </a>
-                                        </li>
-
-                                        <!-- List of Advance Sub-items -->
-                                        <li class="dropdown-submenu">
-                                            <a class="dropdown-item" href="advance.html">
-                                                <i class="fas fa-list-ul me-2"></i>Advance List
-                                                <i class="fas fa-chevron-right ms-auto"></i>
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-submenu-list">
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-wallet me-2"></i>Digital Wallet</a></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-coins me-2"></i>Cryptocurrency</a></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-chart-bar me-2"></i>Investment Portfolio</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-file-invoice me-2"></i>Tax Documents</a></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-file-signature me-2"></i>Legal Agreements</a>
-                                                </li>
-                                                <li class="dropdown-divider"></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-question-circle me-2"></i>Help Center</a></li>
-                                                <li><a class="dropdown-item" href="#"><i
-                                                            class="fas fa-comment me-2"></i>Live Support</a></li>
-                                            </ul>
                                         </li>
 
                                         <li class="dropdown-divider"></li>
 
-                                        <!-- Account Settings -->
-                                        <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Account
-                                                Settings</a></li>
                                         <li class="dropdown-divider"></li>
                                         <li><a class="dropdown-item text-danger" href="#"><i
                                                     class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
@@ -258,11 +210,19 @@
                                 </li>
                             </ul>
                         </nav>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
                     </div>
 
                 </div>
             </div>
-        </header> 
+        </header>
 
         <div id="content" class="py-4">
             <div class="container">
@@ -273,8 +233,6 @@
                     </div>
                     <div class="d-flex align-items-center">
                          <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
-                        <i class="fas fa-chevron-right text-light opacity-50 mx-2" style="font-size: 0.7rem;"></i>
-                        <span class="text-light fw-500">Settings</span>
                         <i class="fas fa-chevron-right text-light opacity-50 mx-2" style="font-size: 0.7rem;"></i>
                         <span class="text-light fw-500">Notifications</span>
                     </div>

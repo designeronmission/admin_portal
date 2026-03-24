@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Change PIN</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+</head>
+
+<body>
+    <div id="main-wrapper">
+
+
+      <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                <!-- Notifications Dropdown -->
+                                <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
+                                        <li class="dropdown-header">
+                                            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                                <span class="text-3 fw-600">Notifications</span>
+                                                <span class="badge bg-primary rounded-pill">3 New</span>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-tag text-primary"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">New offer available</span>
+                                                        <span class="text-1 text-muted">Just now</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Budget alert</span>
+                                                        <span class="text-1 text-muted">2 hours ago</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-success-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-check-circle text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Transaction completed</span>
+                                                        <span class="text-1 text-muted">Yesterday</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
+                                                See all Notifications <i class="fas fa-arrow-right ms-1"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <!-- Account Settings -->
+                                             <li><a class="dropdown-item" href="Account.html"><i class="fas fa-user-shield me-2"></i>Account </a></li> 
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance
+                                            </a>
+                                        </li>
+
+  <li><a class="dropdown-item" href="payment-methods.html"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <li class="dropdown-divider"></li>
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="payment-arrangement.html">
+                                                <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
+                                            </a>
+                                        </li>
+                                           <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="change-pin.html">
+                                                <i class="fas fa-key me-2"></i>Change PIN
+                                            </a>
+                                        </li>
+
+                                        <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="notification.html">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                            </a>
+                                        </li>
+
+                                        <li class="dropdown-divider"></li>
+
+                                        <li class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-key text-light me-2"></i> Change PIN</h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2"></i>
+                        <span class="text-light fw-500">Change PIN</span>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <!-- Main Card -->
+                        <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+                            <!-- Header Section -->
+                            <div class="p-4 border-bottom bg-light-1">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="bg-white rounded-circle p-3 shadow-sm">
+                                        <i class="fas fa-key text-primary fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="fw-600 mb-1">Security PIN</h4>
+                                        <p class="text-muted small mb-0">Change your 4-6 digit numeric security PIN</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Form Content -->
+                            <div class="p-4">
+                                <form id="changePinForm">
+                                    <!-- New PIN Section - Two Column Layout -->
+                                    <div class="row g-4">
+                                        <div class="col-lg-4">
+                                        <label class="form-label fw-600 mb-3">
+                                            <i class="fas fa-lock text-primary me-2"></i>Enter Current PIN
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <div class="pin-box-container" id="currentPinContainer">
+                                            <input type="text" class="pin-box" maxlength="1" data-index="0" data-pin="current">
+                                            <input type="text" class="pin-box" maxlength="1" data-index="1" data-pin="current">
+                                            <input type="text" class="pin-box" maxlength="1" data-index="2" data-pin="current">
+                                            <input type="text" class="pin-box" maxlength="1" data-index="3" data-pin="current">
+                                            <input type="text" class="pin-box" maxlength="1" data-index="4" data-pin="current">
+                                            <input type="text" class="pin-box" maxlength="1" data-index="5" data-pin="current">
+                                        </div>
+                                        <input type="hidden" id="currentPin" value="">
+                                        <div class="mt-3 text-center">
+                                            <small class="text-muted">
+                                                <i class="fas fa-info-circle me-1"></i>Enter your current 4-6 digit PIN
+                                            </small>
+                                        </div>
+                                    </div>
+
+                                    
+                                        <div class="col-lg-4">
+                                            <label class="form-label fw-600 mb-3">
+                                                <i class="fas fa-key text-primary me-2"></i>Enter New PIN
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="pin-box-container" id="newPinContainer">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="0" data-pin="new">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="1" data-pin="new">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="2" data-pin="new">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="3" data-pin="new">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="4" data-pin="new">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="5" data-pin="new">
+                                            </div>
+                                            <input type="hidden" id="newPin" value="">
+                                            
+                                            <!-- PIN Strength Indicator -->
+                                            <div class="mt-4">
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <span class="small fw-500">PIN Strength</span>
+                                                    <span class="small text-muted" id="strengthText">Not entered</span>
+                                                </div>
+                                                <div class="pin-strength-bar">
+                                                    <div class="pin-strength" id="strengthBar" style="width: 0%; background: #e2e8f0;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <label class="form-label fw-600 mb-3">
+                                                <i class="fas fa-check-circle text-primary me-2"></i>Confirm New PIN
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="pin-box-container" id="confirmPinContainer">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="0" data-pin="confirm">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="1" data-pin="confirm">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="2" data-pin="confirm">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="3" data-pin="confirm">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="4" data-pin="confirm">
+                                                <input type="text" class="pin-box" maxlength="1" data-index="5" data-pin="confirm">
+                                            </div>
+                                            <input type="hidden" id="confirmPin" value="">
+                                            <div class="mt-3 text-center" id="confirmMessage">
+                                                <small class="text-muted">
+                                                    <i class="fas fa-info-circle me-1"></i>Re-enter your new PIN to confirm
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="d-flex justify-content-end gap-3 mt-4 pt-2">
+                                        <button type="button" class="btn btn-outline-secondary rounded-pill px-4 py-2" id="cancelBtn">
+                                            <i class="fas fa-times me-1"></i>Cancel
+                                        </button>
+                                        <button type="button" class="btn btn-primary rounded-pill px-4 py-2" id="changePinBtn">
+                                            <i class="fas fa-key me-1"></i>Change PIN
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-body text-center p-4">
+                    <div class="bg-success bg-opacity-10 rounded-circle p-3 d-inline-flex mb-3">
+                        <i class="fas fa-check-circle text-success fa-3x success-check"></i>
+                    </div>
+                    <h5 class="fw-700 mb-2">PIN Changed Successfully!</h5>
+                    <p class="text-muted mb-4">Your security PIN has been updated. Please use your new PIN for future logins and transactions.</p>
+                    <button class="btn btn-primary rounded-pill px-4" data-bs-dismiss="modal">Got it</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to top button
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() { 
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none'; 
+            });
+            btt.addEventListener('click', function(e) { 
+                e.preventDefault(); 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            });
+
+            // PIN Box Functionality
+            function setupPinBoxes(containerId, hiddenInputId, maxLength = 6) {
+                const container = document.getElementById(containerId);
+                const hiddenInput = document.getElementById(hiddenInputId);
+                const boxes = container.querySelectorAll('.pin-box');
+                
+                // Initially hide extra boxes based on desired length (default to 4, but allow 6)
+                // We'll show all 6 but user can enter up to 6
+                
+                function updateHiddenInput() {
+                    let pinValue = '';
+                    boxes.forEach(box => {
+                        if (box.value) pinValue += box.value;
+                    });
+                    hiddenInput.value = pinValue;
+                    
+                    // Add filled class to boxes with values
+                    boxes.forEach(box => {
+                        if (box.value) {
+                            box.classList.add('pin-box-filled');
+                        } else {
+                            box.classList.remove('pin-box-filled');
+                        }
+                    });
+                    
+                    return pinValue;
+                }
+                
+                function moveFocus(currentIndex, direction) {
+                    if (direction === 'next' && currentIndex < boxes.length - 1) {
+                        boxes[currentIndex + 1].focus();
+                    } else if (direction === 'prev' && currentIndex > 0) {
+                        boxes[currentIndex - 1].focus();
+                    }
+                }
+                
+                boxes.forEach((box, index) => {
+                    box.addEventListener('input', function(e) {
+                        // Allow only numbers
+                        this.value = this.value.replace(/[^0-9]/g, '');
+                        if (this.value.length > 1) {
+                            this.value = this.value.charAt(0);
+                        }
+                        
+                        updateHiddenInput();
+                        
+                        // Auto move to next box
+                        if (this.value && index < boxes.length - 1) {
+                            moveFocus(index, 'next');
+                        }
+                    });
+                    
+                    box.addEventListener('keydown', function(e) {
+                        if (e.key === 'Backspace') {
+                            if (!this.value && index > 0) {
+                                moveFocus(index, 'prev');
+                            }
+                            setTimeout(() => updateHiddenInput(), 10);
+                        } else if (e.key === 'ArrowLeft' && index > 0) {
+                            moveFocus(index, 'prev');
+                        } else if (e.key === 'ArrowRight' && index < boxes.length - 1) {
+                            moveFocus(index, 'next');
+                        }
+                    });
+                    
+                    box.addEventListener('paste', function(e) {
+                        e.preventDefault();
+                        const pastedData = (e.clipboardData || window.clipboardData).getData('text');
+                        const numbers = pastedData.replace(/[^0-9]/g, '').split('');
+                        
+                        for (let i = 0; i < Math.min(numbers.length, boxes.length - index); i++) {
+                            boxes[index + i].value = numbers[i];
+                        }
+                        updateHiddenInput();
+                        
+                        // Focus on the next empty box or last filled box
+                        const lastFilledIndex = Math.min(index + numbers.length - 1, boxes.length - 1);
+                        if (lastFilledIndex < boxes.length - 1) {
+                            boxes[lastFilledIndex + 1].focus();
+                        } else {
+                            boxes[lastFilledIndex].focus();
+                        }
+                    });
+                });
+                
+                return { updateHiddenInput, getValue: () => hiddenInput.value };
+            }
+            
+            // Initialize PIN boxes
+            const currentPinBoxes = setupPinBoxes('currentPinContainer', 'currentPin');
+            const newPinBoxes = setupPinBoxes('newPinContainer', 'newPin');
+            const confirmPinBoxes = setupPinBoxes('confirmPinContainer', 'confirmPin');
+            
+            // PIN Strength Checker
+            const strengthBar = document.getElementById('strengthBar');
+            const strengthText = document.getElementById('strengthText');
+            
+            function checkPinStrength(pin) {
+                if (!pin || pin.length === 0) {
+                    strengthBar.style.width = '0%';
+                    strengthBar.style.background = '#e2e8f0';
+                    strengthText.innerText = 'Not entered';
+                    return 0;
+                }
+                
+                let strength = 0;
+                // Length check
+                if (pin.length >= 4) strength += 1;
+                if (pin.length >= 6) strength += 1;
+                
+                // Variety check (different digits)
+                const uniqueDigits = new Set(pin).size;
+                if (uniqueDigits >= 3) strength += 1;
+                if (uniqueDigits >= 4) strength += 1;
+                
+                // No sequential digits check
+                let hasSequence = false;
+                for (let i = 0; i < pin.length - 1; i++) {
+                    if (parseInt(pin[i+1]) === parseInt(pin[i]) + 1) {
+                        hasSequence = true;
+                        break;
+                    }
+                }
+                if (!hasSequence) strength += 1;
+                
+                // No repeated digits check
+                let hasRepeat = false;
+                for (let i = 0; i < pin.length - 1; i++) {
+                    if (pin[i] === pin[i+1]) {
+                        hasRepeat = true;
+                        break;
+                    }
+                }
+                if (!hasRepeat) strength += 1;
+                
+                // Cap at 4
+                strength = Math.min(strength, 4);
+                
+                // Update UI
+                if (strength <= 1) {
+                    strengthBar.style.width = '33%';
+                    strengthBar.style.background = '#ef4444';
+                    strengthText.innerText = 'Weak - Use at least 4 digits';
+                } else if (strength <= 2) {
+                    strengthBar.style.width = '66%';
+                    strengthBar.style.background = '#f59e0b';
+                    strengthText.innerText = 'Medium - Add more unique digits';
+                } else {
+                    strengthBar.style.width = '100%';
+                    strengthBar.style.background = '#10b981';
+                    strengthText.innerText = 'Strong - Good PIN strength';
+                }
+                
+                return strength;
+            }
+            
+            // Monitor new PIN changes
+            const newPinHidden = document.getElementById('newPin');
+            const confirmMessageDiv = document.getElementById('confirmMessage');
+            const confirmPinHidden = document.getElementById('confirmPin');
+            
+            function updateConfirmMessage() {
+                const newPin = newPinHidden.value;
+                const confirmPin = confirmPinHidden.value;
+                
+                if (confirmPin && confirmPin !== newPin) {
+                    confirmMessageDiv.innerHTML = '<small class="text-danger"><i class="fas fa-exclamation-circle me-1"></i>PINs do not match</small>';
+                } else if (confirmPin && confirmPin === newPin && confirmPin.length > 0) {
+                    confirmMessageDiv.innerHTML = '<small class="text-success"><i class="fas fa-check-circle me-1"></i>PINs match</small>';
+                } else {
+                    confirmMessageDiv.innerHTML = '<small class="text-muted"><i class="fas fa-info-circle me-1"></i>Re-enter your new PIN to confirm</small>';
+                }
+            }
+            
+            // Watch for PIN changes
+            const observer = new MutationObserver(function() {
+                const newPin = newPinHidden.value;
+                checkPinStrength(newPin);
+                updateConfirmMessage();
+            });
+            
+            observer.observe(newPinHidden, { attributes: true, attributeFilter: ['value'] });
+            observer.observe(confirmPinHidden, { attributes: true, attributeFilter: ['value'] });
+            
+            // Change PIN button click handler
+            const changePinBtn = document.getElementById('changePinBtn');
+            const cancelBtn = document.getElementById('cancelBtn');
+            
+            changePinBtn.addEventListener('click', function() {
+                const currentPin = document.getElementById('currentPin').value;
+                const newPin = document.getElementById('newPin').value;
+                const confirmPin = document.getElementById('confirmPin').value;
+                
+                // Validate current PIN
+                if (!currentPin) {
+                    alert('Please enter your current PIN');
+                    document.querySelector('#currentPinContainer .pin-box').focus();
+                    return;
+                }
+                
+                if (currentPin.length < 4) {
+                    alert('Current PIN must be at least 4 digits');
+                    return;
+                }
+                
+                // Validate new PIN
+                if (!newPin) {
+                    alert('Please enter a new PIN');
+                    document.querySelector('#newPinContainer .pin-box').focus();
+                    return;
+                }
+                
+                if (newPin.length < 4) {
+                    alert('New PIN must be at least 4 digits');
+                    return;
+                }
+                
+                // Check if new PIN is same as current
+                if (newPin === currentPin) {
+                    alert('New PIN cannot be the same as your current PIN');
+                    document.querySelector('#newPinContainer .pin-box').focus();
+                    return;
+                }
+                
+                // Validate confirm PIN
+                if (!confirmPin) {
+                    alert('Please confirm your new PIN');
+                    document.querySelector('#confirmPinContainer .pin-box').focus();
+                    return;
+                }
+                
+                if (newPin !== confirmPin) {
+                    alert('New PIN and confirm PIN do not match');
+                    document.querySelector('#confirmPinContainer .pin-box').focus();
+                    return;
+                }
+                
+                // Check for weak PIN patterns
+                const weakPatterns = [
+                    /^(\d)\1+$/, // repeated digits
+                    /^1234$|^12345$|^123456$/, // sequential
+                    /^0000$|^00000$|^000000$/, // zeros
+                    /^1111$|^11111$|^111111$/, // ones
+                    /^9999$|^99999$|^999999$/ // nines
+                ];
+                
+                for (let pattern of weakPatterns) {
+                    if (pattern.test(newPin)) {
+                        if (!confirm('This PIN is weak and may be easily guessed. Are you sure you want to continue?')) {
+                            return;
+                        }
+                        break;
+                    }
+                }
+                
+                // Simulate PIN change - Check current PIN (simulated as 1234)
+                if (currentPin !== '1234') {
+                    alert('Current PIN is incorrect. Please try again.');
+                    document.querySelector('#currentPinContainer .pin-box').focus();
+                    return;
+                }
+                
+                // Save new PIN to localStorage (simulation)
+                localStorage.setItem('userPin', newPin);
+                
+                // Show success modal
+                const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                successModal.show();
+                
+                // Reset form after modal is closed
+                document.getElementById('successModal').addEventListener('hidden.bs.modal', function() {
+                    // Clear all PIN boxes
+                    document.querySelectorAll('.pin-box').forEach(box => {
+                        box.value = '';
+                        box.classList.remove('pin-box-filled');
+                    });
+                    document.getElementById('currentPin').value = '';
+                    document.getElementById('newPin').value = '';
+                    document.getElementById('confirmPin').value = '';
+                    confirmMessageDiv.innerHTML = '<small class="text-muted"><i class="fas fa-info-circle me-1"></i>Re-enter your new PIN to confirm</small>';
+                    strengthBar.style.width = '0%';
+                    strengthBar.style.background = '#e2e8f0';
+                    strengthText.innerText = 'Not entered';
+                });
+            });
+            
+            // Cancel button click handler
+            cancelBtn.addEventListener('click', function() {
+                const currentPin = document.getElementById('currentPin').value;
+                const newPin = document.getElementById('newPin').value;
+                const confirmPin = document.getElementById('confirmPin').value;
+                
+                if (currentPin || newPin || confirmPin) {
+                    if (confirm('Are you sure you want to cancel? Any unsaved changes will be lost.')) {
+                        document.querySelectorAll('.pin-box').forEach(box => {
+                            box.value = '';
+                            box.classList.remove('pin-box-filled');
+                        });
+                        document.getElementById('currentPin').value = '';
+                        document.getElementById('newPin').value = '';
+                        document.getElementById('confirmPin').value = '';
+                        confirmMessageDiv.innerHTML = '<small class="text-muted"><i class="fas fa-info-circle me-1"></i>Re-enter your new PIN to confirm</small>';
+                        strengthBar.style.width = '0%';
+                        strengthBar.style.background = '#e2e8f0';
+                        strengthText.innerText = 'Not entered';
+                    }
+                }
+            });
+            
+            // Set active state for settings dropdown items
+            document.querySelectorAll('.settings-dropdown .dropdown-item').forEach(item => {
+                if (item.getAttribute('href') === 'change-pin.html') {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

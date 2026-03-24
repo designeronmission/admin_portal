@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Accounts</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+   
+
+</head>
+
+<body>
+    <div id="main-wrapper">
+
+        <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                <!-- Notifications Dropdown -->
+                                <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
+                                        <li class="dropdown-header">
+                                            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                                <span class="text-3 fw-600">Notifications</span>
+                                                <span class="badge bg-primary rounded-pill">3 New</span>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-tag text-primary"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">New offer available</span>
+                                                        <span class="text-1 text-muted">Just now</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Budget alert</span>
+                                                        <span class="text-1 text-muted">2 hours ago</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-success-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-check-circle text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Transaction completed</span>
+                                                        <span class="text-1 text-muted">Yesterday</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
+                                                See all Notifications <i class="fas fa-arrow-right ms-1"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <!-- Account Settings -->
+                                        <li><a class="dropdown-item active" href="account.html"><i class="fas fa-user-shield me-2"></i>Accounts
+                                                </a></li> 
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance
+                                            </a>
+                                        </li>
+
+  <li><a class="dropdown-item" href="payment-methods.html"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <li class="dropdown-divider"></li>
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="payment-arrangement.html">
+                                                <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
+                                            </a>
+                                        </li>
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="change-pin.html">
+                                                <i class="fas fa-key me-2"></i>Change PIN
+                                            </a>
+                                        </li>
+
+                                        <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="notification.html">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                            </a>
+                                        </li>
+
+                                        <li class="dropdown-divider"></li>
+
+                                        <li class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-user-shield text-light me-2"></i> Accounts
+                        </h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2" style="font-size: 0.7rem;"></i>
+                        <span class="text-light fw-500">Accounts</span>
+                    </div>
+                </div>
+
+                <!-- Two Column Layout with Sticky Left -->
+                <div class="row g-4">
+                    <!-- Left Column - Sticky Default Bank -->
+                    <div class="col-lg-5">
+                        <div class="sticky-sidebar">
+
+
+                            <!-- Main Default Bank Card -->
+                            <div class="bg-white rounded-4 shadow-sm p-4 mb-4">
+                                                            <!-- Header Section -->
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                                <div>
+                                    <h3 class="text-5 fw-500 mb-1">Default Bank</h3>
+                                    <p class="text-muted mb-0">Your primary account for transactions</p>
+                                </div>
+                            </div>
+
+                                <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
+                                    <span class="badge bg-primary rounded-pill px-3 py-2">Primary Account</span>
+                                </div>
+                                
+                                <div class="text-center mb-4">
+                                    <div class="bank-icon-lg mx-auto" style="width: 80px; height: 80px; background: linear-gradient(135deg, #131d58 0%, #1e2a7a 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                                        <i class="fas fa-university fa-3x text-white"></i>
+                                    </div>
+                                    <h3 class="fw-700 mb-2">Chirp Test Bank</h3>
+                                    <div class="d-flex align-items-center justify-content-center gap-2 mb-3">
+                                        <span class="badge bg-success rounded-pill px-3 py-2">Default Account</span>
+                                    </div>
+                                    <p class="text-muted mb-2">
+                                        <i class="fas fa-credit-card me-2"></i>
+                                        <span class="fw-500">CHECKING - XX1771</span>
+                                    </p>
+                                    <p class="text-muted small">
+                                        <i class="fas fa-calendar-alt me-1"></i> Linked since Jan 2025
+                                    </p>
+                                </div>
+                                
+                                <div class="border-top pt-3">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="text-muted">Available Balance</span>
+                                        <span class="fw-700 text-success">$6,240.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-muted">Account Status</span>
+                                        <span class="badge bg-success rounded-pill">Active</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Linked Accounts -->
+                    <div class="col-lg-7">
+
+
+                        <!-- Linked Accounts List with Scroll -->
+                        <div class="bg-white rounded-4 shadow-sm p-4">
+                                                    <!-- Header Section -->
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                            <div>
+                                <h3 class="text-5 fw-500 mb-1">Linked Accounts</h3>
+                                <p class="text-muted mb-0">Manage all your connected bank accounts</p>
+                            </div>
+                            <button class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#addBankModal">
+                                <i class="fas fa-plus-circle me-2"></i>Add New Bank
+                            </button>
+                        </div>
+
+
+                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4 pb-2 border-bottom mt-4">
+                                <div class="d-flex align-items-center gap-2 mt-4">
+                                    <h5 class="fw-500 mb-0 text-3">Your Accounts</h5>
+                                </div>
+                                <span class="text-muted small mt-4">2 accounts linked</span>
+                            </div>
+
+                            <div class="linked-accounts-scroll">
+                                <!-- Bank Header -->
+                                <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                    <div class="bg-light-1 rounded-circle p-2">
+                                        <i class="fas fa-university text-primary"></i>
+                                    </div>
+                                    <h6 class="fw-600 mb-0">Chirp Test Bank</h6>
+                                </div>
+
+                                <!-- Account 1 - Checking (Default) -->
+                                <div class="bank-account-item mb-3 p-3 rounded-3 border">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-7">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div style="width: 48px; height: 48px; background: #f8fafc; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                                    <i class="fas fa-credit-card fa-lg text-primary"></i>
+                                                </div>
+                                                <div>
+                                                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                                                        <span class="fw-600 fs-6">CHECKING - XX1771</span>
+                                                        <span class="badge bg-success rounded-pill">Default</span>
+                                                    </div>
+                                                    <p class="text-muted small mb-0 mt-1">Primary checking account</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 text-md-end mt-3 mt-md-0">
+                                            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 disabled">
+                                                <i class="fas fa-check me-1"></i>Default
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Account 2 - Savings -->
+                                <div class="bank-account-item mb-3 p-3 rounded-3 border">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-7">
+                                            <div class="d-flex align-items-center gap-3">
+                                                <div style="width: 48px; height: 48px; background: #f8fafc; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                                    <i class="fas fa-piggy-bank fa-lg text-primary"></i>
+                                                </div>
+                                                <div>
+                                                    <span class="fw-600 fs-6">SAVINGS - XX1114</span>
+                                                    <p class="text-muted small mb-0 mt-1">High-yield savings account</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 text-md-end mt-3 mt-md-0">
+                                            <button class="btn btn-sm btn-outline-primary rounded-pill px-3 set-default-btn" data-account="SAVINGS - XX1114">
+                                                <i class="fas fa-star me-1"></i>Set as Default
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Add More Banks Button -->
+                                <div class="text-center pt-3 mt-2 border-top">
+                                    <button class="btn btn-primary rounded-pill px-5 w-100" data-bs-toggle="modal" data-bs-target="#addBankModal">
+                                        <i class="fas fa-plus-circle me-2 btn-primary"></i>
+                                        <span class="fw-500">Add another bank account</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.
+                            </p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Add New Bank Modal -->
+    <div class="modal fade" id="addBankModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <div>
+                        <h5 class="modal-title fw-700">Link New Bank Account</h5>
+                        <p class="text-muted small mb-0">Securely connect your bank account</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-3">
+                        <label class="form-label fw-500">Bank Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control rounded-pill" id="bankName" placeholder="e.g., Chase Bank, Wells Fargo">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-500">Account Type</label>
+                        <select class="form-select rounded-pill" id="accountType">
+                            <option value="CHECKING">Checking Account</option>
+                            <option value="SAVINGS">Savings Account</option>
+                            <option value="CREDIT">Credit Card</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-500">Account Number</label>
+                        <input type="text" class="form-control rounded-pill" id="accountNumber" placeholder="Last 4 digits: XXXX1234">
+                    </div>
+                    <div class="mb-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="setAsDefault">
+                            <label class="form-check-label" for="setAsDefault">
+                                Set as default account
+                            </label>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="saveBankBtn">Link Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Back to top button
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function () { 
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none'; 
+            });
+            btt.addEventListener('click', function (e) { 
+                e.preventDefault(); 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            });
+
+            // Set as Default functionality
+            const setDefaultBtns = document.querySelectorAll('.set-default-btn');
+            
+            setDefaultBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const accountName = this.dataset.account;
+                    if (confirm(`Set ${accountName} as your default account?`)) {
+                        // Update left column default bank
+                        const leftColumnBankName = document.querySelector('.sticky-sidebar .fw-700.mb-2');
+                        const leftColumnAccountDetails = document.querySelector('.sticky-sidebar .text-muted.mb-2 .fw-500');
+                        const leftColumnBadge = document.querySelector('.sticky-sidebar .badge.bg-success');
+                        
+                        if (accountName === 'SAVINGS - XX1114') {
+                            leftColumnBankName.innerHTML = 'Chirp Test Bank';
+                            if (leftColumnAccountDetails) leftColumnAccountDetails.innerHTML = 'SAVINGS - XX1114';
+                            const icon = document.querySelector('.sticky-sidebar .bank-icon-lg i');
+                            if (icon) {
+                                icon.className = 'fas fa-piggy-bank fa-3x text-white';
+                            }
+                        }
+                        
+                        // Remove default badge from all accounts in right column
+                        document.querySelectorAll('.bank-account-item .badge.bg-success').forEach(badge => {
+                            badge.remove();
+                        });
+                        
+                        // Add badge to selected account
+                        const accountRow = this.closest('.bank-account-item');
+                        const accountInfoDiv = accountRow.querySelector('.col-md-7 div div:first-child');
+                        accountInfoDiv.innerHTML += '<span class="badge bg-success rounded-pill ms-2">Default</span>';
+                        
+                        // Update button states
+                        const previousDefaultBtn = document.querySelector('.bank-account-item .btn-outline-secondary.disabled');
+                        if (previousDefaultBtn) {
+                            previousDefaultBtn.classList.remove('disabled', 'btn-outline-secondary');
+                            previousDefaultBtn.classList.add('btn-outline-primary');
+                            previousDefaultBtn.innerHTML = '<i class="fas fa-star me-1"></i>Set as Default';
+                            previousDefaultBtn.disabled = false;
+                        }
+                        
+                        // Disable current button
+                        this.classList.remove('btn-outline-primary');
+                        this.classList.add('btn-outline-secondary', 'disabled');
+                        this.innerHTML = '<i class="fas fa-check me-1"></i>Default';
+                        this.disabled = true;
+                        
+                        // Show success message
+                        alert(`${accountName} is now your default account`);
+                    }
+                });
+            });
+
+            // Add New Bank Modal
+            const saveBankBtn = document.getElementById('saveBankBtn');
+            if (saveBankBtn) {
+                saveBankBtn.addEventListener('click', function() {
+                    const bankName = document.getElementById('bankName').value;
+                    const accountType = document.getElementById('accountType').value;
+                    const accountNumber = document.getElementById('accountNumber').value;
+                    const setAsDefault = document.getElementById('setAsDefault').checked;
+                    
+                    if (!bankName) {
+                        alert('Please enter bank name');
+                        return;
+                    }
+                    
+                    if (!accountNumber) {
+                        alert('Please enter account number');
+                        return;
+                    }
+                    
+                    // Simulate adding new account
+                    alert(`Bank account linked successfully!\n\nBank: ${bankName}\nType: ${accountType}\nAccount: ${accountNumber}\n${setAsDefault ? 'Set as default account' : ''}`);
+                    
+                    // Close modal and reset form
+                    bootstrap.Modal.getInstance(document.getElementById('addBankModal')).hide();
+                    document.getElementById('bankName').value = '';
+                    document.getElementById('accountNumber').value = '';
+                    document.getElementById('setAsDefault').checked = false;
+                });
+            }
+
+            // Active nav link styling
+            document.querySelectorAll('.primary-menu .nav-link').forEach(link => {
+                if (link.getAttribute('href') === 'account-settings.html') {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
