@@ -277,13 +277,7 @@
                     </div>
                 </div>
 
-                <!-- Tabs -->
-                <div class="notification-tabs">
-                    <button class="notification-tab active" data-tab="subscription">Subscription</button>
-                    <button class="notification-tab" data-tab="goals">Goals</button>
-                    <button class="notification-tab" data-tab="funding">Funding</button>
-                    <button class="notification-tab" data-tab="repayments">Repayments</button>
-                </div>
+
 
                 <!-- Subscription Notifications Tab -->
                 <div id="tab-subscription" class="tab-content active">
@@ -304,7 +298,7 @@
                             <div id="subscriptionItems">
                                 <div class="notification-item" data-notification="subscriptionRenewalReminder">
                                     <div class="notification-item-header">
-                                        <span class="notification-item-name">Subscription Renewal Reminder</span>
+                                        <span class="notification-item-name">Advance & Subscription</span>
                                         <label class="custom-switch item-toggle">
                                             <input type="checkbox" id="subscriptionRenewalReminder" checked>
                                             <span class="switch-slider"></span>
@@ -326,17 +320,19 @@
                                             </label>
                                         </div>
                                         <div class="channel-toggle">
-                                            <span class="channel-label">Push</span>
+                                            <span class="channel-label">Email</span>
                                             <label class="channel-switch">
                                                 <input type="checkbox" class="push-channel" data-parent="subscriptionRenewalReminder" checked>
                                                 <span class="channel-slider"></span>
                                             </label>
                                         </div>
+
+                                        
                                     </div>
                                 </div>
                                 <div class="notification-item" data-notification="subscriptionRenewalSuccess">
                                     <div class="notification-item-header">
-                                        <span class="notification-item-name">Subscription Renewal Success</span>
+                                        <span class="notification-item-name">Budget & Goal</span>
                                         <label class="custom-switch item-toggle">
                                             <input type="checkbox" id="subscriptionRenewalSuccess" checked>
                                             <span class="switch-slider"></span>
@@ -345,12 +341,12 @@
                                     <div class="channel-options">
                                         <div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="subscriptionRenewalSuccess" checked><span class="channel-slider"></span></label></div>
                                         <div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="subscriptionRenewalSuccess" checked><span class="channel-slider"></span></label></div>
-                                        <div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="subscriptionRenewalSuccess" checked><span class="channel-slider"></span></label></div>
+                                        <div class="channel-toggle"><span class="channel-label">Email</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="subscriptionRenewalSuccess" checked><span class="channel-slider"></span></label></div>
                                     </div>
                                 </div>
                                 <div class="notification-item" data-notification="subscriptionRenewalFailed">
                                     <div class="notification-item-header">
-                                        <span class="notification-item-name">Subscription Renewal Failed</span>
+                                        <span class="notification-item-name">Spending</span>
                                         <label class="custom-switch item-toggle">
                                             <input type="checkbox" id="subscriptionRenewalFailed" checked>
                                             <span class="switch-slider"></span>
@@ -359,79 +355,24 @@
                                     <div class="channel-options">
                                         <div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
                                         <div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
-                                        <div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
+                                        <div class="channel-toggle"><span class="channel-label">Email</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Goals Notifications Tab -->
-                <div id="tab-goals" class="tab-content" style="display: none;">
-                    <div class="notification-card">
-                        <div class="notification-body">
-                            <div class="group-toggle-row">
-                                <div class="group-toggle-info">
-                                    <div class="group-toggle-name">Goals Notifications</div>
-                                    <div class="group-toggle-desc">Track your financial goals and progress</div>
+                                    <div class="notification-item" data-notification="subscriptionRenewalFailed">
+                                    <div class="notification-item-header">
+                                        <span class="notification-item-name">Account</span>
+                                        <label class="custom-switch item-toggle">
+                                            <input type="checkbox" id="subscriptionRenewalFailed" checked>
+                                            <span class="switch-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="channel-options">
+                                        <div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
+                                        <div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
+                                        <div class="channel-toggle"><span class="channel-label">Email</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="subscriptionRenewalFailed" checked><span class="channel-slider"></span></label></div>
+                                    </div>
                                 </div>
-                                <label class="custom-switch group-toggle" data-group="goals">
-                                    <input type="checkbox" id="goalsGroupToggle" checked>
-                                    <span class="switch-slider"></span>
-                                </label>
-                            </div>
-                            <div id="goalsItems">
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Withdrawal from Goal</span><label class="custom-switch item-toggle"><input type="checkbox" id="goalWithdrawal" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="goalWithdrawal" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="goalWithdrawal" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="goalWithdrawal" checked><span class="channel-slider"></span></label></div></div></div>
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Spent on Goal</span><label class="custom-switch item-toggle"><input type="checkbox" id="goalSpent" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="goalSpent" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="goalSpent" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="goalSpent" checked><span class="channel-slider"></span></label></div></div></div>
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Contributed to Goal</span><label class="custom-switch item-toggle"><input type="checkbox" id="goalContributed" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="goalContributed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="goalContributed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="goalContributed" checked><span class="channel-slider"></span></label></div></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Funding Notifications Tab -->
-                <div id="tab-funding" class="tab-content" style="display: none;">
-                    <div class="notification-card">
-                        <div class="notification-body">
-                            <div class="group-toggle-row">
-                                <div class="group-toggle-info">
-                                    <div class="group-toggle-name">Funding Notifications</div>
-                                    <div class="group-toggle-desc">Get updates about your funding activities</div>
-                                </div>
-                                <label class="custom-switch group-toggle" data-group="funding">
-                                    <input type="checkbox" id="fundingGroupToggle" checked>
-                                    <span class="switch-slider"></span>
-                                </label>
-                            </div>
-                            <div id="fundingItems">
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Advance Credited</span><label class="custom-switch item-toggle"><input type="checkbox" id="advanceCredited" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="advanceCredited" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="advanceCredited" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="advanceCredited" checked><span class="channel-slider"></span></label></div></div></div>
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Advance Credit Failed</span><label class="custom-switch item-toggle"><input type="checkbox" id="advanceCreditFailed" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="advanceCreditFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="advanceCreditFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="advanceCreditFailed" checked><span class="channel-slider"></span></label></div></div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Repayments Notifications Tab -->
-                <div id="tab-repayments" class="tab-content" style="display: none;">
-                    <div class="notification-card">
-                        <div class="notification-body">
-                            <div class="group-toggle-row">
-                                <div class="group-toggle-info">
-                                    <div class="group-toggle-name">Repayments Notifications</div>
-                                    <div class="group-toggle-desc">Stay informed about your repayment activities</div>
-                                </div>
-                                <label class="custom-switch group-toggle" data-group="repayments">
-                                    <input type="checkbox" id="repaymentsGroupToggle" checked>
-                                    <span class="switch-slider"></span>
-                                </label>
-                            </div>
-                            <div id="repaymentsItems">
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Auto Repayment Success</span><label class="custom-switch item-toggle"><input type="checkbox" id="autoRepaymentSuccess" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="autoRepaymentSuccess" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="autoRepaymentSuccess" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="autoRepaymentSuccess" checked><span class="channel-slider"></span></label></div></div></div>
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Auto Repayment Failed</span><label class="custom-switch item-toggle"><input type="checkbox" id="autoRepaymentFailed" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="autoRepaymentFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="autoRepaymentFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="autoRepaymentFailed" checked><span class="channel-slider"></span></label></div></div></div>
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Manual Repayment Success</span><label class="custom-switch item-toggle"><input type="checkbox" id="manualRepaymentSuccess" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="manualRepaymentSuccess" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="manualRepaymentSuccess" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="manualRepaymentSuccess" checked><span class="channel-slider"></span></label></div></div></div>
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Manual Repayment Failed</span><label class="custom-switch item-toggle"><input type="checkbox" id="manualRepaymentFailed" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="manualRepaymentFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="manualRepaymentFailed" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="manualRepaymentFailed" checked><span class="channel-slider"></span></label></div></div></div>
-                                <div class="notification-item"><div class="notification-item-header"><span class="notification-item-name">Repayment Reminder</span><label class="custom-switch item-toggle"><input type="checkbox" id="repaymentReminder" checked><span class="switch-slider"></span></label></div><div class="channel-options"><div class="channel-toggle"><span class="channel-label">SMS</span><label class="channel-switch"><input type="checkbox" class="sms-channel" data-parent="repaymentReminder" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">In-App</span><label class="channel-switch"><input type="checkbox" class="inapp-channel" data-parent="repaymentReminder" checked><span class="channel-slider"></span></label></div><div class="channel-toggle"><span class="channel-label">Push</span><label class="channel-switch"><input type="checkbox" class="push-channel" data-parent="repaymentReminder" checked><span class="channel-slider"></span></label></div></div></div>
                             </div>
                         </div>
                     </div>
