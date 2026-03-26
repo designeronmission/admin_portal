@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Reminders</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+
+</head>
+
+<body>
+    <div id="main-wrapper">
+
+        <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                <!-- Notifications Dropdown -->
+                                <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
+                                        <li class="dropdown-header">
+                                            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                                <span class="text-3 fw-600">Notifications</span>
+                                                <span class="badge bg-primary rounded-pill">3 New</span>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-tag text-primary"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">New offer available</span>
+                                                        <span class="text-1 text-muted">Just now</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Budget alert</span>
+                                                        <span class="text-1 text-muted">2 hours ago</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-success-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-check-circle text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Transaction completed</span>
+                                                        <span class="text-1 text-muted">Yesterday</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
+                                                See all Notifications <i class="fas fa-arrow-right ms-1"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="profile.html"><i
+                                                    class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <!-- Account Settings -->
+                                        <li><a class="dropdown-item" href="Account.html"><i
+                                                    class="fas fa-user-shield me-2"></i>Account </a></li>
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance
+                                            </a>
+                                        </li>
+
+                                        <!-- Transaction History Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_history.html">
+                                                <i class="fas fa-clock-rotate-left  me-2"></i>Transaction History
+                                            </a>
+                                        </li>
+
+                                        <!-- Bank Account Summary Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_summary.html">
+                                                <i class="fas fa-file-invoice me-2"></i>Bank Account Summary
+                                            </a>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="payment-methods.html"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="payment-arrangement.html">
+                                                <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
+                                            </a>
+                                        </li>
+
+                                        <li><a class="dropdown-item active" href="subscription_plan.html"><i
+                                                    class="fas fa-tag me-2"></i>Subscription</a></li>
+
+                                        <!-- Reminders Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="Reminders.html">
+                                                <i class="fas fa-clock me-2"></i>Reminders
+                                            </a>
+                                        </li>
+
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="change-pin.html">
+                                                <i class="fas fa-key me-2"></i>Change PIN
+                                            </a>
+                                        </li>
+
+                                        <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="notification.html">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                            </a>
+                                        </li>
+
+                                        <li class="dropdown-divider"></li>
+
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-bell text-light me-2"></i> Reminders
+                        </h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2"></i>
+                        <span class="text-light fw-500">Reminders</span>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="bg-white rounded-4 shadow-sm p-4 mb-4">
+                    <div class="position-relative">
+                        <i
+                            class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                        <input type="text" class="form-control rounded-pill border-0 bg-light-1 py-3 ps-5"
+                            id="searchReminder" placeholder="Search reminders by name, category, account...">
+                    </div>
+                </div>
+
+                <!-- Tabs and Add Button -->
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                    <div class="tabs-container d-flex gap-2 bg-light-1 p-1 rounded-pill"
+                        style="overflow-x: auto; flex-wrap: nowrap;">
+                        <button class="reminder-tab px-4 py-2 rounded-pill border-0 bg-transparent fw-500 active"
+                            data-tab="all">All</button>
+                        <button class="reminder-tab px-4 py-2 rounded-pill border-0 bg-transparent fw-500"
+                            data-tab="active">Active</button>
+                        <button class="reminder-tab px-4 py-2 rounded-pill border-0 bg-transparent fw-500"
+                            data-tab="bills">Bills</button>
+                        <button class="reminder-tab px-4 py-2 rounded-pill border-0 bg-transparent fw-500"
+                            data-tab="subscriptions">Subscriptions</button>
+                        <button class="reminder-tab px-4 py-2 rounded-pill border-0 bg-transparent fw-500"
+                            data-tab="canceled">Canceled</button>
+                        <button class="reminder-tab px-4 py-2 rounded-pill border-0 bg-transparent fw-500"
+                            data-tab="completed">Completed</button>
+                    </div>
+                    <button class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal"
+                        data-bs-target="#addReminderSelectModal">
+                        <i class="fas fa-plus-circle me-2"></i>Add Reminder
+                    </button>
+                </div>
+
+                <!-- Reminders List -->
+                <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="bg-light-1">
+                                <tr>
+                                    <th class="py-3 px-4">Name</th>
+                                    <th class="py-3">Date</th>
+                                    <th class="py-3">Account</th>
+                                    <th class="py-3">Category</th>
+                                    <th class="py-3">Amount</th>
+                                    <th class="py-3 text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="remindersList">
+                                <tr data-id="1" data-status="active" data-type="bills">
+                                    <td class="py-3 px-4 fw-600">Jio Fiber</td>
+                                    <td class="py-3">Mar 06, 2026</td>
+                                    <td class="py-3">Primary Account</td>
+                                    <td class="py-3"><span class="badge bg-primary">Bills & Utilities</span></td>
+                                    <td class="py-3 fw-600">$2,000.00</td>
+                                    <td class="py-3 text-center">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-circle"
+                                                data-bs-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item view-reminder" href="#"><i
+                                                            class="fas fa-eye me-2"></i>View</a></li>
+                                                <li><a class="dropdown-item edit-reminder" href="#"><i
+                                                            class="fas fa-edit me-2"></i>Edit</a></li>
+                                                <li><a class="dropdown-item cancel-reminder" href="#"><i
+                                                            class="fas fa-stop-circle me-2"></i>Cancel</a></li>
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+                                                <li><a class="dropdown-item text-danger delete-reminder" href="#"><i
+                                                            class="fas fa-trash-alt me-2"></i>Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-id="2" data-status="active" data-type="subscriptions">
+                                    <td class="py-3 px-4 fw-600">Netflix</td>
+                                    <td class="py-3">Mar 15, 2026</td>
+                                    <td class="py-3">Visa ****2224</td>
+                                    <td class="py-3"><span class="badge bg-info">Subscription</span></td>
+                                    <td class="py-3 fw-600">$15.99</td>
+                                    <td class="py-3 text-center">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-circle"
+                                                data-bs-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item view-reminder" href="#"><i
+                                                            class="fas fa-eye me-2"></i>View</a></li>
+                                                <li><a class="dropdown-item edit-reminder" href="#"><i
+                                                            class="fas fa-edit me-2"></i>Edit</a></li>
+                                                <li><a class="dropdown-item cancel-reminder" href="#"><i
+                                                            class="fas fa-stop-circle me-2"></i>Cancel</a></li>
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+                                                <li><a class="dropdown-item text-danger delete-reminder" href="#"><i
+                                                            class="fas fa-trash-alt me-2"></i>Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr data-id="3" data-status="active" data-type="bills">
+                                    <td class="py-3 px-4 fw-600">Electricity Bill</td>
+                                    <td class="py-3">Mar 20, 2026</td>
+                                    <td class="py-3">Primary Account</td>
+                                    <td class="py-3"><span class="badge bg-primary">Bills & Utilities</span></td>
+                                    <td class="py-3 fw-600">$124.37</td>
+                                    <td class="py-3 text-center">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-light rounded-circle"
+                                                data-bs-toggle="dropdown">
+                                                <i class="fas fa-ellipsis-vertical"></i>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-menu-end">
+                                                <li><a class="dropdown-item view-reminder" href="#"><i
+                                                            class="fas fa-eye me-2"></i>View</a></li>
+                                                <li><a class="dropdown-item edit-reminder" href="#"><i
+                                                            class="fas fa-edit me-2"></i>Edit</a></li>
+                                                <li><a class="dropdown-item cancel-reminder" href="#"><i
+                                                            class="fas fa-stop-circle me-2"></i>Cancel</a></li>
+                                                <li>
+                                                    <hr class="dropdown-divider">
+                                                </li>
+                                                <li><a class="dropdown-item text-danger delete-reminder" href="#"><i
+                                                            class="fas fa-trash-alt me-2"></i>Delete</a></li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.
+                            </p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Add Reminder - Select Transaction Modal -->
+    <div class="modal fade" id="addReminderSelectModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <div>
+                        <h5 class="modal-title fw-700">Choose a transaction to make recurring</h5>
+                        <p class="text-muted small mb-0">Select a past transaction to create a recurring reminder</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="position-relative mb-4">
+                        <i
+                            class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                        <input type="text" class="form-control rounded-pill border-0 bg-light-1 py-2 ps-5"
+                            id="searchTransaction" placeholder="Search transactions...">
+                    </div>
+                    <div class="transaction-list" id="transactionList">
+                        <div class="transaction-item-card" data-name="Bath & Body Works" data-amount="11.08"
+                            data-date="Mar 07, 2026" data-category="Personal Care" data-account="Primary Account">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="text-muted small">Mar 07, 2026</div>
+                                    <div class="fw-600">Personal Care</div>
+                                    <div class="text-muted small">Bath & Body Works</div>
+                                </div>
+                                <div class="fw-600 text-danger">$11.08</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item-card" data-name="Opening Balance" data-amount="2500.00"
+                            data-date="Mar 06, 2026" data-category="Balance Adjustment" data-account="Primary Account">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="text-muted small">Mar 06, 2026</div>
+                                    <div class="fw-600">Balance Adjustment</div>
+                                    <div class="text-muted small">opening balance</div>
+                                </div>
+                                <div class="fw-600 text-success">+$2,500.00</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item-card" data-name="Transfer" data-amount="9.53"
+                            data-date="Mar 05, 2026" data-category="Transfer" data-account="Primary Account">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="text-muted small">Mar 05, 2026</div>
+                                    <div class="fw-600">Transfer</div>
+                                    <div class="text-muted small">Transfer</div>
+                                </div>
+                                <div class="fw-600 text-success">+$9.53</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item-card" data-name="Children's Hospital" data-amount="27.58"
+                            data-date="Feb 28, 2026" data-category="Doctor" data-account="Primary Account">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="text-muted small">Feb 28, 2026</div>
+                                    <div class="fw-600">Doctor</div>
+                                    <div class="text-muted small">Children's Hospital</div>
+                                </div>
+                                <div class="fw-600 text-danger">$27.58</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item-card" data-name="Donation" data-amount="73.20"
+                            data-date="Feb 25, 2026" data-category="Charity" data-account="Primary Account">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="text-muted small">Feb 25, 2026</div>
+                                    <div class="fw-600">Charity</div>
+                                    <div class="text-muted small">Donation</div>
+                                </div>
+                                <div class="fw-600 text-danger">$73.20</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item-card" data-name="Late Fee" data-amount="38.88"
+                            data-date="Feb 25, 2026" data-category="Late Fee" data-account="Primary Account">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="text-muted small">Feb 25, 2026</div>
+                                    <div class="fw-600">Late Fee</div>
+                                    <div class="text-muted small">Late Fee</div>
+                                </div>
+                                <div class="fw-600 text-danger">$38.88</div>
+                            </div>
+                        </div>
+                        <div class="transaction-item-card" data-name="Payment" data-amount="63.07"
+                            data-date="Feb 22, 2026" data-category="Transfer" data-account="Primary Account">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <div class="text-muted small">Feb 22, 2026</div>
+                                    <div class="fw-600">Transfer</div>
+                                    <div class="text-muted small">Payment</div>
+                                </div>
+                                <div class="fw-600 text-success">+$63.07</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4 pt-2 border-top">
+                        <p class="text-muted small mb-2">Can't find it? Add a new one.</p>
+                        <button class="btn btn-outline-primary rounded-pill px-4" id="addManuallyBtn">
+                            <i class="fas fa-plus-circle me-2"></i>Add Manually
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Reminder Manually Modal -->
+    <div class="modal fade" id="addReminderManualModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-700">Add Reminder</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <ul class="nav nav-tabs mb-4" id="manualTab" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#manualBasic">Basic
+                                Details</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#manualFrequency">Frequency &
+                                Occurrence</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="manualBasic">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Name *</label>
+                                    <input type="text" class="form-control rounded-pill" id="manualName"
+                                        placeholder="Enter reminder name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Amount *</label>
+                                    <div class="position-relative">
+                                        <span class="currency-symbol-inline">$</span>
+                                        <input type="number" class="form-control rounded-pill" id="manualAmount"
+                                            placeholder="0.00" style="padding-left: 40px;">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Account *</label>
+                                    <select class="form-select rounded-pill" id="manualAccount">
+                                        <option>Primary Account</option>
+                                        <option>Savings Account</option>
+                                        <option>Visa ****2224</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Category *</label>
+                                    <select class="form-select rounded-pill" id="manualCategory">
+                                        <option>Bills & Utilities</option>
+                                        <option>Subscription</option>
+                                        <option>Entertainment</option>
+                                        <option>Personal Care</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Reminder Type</label>
+                                    <select class="form-select rounded-pill" id="manualType">
+                                        <option>Bill</option>
+                                        <option>Subscription</option>
+                                        <option>Custom</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Start Date *</label>
+                                    <input type="date" class="form-control rounded-pill" id="manualStartDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="manualFrequency">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Select Frequency *</label>
+                                    <select class="form-select rounded-pill" id="manualFrequencySelect">
+                                        <option>Weekly</option>
+                                        <option>Monthly</option>
+                                        <option>Yearly</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Day of the Week</label>
+                                    <select class="form-select rounded-pill">
+                                        <option>Monday</option>
+                                        <option>Tuesday</option>
+                                        <option>Wednesday</option>
+                                        <option>Thursday</option>
+                                        <option>Friday</option>
+                                        <option>Saturday</option>
+                                        <option>Sunday</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">End Date</label>
+                                    <input type="date" class="form-control rounded-pill" id="manualEndDate">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Next Occurrence</label>
+                                    <select class="form-select rounded-pill">
+                                        <option>Mar 13, 2026 (Monday)</option>
+                                        <option>Mar 20, 2026 (Monday)</option>
+                                        <option>Mar 27, 2026 (Monday)</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-500">Reminder Schedule</label>
+                                    <div class="row g-2">
+                                        <div class="col-md-4">
+                                            <select class="form-select rounded-pill">
+                                                <option>7 days before</option>
+                                                <option>5 days before</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select class="form-select rounded-pill">
+                                                <option>3 days before</option>
+                                                <option>2 days before</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <select class="form-select rounded-pill">
+                                                <option>1 day before</option>
+                                                <option>On the day</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 mt-4">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1"
+                            id="saveManualReminderBtn">Create Reminder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Reminder Modal -->
+    <div class="modal fade" id="viewReminderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-700">Reminder Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="view-detail-card">
+                                <h6 class="fw-600 mb-3"><i class="fas fa-info-circle text-primary me-2"></i>Basic
+                                    Information</h6>
+                                <div class="view-detail-row">
+                                    <span class="text-muted">Reminder Name</span>
+                                    <span class="fw-600" id="viewName">Jio Fiber</span>
+                                </div>
+                                <div class="view-detail-row">
+                                    <span class="text-muted">Amount</span>
+                                    <span class="fw-700 text-primary" id="viewAmount">$2,000.00</span>
+                                </div>
+                                <div class="view-detail-row">
+                                    <span class="text-muted">Category</span>
+                                    <span id="viewCategory">Bills & Utilities</span>
+                                </div>
+                                <div class="view-detail-row">
+                                    <span class="text-muted">Account</span>
+                                    <span id="viewAccount">Primary Account</span>
+                                </div>
+                                <div class="view-detail-row">
+                                    <span class="text-muted">Reminder Type</span>
+                                    <span id="viewType">Bill</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="view-detail-card">
+                                <h6 class="fw-600 mb-3"><i class="fas fa-calendar-alt text-primary me-2"></i>Schedule
+                                    Details</h6>
+                                <div class="view-detail-row">
+                                    <span class="text-muted">Start Date</span>
+                                    <span id="viewStartDate">Mar 06, 2026</span>
+                                </div>
+                                <div class="view-detail-row">
+                                    <span class="text-muted">End Date</span>
+                                    <span id="viewEndDate">-</span>
+                                </div>
+                                <div class="view-detail-row">
+                                    <span class="text-muted">Recurrence</span>
+                                    <span id="viewRecurrence">Every week on Monday</span>
+                                </div>
+                                <div class="view-detail-row">
+                                    <span class="text-muted">Status</span>
+                                    <span><span class="badge bg-success" id="viewStatus">Active</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="occurrence-card mt-3">
+                        <h6 class="fw-600 mb-3 text-white"><i class="fas fa-calendar-week me-2"></i>Upcoming Occurrence
+                        </h6>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-600" id="upcomingName">Jio Fiber</div>
+                                <div class="text-white-50 small">Primary Account</div>
+                                <div class="mt-2" id="upcomingDate">Next: Mar 09, 2026</div>
+                            </div>
+                            <div class="fs-4 fw-700" id="upcomingAmount">$2,000.00</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h6 class="fw-600 mb-3"><i class="fas fa-history text-primary me-2"></i>Payment History</h6>
+                        <div id="viewHistory">
+                            <div class="history-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="fas fa-check-circle text-success"></i>
+                                    <span>Paid on Mar 06, 2026</span>
+                                </div>
+                                <span class="fw-600">$2,000.00</span>
+                            </div>
+                            <div class="history-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="fas fa-check-circle text-success"></i>
+                                    <span>Paid on Feb 06, 2026</span>
+                                </div>
+                                <span class="fw-600">$2,000.00</span>
+                            </div>
+                            <div class="history-item">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="fas fa-check-circle text-success"></i>
+                                    <span>Paid on Jan 06, 2026</span>
+                                </div>
+                                <span class="fw-600">$2,000.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Reminder Modal -->
+    <div class="modal fade" id="editReminderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-700">Edit Reminder</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <ul class="nav nav-tabs mb-4" id="editTab" role="tablist">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#editBasic">Basic
+                                Details</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#editFrequency">Frequency &
+                                Occurrence</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="editBasic">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Name *</label>
+                                    <input type="text" class="form-control rounded-pill" id="editName"
+                                        placeholder="Reminder name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Amount *</label>
+                                    <div class="position-relative">
+                                        <span class="currency-symbol-inline">$</span>
+                                        <input type="number" class="form-control rounded-pill" id="editAmount"
+                                            placeholder="0.00" style="padding-left: 40px;">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Account *</label>
+                                    <select class="form-select rounded-pill" id="editAccount">
+                                        <option>Primary Account</option>
+                                        <option>Savings Account</option>
+                                        <option>Visa ****2224</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Category *</label>
+                                    <select class="form-select rounded-pill" id="editCategory">
+                                        <option>Bills & Utilities</option>
+                                        <option>Subscription</option>
+                                        <option>Entertainment</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Reminder Type</label>
+                                    <select class="form-select rounded-pill" id="editType">
+                                        <option>Bill</option>
+                                        <option>Subscription</option>
+                                        <option>Custom</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Start Date</label>
+                                    <input type="date" class="form-control rounded-pill" id="editStartDate">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="editFrequency">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Select Frequency *</label>
+                                    <select class="form-select rounded-pill" id="editFrequencySelect">
+                                        <option>Weekly</option>
+                                        <option>Monthly</option>
+                                        <option>Yearly</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Day of the Week</label>
+                                    <select class="form-select rounded-pill" id="editDayOfWeek">
+                                        <option>Monday</option>
+                                        <option>Tuesday</option>
+                                        <option>Wednesday</option>
+                                        <option>Thursday</option>
+                                        <option>Friday</option>
+                                        <option>Saturday</option>
+                                        <option>Sunday</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">End Date</label>
+                                    <input type="date" class="form-control rounded-pill" id="editEndDate">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-500">Next Occurrence</label>
+                                    <select class="form-select rounded-pill" id="editNextOccurrence">
+                                        <option>Mar 13, 2026 (Monday)</option>
+                                        <option>Mar 20, 2026 (Monday)</option>
+                                        <option>Mar 27, 2026 (Monday)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 mt-4">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1"
+                            id="updateReminderBtn">Update Reminder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancel Reminder Modal -->
+    <div class="modal fade" id="cancelReminderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-body text-center p-4">
+                    <div class="bg-warning-soft rounded-circle p-3 d-inline-flex mb-3" style="background: #fef3c7;">
+                        <i class="fas fa-stop-circle text-warning fs-2"></i>
+                    </div>
+                    <h5 class="fw-600 mb-2">End Reminder?</h5>
+                    <p class="text-muted mb-4">Are you sure you want to end this reminder?<br>Ending this reminder will
+                        only mark it as completed.</p>
+                    <div class="d-flex gap-3">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
+                            data-bs-dismiss="modal">No, Keep</button>
+                        <button type="button" class="btn btn-warning rounded-pill flex-grow-1" id="confirmEndBtn">Yes,
+                            End Reminder</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Reminder Modal -->
+    <div class="modal fade" id="deleteReminderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-body text-center p-4">
+                    <div class="bg-danger-soft rounded-circle p-3 d-inline-flex mb-3" style="background: #fee2e2;">
+                        <i class="fas fa-trash-alt text-danger fs-2"></i>
+                    </div>
+                    <h5 class="fw-600 mb-2">Delete Reminder?</h5>
+                    <p class="text-muted mb-4">Are you sure you want to delete this reminder? This action cannot be
+                        undone.</p>
+                    <div class="d-flex gap-3">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger rounded-pill flex-grow-1" id="confirmDeleteBtn">Yes,
+                            Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function () {
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            btt.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Tab switching with active color
+            const tabs = document.querySelectorAll('.reminder-tab');
+            const rows = document.querySelectorAll('#remindersList tr');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.dataset.tab;
+
+                    rows.forEach(row => {
+                        if (filter === 'all') {
+                            row.style.display = '';
+                        } else {
+                            const status = row.dataset.status;
+                            const type = row.dataset.type;
+                            if (filter === status || filter === type) {
+                                row.style.display = '';
+                            } else {
+                                row.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('searchReminder');
+            searchInput.addEventListener('input', function () {
+                const searchTerm = this.value.toLowerCase();
+                rows.forEach(row => {
+                    const name = row.querySelector('td:first-child')?.innerText.toLowerCase() || '';
+                    if (name.includes(searchTerm)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+
+            // Transaction search in modal
+            const transactionSearch = document.getElementById('searchTransaction');
+            const transactionItems = document.querySelectorAll('.transaction-item-card');
+            if (transactionSearch) {
+                transactionSearch.addEventListener('input', function () {
+                    const searchTerm = this.value.toLowerCase();
+                    transactionItems.forEach(item => {
+                        const name = item.dataset.name?.toLowerCase() || '';
+                        const category = item.querySelector('.fw-600')?.innerText.toLowerCase() || '';
+                        if (name.includes(searchTerm) || category.includes(searchTerm)) {
+                            item.style.display = '';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+
+            // Select transaction to create reminder
+            const selectModal = new bootstrap.Modal(document.getElementById('addReminderSelectModal'));
+            const manualModal = new bootstrap.Modal(document.getElementById('addReminderManualModal'));
+
+            document.querySelectorAll('.transaction-item-card').forEach(item => {
+                item.addEventListener('click', function () {
+                    const name = this.dataset.name;
+                    const amount = this.dataset.amount;
+                    const category = this.dataset.category;
+                    const account = this.dataset.account;
+                    const date = this.dataset.date;
+
+                    document.getElementById('manualName').value = name;
+                    document.getElementById('manualAmount').value = amount;
+                    document.getElementById('manualCategory').value = category;
+                    document.getElementById('manualAccount').value = account;
+                    document.getElementById('manualStartDate').value = date;
+
+                    selectModal.hide();
+                    manualModal.show();
+                });
+            });
+
+            // Add Manually button
+            document.getElementById('addManuallyBtn').addEventListener('click', function () {
+                selectModal.hide();
+                manualModal.show();
+            });
+
+            // Save Manual Reminder
+            document.getElementById('saveManualReminderBtn').addEventListener('click', function () {
+                const name = document.getElementById('manualName').value;
+                const amount = document.getElementById('manualAmount').value;
+                const account = document.getElementById('manualAccount').value;
+                const category = document.getElementById('manualCategory').value;
+                const startDate = document.getElementById('manualStartDate').value;
+
+                if (!name || !amount) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+
+                const newRow = `
+                    <tr data-id="new" data-status="active" data-type="bills">
+                        <td class="py-3 px-4 fw-600">${name}</td>
+                        <td class="py-3">${startDate || new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</td>
+                        <td class="py-3">${account}</td>
+                        <td class="py-3"><span class="badge bg-primary">${category}</span></td>
+                        <td class="py-3 fw-600">$${parseFloat(amount).toLocaleString()}</td>
+                        <td class="py-3 text-center">
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="dropdown">
+                                    <i class="fas fa-ellipsis-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item view-reminder" href="#"><i class="fas fa-eye me-2"></i>View</a></li>
+                                    <li><a class="dropdown-item edit-reminder" href="#"><i class="fas fa-edit me-2"></i>Edit</a></li>
+                                    <li><a class="dropdown-item cancel-reminder" href="#"><i class="fas fa-stop-circle me-2"></i>Cancel</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item text-danger delete-reminder" href="#"><i class="fas fa-trash-alt me-2"></i>Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+
+                document.getElementById('remindersList').insertAdjacentHTML('beforeend', newRow);
+                alert('Reminder created successfully!');
+                manualModal.hide();
+
+                // Reset form
+                document.getElementById('manualName').value = '';
+                document.getElementById('manualAmount').value = '';
+                document.getElementById('manualStartDate').value = '';
+            });
+
+            let currentRow = null;
+
+            // View Reminder
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.view-reminder')) {
+                    e.preventDefault();
+                    currentRow = e.target.closest('tr');
+                    const name = currentRow.querySelector('td:first-child').innerText;
+                    const amount = currentRow.querySelector('td:nth-child(5)').innerText;
+                    const date = currentRow.querySelector('td:nth-child(2)').innerText;
+                    const category = currentRow.querySelector('td:nth-child(4) span').innerText;
+                    const account = currentRow.querySelector('td:nth-child(3)').innerText;
+
+                    document.getElementById('viewName').innerText = name;
+                    document.getElementById('viewAmount').innerText = amount;
+                    document.getElementById('viewStartDate').innerText = date;
+                    document.getElementById('viewCategory').innerText = category;
+                    document.getElementById('viewAccount').innerText = account;
+                    document.getElementById('upcomingName').innerText = name;
+                    document.getElementById('upcomingAmount').innerText = amount;
+                    document.getElementById('upcomingDate').innerHTML = `Next: ${date}`;
+
+                    const viewModal = new bootstrap.Modal(document.getElementById('viewReminderModal'));
+                    viewModal.show();
+                }
+            });
+
+            // Edit Reminder
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.edit-reminder')) {
+                    e.preventDefault();
+                    currentRow = e.target.closest('tr');
+                    const name = currentRow.querySelector('td:first-child').innerText;
+                    const amount = currentRow.querySelector('td:nth-child(5)').innerText.replace('$', '');
+                    const account = currentRow.querySelector('td:nth-child(3)').innerText;
+                    const category = currentRow.querySelector('td:nth-child(4) span').innerText;
+                    const date = currentRow.querySelector('td:nth-child(2)').innerText;
+
+                    document.getElementById('editName').value = name;
+                    document.getElementById('editAmount').value = amount;
+                    document.getElementById('editAccount').value = account;
+                    document.getElementById('editCategory').value = category;
+                    document.getElementById('editStartDate').value = date;
+
+                    const editModal = new bootstrap.Modal(document.getElementById('editReminderModal'));
+                    editModal.show();
+                }
+            });
+
+            // Cancel Reminder
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.cancel-reminder')) {
+                    e.preventDefault();
+                    currentRow = e.target.closest('tr');
+                    const cancelModal = new bootstrap.Modal(document.getElementById('cancelReminderModal'));
+                    cancelModal.show();
+                }
+            });
+
+            // Delete Reminder
+            document.addEventListener('click', function (e) {
+                if (e.target.closest('.delete-reminder')) {
+                    e.preventDefault();
+                    currentRow = e.target.closest('tr');
+                    const deleteModal = new bootstrap.Modal(document.getElementById('deleteReminderModal'));
+                    deleteModal.show();
+                }
+            });
+
+            // Confirm End
+            document.getElementById('confirmEndBtn').addEventListener('click', function () {
+                if (currentRow) {
+                    currentRow.dataset.status = 'completed';
+                    const statusBadge = currentRow.querySelector('td:nth-child(4) span');
+                    statusBadge.className = 'badge bg-secondary';
+                    statusBadge.innerText = 'Canceled';
+                    alert('Reminder ended successfully');
+                }
+                bootstrap.Modal.getInstance(document.getElementById('cancelReminderModal')).hide();
+            });
+
+            // Confirm Delete
+            document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+                if (currentRow) {
+                    currentRow.remove();
+                    alert('Reminder deleted successfully');
+                }
+                bootstrap.Modal.getInstance(document.getElementById('deleteReminderModal')).hide();
+            });
+
+            // Update Reminder
+            document.getElementById('updateReminderBtn').addEventListener('click', function () {
+                if (currentRow) {
+                    const newName = document.getElementById('editName').value;
+                    const newAmount = document.getElementById('editAmount').value;
+                    const newAccount = document.getElementById('editAccount').value;
+                    const newCategory = document.getElementById('editCategory').value;
+                    const newStartDate = document.getElementById('editStartDate').value;
+
+                    currentRow.querySelector('td:first-child').innerText = newName;
+                    currentRow.querySelector('td:nth-child(5)').innerText = `$${parseFloat(newAmount).toLocaleString()}`;
+                    currentRow.querySelector('td:nth-child(3)').innerText = newAccount;
+                    currentRow.querySelector('td:nth-child(4) span').innerHTML = newCategory;
+                    if (newStartDate) currentRow.querySelector('td:nth-child(2)').innerText = newStartDate;
+
+                    alert('Reminder updated successfully');
+                }
+                bootstrap.Modal.getInstance(document.getElementById('editReminderModal')).hide();
+            });
+        });
+    </script>
+</body>
+
+</html>

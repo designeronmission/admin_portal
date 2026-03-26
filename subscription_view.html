@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Subscription</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+
+</head>
+
+<body>
+    <div id="main-wrapper">
+
+ <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                <!-- Notifications Dropdown -->
+                                <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">3</span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
+                                        <li class="dropdown-header">
+                                            <div class="d-flex justify-content-between align-items-center px-3 py-2">
+                                                <span class="text-3 fw-600">Notifications</span>
+                                                <span class="badge bg-primary rounded-pill">3 New</span>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-primary-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-tag text-primary"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">New offer available</span>
+                                                        <span class="text-1 text-muted">Just now</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-warning-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-exclamation-triangle text-warning"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Budget alert</span>
+                                                        <span class="text-1 text-muted">2 hours ago</span>
+                                                    </div>
+                                                    <span class="notification-dot"></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item notification-item" href="#">
+                                                <div class="d-flex align-items-start">
+                                                    <div
+                                                        class="notification-icon bg-success-soft rounded-circle p-2 me-3">
+                                                        <i class="fas fa-check-circle text-success"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1">
+                                                        <span class="fw-600 d-block">Transaction completed</span>
+                                                        <span class="text-1 text-muted">Yesterday</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li>
+                                            <a class="dropdown-item text-center text-primary fw-500 py-2" href="#">
+                                                See all Notifications <i class="fas fa-arrow-right ms-1"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                      <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="profile.html"><i
+                                                    class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <!-- Account Settings -->
+                                        <li><a class="dropdown-item" href="Account.html"><i
+                                                    class="fas fa-user-shield me-2"></i>Account </a></li>
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance
+                                            </a>
+                                        </li>
+
+                                        <!-- Transaction History Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_history.html">
+                                                <i class="fas fa-clock-rotate-left  me-2"></i>Transaction History
+                                            </a>
+                                        </li>
+
+                                        <!-- Bank Account Summary Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_summary.html">
+                                                <i class="fas fa-file-invoice me-2"></i>Bank Account Summary
+                                            </a>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="payment-methods.html"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="payment-arrangement.html">
+                                                <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
+                                            </a>
+                                        </li>
+
+                                        <li><a class="dropdown-item active" href="subscription_plan.html"><i
+                                                    class="fas fa-tag me-2"></i>Subscription</a></li>
+
+                                        <!-- Reminders Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="Reminders.html">
+                                                <i class="fas fa-clock me-2"></i>Reminders
+                                            </a>
+                                        </li>
+
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="change-pin.html">
+                                                <i class="fas fa-key me-2"></i>Change PIN
+                                            </a>
+                                        </li>
+
+                                        <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="notification.html">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                            </a>
+                                        </li>
+
+                                        <li class="dropdown-divider"></li>
+
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-tag text-light me-2"></i> Subscription</h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2"></i>
+                         <a href="view_subscription.html"><span class="text-light opacity-75">Subscription</span></a>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2"></i>
+                        <span class="text-light fw-500">Subscription View</span>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Left Column - Plan Details -->
+                    <div class="col-lg-4">
+                        <div class="plan-card">
+                            <h4 class="fw-500 mb-4 text-white">Plan Details</h4>
+                            
+                            <div class="row g-3 mb-4">
+                                <div class="col-6">
+                                    <div class="limit-box">
+                                        <div class="text-white-50 small mb-1">Minimum Cash Limit</div>
+                                        <div class="fs-4 fw-500 mt-2">$25.00</div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="limit-box">
+                                        <div class="text-white-50 small mb-1">Maximum Cash Limit</div>
+                                        <div class="fs-4 fw-500 mt-2">$500.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="approved-amount mb-4">
+                                <div class="text-white-50 small mb-2">You are Approved for</div>
+                                <div class="fs-4 fw-500 mt-2">$25.00</div>
+                            </div>
+                        
+                        </div>
+                    </div>
+
+                    <!-- Right Column - Current Subscription Details -->
+                    <div class="col-lg-8">
+                        <div class="bg-white rounded-4 shadow-sm p-4">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4 pb-2 border-bottom">
+                                <h4 class="fw-600 mb-0">Current Subscription</h4>
+                                <span class="status-active">Active</span>
+                            </div>
+                            
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="subscription-detail-item">
+                                        <span class="detail-label">SUB. ID :</span>
+                                        <span class="detail-value" id="subId">SID10</span>
+                                    </div>
+                                    <div class="subscription-detail-item">
+                                        <span class="detail-label">PLAN :</span>
+                                        <span class="detail-value" id="planName">Standard Plan</span>
+                                    </div>
+                                    <div class="subscription-detail-item">
+                                        <span class="detail-label">SUBSCRIPTION FEE :</span>
+                                        <span class="detail-value" id="subFee">$9.99</span>
+                                    </div>
+                                    <div class="subscription-detail-item">
+                                        <span class="detail-label">SUBSCRIBED ON :</span>
+                                        <span class="detail-value" id="subscribedOn">03-13-2026 01:56 AM</span>
+                                    </div>
+                                    <div class="subscription-detail-item">
+                                        <span class="detail-label">PERIOD :</span>
+                                        <span class="detail-value" id="period">03-13-2026 - 03-31-2026</span>
+                                    </div>
+                                    <div class="subscription-detail-item">
+                                        <span class="detail-label">NEXT PAYMENT :</span>
+                                        <span class="detail-value" id="nextPayment">04-01-2026</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="subscription-detail-item">
+                                        <span class="detail-label">SUB. FREQUENCY :</span>
+                                        <span class="detail-value" id="frequency">monthly</span>
+                                    </div>
+                                    <div class="subscription-detail-item">
+                                        <span class="detail-label">TXN. ID :</span>
+                                        <span class="detail-value" id="txnId" style="font-size: 0.75rem; word-break: break-all;">f6d6c8cc-1ef5-4aac-a152-e1da9d6ae2de</span>
+                                    </div>
+                                    <div class="subscription-detail-item">
+                                        <span class="detail-label">TXN. STATUS :</span>
+                                        <span class="detail-value"><span class="status-success" id="txnStatus">Success</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 pt-3 border-top">
+                                <div class="detail-label mb-2">FEATURES :</div>
+                                <div class="d-flex flex-wrap gap-2" id="featuresList">
+                                    <span class="feature-badge">Budgeting</span>
+                                    <span class="feature-badge">Bank Insights</span>
+                                    <span class="feature-badge">Credit Score</span>
+                                    <span class="feature-badge">Get Advance</span>
+                                    <span class="feature-badge">Instant Funding</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transaction History Section -->
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="bg-white rounded-4 shadow-sm p-4">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4 pb-2 border-bottom">
+                                <h5 class="fw-600 mb-0">
+                                    <i class="fas fa-history text-primary me-2"></i>Transaction History
+                                </h5>
+                                <span class="text-muted small">Showing all Transaction history</span>
+                            </div>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle subscription-history-table">
+                                    <thead class="bg-light-1">
+                                        <tr>
+                                            <th class="py-3">Transaction ID</th>
+                                            <th class="py-3">Subscription On</th>
+                                            <th class="py-3">Period</th>
+                                            <th class="py-3">Transaction Status</th>
+                                            <th class="py-3">Transaction For</th>
+                                            <th class="py-3 text-center">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="subscriptionHistoryList">
+                                        <tr data-subscription="standard">
+                                            <td class="py-3">
+                                                <span class="small" style="font-family: monospace;">f6d6c8cc-1ef5-4aac-a152-e1da9d6ae2de</span>
+                                            </td>
+                                            <td class="py-3">03-13-2026</td>
+                                            <td class="py-3">03-13-2026 - 03-31-2026</td>
+                                            <td class="py-3"><span class="status-success">Success</span></td>
+                                            <td class="py-3">Subscription Purchased</td>
+                                            <td class="py-3 fw-600 text-center text-danger">
+                                                $9.99
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+
+    <!-- Cancel Subscription Modal -->
+    <div class="modal fade" id="cancelModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-700">Cancel Subscription</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <div class="bg-danger-soft rounded-circle p-3 d-inline-flex mb-3" style="background: #fee2e2;">
+                        <i class="fas fa-ban text-danger fs-2"></i>
+                    </div>
+                    <h5 class="fw-600 mb-2">Cancel your subscription?</h5>
+                    <p class="text-muted mb-3">Your subscription will end on <span id="cancelEndDate">April 1, 2026</span>. You will lose access to premium features.</p>
+                    <div class="d-flex gap-3">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Keep Subscription</button>
+                        <button type="button" class="btn btn-danger rounded-pill flex-grow-1" id="confirmCancelBtn">Cancel Anyway</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() { 
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none'; 
+            });
+            btt.addEventListener('click', function(e) { 
+                e.preventDefault(); 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            });
+
+            // Subscription data
+            const subscriptions = {
+                standard: {
+                    subId: 'SID10',
+                    planName: 'Standard Plan',
+                    subFee: '$9.99',
+                    subscribedOn: '03-13-2026 01:56 AM',
+                    period: '03-13-2026 - 03-31-2026',
+                    nextPayment: '04-01-2026',
+                    frequency: 'monthly',
+                    txnId: 'f6d6c8cc-1ef5-4aac-a152-e1da9d6ae2de',
+                    txnStatus: 'Success',
+                    status: 'Active',
+                    features: ['Budgeting', 'Bank Insights', 'Credit Score', 'Get Advance', 'Instant Funding']
+                },
+                premium: {
+                    subId: 'SID11',
+                    planName: 'Premium Plan',
+                    subFee: '$14.99',
+                    subscribedOn: '01-15-2026 10:30 AM',
+                    period: '01-15-2026 - 02-14-2026',
+                    nextPayment: 'Expired',
+                    frequency: 'monthly',
+                    txnId: 'a1b2c3d4-5e6f-7g8h-9i0j-k1l2m3n4o5p6',
+                    txnStatus: 'Success',
+                    status: 'Expired',
+                    features: ['All Standard Features', 'Priority Support', 'Higher Cash Limit', 'No Transaction Fees', 'Annual Report']
+                },
+                basic: {
+                    subId: 'SID09',
+                    planName: 'Basic Plan',
+                    subFee: '$4.99',
+                    subscribedOn: '12-01-2025 09:00 AM',
+                    period: '12-01-2025 - 12-31-2025',
+                    nextPayment: 'Cancelled',
+                    frequency: 'monthly',
+                    txnId: 'x9y8z7w6-v5u4t3s2-r1q0p9o8n7m6',
+                    txnStatus: 'Success',
+                    status: 'Cancelled',
+                    features: ['Basic Budgeting', 'Transaction History']
+                }
+            };
+
+            // Function to update current subscription details
+            function updateCurrentSubscription(subscriptionKey) {
+                const sub = subscriptions[subscriptionKey];
+                if (!sub) return;
+                
+                document.getElementById('subId').innerText = sub.subId;
+                document.getElementById('planName').innerText = sub.planName;
+                document.getElementById('subFee').innerText = sub.subFee;
+                document.getElementById('subscribedOn').innerText = sub.subscribedOn;
+                document.getElementById('period').innerText = sub.period;
+                document.getElementById('nextPayment').innerText = sub.nextPayment;
+                document.getElementById('frequency').innerText = sub.frequency;
+                document.getElementById('txnId').innerText = sub.txnId;
+                document.getElementById('txnStatus').innerHTML = `<span class="status-success">${sub.txnStatus}</span>`;
+                document.getElementById('status').innerHTML = `<span class="status-active">${sub.status}</span>`;
+                
+                // Update features
+                const featuresContainer = document.getElementById('featuresList');
+                featuresContainer.innerHTML = '';
+                sub.features.forEach(feature => {
+                    featuresContainer.innerHTML += `<span class="feature-badge">${feature}</span>`;
+                });
+                
+                // Update status badge in header
+                const statusBadge = document.querySelector('.d-flex.justify-content-between .status-active');
+                if (statusBadge) {
+                    if (sub.status === 'Active') {
+                        statusBadge.innerHTML = 'Active';
+                        statusBadge.style.background = '#10b981';
+                    } else if (sub.status === 'Expired') {
+                        statusBadge.innerHTML = 'Expired';
+                        statusBadge.style.background = '#f59e0b';
+                    } else {
+                        statusBadge.innerHTML = 'Cancelled';
+                        statusBadge.style.background = '#ef4444';
+                    }
+                }
+            }
+
+            // View Subscription button handler
+            const viewButtons = document.querySelectorAll('.view-subscription-btn');
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const subscriptionType = this.dataset.subscription;
+                    updateCurrentSubscription(subscriptionType);
+                    
+                    // Scroll to top of the current subscription section
+                    document.querySelector('.bg-white.rounded-4.shadow-sm.p-4').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                    
+                    // Highlight the selected row in the table
+                    document.querySelectorAll('#subscriptionHistoryList tr').forEach(row => {
+                        row.style.background = '';
+                    });
+                    this.closest('tr').style.background = '#f0f4ff';
+                });
+            });
+
+            // Unsubscribe button handler
+            const unsubscribeBtn = document.getElementById('unsubscribeBtn');
+            const unsubscribeModal = new bootstrap.Modal(document.getElementById('unsubscribeModal'));
+            
+            unsubscribeBtn.addEventListener('click', function() {
+                unsubscribeModal.show();
+            });
+            
+            document.getElementById('confirmUnsubscribeBtn').addEventListener('click', function() {
+                alert('Your subscription has been cancelled. You will have access until the end of your billing period.');
+                unsubscribeModal.hide();
+                // Update UI to show cancelled status
+                document.getElementById('status').innerHTML = '<span class="status-active" style="background: #ef4444;">Cancelled</span>';
+                const statusBadge = document.querySelector('.d-flex.justify-content-between .status-active');
+                if (statusBadge) {
+                    statusBadge.innerHTML = 'Cancelled';
+                    statusBadge.style.background = '#ef4444';
+                }
+            });
+            
+            // Cancel Subscription button handler
+            const cancelSubscriptionBtn = document.getElementById('cancelSubscriptionBtn');
+            const cancelModal = new bootstrap.Modal(document.getElementById('cancelModal'));
+            
+            cancelSubscriptionBtn.addEventListener('click', function() {
+                const nextPayment = document.getElementById('nextPayment').innerText;
+                document.getElementById('cancelEndDate').innerText = nextPayment;
+                cancelModal.show();
+            });
+            
+            document.getElementById('confirmCancelBtn').addEventListener('click', function() {
+                alert('Your subscription has been cancelled. You will have access until the end of your billing period.');
+                cancelModal.hide();
+                document.getElementById('status').innerHTML = '<span class="status-active" style="background: #ef4444;">Cancelled</span>';
+                const statusBadge = document.querySelector('.d-flex.justify-content-between .status-active');
+                if (statusBadge) {
+                    statusBadge.innerHTML = 'Cancelled';
+                    statusBadge.style.background = '#ef4444';
+                }
+            });
+            
+            // Upgrade Plan button handler
+            document.getElementById('upgradePlanBtn').addEventListener('click', function() {
+                alert('Upgrade to Premium Plan for more features and higher cash limits!\n\nPremium Features:\n• Higher Cash Limit up to $1000\n• Priority Support\n• No Transaction Fees\n• Annual Financial Report');
+            });
+        });
+    </script>
+</body>
+
+</html>

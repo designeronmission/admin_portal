@@ -14,89 +14,7 @@
     <link rel="stylesheet" type="text/css" href="vendor/owl.carousel.min.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="responsive.css" />
-    
-    <style>
-        /* Withdraw Option Card Styling */
-        .withdraw-option-card {
-            background: white;
-            border: 2px solid #e9ecef;
-            border-radius: 16px;
-            padding: 20px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .withdraw-option-card:hover {
-            border-color: #131d58;
-            transform: translateX(4px);
-            box-shadow: 0 4px 12px rgba(19, 29, 88, 0.1);
-        }
-        
-        .withdraw-option-card.selected {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
-            border-color: #131d58;
-            box-shadow: 0 4px 12px rgba(19, 29, 88, 0.15);
-        }
-        
-        .withdraw-option-card.selected .withdraw-icon i {
-            color: #131d58;
-            transform: scale(1.1);
-        }
-        
-        .withdraw-option-card.selected .withdraw-content h6 {
-            color: #131d58;
-        }
-    
-        
-        .withdraw-icon {
-            width: 50px;
-            height: 50px;
-            background: #f8fafc;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .withdraw-icon i {
-            font-size: 1.5rem;
-            color: #64748b;
-            transition: all 0.3s ease;
-        }
-        
-        .withdraw-content h6 {
-            font-size: 1rem;
-            margin-bottom: 6px;
-            transition: color 0.3s ease;
-        }
-        
-        .withdraw-content p {
-            font-size: 0.8rem;
-            margin-bottom: 0;
-            line-height: 1.4;
-        }
-        
-        @media (max-width: 768px) {
-            .withdraw-option-card {
-                padding: 16px;
-            }
-            .withdraw-icon {
-                width: 45px;
-                height: 45px;
-            }
-            .withdraw-icon i {
-                font-size: 1.3rem;
-            }
-            .withdraw-content h6 {
-                font-size: 0.9rem;
-            }
-            .withdraw-content p {
-                font-size: 0.7rem;
-            }
-        }
-    </style>
+
 </head>
 
 <body>
@@ -235,7 +153,7 @@
                                     <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="text-5"><i class="fas fa-cog"></i></span>
                                     </a>
-                                                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
                                         <!-- Profile Section inside Settings -->
                                         <li class="profile-header">
                                             <div class="d-flex align-items-center px-3 py-3">
@@ -253,10 +171,12 @@
                                         <li class="dropdown-divider"></li>
 
                                         <!-- Profile Links -->
-                                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My
+                                        <li><a class="dropdown-item" href="profile.html"><i
+                                                    class="fas fa-user me-2"></i>My
                                                 Profile</a></li>
                                         <!-- Account Settings -->
-                                             <li><a class="dropdown-item" href="Account.html"><i class="fas fa-user-shield me-2"></i>Account </a></li> 
+                                        <li><a class="dropdown-item" href="Account.html"><i
+                                                    class="fas fa-user-shield me-2"></i>Account </a></li>
                                         <!-- List of Advance Sub-items -->
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="advance.html">
@@ -264,17 +184,41 @@
                                             </a>
                                         </li>
 
-  <li><a class="dropdown-item" href="payment-methods.html"><i
+                                        <!-- Transaction History Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_history.html">
+                                                <i class="fas fa-clock-rotate-left  me-2"></i>Transaction History
+                                            </a>
+                                        </li>
+
+                                        <!-- Bank Account Summary Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_summary.html">
+                                                <i class="fas fa-file-invoice me-2"></i>Bank Account Summary
+                                            </a>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="payment-methods.html"><i
                                                     class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
 
-                                        <li class="dropdown-divider"></li>
                                         <!-- Payment Arrangement Section -->
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="payment-arrangement.html">
                                                 <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
                                             </a>
                                         </li>
-                                           <!-- Payment Arrangement Section -->
+
+                                        <li><a class="dropdown-item active" href="subscription_plan.html"><i
+                                                    class="fas fa-tag me-2"></i>Subscription</a></li>
+
+                                        <!-- Reminders Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="Reminders.html">
+                                                <i class="fas fa-clock me-2"></i>Reminders
+                                            </a>
+                                        </li>
+
+                                        <!-- Payment Arrangement Section -->
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="change-pin.html">
                                                 <i class="fas fa-key me-2"></i>Change PIN
@@ -290,7 +234,6 @@
 
                                         <li class="dropdown-divider"></li>
 
-                                        <li class="dropdown-divider"></li>
                                         <li><a class="dropdown-item text-danger" href="#"><i
                                                     class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
                                     </ul>
@@ -320,7 +263,7 @@
                             Goals</h2>
                     </div>
                     <div class="d-flex align-items-center">
-                         <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
+                        <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
                         <i class="fas fa-chevron-right text-light opacity-50 mx-2" style="font-size: 0.7rem;"></i>
                         <span class="text-light fw-500">Goals</span>
                     </div>
@@ -370,7 +313,9 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                          <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i> Delete Goal</a></li>
+                                        <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i>
+                                                Delete Goal</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -432,7 +377,9 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i> Delete Goal</a></li>
+                                        <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i>
+                                                Delete Goal</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -494,7 +441,9 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                      <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i> Delete Goal</a></li>
+                                        <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i>
+                                                Delete Goal</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -556,7 +505,9 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                          <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i> Delete Goal</a></li>
+                                        <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i>
+                                                Delete Goal</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -619,7 +570,9 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i> Delete Goal</a></li>
+                                        <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i>
+                                                Delete Goal</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -681,7 +634,9 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                       <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal" data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i> Delete Goal</a></li>
+                                        <li><a class="dropdown-item text-danger" href="#" data-bs-toggle="modal"
+                                                data-bs-target="#deleteGoalModal"><i class="fas fa-trash-alt"></i>
+                                                Delete Goal</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -887,20 +842,23 @@
                                     </div>
                                     <div class="withdraw-content">
                                         <h6 class="fw-600 mb-1">Spend a custom amount</h6>
-                                        <p class="small text-muted mb-0">Spend from your available balance. The total amount saved will not be affected.</p>
+                                        <p class="small text-muted mb-0">Spend from your available balance. The total
+                                            amount saved will not be affected.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
-                            <div class="withdraw-option-card" onclick="selectWithdrawOption('somethingElse')" id="optionSomethingElse">
+                            <div class="withdraw-option-card" onclick="selectWithdrawOption('somethingElse')"
+                                id="optionSomethingElse">
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="withdraw-icon">
                                         <i class="fas fa-exchange-alt"></i>
                                     </div>
                                     <div class="withdraw-content">
                                         <h6 class="fw-600 mb-1">Withdraw for Another Purpose</h6>
-                                        <p class="small text-muted mb-0">Your overall goal progress and amount saved will be reduced.</p>
+                                        <p class="small text-muted mb-0">Your overall goal progress and amount saved
+                                            will be reduced.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1089,7 +1047,8 @@
     </div>
 
     <!-- Delete Goal Modal -->
-    <div class="modal fade" id="deleteGoalModal" tabindex="-1" aria-labelledby="deleteGoalModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteGoalModal" tabindex="-1" aria-labelledby="deleteGoalModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg rounded-4">
                 <div class="modal-header border-0 pb-0">
@@ -1118,7 +1077,8 @@
                     </div>
 
                     <div class="d-flex gap-3">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
+                            data-bs-dismiss="modal">
                             Cancel
                         </button>
                         <button type="button" class="btn btn-danger rounded-pill flex-grow-1" id="confirmDeleteBtn">
@@ -1368,11 +1328,11 @@
 
         function selectWithdrawOption(option) {
             selectedWithdrawOption = option;
-            
+
             // Remove selected class from both options
             document.getElementById('optionSpend').classList.remove('selected');
             document.getElementById('optionSomethingElse').classList.remove('selected');
-            
+
             // Add selected class to chosen option
             if (option === 'spend') {
                 document.getElementById('optionSpend').classList.add('selected');

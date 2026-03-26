@@ -151,7 +151,7 @@
                                     <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="text-5"><i class="fas fa-cog"></i></span>
                                     </a>
-                                                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                         <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
                                         <!-- Profile Section inside Settings -->
                                         <li class="profile-header">
                                             <div class="d-flex align-items-center px-3 py-3">
@@ -169,10 +169,12 @@
                                         <li class="dropdown-divider"></li>
 
                                         <!-- Profile Links -->
-                                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My
+                                        <li><a class="dropdown-item" href="profile.html"><i
+                                                    class="fas fa-user me-2"></i>My
                                                 Profile</a></li>
                                         <!-- Account Settings -->
-                                             <li><a class="dropdown-item" href="Account.html"><i class="fas fa-user-shield me-2"></i>Account </a></li> 
+                                        <li><a class="dropdown-item" href="Account.html"><i
+                                                    class="fas fa-user-shield me-2"></i>Account </a></li>
                                         <!-- List of Advance Sub-items -->
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="advance.html">
@@ -180,17 +182,41 @@
                                             </a>
                                         </li>
 
-  <li><a class="dropdown-item" href="payment-methods.html"><i
+                                        <!-- Transaction History Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_history.html">
+                                                <i class="fas fa-clock-rotate-left  me-2"></i>Transaction History
+                                            </a>
+                                        </li>
+
+                                        <!-- Bank Account Summary Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_summary.html">
+                                                <i class="fas fa-file-invoice me-2"></i>Bank Account Summary
+                                            </a>
+                                        </li>
+
+                                        <li><a class="dropdown-item" href="payment-methods.html"><i
                                                     class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
 
-                                        <li class="dropdown-divider"></li>
                                         <!-- Payment Arrangement Section -->
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="payment-arrangement.html">
                                                 <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
                                             </a>
                                         </li>
-                                           <!-- Payment Arrangement Section -->
+
+                                        <li><a class="dropdown-item active" href="subscription_plan.html"><i
+                                                    class="fas fa-tag me-2"></i>Subscription</a></li>
+
+                                        <!-- Reminders Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="Reminders.html">
+                                                <i class="fas fa-clock me-2"></i>Reminders
+                                            </a>
+                                        </li>
+
+                                        <!-- Payment Arrangement Section -->
                                         <li class="dropdown-submenu">
                                             <a class="dropdown-item" href="change-pin.html">
                                                 <i class="fas fa-key me-2"></i>Change PIN
@@ -206,7 +232,6 @@
 
                                         <li class="dropdown-divider"></li>
 
-                                        <li class="dropdown-divider"></li>
                                         <li><a class="dropdown-item text-danger" href="#"><i
                                                     class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
                                     </ul>
@@ -276,12 +301,12 @@
                                                 class="fas fa-plus-circle me-1"></i>Add Category</button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="row text-end g-0">
+                                        <div class="row text-center g-0">
                                             <div class="col-4"><span class="text-muted small">Budgeted</span></div>
                                             <div class="col-4"><span class="text-muted small">Spent</span></div>
                                             <div class="col-4"><span class="text-muted small">Available</span></div>
                                         </div>
-                                        <div class="row text-end g-0 mt-1" id="bills-totals">
+                                        <div class="row text-center g-0 mt-1" id="bills-totals">
                                             <div class="col-4 fw-700">$1,850</div>
                                             <div class="col-4 text-danger fw-600">$1,475</div>
                                             <div class="col-4 text-success fw-600">$375</div>
@@ -302,7 +327,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="1200"
                                                         data-category="Rent">$1,200</span></div>
                                                 <div class="col-4 amount-spent amount-value">$1,200</div>
@@ -322,7 +347,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="180"
                                                         data-category="Electricity">$180</span></div>
                                                 <div class="col-4 amount-spent amount-value">$135</div>
@@ -342,7 +367,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value"
                                                         data-category="Water & Sewer">$120</span></div>
                                                 <div class="col-4 amount-spent amount-value">$42</div>
@@ -362,7 +387,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="85"
                                                         data-category="Internet">$85</span></div>
                                                 <div class="col-4 amount-spent amount-value">$83.25</div>
@@ -386,12 +411,12 @@
                                                 class="fas fa-plus-circle me-1"></i>Add Category</button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="row text-end g-0">
+                                        <div class="row text-center g-0">
                                             <div class="col-4"><span class="text-muted small">Budgeted</span></div>
                                             <div class="col-4"><span class="text-muted small">Spent</span></div>
                                             <div class="col-4"><span class="text-muted small">Available</span></div>
                                         </div>
-                                        <div class="row text-end g-0 mt-1" id="wants-totals">
+                                        <div class="row text-center g-0 mt-1" id="wants-totals">
                                             <div class="col-4 fw-700">$1,500</div>
                                             <div class="col-4 text-danger fw-600">$925.50</div>
                                             <div class="col-4 text-success fw-600">$574.50</div>
@@ -411,7 +436,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="600"
                                                         data-category="Groceries">$600</span></div>
                                                 <div class="col-4 amount-spent amount-value">$408</div>
@@ -431,7 +456,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="300"
                                                         data-category="Dining">$300</span></div>
                                                 <div class="col-4 amount-spent amount-value">$255</div>
@@ -451,7 +476,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="250"
                                                         data-category="Fuel">$250</span></div>
                                                 <div class="col-4 amount-spent amount-value">$137.50</div>
@@ -471,7 +496,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="200"
                                                         data-category="Entertainment">$200</span></div>
                                                 <div class="col-4 amount-spent amount-value">$84</div>
@@ -491,7 +516,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="150"
                                                         data-category="Clothing">$150</span></div>
                                                 <div class="col-4 amount-spent amount-value">$45</div>
@@ -515,12 +540,12 @@
                                                 class="fas fa-plus-circle me-1"></i>Add Category</button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <div class="row text-end g-0">
+                                        <div class="row text-center g-0">
                                             <div class="col-4"><span class="text-muted small">Budgeted</span></div>
                                             <div class="col-4"><span class="text-muted small">Saved</span></div>
                                             <div class="col-4"><span class="text-muted small">Available</span></div>
                                         </div>
-                                        <div class="row text-end g-0 mt-1" id="needs-totals">
+                                        <div class="row text-center g-0 mt-1" id="needs-totals">
                                             <div class="col-4 fw-700">$900</div>
                                             <div class="col-4 text-success fw-600">$503.75</div>
                                             <div class="col-4 text-success fw-600">$396.25</div>
@@ -540,7 +565,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value"
                                                         data-category="Emergency Fund">$200</span></div>
                                                 <div class="col-4 amount-available amount-value">$225</div>
@@ -560,7 +585,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="250"
                                                         data-category="Vacation">$250</span></div>
                                                 <div class="col-4 amount-available amount-value">$155</div>
@@ -580,7 +605,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="row text-end align-items-center g-0">
+                                            <div class="row text-center align-items-center g-0">
                                                 <div class="col-4"><span class="budget-value" data-budget="150"
                                                         data-category="Retirement">$150</span></div>
                                                 <div class="col-4 amount-available amount-value">$123.75</div>
