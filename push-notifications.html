@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Push Notifications</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+</head>
+
+<body>
+    <div id="main-wrapper">
+
+        <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                   <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="push-notifications.html">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">11</span>
+                                    </a>
+                                </li>
+
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="profile.html"><i
+                                                    class="fas fa-user me-2"></i>My Profile</a></li>
+                                        <li><a class="dropdown-item" href="Account.html"><i
+                                                    class="fas fa-user-shield me-2"></i>Account</a></li>
+                                        <li class="dropdown-submenu"><a class="dropdown-item" href="advance.html"><i
+                                                    class="fas fa-list-ul me-2"></i>Advance</a></li>
+                                        <li class="dropdown-submenu"><a class="dropdown-item"
+                                                href="transaction_history.html"><i
+                                                    class="fas fa-clock-rotate-left me-2"></i>Transaction History</a>
+                                        </li>
+                                        <li class="dropdown-submenu"><a class="dropdown-item"
+                                                href="transaction_summary.html"><i
+                                                    class="fas fa-file-invoice me-2"></i>Bank Account Summary</a></li>
+                                        <li><a class="dropdown-item" href="payment-methods.html"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+                                        <li class="dropdown-submenu"><a class="dropdown-item"
+                                                href="payment-arrangement.html"><i
+                                                    class="fas fa-exchange-alt me-2"></i>Payment Arrangement</a></li>
+                                        <li><a class="dropdown-item" href="subscription_plan.html"><i
+                                                    class="fas fa-tag me-2"></i>Subscription</a></li>
+                                        <li class="dropdown-submenu"><a class="dropdown-item" href="Reminders.html"><i
+                                                    class="fas fa-clock me-2"></i>Reminders</a></li>
+                                        <li class="dropdown-submenu"><a class="dropdown-item active"
+                                                href="push_notifications.html"><i class="fas fa-bell me-2"></i>Push
+                                                Notifications</a></li>
+                                        <li class="dropdown-submenu"><a class="dropdown-item" href="change-pin.html"><i
+                                                    class="fas fa-key me-2"></i>Change PIN</a></li>
+                                        <li class="dropdown-submenu"><a class="dropdown-item"
+                                                href="notification.html"><i
+                                                    class="fas fa-bell me-2"></i>Notifications</a></li>
+                                        <li class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span><span></span><span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-bell text-light me-2"></i> Push
+                            Notifications</h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2"></i>
+                        <span class="text-light fw-500">Push Notifications</span>
+                    </div>
+                </div>
+
+                <!-- Notifications Card -->
+                <div class="bg-white rounded-4 shadow-sm overflow-hidden">
+                    <!-- Header with Title and Mark All Button -->
+                    <div class="p-4 border-bottom bg-light-1">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="fas fa-bell text-primary fs-5"></i>
+                                <h5 class="fw-600 mb-0">All Notifications</h5>
+                                <span class="badge bg-primary rounded-pill ms-2" id="notificationCount">8</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification-list" id="notificationList">
+                        <!-- Advance Failure -->
+                        <div class="notification-item p-4 border-bottom unread" data-id="1">
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 48px; height: 48px; background: #fee2e2;">
+                                        <i class="fas fa-exclamation-circle text-danger fs-5"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                        <div class="flex-grow-1">
+                                            <h6 class="fw-600 mb-1">Advance Failure</h6>
+                                            <p class="text-muted mb-1">Advance Amount of $18 has been failed due to A
+                                                payment method with that token was not found.</p>
+                                        </div>
+                                        <div class="text-end flex-shrink-0">
+                                            <span class="small text-muted"><i class="far fa-clock me-1"></i>03-24-2026
+                                                11:29 AM</span>
+                                            <div class="mt-2">
+                                                <span class="badge bg-danger rounded-pill">Failed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advance Success -->
+                        <div class="notification-item p-4 border-bottom unread" data-id="2">
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 48px; height: 48px; background: #e6f7e6;">
+                                        <i class="fas fa-check-circle text-success fs-5"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                        <div class="flex-grow-1">
+                                            <h6 class="fw-600 mb-1">Advance AID174</h6>
+                                            <p class="text-muted mb-1">Advance Amount of $18 has been Credited
+                                                successfully!</p>
+
+                                        </div>
+                                        <div class="text-end flex-shrink-0">
+                                            <span class="small text-muted"><i class="far fa-clock me-1"></i>03-09-2026
+                                                10:42 AM</span>
+                                            <div class="mt-2">
+                                                <span class="badge bg-success rounded-pill">Success</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Budget Alert -->
+                        <div class="notification-item p-4 border-bottom unread" data-id="3">
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 48px; height: 48px; background: #fef3c7;">
+                                        <i class="fas fa-exclamation-triangle text-warning fs-5"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                        <div class="flex-grow-1">
+                                            <h6 class="fw-600 mb-1">Budget Alert</h6>
+                                            <p class="text-muted mb-1">You have exceeded your Dining budget for this
+                                                month by $45.50</p>
+
+                                        </div>
+                                        <div class="text-end flex-shrink-0">
+                                            <span class="small text-muted"><i class="far fa-clock me-1"></i>03-20-2026
+                                                06:15 PM</span>
+                                            <div class="mt-2">
+                                                <span class="badge bg-warning text-dark">Warning</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- New Offer Available -->
+                        <div class="notification-item p-4 border-bottom" data-id="4">
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 48px; height: 48px; background: #eef2ff;">
+                                        <i class="fas fa-tag text-primary fs-5"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                        <div class="flex-grow-1">
+                                            <h6 class="fw-600 mb-1">New Offer Available</h6>
+                                            <p class="text-muted mb-1">Special 10% cashback on all grocery purchases
+                                                this weekend!</p>
+
+                                        </div>
+                                        <div class="text-end flex-shrink-0">
+                                            <span class="small text-muted"><i class="far fa-clock me-1"></i>03-18-2026
+                                                09:00 AM</span>
+                                            <div class="mt-2">
+                                                <span class="badge bg-info text-dark">Offer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cash Advance Approved -->
+                        <div class="notification-item p-4 border-bottom unread" data-id="5">
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 48px; height: 48px; background: #e6f7e6;">
+                                        <i class="fas fa-hand-holding-usd text-success fs-5"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                        <div class="flex-grow-1">
+                                            <h6 class="fw-600 mb-1">Cash Advance Approved</h6>
+                                            <p class="text-muted mb-1">Your cash advance of $50 has been approved and
+                                                will be disbursed shortly.</p>
+
+                                        </div>
+                                        <div class="text-end flex-shrink-0">
+                                            <span class="small text-muted"><i class="far fa-clock me-1"></i>03-15-2026
+                                                02:30 PM</span>
+                                            <div class="mt-2">
+                                                <span class="badge bg-success">Approved</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Goal Milestone -->
+                        <div class="notification-item p-4 border-bottom" data-id="6">
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 48px; height: 48px; background: #eef2ff;">
+                                        <i class="fas fa-bullseye text-primary fs-5"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                        <div class="flex-grow-1">
+                                            <h6 class="fw-600 mb-1">Goal Milestone Reached!</h6>
+                                            <p class="text-muted mb-1">Congratulations! You've reached 50% of your
+                                                Emergency Fund goal.</p>
+
+                                        </div>
+                                        <div class="text-end flex-shrink-0">
+                                            <span class="small text-muted"><i class="far fa-clock me-1"></i>03-12-2026
+                                                11:45 AM</span>
+                                            <div class="mt-2">
+                                                <span class="badge bg-primary">Milestone</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Reminder -->
+                        <div class="notification-item p-4 border-bottom unread" data-id="7">
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 48px; height: 48px; background: #fef3c7;">
+                                        <i class="fas fa-clock text-warning fs-5"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                        <div class="flex-grow-1">
+                                            <h6 class="fw-600 mb-1">Payment Reminder</h6>
+                                            <p class="text-muted mb-1">Your credit card payment of $125.00 is due in 3
+                                                days. Please ensure sufficient balance.</p>
+
+                                        </div>
+                                        <div class="text-end flex-shrink-0">
+                                            <span class="small text-muted"><i class="far fa-clock me-1"></i>03-10-2026
+                                                08:00 AM</span>
+                                            <div class="mt-2">
+                                                <span class="badge bg-warning text-dark">Reminder</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Subscription Renewal -->
+                        <div class="notification-item p-4 border-bottom" data-id="8">
+                            <div class="d-flex gap-3">
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
+                                        style="width: 48px; height: 48px; background: #e0f2fe;">
+                                        <i class="fas fa-sync-alt text-info fs-5"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                        <div class="flex-grow-1">
+                                            <h6 class="fw-600 mb-1">Subscription Renewal</h6>
+                                            <p class="text-muted mb-1">Your Standard Plan subscription will renew on
+                                                April 1, 2026 for $7.99.</p>
+
+                                        </div>
+                                        <div class="text-end flex-shrink-0">
+                                            <span class="small text-muted"><i class="far fa-clock me-1"></i>03-05-2026
+                                                04:20 PM</span>
+                                            <div class="mt-2">
+                                                <span class="badge bg-info text-dark">Subscription</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div id="emptyState" class="text-center py-5 d-none">
+                        <div class="bg-light-1 rounded-circle p-4 d-inline-flex mb-3">
+                            <i class="fas fa-bell-slash text-muted fs-1"></i>
+                        </div>
+                        <h5 class="fw-600 mb-2">No Notifications</h5>
+                        <p class="text-muted mb-0">You're all caught up! Check back later for updates.</p>
+                    </div>
+
+                    <!-- Load More Button -->
+                    <div class="text-center p-4 border-top" id="loadMoreSection">
+                        <button class="btn btn-outline-primary rounded-pill px-4" id="loadMoreBtn">
+                            <i class="fas fa-arrow-down me-2"></i>Load More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.
+                            </p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function () {
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            btt.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            let visibleCount = 5;
+            const allNotifications = document.querySelectorAll('.notification-item');
+            const loadMoreBtn = document.getElementById('loadMoreBtn');
+            const notificationList = document.getElementById('notificationList');
+            const emptyState = document.getElementById('emptyState');
+            const notificationCountSpan = document.getElementById('notificationCount');
+            const markAllReadBtn = document.getElementById('markAllReadBtn');
+
+            function updateNotificationCount() {
+                const unreadCount = document.querySelectorAll('.notification-item.unread').length;
+                const totalCount = allNotifications.length;
+                notificationCountSpan.innerText = totalCount;
+            }
+
+            function updateVisibility() {
+                let visible = 0;
+                allNotifications.forEach((item, index) => {
+                    if (index < visibleCount) {
+                        item.style.display = '';
+                        visible++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                if (visible === 0) {
+                    notificationList.style.display = 'none';
+                    emptyState.classList.remove('d-none');
+                    loadMoreBtn.closest('#loadMoreSection').style.display = 'none';
+                } else {
+                    notificationList.style.display = '';
+                    emptyState.classList.add('d-none');
+                    if (visible >= allNotifications.length) {
+                        loadMoreBtn.closest('#loadMoreSection').style.display = 'none';
+                    } else {
+                        loadMoreBtn.closest('#loadMoreSection').style.display = 'block';
+                    }
+                }
+            }
+
+            updateVisibility();
+            updateNotificationCount();
+
+            loadMoreBtn.addEventListener('click', function () {
+                visibleCount = allNotifications.length;
+                updateVisibility();
+            });
+
+            // Mark all as read - just remove unread class and update badge style
+            markAllReadBtn.addEventListener('click', function () {
+                document.querySelectorAll('.notification-item.unread').forEach(item => {
+                    item.classList.remove('unread');
+                });
+                updateNotificationCount();
+                alert('All notifications marked as read');
+            });
+        });
+    </script>
+</body>
+
+</html>
