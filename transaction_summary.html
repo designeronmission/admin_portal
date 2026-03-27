@@ -361,106 +361,60 @@
                             </div>
                             <h2 class="text-7 fw-700 text-primary mb-4">$7,500.00</h2>
                             
-                            <div class="mb-4">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="text-muted">Banking inside</span>
-                                    <span class="fw-600">$5,240.00</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Digital Cash Group -->
+                            <!-- Banking inside with Savings Dropdown -->
                             <div class="account-group-card">
-                                <div class="account-group-header d-flex justify-content-between align-items-center" data-group="digital">
-                                    <div>
-                                        <i class="fas fa-mobile-alt text-primary me-2"></i>
-                                        <span class="group-title">Digital Cash</span>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="group-total">$1,200.00</span>
-                                        <i class="fas fa-chevron-right rotate-icon"></i>
-                                    </div>
-                                </div>
-                                <div class="account-group-content" style="display: none;">
-                                    <div class="account-card-item" data-account="digital-wallet" data-name="Digital Wallet" data-desc="Apple Pay / Google Pay" data-balance="1200">
-                                        <div class="account-row">
-                                            <div class="account-info-left">
-                                                <i class="fas fa-mobile-alt text-primary"></i>
-                                                <span class="account-name">Digital Wallet</span>
-                                            </div>
-                                            <div class="account-amount">$1,200.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Checking Group -->
-                            <div class="account-group-card">
-                                <div class="account-group-header d-flex justify-content-between align-items-center" data-group="checking">
+                                <div class="account-group-header d-flex justify-content-between align-items-center" data-group="banking">
                                     <div>
                                         <i class="fas fa-university text-primary me-2"></i>
-                                        <span class="group-title">Checking</span>
+                                        <span class="group-title">Banking inside</span>
                                     </div>
                                     <div class="d-flex align-items-center gap-2">
-                                        <span class="group-total">$2,840.00</span>
+                                        <span class="group-total">$5,240.00</span>
                                         <i class="fas fa-chevron-right rotate-icon"></i>
                                     </div>
                                 </div>
                                 <div class="account-group-content" style="display: none;">
-                                    <div class="account-card-item active" data-account="primary" data-name="Primary Account (Manual)" data-desc="Chirp Test Bank - Checking XX1771" data-balance="2840">
-                                        <div class="account-row">
-                                            <div class="account-info-left">
-                                                <i class="fas fa-university text-primary"></i>
-                                                <span class="account-name">Primary Account (Manual)</span>
+                                    <!-- Savings Sub Group -->
+                                    <div class="account-sub-group">
+                                        <div class="account-sub-header d-flex justify-content-between align-items-center" data-sub-group="savings">
+                                            <div>
+                                                <i class="fas fa-piggy-bank text-primary me-2"></i>
+                                                <span class="group-title">Savings</span>
                                             </div>
-                                            <div class="account-amount">$2,840.00</div>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="group-total">$5,250.00</span>
+                                                <i class="fas fa-chevron-right rotate-icon"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="account-card-item" data-account="secondary" data-name="Secondary Checking" data-desc="Chase Bank - Checking XX4567" data-balance="0">
-                                        <div class="account-row">
-                                            <div class="account-info-left">
-                                                <i class="fas fa-university text-primary"></i>
-                                                <span class="account-name">Secondary Checking</span>
+                                        <div class="account-sub-content" style="display: none;">
+                                            <div class="account-card-item" data-account="money-market" data-name="Money Market (Manual)" data-desc="High-yield money market account" data-balance="4000">
+                                                <div class="account-row">
+                                                    <div class="account-info-left">
+                                                        <span class="account-name">Money Market (Manual)</span>
+                                                    </div>
+                                                    <div class="account-amount">$4,000.00</div>
+                                                </div>
+                                                      
+                                                <div class="account-row mt-2">
+                                                    <div class="account-info-left">
+                                                        <span class="account-name text-2">Saving Goals</span>
+                                                    </div>
+                                                    <div class="account-amount text-2">$500.00</div>
+                                                </div>
+                                                 <div class="account-row">
+                                                    <div class="account-info-left">
+                                                        <span class="account-name text-2">Available Balance</span>
+                                                    </div>
+                                                    <div class="account-amount text-2">$750.00</div>
+                                                </div>
+                                       
                                             </div>
-                                            <div class="account-amount">$0.00</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Savings Group -->
-                            <div class="account-group-card">
-                                <div class="account-group-header d-flex justify-content-between align-items-center" data-group="savings">
-                                    <div>
-                                        <i class="fas fa-piggy-bank text-primary me-2"></i>
-                                        <span class="group-title">Savings</span>
-                                    </div>
-                                    <div class="d-flex align-items-center gap-2">
-                                        <span class="group-total">$1,200.00</span>
-                                        <i class="fas fa-chevron-right rotate-icon"></i>
-                                    </div>
-                                </div>
-                                <div class="account-group-content" style="display: none;">
-                                    <div class="account-card-item" data-account="high-yield" data-name="High-Yield Savings" data-desc="Ally Bank - Savings XX1114" data-balance="1200">
-                                        <div class="account-row">
-                                            <div class="account-info-left">
-                                                <i class="fas fa-piggy-bank text-primary"></i>
-                                                <span class="account-name">High-Yield Savings</span>
-                                            </div>
-                                            <div class="account-amount">$1,200.00</div>
-                                        </div>
-                                    </div>
-                                    <div class="account-card-item" data-account="emergency" data-name="Emergency Fund" data-desc="Capital One - Savings XX2223" data-balance="0">
-                                        <div class="account-row">
-                                            <div class="account-info-left">
-                                                <i class="fas fa-shield-alt text-primary"></i>
-                                                <span class="account-name">Emergency Fund</span>
-                                            </div>
-                                            <div class="account-amount">$0.00</div>
+                                  
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+   
                             <!-- Credit Group with Nested Dropdown -->
                             <div class="account-group-card">
                                 <div class="account-group-header d-flex justify-content-between align-items-center" data-group="credit-main">
@@ -507,16 +461,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Additional Credit Items -->
-                                    <div class="account-card-item" data-account="credit-line" data-name="Credit Line" data-desc="Personal Line of Credit" data-balance="940">
-                                        <div class="account-row">
-                                            <div class="account-info-left">
-                                                <i class="fas fa-chart-line text-primary"></i>
-                                                <span class="account-name">Credit Line</span>
-                                            </div>
-                                            <div class="account-amount">$940.00</div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -541,11 +485,11 @@
                         <!-- Account Header Card - Flex Layout -->
                         <div class="account-header-card">
                             <div class="account-info">
-                                <h4 class="fw-600 mb-1" id="selectedAccountName">Primary Account (Manual)</h4>
-                                <p class="text-muted mb-0" id="selectedAccountDesc">Chirp Test Bank - Checking XX1771</p>
+                                <h4 class="fw-600 mb-1" id="selectedAccountName">Money Market (Manual)</h4>
+                                <p class="text-muted mb-0" id="selectedAccountDesc">High-yield money market account</p>
                             </div>
                             <div class="balance-card">
-                                <h2 class="text-6 fw-700 text-primary mb-0" id="selectedAccountBalance">$2,840.00</h2>
+                                <h2 class="text-6 fw-700 text-primary mb-0" id="selectedAccountBalance">$4,000.00</h2>
                                 <span class="text-muted small">Current Balance</span>
                             </div>
                         </div>
@@ -595,7 +539,7 @@
                                                  </thead>
                                             <tbody id="transactionList">
                                                  <tr>
-                                                    <td class="py-3"><span class="badge bg-primary">Groceries</span>
+                                                    <td class="py-3"><span class="badge bg-white border-radius rounded-circle"><img src="vendor/images/cash-advance.png" class="badge-img"></span>
                                                     <td class="py-3">Whole Foods Market
                                                     <td class="py-3">Mar 15, 2026
                                                     <td class="py-3 text-end text-danger fw-600">-$124.37
@@ -615,7 +559,7 @@
                                                      
                                                     </tr>
                                                     <tr>
-                                                    <td class="py-3"><span class="badge bg-warning">Dining</span>
+                                                     <td class="py-3"><span class="badge bg-white border-radius rounded-circle"><img src="vendor/images/fuel-pump.png" class="badge-img"></span>
                                                     <td class="py-3">Starbucks Coffee
                                                     <td class="py-3">Mar 12, 2026
                                                     <td class="py-3 text-end text-danger fw-600">-$8.75
@@ -635,7 +579,7 @@
                                                      
                                                     </tr>
                                                     <tr>
-                                                    <td class="py-3"><span class="badge bg-success">Salary</span>
+                                                      <td class="py-3"><span class="badge bg-white border-radius rounded-circle"><img src="vendor/images/Insurance.png" class="badge-img"></span>
                                                     <td class="py-3">Monthly Salary Deposit
                                                     <td class="py-3">Mar 14, 2026
                                                     <td class="py-3 text-end text-success fw-600">+$3,250.00
@@ -684,16 +628,16 @@
                                     <div class="table-responsive">
                                         <table class="table table-hover align-middle">
                                             <thead class="bg-light-1">
-                                                 <tr>
+                                                <tr>
                                                     <th class="py-3">Category</th>
                                                     <th class="py-3">Description</th>
                                                     <th class="py-3">Transaction On</th>
                                                     <th class="py-3 text-end">Amount ($)</th>
                                                     <th class="py-3 text-center">Action</th>
-                                                 </tr>
+                                                </tr>
                                             </thead>
                                             <tbody>
-                                                 <tr>
+                                                <tr>
                                                     <td class="py-3"><span class="badge bg-success">Salary</span>
                                                     <td class="py-3">Monthly Salary Deposit
                                                     <td class="py-3">Mar 14, 2026
@@ -723,16 +667,16 @@
                                     <div class="table-responsive">
                                         <table class="table table-hover align-middle">
                                             <thead class="bg-light-1">
-                                                 <tr>
+                                                <tr>
                                                     <th class="py-3">Category</th>
                                                     <th class="py-3">Description</th>
                                                     <th class="py-3">Transaction On</th>
                                                     <th class="py-3 text-end">Amount ($)</th>
                                                     <th class="py-3 text-center">Action</th>
-                                                 </tr>
+                                                </tr>
                                             </thead>
                                             <tbody>
-                                                 <tr>
+                                                <tr>
                                                     <td class="py-3"><span class="badge bg-primary">Groceries</span>
                                                     <td class="py-3">Whole Foods Market
                                                     <td class="py-3">Mar 15, 2026
@@ -852,9 +796,11 @@
                     <div class="mb-3">
                         <label class="form-label fw-500">Account <span class="text-danger">*</span></label>
                         <select class="form-select rounded-pill" id="transactionAccount">
-                            <option>Primary Account (Manual) - Checking</option>
-                            <option>High-Yield Savings</option>
-                            <option>Digital Wallet</option>
+                            <option>Money Market (Manual)</option>
+                            <option>Saving Goals</option>
+                            <option>Available Balance</option>
+                            <option>Visa ****2224</option>
+                            <option>Mastercard ****5678</option>
                         </select>
                     </div>
                     <div class="mb-4">
@@ -1019,7 +965,7 @@
                                 </ul>
                             </div>
                          \\
-                      </table>
+                       \\
                 `;
                 
                 document.getElementById('transactionList').insertAdjacentHTML('afterbegin', newRow);

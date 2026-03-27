@@ -1501,17 +1501,19 @@
   .offers-wrapper {
     padding: 16px;
   }
-}
-
-@media (max-width: 991.98px) {
-  .sticky-sidebar {
-    position: relative;
-    top: 0;
-    margin-bottom: 24px;
+  .tag-badge {
+    padding: 3px 8px;
+    font-size: 0.65rem;
   }
-}
-
-@media (max-width: 768px) {
+  .tags-table-responsive {
+    overflow-x: auto;
+  }
+  .tags-table-responsive table {
+    min-width: 600px;
+  }
+  .filter-buttons {
+    flex-direction: column;
+  }
   .payment-card {
     padding: 16px;
   }
@@ -1540,22 +1542,6 @@
   .plan-price {
     font-size: 2.5rem;
   }
-}
-
-@media (max-width: 991px) {
-  .sticky-sidebar {
-    position: relative;
-    top: 0;
-    margin-bottom: 24px;
-  }
-  .scrollable-content {
-    max-height: none;
-    overflow-y: visible;
-    padding-right: 0;
-  }
-}
-
-@media (max-width: 768px) {
   .tabs-container {
     overflow-x: auto;
     width: 100%;
@@ -1662,6 +1648,27 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 6px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .sticky-sidebar {
+    position: relative;
+    top: 0;
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 991px) {
+  .sticky-sidebar {
+    position: relative;
+    top: 0;
+    margin-bottom: 24px;
+  }
+  .scrollable-content {
+    max-height: none;
+    overflow-y: visible;
+    padding-right: 0;
   }
 }
 
