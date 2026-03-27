@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="responsive.css" />
-
-   
-
 </head>
 
 <body>
@@ -81,7 +78,7 @@
                     <div class="header-column justify-content-end">
                         <nav class="login-signup navbar navbar-expand">
                             <ul class="navbar-nav align-items-center">
-                                 <li class="dropdown notifications">
+                                <li class="dropdown notifications">
                                     <a class="dropdown-toggle" href="push-notifications.html">
                                         <span class="text-5"><i class="far fa-bell"></i></span>
                                         <span class="count">11</span>
@@ -138,7 +135,9 @@
                                             </a>
                                         </li>
 
-                                        <li class="dropdown-submenu"><a class="dropdown-item active" href="bank_statements.html"><i class="fas fa-file-invoice me-2"></i>Bank Statements</a></li>
+                                    <li class="dropdown-submenu"><a class="dropdown-item active"
+                                                href="bank-statements.html"><i class="fas fa-file-invoice me-2"></i>Bank
+                                                Statements</a></li>
 
                                         <li><a class="dropdown-item" href="payment-methods.html"><i
                                                     class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
@@ -201,7 +200,8 @@
                 <!-- Breadcrumb -->
                 <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
                     <div class="d-flex align-items-center">
-                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-user-shield text-light me-2"></i> Accounts
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-user-shield text-light me-2"></i>
+                            Accounts
                         </h2>
                     </div>
                     <div class="d-flex align-items-center">
@@ -220,20 +220,21 @@
 
                             <!-- Main Default Bank Card -->
                             <div class="bg-white rounded-4 shadow-sm p-4 mb-4">
-                                                            <!-- Header Section -->
-                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
-                                <div>
-                                    <h3 class="text-5 fw-500 mb-1">Default Bank</h3>
-                                    <p class="text-muted mb-0">Your primary account for transactions</p>
+                                <!-- Header Section -->
+                                <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                                    <div>
+                                        <h3 class="text-5 fw-500 mb-1">Default Bank</h3>
+                                        <p class="text-muted mb-0">Your primary account for transactions</p>
+                                    </div>
                                 </div>
-                            </div>
 
                                 <div class="d-flex align-items-center gap-2 mb-4 pb-2 border-bottom">
                                     <span class="badge bg-primary rounded-pill px-3 py-2">Primary Account</span>
                                 </div>
-                                
+
                                 <div class="text-center mb-4">
-                                    <div class="bank-icon-lg mx-auto" style="width: 80px; height: 80px; background: linear-gradient(135deg, #131d58 0%, #1e2a7a 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                                    <div class="bank-icon-lg mx-auto"
+                                        style="width: 80px; height: 80px; background: linear-gradient(135deg, #131d58 0%, #1e2a7a 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
                                         <i class="fas fa-university fa-3x text-white"></i>
                                     </div>
                                     <h3 class="fw-700 mb-2">Chirp Test Bank</h3>
@@ -248,7 +249,7 @@
                                         <i class="fas fa-calendar-alt me-1"></i> Linked since Jan 2025
                                     </p>
                                 </div>
-                                
+
                                 <div class="border-top pt-3">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
                                         <span class="text-muted">Available Balance</span>
@@ -269,19 +270,21 @@
 
                         <!-- Linked Accounts List with Scroll -->
                         <div class="bg-white rounded-4 shadow-sm p-4">
-                                                    <!-- Header Section -->
-                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
-                            <div>
-                                <h3 class="text-5 fw-500 mb-1">Linked Accounts</h3>
-                                <p class="text-muted mb-0">Manage all your connected bank accounts</p>
+                            <!-- Header Section -->
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mb-4">
+                                <div>
+                                    <h3 class="text-5 fw-500 mb-1">Linked Accounts</h3>
+                                    <p class="text-muted mb-0">Manage all your connected bank accounts</p>
+                                </div>
+                                <button class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal"
+                                    data-bs-target="#addBankModal">
+                                    <i class="fas fa-plus-circle me-2"></i>Add New Bank
+                                </button>
                             </div>
-                            <button class="btn btn-primary rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#addBankModal">
-                                <i class="fas fa-plus-circle me-2"></i>Add New Bank
-                            </button>
-                        </div>
 
 
-                            <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4 pb-2 border-bottom mt-4">
+                            <div
+                                class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4 pb-2 border-bottom mt-4">
                                 <div class="d-flex align-items-center gap-2 mt-4">
                                     <h5 class="fw-500 mb-0 text-3">Your Accounts</h5>
                                 </div>
@@ -302,7 +305,8 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-7">
                                             <div class="d-flex align-items-center gap-3">
-                                                <div style="width: 48px; height: 48px; background: #f8fafc; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                                <div
+                                                    style="width: 48px; height: 48px; background: #f8fafc; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                                                     <i class="fas fa-credit-card fa-lg text-primary"></i>
                                                 </div>
                                                 <div>
@@ -327,7 +331,8 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-7">
                                             <div class="d-flex align-items-center gap-3">
-                                                <div style="width: 48px; height: 48px; background: #f8fafc; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                                <div
+                                                    style="width: 48px; height: 48px; background: #f8fafc; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                                                     <i class="fas fa-piggy-bank fa-lg text-primary"></i>
                                                 </div>
                                                 <div>
@@ -337,7 +342,9 @@
                                             </div>
                                         </div>
                                         <div class="col-md-5 text-md-end mt-3 mt-md-0">
-                                            <button class="btn btn-sm btn-outline-primary rounded-pill px-3 set-default-btn" data-account="SAVINGS - XX1114">
+                                            <button
+                                                class="btn btn-sm btn-outline-primary rounded-pill px-3 set-default-btn"
+                                                data-account="SAVINGS - XX1114">
                                                 <i class="fas fa-star me-1"></i>Set as Default
                                             </button>
                                         </div>
@@ -346,7 +353,8 @@
 
                                 <!-- Add More Banks Button -->
                                 <div class="text-center pt-3 mt-2 border-top">
-                                    <button class="btn btn-primary rounded-pill px-5 w-100" data-bs-toggle="modal" data-bs-target="#addBankModal">
+                                    <button class="btn btn-primary rounded-pill px-5 w-100" data-bs-toggle="modal"
+                                        data-bs-target="#addBankModal">
                                         <i class="fas fa-plus-circle me-2 btn-primary"></i>
                                         <span class="fw-500">Add another bank account</span>
                                     </button>
@@ -393,7 +401,8 @@
                 <div class="modal-body p-4">
                     <div class="mb-3">
                         <label class="form-label fw-500">Bank Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control rounded-pill" id="bankName" placeholder="e.g., Chase Bank, Wells Fargo">
+                        <input type="text" class="form-control rounded-pill" id="bankName"
+                            placeholder="e.g., Chase Bank, Wells Fargo">
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-500">Account Type</label>
@@ -405,7 +414,8 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-500">Account Number</label>
-                        <input type="text" class="form-control rounded-pill" id="accountNumber" placeholder="Last 4 digits: XXXX1234">
+                        <input type="text" class="form-control rounded-pill" id="accountNumber"
+                            placeholder="Last 4 digits: XXXX1234">
                     </div>
                     <div class="mb-4">
                         <div class="form-check">
@@ -416,8 +426,10 @@
                         </div>
                     </div>
                     <div class="d-flex gap-3">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="saveBankBtn">Link Account</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="saveBankBtn">Link
+                            Account</button>
                     </div>
                 </div>
             </div>
@@ -429,26 +441,26 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Back to top button
             var btt = document.getElementById('back-to-top');
-            window.addEventListener('scroll', function () { 
-                btt.style.display = window.scrollY > 300 ? 'block' : 'none'; 
+            window.addEventListener('scroll', function () {
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none';
             });
-            btt.addEventListener('click', function (e) { 
-                e.preventDefault(); 
-                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            btt.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
             // Set as Default functionality
             const setDefaultBtns = document.querySelectorAll('.set-default-btn');
-            
+
             setDefaultBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     const accountName = this.dataset.account;
                     if (confirm(`Set ${accountName} as your default account?`)) {
                         // Update left column default bank
                         const leftColumnBankName = document.querySelector('.sticky-sidebar .fw-700.mb-2');
                         const leftColumnAccountDetails = document.querySelector('.sticky-sidebar .text-muted.mb-2 .fw-500');
                         const leftColumnBadge = document.querySelector('.sticky-sidebar .badge.bg-success');
-                        
+
                         if (accountName === 'SAVINGS - XX1114') {
                             leftColumnBankName.innerHTML = 'Chirp Test Bank';
                             if (leftColumnAccountDetails) leftColumnAccountDetails.innerHTML = 'SAVINGS - XX1114';
@@ -457,17 +469,17 @@
                                 icon.className = 'fas fa-piggy-bank fa-3x text-white';
                             }
                         }
-                        
+
                         // Remove default badge from all accounts in right column
                         document.querySelectorAll('.bank-account-item .badge.bg-success').forEach(badge => {
                             badge.remove();
                         });
-                        
+
                         // Add badge to selected account
                         const accountRow = this.closest('.bank-account-item');
                         const accountInfoDiv = accountRow.querySelector('.col-md-7 div div:first-child');
                         accountInfoDiv.innerHTML += '<span class="badge bg-success rounded-pill ms-2">Default</span>';
-                        
+
                         // Update button states
                         const previousDefaultBtn = document.querySelector('.bank-account-item .btn-outline-secondary.disabled');
                         if (previousDefaultBtn) {
@@ -476,13 +488,13 @@
                             previousDefaultBtn.innerHTML = '<i class="fas fa-star me-1"></i>Set as Default';
                             previousDefaultBtn.disabled = false;
                         }
-                        
+
                         // Disable current button
                         this.classList.remove('btn-outline-primary');
                         this.classList.add('btn-outline-secondary', 'disabled');
                         this.innerHTML = '<i class="fas fa-check me-1"></i>Default';
                         this.disabled = true;
-                        
+
                         // Show success message
                         alert(`${accountName} is now your default account`);
                     }
@@ -492,25 +504,25 @@
             // Add New Bank Modal
             const saveBankBtn = document.getElementById('saveBankBtn');
             if (saveBankBtn) {
-                saveBankBtn.addEventListener('click', function() {
+                saveBankBtn.addEventListener('click', function () {
                     const bankName = document.getElementById('bankName').value;
                     const accountType = document.getElementById('accountType').value;
                     const accountNumber = document.getElementById('accountNumber').value;
                     const setAsDefault = document.getElementById('setAsDefault').checked;
-                    
+
                     if (!bankName) {
                         alert('Please enter bank name');
                         return;
                     }
-                    
+
                     if (!accountNumber) {
                         alert('Please enter account number');
                         return;
                     }
-                    
+
                     // Simulate adding new account
                     alert(`Bank account linked successfully!\n\nBank: ${bankName}\nType: ${accountType}\nAccount: ${accountNumber}\n${setAsDefault ? 'Set as default account' : ''}`);
-                    
+
                     // Close modal and reset form
                     bootstrap.Modal.getInstance(document.getElementById('addBankModal')).hide();
                     document.getElementById('bankName').value = '';

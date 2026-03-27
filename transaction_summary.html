@@ -109,6 +109,8 @@
             justify-content: space-between;
             align-items: center;
             width: 100%;
+            flex-wrap: wrap;
+            gap: 8px;
         }
         
         .account-info-left {
@@ -127,6 +129,12 @@
         .account-amount {
             font-weight: 600;
             color: #1e293b;
+        }
+        
+        .badge-img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
         }
         
         .rotate-icon {
@@ -192,13 +200,32 @@
             color: #131d58;
         }
         
-        @media (max-width: 768px) {
+        /* Responsive Styles - Ensuring all content is visible */
+        @media (max-width: 1200px) {
+            .account-name {
+                font-size: 0.85rem;
+            }
+            .account-amount {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 991px) {
             .account-header-card {
                 flex-direction: column;
                 text-align: center;
             }
             .balance-card {
                 text-align: center;
+            }
+            .account-info {
+                text-align: center;
+            }
+            .account-group-header .group-title {
+                font-size: 0.9rem;
+            }
+            .account-group-header .group-total {
+                font-size: 0.9rem;
             }
             .account-card-item {
                 padding: 10px;
@@ -208,6 +235,215 @@
             }
             .account-sub-group {
                 margin-left: 10px;
+                padding-left: 8px;
+            }
+            .account-sub-content {
+                padding-left: 12px;
+            }
+            .transaction-dropdown-btn {
+                padding: 4px 6px;
+            }
+            /* Table responsiveness - ensure all columns visible */
+            .table-responsive {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .table {
+                min-width: 600px;
+            }
+            .table td, .table th {
+                padding: 10px 8px;
+                white-space: normal;
+                word-break: break-word;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .account-header-card {
+                padding: 20px;
+            }
+            .balance-card h2 {
+                font-size: 1.8rem;
+            }
+            .account-info h4 {
+                font-size: 1.2rem;
+            }
+            .account-info p {
+                font-size: 0.8rem;
+            }
+            .account-group-card {
+                margin-bottom: 12px;
+            }
+            .account-group-header {
+                padding: 10px 12px;
+            }
+            .account-group-header .group-title {
+                font-size: 0.85rem;
+            }
+            .account-group-header .group-total {
+                font-size: 0.85rem;
+            }
+            .account-card-item {
+                padding: 8px 10px;
+            }
+            .account-name {
+                font-size: 0.8rem;
+            }
+            .account-amount {
+                font-size: 0.85rem;
+            }
+            .badge-img {
+                width: 20px;
+                height: 20px;
+            }
+            .nav-tabs .nav-link {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+            .tab-content {
+                padding: 16px !important;
+            }
+            /* Table styling for mobile */
+            .table-responsive {
+                overflow-x: auto;
+            }
+            .table {
+                min-width: 550px;
+            }
+            .table td, .table th {
+                padding: 8px 6px;
+                font-size: 0.8rem;
+                white-space: normal;
+            }
+            .transaction-dropdown-btn {
+                padding: 3px 5px;
+            }
+            .btn-outline-primary.rounded-pill {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+            .add-account-link {
+                padding: 4px 10px;
+                font-size: 0.8rem;
+            }
+            /* Ensure buttons are visible */
+            .d-flex.gap-2.pb-2 {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .account-header-card {
+                padding: 16px;
+            }
+            .balance-card h2 {
+                font-size: 1.5rem;
+            }
+            .account-info h4 {
+                font-size: 1rem;
+            }
+            .account-group-header {
+                padding: 8px 10px;
+            }
+            .account-group-header .group-title {
+                font-size: 0.8rem;
+            }
+            .account-group-header .group-total {
+                font-size: 0.8rem;
+            }
+            .account-card-item {
+                padding: 6px 8px;
+            }
+            .account-name {
+                font-size: 0.75rem;
+            }
+            .account-amount {
+                font-size: 0.8rem;
+            }
+            .account-row {
+                gap: 4px;
+            }
+            .account-info-left {
+                gap: 8px;
+            }
+            .badge-img {
+                width: 18px;
+                height: 18px;
+            }
+            .nav-tabs .nav-link {
+                padding: 6px 10px;
+                font-size: 0.75rem;
+            }
+            .tab-content {
+                padding: 12px !important;
+            }
+            /* Table styling for small mobile */
+            .table-responsive {
+                overflow-x: auto;
+            }
+            .table {
+                min-width: 500px;
+            }
+            .table td, .table th {
+                padding: 6px 4px;
+                font-size: 0.7rem;
+            }
+            .btn-outline-primary.rounded-pill {
+                padding: 4px 10px;
+                font-size: 0.7rem;
+            }
+            .add-account-link {
+                padding: 3px 8px;
+                font-size: 0.7rem;
+            }
+            .d-flex.gap-2.pb-2 {
+                gap: 8px !important;
+            }
+            .modal-body {
+                padding: 20px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-tabs .nav-link {
+                padding: 4px 8px;
+                font-size: 0.7rem;
+            }
+            .nav-tabs .nav-link i {
+                margin-right: 4px;
+                font-size: 0.7rem;
+            }
+            .table td, .table th {
+                padding: 6px 4px;
+                font-size: 0.68rem;
+            }
+            .transaction-dropdown-btn {
+                padding: 2px 4px;
+            }
+            .badge-img {
+                width: 16px;
+                height: 16px;
+            }
+            /* Ensure table columns are readable */
+            .table {
+                min-width: 450px;
+            }
+        }
+        
+        /* Ensure all table content is visible */
+        .table td {
+            vertical-align: middle;
+        }
+        
+        .table th {
+            white-space: nowrap;
+        }
+        
+        @media (max-width: 768px) {
+            .table th {
+                white-space: normal;
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -394,22 +630,19 @@
                                                     </div>
                                                     <div class="account-amount">$4,000.00</div>
                                                 </div>
-                                                      
                                                 <div class="account-row mt-2">
                                                     <div class="account-info-left">
                                                         <span class="account-name text-2">Saving Goals</span>
                                                     </div>
                                                     <div class="account-amount text-2">$500.00</div>
                                                 </div>
-                                                 <div class="account-row">
+                                                <div class="account-row">
                                                     <div class="account-info-left">
                                                         <span class="account-name text-2">Available Balance</span>
                                                     </div>
                                                     <div class="account-amount text-2">$750.00</div>
                                                 </div>
-                                       
                                             </div>
-                                  
                                         </div>
                                     </div>
                                 </div>
@@ -538,8 +771,8 @@
                                                     <th class="py-3 text-center">Action</th>
                                                  </thead>
                                             <tbody id="transactionList">
-                                                 <tr>
-                                                    <td class="py-3"><span class="badge bg-white border-radius rounded-circle"><img src="vendor/images/cash-advance.png" class="badge-img"></span>
+                                                  <tr>
+                                                    <td class="py-3"><img src="vendor/images/cash-advance.png" class="badge-img" alt="cash advance">
                                                     <td class="py-3">Whole Foods Market
                                                     <td class="py-3">Mar 15, 2026
                                                     <td class="py-3 text-end text-danger fw-600">-$124.37
@@ -557,9 +790,9 @@
                                                             </ul>
                                                         </div>
                                                      
-                                                    </tr>
-                                                    <tr>
-                                                     <td class="py-3"><span class="badge bg-white border-radius rounded-circle"><img src="vendor/images/fuel-pump.png" class="badge-img"></span>
+                                                     </tr>
+                                                  <tr>
+                                                     <td class="py-3"><img src="vendor/images/fuel-pump.png" class="badge-img" alt="fuel">
                                                     <td class="py-3">Starbucks Coffee
                                                     <td class="py-3">Mar 12, 2026
                                                     <td class="py-3 text-end text-danger fw-600">-$8.75
@@ -577,9 +810,9 @@
                                                             </ul>
                                                         </div>
                                                      
-                                                    </tr>
-                                                    <tr>
-                                                      <td class="py-3"><span class="badge bg-white border-radius rounded-circle"><img src="vendor/images/Insurance.png" class="badge-img"></span>
+                                                     </tr>
+                                                  <tr>
+                                                      <td class="py-3"><img src="vendor/images/Insurance.png" class="badge-img" alt="insurance">
                                                     <td class="py-3">Monthly Salary Deposit
                                                     <td class="py-3">Mar 14, 2026
                                                     <td class="py-3 text-end text-success fw-600">+$3,250.00
@@ -597,8 +830,8 @@
                                                             </ul>
                                                         </div>
                                                      
-                                                    </tr>
-                                                    <tr>
+                                                     </tr>
+                                                  <tr>
                                                     <td class="py-3"><span class="badge bg-info">Subscription</span>
                                                     <td class="py-3">Netflix Subscription
                                                     <td class="py-3">Mar 08, 2026
@@ -617,9 +850,9 @@
                                                             </ul>
                                                         </div>
                                                      
-                                                    </tr>
+                                                     </tr>
                                             </tbody>
-                                        </table>
+                                         </table>
                                     </div>
                                 </div>
                                 
@@ -628,16 +861,16 @@
                                     <div class="table-responsive">
                                         <table class="table table-hover align-middle">
                                             <thead class="bg-light-1">
-                                                <tr>
+                                                  <tr>
                                                     <th class="py-3">Category</th>
                                                     <th class="py-3">Description</th>
                                                     <th class="py-3">Transaction On</th>
                                                     <th class="py-3 text-end">Amount ($)</th>
                                                     <th class="py-3 text-center">Action</th>
-                                                </tr>
+                                                  </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                  <tr>
                                                     <td class="py-3"><span class="badge bg-success">Salary</span>
                                                     <td class="py-3">Monthly Salary Deposit
                                                     <td class="py-3">Mar 14, 2026
@@ -656,9 +889,9 @@
                                                             </ul>
                                                         </div>
                                                      
-                                                    </tr>
+                                                  </tr>
                                             </tbody>
-                                        </table>
+                                         </table>
                                     </div>
                                 </div>
                                 
@@ -667,16 +900,16 @@
                                     <div class="table-responsive">
                                         <table class="table table-hover align-middle">
                                             <thead class="bg-light-1">
-                                                <tr>
+                                                  <tr>
                                                     <th class="py-3">Category</th>
                                                     <th class="py-3">Description</th>
                                                     <th class="py-3">Transaction On</th>
                                                     <th class="py-3 text-end">Amount ($)</th>
                                                     <th class="py-3 text-center">Action</th>
-                                                </tr>
+                                                  </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                  <tr>
                                                     <td class="py-3"><span class="badge bg-primary">Groceries</span>
                                                     <td class="py-3">Whole Foods Market
                                                     <td class="py-3">Mar 15, 2026
@@ -695,9 +928,9 @@
                                                             </ul>
                                                         </div>
                                                      
-                                                    </tr>
+                                                  </tr>
                                             </tbody>
-                                        </table>
+                                         </table>
                                     </div>
                                 </div>
                             </div>
@@ -946,11 +1179,11 @@
                 const amountClass = isNegative ? 'text-danger' : 'text-success';
                 
                 const newRow = `
-                    <tr>
-                        <td class="py-3"><span class="badge bg-primary">${category}</span>\\
-                        <td class="py-3">${description}\\
-                        <td class="py-3">${date}\\
-                        <td class="py-3 text-end ${amountClass} fw-600">${formattedAmount}\\
+                      <tr>
+                        <td class="py-3"><img src="vendor/images/${category.toLowerCase()}.png" class="badge-img" alt="${category}">
+                        <td class="py-3">${description}
+                        <td class="py-3">${date}
+                        <td class="py-3 text-end ${amountClass} fw-600">${formattedAmount}
                         <td class="py-3 text-center">
                             <div class="dropdown">
                                 <button class="transaction-dropdown-btn" data-bs-toggle="dropdown">
@@ -964,10 +1197,7 @@
                                     <li><a class="dropdown-item text-danger delete-transaction" href="#"><i class="fas fa-trash-alt me-2"></i>Delete</a></li>
                                 </ul>
                             </div>
-                         \\
-                       \\
-                `;
-                
+                         `
                 document.getElementById('transactionList').insertAdjacentHTML('afterbegin', newRow);
                 alert('Transaction added successfully!');
                 bootstrap.Modal.getInstance(document.getElementById('addTransactionModal')).hide();

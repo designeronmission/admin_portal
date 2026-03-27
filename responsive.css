@@ -1744,15 +1744,6 @@
     margin-bottom: 12px;
   }
 
-  .table td:nth-child(2),
-  .table th:nth-child(2),
-  .table td:nth-child(3),
-  .table th:nth-child(3),
-  .table td:nth-child(4),
-  .table th:nth-child(4) {
-    display: none;
-  }
-
   .table td:first-child,
   .table th:first-child,
   .table td:nth-child(5),
@@ -1761,4 +1752,8 @@
   .table th:last-child {
     display: table-cell;
   }
+
 }
+
+
+

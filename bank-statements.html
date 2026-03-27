@@ -79,7 +79,7 @@
                     <div class="header-column justify-content-end">
                         <nav class="login-signup navbar navbar-expand">
                             <ul class="navbar-nav align-items-center">
-                                    <li class="dropdown notifications">
+                                <li class="dropdown notifications">
                                     <a class="dropdown-toggle" href="push-notifications.html">
                                         <span class="text-5"><i class="far fa-bell"></i></span>
                                         <span class="count">11</span>
@@ -91,7 +91,7 @@
                                     <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="text-5"><i class="fas fa-cog"></i></span>
                                     </a>
-                                      <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
+                                    <ul class="dropdown-menu dropdown-menu-end settings-dropdown">
                                         <!-- Profile Section inside Settings -->
                                         <li class="profile-header">
                                             <div class="d-flex align-items-center px-3 py-3">
@@ -136,7 +136,9 @@
                                             </a>
                                         </li>
 
-                                        <li class="dropdown-submenu"><a class="dropdown-item active" href="bank_statements.html"><i class="fas fa-file-invoice me-2"></i>Bank Statements</a></li>
+                                        <li class="dropdown-submenu"><a class="dropdown-item active"
+                                                href="bank-statements.html"><i class="fas fa-file-invoice me-2"></i>Bank
+                                                Statements</a></li>
 
                                         <li><a class="dropdown-item" href="payment-methods.html"><i
                                                     class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
@@ -199,7 +201,8 @@
                 <!-- Breadcrumb -->
                 <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
                     <div class="d-flex align-items-center">
-                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-file-invoice text-light me-2"></i> Bank Statements</h2>
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-file-invoice text-light me-2"></i>
+                            Bank Statements</h2>
                     </div>
                     <div class="d-flex align-items-center">
                         <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
@@ -213,8 +216,10 @@
                     <div class="row g-3 align-items-center">
                         <div class="col-md-4">
                             <div class="position-relative">
-                                <i class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
-                                <input type="text" class="form-control rounded-pill border-1 bg-light-1 py-2 ps-5" id="searchStatement" placeholder="Search by description, category...">
+                                <i
+                                    class="fas fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                                <input type="text" class="form-control rounded-pill border-1 bg-light-1 py-2 ps-5"
+                                    id="searchStatement" placeholder="Search by description, category...">
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -238,7 +243,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="d-flex gap-2 filter-buttons">
-                                <button class="btn btn-outline-primary rounded-pill flex-grow-1 py-2" id="filterResetBtn">
+                                <button class="btn btn-outline-primary rounded-pill flex-grow-1 py-2"
+                                    id="filterResetBtn">
                                     <i class="fas fa-undo me-2"></i>Reset
                                 </button>
                                 <button class="btn btn-primary rounded-pill px-4 py-2" id="manageTagsMainBtn">
@@ -254,17 +260,20 @@
                     <div class="border-bottom">
                         <ul class="nav nav-tabs border-0 px-4 pt-3" id="statementTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active px-4 py-3 fw-500" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab">
+                                <button class="nav-link active px-4 py-3 fw-500" id="all-tab" data-bs-toggle="tab"
+                                    data-bs-target="#all" type="button" role="tab">
                                     <i class="fas fa-list me-2"></i>All
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link px-4 py-3 fw-500" id="credit-tab" data-bs-toggle="tab" data-bs-target="#credit" type="button" role="tab">
+                                <button class="nav-link px-4 py-3 fw-500" id="credit-tab" data-bs-toggle="tab"
+                                    data-bs-target="#credit" type="button" role="tab">
                                     <i class="fas fa-arrow-down text-success me-2"></i>Credit
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link px-4 py-3 fw-500" id="debit-tab" data-bs-toggle="tab" data-bs-target="#debit" type="button" role="tab">
+                                <button class="nav-link px-4 py-3 fw-500" id="debit-tab" data-bs-toggle="tab"
+                                    data-bs-target="#debit" type="button" role="tab">
                                     <i class="fas fa-arrow-up text-danger me-2"></i>Debit
                                 </button>
                             </li>
@@ -277,7 +286,7 @@
                             <div class="table-responsive">
                                 <table class="table table-hover align-middle" id="statementsTable">
                                     <thead class="bg-light-1">
-                                         <tr>
+                                        <tr>
                                             <th class="py-3">Category</th>
                                             <th class="py-3">Description</th>
                                             <th class="py-3">Transaction On</th>
@@ -286,68 +295,85 @@
                                         </tr>
                                     </thead>
                                     <tbody id="statementsList">
-                                        <tr data-category="Groceries" data-type="debit" data-description="Whole Foods Market" data-date="Mar 15, 2026" data-amount="-124.37">
+                                        <tr data-category="Groceries" data-type="debit"
+                                            data-description="Whole Foods Market" data-date="Mar 15, 2026"
+                                            data-amount="-124.37">
                                             <td class="py-3"><span class="badge bg-primary">Groceries</span></td>
                                             <td class="py-3">Whole Foods Market</td>
                                             <td class="py-3">Mar 15, 2026</td>
                                             <td class="py-3 text-end text-danger fw-600">-$124.37</td>
                                             <td class="py-3 text-center">
-                                                <span class="tag-badge" data-transaction="Whole Foods Market" onclick="openTagModal(this)">
+                                                <span class="tag-badge" data-transaction="Whole Foods Market"
+                                                    onclick="openTagModal(this)">
                                                     <i class="fas fa-tag"></i> Add Tag
                                                 </span>
                                             </td>
                                         </tr>
-                                        <tr data-category="Dining" data-type="debit" data-description="Starbucks Coffee" data-date="Mar 12, 2026" data-amount="-8.75">
+                                        <tr data-category="Dining" data-type="debit" data-description="Starbucks Coffee"
+                                            data-date="Mar 12, 2026" data-amount="-8.75">
                                             <td class="py-3"><span class="badge bg-warning">Dining</span></td>
                                             <td class="py-3">Starbucks Coffee</td>
                                             <td class="py-3">Mar 12, 2026</td>
                                             <td class="py-3 text-end text-danger fw-600">-$8.75</td>
                                             <td class="py-3 text-center">
-                                                <span class="tag-badge" data-transaction="Starbucks Coffee" onclick="openTagModal(this)">
+                                                <span class="tag-badge" data-transaction="Starbucks Coffee"
+                                                    onclick="openTagModal(this)">
                                                     <i class="fas fa-tag"></i> Add Tag
                                                 </span>
                                             </td>
                                         </tr>
-                                        <tr data-category="Salary" data-type="credit" data-description="Monthly Salary Deposit" data-date="Mar 14, 2026" data-amount="3250.00">
+                                        <tr data-category="Salary" data-type="credit"
+                                            data-description="Monthly Salary Deposit" data-date="Mar 14, 2026"
+                                            data-amount="3250.00">
                                             <td class="py-3"><span class="badge bg-success">Salary</span></td>
                                             <td class="py-3">Monthly Salary Deposit</td>
                                             <td class="py-3">Mar 14, 2026</td>
                                             <td class="py-3 text-end text-success fw-600">+$3,250.00</td>
                                             <td class="py-3 text-center">
-                                                <span class="tag-badge" data-transaction="Monthly Salary Deposit" onclick="openTagModal(this)">
+                                                <span class="tag-badge" data-transaction="Monthly Salary Deposit"
+                                                    onclick="openTagModal(this)">
                                                     <i class="fas fa-tag"></i> Add Tag
                                                 </span>
                                             </td>
                                         </tr>
-                                        <tr data-category="Subscription" data-type="debit" data-description="Netflix Subscription" data-date="Mar 08, 2026" data-amount="-15.99">
+                                        <tr data-category="Subscription" data-type="debit"
+                                            data-description="Netflix Subscription" data-date="Mar 08, 2026"
+                                            data-amount="-15.99">
                                             <td class="py-3"><span class="badge bg-info">Subscription</span></td>
                                             <td class="py-3">Netflix Subscription</td>
                                             <td class="py-3">Mar 08, 2026</td>
                                             <td class="py-3 text-end text-danger fw-600">-$15.99</td>
                                             <td class="py-3 text-center">
-                                                <span class="tag-badge" data-transaction="Netflix Subscription" onclick="openTagModal(this)">
+                                                <span class="tag-badge" data-transaction="Netflix Subscription"
+                                                    onclick="openTagModal(this)">
                                                     <i class="fas fa-tag"></i> Add Tag
                                                 </span>
                                             </td>
                                         </tr>
-                                        <tr data-category="Transfer" data-type="debit" data-description="Transfer to Savings" data-date="Mar 10, 2026" data-amount="-500.00">
+                                        <tr data-category="Transfer" data-type="debit"
+                                            data-description="Transfer to Savings" data-date="Mar 10, 2026"
+                                            data-amount="-500.00">
                                             <td class="py-3"><span class="badge bg-secondary">Transfer</span></td>
                                             <td class="py-3">Transfer to Savings</td>
                                             <td class="py-3">Mar 10, 2026</td>
                                             <td class="py-3 text-end text-danger fw-600">-$500.00</td>
                                             <td class="py-3 text-center">
-                                                <span class="tag-badge" data-transaction="Transfer to Savings" onclick="openTagModal(this)">
+                                                <span class="tag-badge" data-transaction="Transfer to Savings"
+                                                    onclick="openTagModal(this)">
                                                     <i class="fas fa-tag"></i> Add Tag
                                                 </span>
                                             </td>
                                         </tr>
-                                        <tr data-category="Shopping" data-type="debit" data-description="Amazon Purchase" data-date="Mar 20, 2026" data-amount="-45.99">
+                                        <tr data-category="Shopping" data-type="debit"
+                                            data-description="Amazon Purchase" data-date="Mar 20, 2026"
+                                            data-amount="-45.99">
                                             <td class="py-3"><span class="badge bg-primary">Shopping</span></td>
                                             <td class="py-3">Amazon Purchase</td>
                                             <td class="py-3">Mar 20, 2026</td>
                                             <td class="py-3 text-end text-danger fw-600">-$45.99</td>
                                             <td class="py-3 text-center">
-                                                <span class="tag-badge" data-transaction="Amazon Purchase" onclick="openTagModal(this)">
+                                                <span class="tag-badge" data-transaction="Amazon Purchase"
+                                                    onclick="openTagModal(this)">
                                                     <i class="fas fa-tag"></i> Add Tag
                                                 </span>
                                             </td>
@@ -361,9 +387,11 @@
                                 <p class="text-muted small mb-0">Showing 1 to 6 of 6 transactions</p>
                                 <nav>
                                     <ul class="pagination mb-0">
-                                        <li class="page-item disabled"><a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a></li>
+                                        <li class="page-item disabled"><a class="page-link" href="#"><i
+                                                    class="fas fa-chevron-left"></i></a></li>
                                         <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
+                                        <li class="page-item"><a class="page-link" href="#"><i
+                                                    class="fas fa-chevron-right"></i></a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -414,7 +442,8 @@
                 <div class="footer-copyright">
                     <div class="row">
                         <div class="col-lg">
-                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p>
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.
+                            </p>
                         </div>
                         <div class="col-lg d-lg-flex justify-content-lg-end">
                             <ul class="nav justify-content-center">
@@ -501,8 +530,10 @@
                         </select>
                     </div>
                     <div class="d-flex gap-3">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="updateTagBtn">Update Tag</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="updateTagBtn">Update
+                            Tag</button>
                     </div>
                 </div>
             </div>
@@ -520,7 +551,8 @@
                 <div class="modal-body p-4">
                     <div class="mb-3">
                         <label class="form-label fw-500">Tag Name <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control rounded-pill" id="newTagName" placeholder="e.g., Business, Personal, Travel">
+                        <input type="text" class="form-control rounded-pill" id="newTagName"
+                            placeholder="e.g., Business, Personal, Travel">
                     </div>
                     <div class="mb-4">
                         <label class="form-label fw-500">Tag Type <span class="text-danger">*</span></label>
@@ -534,8 +566,10 @@
                         </select>
                     </div>
                     <div class="d-flex gap-3">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="saveTagBtn">Create Tag</button>
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="saveTagBtn">Create
+                            Tag</button>
                     </div>
                 </div>
             </div>
@@ -575,25 +609,25 @@
             { id: 2, name: 'Luxury', type: 'Personal', status: 'Active', createdOn: '03-05-2025', createdBy: 'Admin' },
             { id: 3, name: 'Business Expense', type: 'Business', status: 'Active', createdOn: '03-10-2025', createdBy: 'Admin' }
         ];
-        
+
         let currentTransaction = null;
         let currentTagElement = null;
-        
+
         // Save tags to localStorage
         function saveTags() {
             localStorage.setItem('bankTags', JSON.stringify(tags));
         }
-        
+
         // Render tags table
         function renderTagsTable() {
             const tbody = document.getElementById('tagsTableBody');
             if (!tbody) return;
-            
+
             if (tags.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted py-4">No tags created yet. Create your first tag!</td></tr>';
                 return;
             }
-            
+
             tbody.innerHTML = tags.map((tag, index) => `
                 <tr class="tag-table-row">
                     <td class="py-2">${index + 1}</td>
@@ -615,9 +649,9 @@
                 </tr>
             `).join('');
         }
-        
+
         // Open edit tag modal
-        window.openEditTagModal = function(tagId) {
+        window.openEditTagModal = function (tagId) {
             const tag = tags.find(t => t.id === tagId);
             if (tag) {
                 document.getElementById('editTagId').value = tag.id;
@@ -628,19 +662,19 @@
                 editModal.show();
             }
         };
-        
+
         // Update tag
-        document.getElementById('updateTagBtn')?.addEventListener('click', function() {
+        document.getElementById('updateTagBtn')?.addEventListener('click', function () {
             const tagId = parseInt(document.getElementById('editTagId').value);
             const newName = document.getElementById('editTagName').value.trim();
             const newType = document.getElementById('editTagType').value;
             const newStatus = document.getElementById('editTagStatus').value;
-            
+
             if (!newName) {
                 alert('Please enter a tag name');
                 return;
             }
-            
+
             const tagIndex = tags.findIndex(t => t.id === tagId);
             if (tagIndex !== -1) {
                 tags[tagIndex].name = newName;
@@ -648,25 +682,25 @@
                 tags[tagIndex].status = newStatus;
                 saveTags();
                 renderTagsTable();
-                
+
                 // Update all transaction tags that had this tag
                 document.querySelectorAll('.tag-badge[data-tag-id="' + tagId + '"]').forEach(badge => {
                     badge.innerHTML = `<i class="fas fa-tag"></i> ${newName} <i class="fas fa-times remove-tag" onclick="removeTag(event, this)"></i>`;
                     badge.setAttribute('data-tag-name', newName);
                 });
-                
+
                 bootstrap.Modal.getInstance(document.getElementById('editTagModal')).hide();
                 alert('Tag updated successfully!');
             }
         });
-        
+
         // Delete tag
-        window.deleteTag = function(tagId) {
+        window.deleteTag = function (tagId) {
             if (confirm('Are you sure you want to delete this tag? This will remove it from all transactions.')) {
                 tags = tags.filter(t => t.id !== tagId);
                 saveTags();
                 renderTagsTable();
-                
+
                 // Remove tag from all transactions
                 document.querySelectorAll('.tag-badge[data-tag-id="' + tagId + '"]').forEach(badge => {
                     badge.innerHTML = '<i class="fas fa-tag"></i> Add Tag';
@@ -675,21 +709,21 @@
                     badge.removeAttribute('data-tag-type');
                     badge.setAttribute('onclick', 'openTagModal(this)');
                 });
-                
+
                 alert('Tag deleted successfully!');
             }
         };
-        
+
         // Render tags list for transaction modal
         function renderTagsList(containerId) {
             const container = document.getElementById(containerId);
             if (!container) return;
-            
+
             if (tags.length === 0) {
                 container.innerHTML = '<div class="text-center text-muted py-3">No tags created yet. Create your first tag!</div>';
                 return;
             }
-            
+
             container.innerHTML = tags.map(tag => `
                 <div class="tag-list-item" data-tag-id="${tag.id}" data-tag-name="${tag.name}" data-tag-type="${tag.type}">
                     <div>
@@ -699,9 +733,9 @@
                     <i class="fas fa-chevron-right text-muted"></i>
                 </div>
             `).join('');
-            
+
             container.querySelectorAll('.tag-list-item').forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function () {
                     const tagId = this.dataset.tagId;
                     const tagName = this.dataset.tagName;
                     const tagType = this.dataset.tagType;
@@ -709,7 +743,7 @@
                 });
             });
         }
-        
+
         // Apply tag to transaction
         function applyTagToTransaction(tagId, tagName, tagType) {
             if (currentTransaction && currentTagElement) {
@@ -718,15 +752,15 @@
                 currentTagElement.setAttribute('data-tag-name', tagName);
                 currentTagElement.setAttribute('data-tag-type', tagType);
                 currentTagElement.removeAttribute('onclick');
-                
+
                 const transactionKey = `tag_${currentTransaction}`;
                 localStorage.setItem(transactionKey, JSON.stringify({ id: tagId, name: tagName, type: tagType }));
             }
             bootstrap.Modal.getInstance(document.getElementById('tagModal')).hide();
         }
-        
+
         // Remove tag
-        window.removeTag = function(event, element) {
+        window.removeTag = function (event, element) {
             event.stopPropagation();
             const tagSpan = element.closest('.tag-badge');
             const transaction = tagSpan.getAttribute('data-transaction');
@@ -735,20 +769,20 @@
             tagSpan.removeAttribute('data-tag-name');
             tagSpan.removeAttribute('data-tag-type');
             tagSpan.setAttribute('onclick', 'openTagModal(this)');
-            
+
             const transactionKey = `tag_${transaction}`;
             localStorage.removeItem(transactionKey);
         };
-        
+
         // Open tag modal
-        window.openTagModal = function(element) {
+        window.openTagModal = function (element) {
             currentTagElement = element;
             currentTransaction = element.getAttribute('data-transaction');
             renderTagsList('existingTagsList');
             const tagModal = new bootstrap.Modal(document.getElementById('tagModal'));
             tagModal.show();
         };
-        
+
         // Load saved tags for transactions
         function loadSavedTags() {
             document.querySelectorAll('.tag-badge[data-transaction]').forEach(badge => {
@@ -764,19 +798,19 @@
                 }
             });
         }
-        
+
         // Filter functionality
         function filterTransactions() {
             const searchTerm = document.getElementById('searchStatement').value.toLowerCase();
             const categoryFilter = document.getElementById('filterCategory').value;
             const typeFilter = document.getElementById('filterType').value;
             const rows = document.querySelectorAll('#statementsList tr');
-            
+
             rows.forEach(row => {
                 const category = row.querySelector('td:first-child span')?.innerText || '';
                 const description = row.querySelector('td:nth-child(2)')?.innerText || '';
                 const type = row.dataset.type;
-                
+
                 let show = true;
                 if (searchTerm && !description.toLowerCase().includes(searchTerm) && !category.toLowerCase().includes(searchTerm)) {
                     show = false;
@@ -790,16 +824,16 @@
                 row.style.display = show ? '' : 'none';
             });
         }
-        
+
         // Populate credit and debit tabs
         function populateTabs() {
             const allRows = document.querySelectorAll('#statementsList tr');
             const creditList = document.getElementById('creditList');
             const debitList = document.getElementById('debitList');
-            
+
             creditList.innerHTML = '';
             debitList.innerHTML = '';
-            
+
             allRows.forEach(row => {
                 const clone = row.cloneNode(true);
                 const type = row.dataset.type;
@@ -810,17 +844,17 @@
                 }
             });
         }
-        
+
         // Create new tag
-        document.getElementById('saveTagBtn')?.addEventListener('click', function() {
+        document.getElementById('saveTagBtn')?.addEventListener('click', function () {
             const tagName = document.getElementById('newTagName').value.trim();
             const tagType = document.getElementById('newTagType').value;
-            
+
             if (!tagName) {
                 alert('Please enter a tag name');
                 return;
             }
-            
+
             const newTag = {
                 id: Date.now(),
                 name: tagName,
@@ -832,66 +866,66 @@
             tags.push(newTag);
             saveTags();
             renderTagsTable();
-            
+
             bootstrap.Modal.getInstance(document.getElementById('createTagModal')).hide();
             document.getElementById('newTagName').value = '';
             alert('Tag created successfully!');
         });
-        
+
         // Open manage tags modal
         function openManageTagsModal() {
             renderTagsTable();
             const manageModal = new bootstrap.Modal(document.getElementById('manageTagsModal'));
             manageModal.show();
         }
-        
+
         // Manage tags button handlers
         document.getElementById('manageTagsMainBtn')?.addEventListener('click', openManageTagsModal);
-        document.getElementById('addNewTagFromManageBtn')?.addEventListener('click', function() {
+        document.getElementById('addNewTagFromManageBtn')?.addEventListener('click', function () {
             bootstrap.Modal.getInstance(document.getElementById('manageTagsModal')).hide();
             const createTagModal = new bootstrap.Modal(document.getElementById('createTagModal'));
             createTagModal.show();
         });
-        
-        document.getElementById('createNewTagFromMoveBtn')?.addEventListener('click', function() {
+
+        document.getElementById('createNewTagFromMoveBtn')?.addEventListener('click', function () {
             bootstrap.Modal.getInstance(document.getElementById('tagModal')).hide();
             const createTagModal = new bootstrap.Modal(document.getElementById('createTagModal'));
             createTagModal.show();
         });
-        
+
         // Filter reset
-        document.getElementById('filterResetBtn')?.addEventListener('click', function() {
+        document.getElementById('filterResetBtn')?.addEventListener('click', function () {
             document.getElementById('searchStatement').value = '';
             document.getElementById('filterCategory').value = '';
             document.getElementById('filterType').value = '';
             filterTransactions();
         });
-        
+
         // Search and filter listeners
         document.getElementById('searchStatement')?.addEventListener('input', filterTransactions);
         document.getElementById('filterCategory')?.addEventListener('change', filterTransactions);
         document.getElementById('filterType')?.addEventListener('change', filterTransactions);
-        
+
         // Tab change to re-filter
         document.querySelectorAll('#statementTab .nav-link').forEach(tab => {
-            tab.addEventListener('shown.bs.tab', function(e) {
+            tab.addEventListener('shown.bs.tab', function (e) {
                 if (e.target.id === 'all-tab') {
                     filterTransactions();
                 }
             });
         });
-        
+
         // Initialize
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var btt = document.getElementById('back-to-top');
-            window.addEventListener('scroll', function() { 
-                btt.style.display = window.scrollY > 300 ? 'block' : 'none'; 
+            window.addEventListener('scroll', function () {
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none';
             });
-            btt.addEventListener('click', function(e) { 
-                e.preventDefault(); 
-                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            btt.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-            
+
             loadSavedTags();
             populateTabs();
         });
