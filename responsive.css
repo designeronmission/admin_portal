@@ -1722,6 +1722,16 @@
   .view-detail-row span:last-child {
     font-size: 0.85rem;
   }
+ .connect-image-section {
+                padding: 40px;
+            }
+            .connect-image-section img {
+                max-width: 220px;
+            }
+            .connect-form-section {
+                padding: 32px;
+            }
+
 }
 
 @media (max-width: 480px) {
@@ -1811,6 +1821,17 @@
             .pin-box-container {
                 gap: 8px;
             }
+
+            .connect-image-section {
+                padding: 32px;
+            }
+            .connect-image-section img {
+                max-width: 180px;
+            }
+            .connect-form-section {
+                padding: 24px;
+            }
+
         }
         
         @media (max-width: 576px) {
@@ -1831,6 +1852,16 @@
             .form-label.fw-600.mb-3 {
                 margin-bottom: 12px !important;
             }
+                        .connect-form-section {
+                padding: 20px;
+            }
+            .security-badge {
+                padding: 12px;
+            }
+            .security-badge i {
+                font-size: 1.2rem;
+            }
+
         }
         
         @media (max-width: 480px) {
@@ -1854,3 +1885,545 @@
                 gap: 4px;
             }
         }
+
+
+
+        /* Dashboard Page Responsive Styles for 768px to 1024px */
+
+/* Tablet Landscape (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Container adjustments */
+    .container {
+        max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    /* Header Navigation */
+    .primary-menu .nav-link {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .primary-menu .nav-link i {
+        font-size: 0.9rem;
+    }
+    
+    .logo img {
+        height: 45px !important;
+    }
+    
+    /* Greeting Section */
+    .background-blue {
+        padding: 15px 20px;
+    }
+    
+    .profile-thumb {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .background-blue h2 {
+        font-size: 1.2rem !important;
+    }
+    
+    .background-blue .gap-2 {
+        gap: 10px !important;
+    }
+    
+    .bg-light-3 {
+        padding: 6px 15px !important;
+        font-size: 0.8rem !important;
+    }
+    
+    .btn-primary.rounded-pill {
+        padding: 6px 20px !important;
+        font-size: 0.8rem !important;
+    }
+    
+    /* Bank Activity Overview */
+    .d-flex.align-items-center.px-4.py-4 {
+        padding: 15px !important;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .d-flex.align-items-center.px-4.py-4 span.text-4 {
+        font-size: 1rem !important;
+    }
+    
+    .ms-auto {
+        margin-left: 0 !important;
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .bg-light-1.rounded-pill {
+        padding: 6px 12px !important;
+        font-size: 0.8rem;
+    }
+    
+    /* Stats Cards */
+    .row.g-3 {
+        margin: 0 -8px;
+    }
+    
+    .col-md-3.col-6 {
+        padding: 0 8px;
+    }
+    
+    .bg-white.shadow-sm.rounded.p-3 {
+        padding: 12px !important;
+    }
+    
+    .bg-light-1.rounded-3.p-3 {
+        width: 45px;
+        height: 45px;
+        padding: 12px !important;
+        margin-right: 12px;
+    }
+    
+    .bg-light-1.rounded-3.p-3 i {
+        font-size: 1.2rem !important;
+    }
+    
+    .bg-white.shadow-sm.rounded.p-3 h4 {
+        font-size: 1rem !important;
+    }
+    
+    .bg-white.shadow-sm.rounded.p-3 p {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Recent Transactions */
+    .transaction-item {
+        padding: 12px !important;
+    }
+    
+    .transaction-item .bg-light-1.rounded-circle {
+        width: 45px;
+        height: 45px;
+        padding: 12px !important;
+    }
+    
+    .transaction-item .bg-light-1.rounded-circle i {
+        font-size: 1.2rem !important;
+    }
+    
+    .transaction-item h5 {
+        font-size: 0.9rem !important;
+    }
+    
+    .transaction-item .text-muted {
+        font-size: 0.7rem !important;
+    }
+    
+    .transaction-item span.text-4 {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Credit Score */
+    #creditSpeedometer {
+        max-width: 220px;
+        height: 160px;
+    }
+    
+    /* Bills Section */
+    .background-bg {
+        padding: 15px;
+    }
+    
+    .bills-carousel-wrapper {
+        gap: 8px;
+    }
+    
+    .scroll-btn {
+        width: 38px;
+        height: 38px;
+    }
+    
+    .scroll-btn i {
+        font-size: 0.9rem;
+    }
+    
+    .bill-card {
+        width: 380px;
+        padding: 15px;
+    }
+    
+    .bill-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .bill-icon i {
+        font-size: 1.4rem;
+    }
+    
+    .bill-title {
+        font-size: 1rem;
+    }
+    
+    .bill-date {
+        font-size: 0.7rem;
+        padding: 3px 10px;
+    }
+    
+    .bill-account {
+        font-size: 0.75rem;
+    }
+    
+    .bill-amount {
+        font-size: 1rem;
+    }
+    
+    .apply-btn {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+    }
+    
+    /* Offers Section */
+    .offers-wrapper {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 1.1rem;
+    }
+    
+    .scroll-controls {
+        margin-bottom: 12px;
+    }
+    
+    .scroll-btn {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .offer-card {
+        width: 280px;
+        padding: 16px;
+    }
+    
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        padding: 8px;
+    }
+    
+    .offer-title {
+        font-size: 0.9rem;
+    }
+    
+    .offer-description {
+        font-size: 0.7rem;
+        -webkit-line-clamp: 2;
+    }
+    
+    .apply-btn {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+    
+    /* Footer */
+    #footer {
+        padding: 15px;
+        margin-top: 15px;
+    }
+    
+    #footer .row {
+        gap: 10px;
+    }
+    
+    #footer p {
+        font-size: 0.75rem;
+    }
+    
+    .nav-link {
+        font-size: 0.75rem;
+        padding: 0 10px !important;
+    }
+}
+
+/* Tablet Portrait (768px to 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* Navigation Toggle */
+    .navbar-toggler {
+        display: block;
+    }
+    
+    .primary-menu .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border-radius: 0 0 12px 12px;
+        z-index: 1000;
+    }
+    
+    .primary-menu .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .primary-menu .nav-link {
+        width: 100%;
+        padding: 10px 16px;
+    }
+    
+    /* Layout Columns */
+    .col-lg-6 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* Stats Cards - 2x2 grid */
+    .col-md-3.col-6 {
+        width: 50%;
+    }
+    
+    /* Transaction Items */
+    .transaction-item {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 10px;
+    }
+    
+    .transaction-item .d-flex.align-items-center {
+        width: 100%;
+    }
+    
+    .transaction-item .text-4.fw-500 {
+        align-self: flex-end;
+    }
+    
+    /* Bills Section */
+    .bills-carousel-wrapper {
+        gap: 6px;
+    }
+    
+    .scroll-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .bill-card {
+        width: 360px;
+        padding: 14px;
+    }
+    
+    .bill-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .bill-icon i {
+        font-size: 1.3rem;
+    }
+    
+    /* Offers Section */
+    .offer-card {
+        width: 270px;
+        padding: 14px;
+    }
+    
+    .card-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+
+    
+    .background-blue .gap-2 {
+        margin-top: 20px;
+        justify-content: space-between;
+    }
+    
+    /* Bank Activity Overview */
+    .d-flex.align-items-center.px-4.py-4 {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .ms-auto {
+        margin-left: 0 !important;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+    
+    /* Credit Score Section */
+    .col-lg-6 {
+        margin-bottom: 24px;
+    }
+    
+    #creditSpeedometer {
+        max-width: 200px;
+        height: 150px;
+    }
+}
+
+/* Landscape Mode for Tablets (992px to 1024px) */
+@media (min-width: 992px) and (max-width: 1024px) and (orientation: landscape) {
+    /* Keep header visible */
+    .primary-menu .navbar-nav {
+        flex-direction: row;
+    }
+    
+    /* Stats Cards */
+    .col-md-3.col-6 {
+        width: 25%;
+    }
+    
+    /* Layout */
+    .col-lg-6 {
+        width: 50%;
+        margin-bottom: 0;
+    }
+    
+    /* Bill Cards */
+    .bill-card {
+        width: 380px;
+    }
+    
+    /* Offer Cards */
+    .offer-card {
+        width: 280px;
+    }
+}
+
+/* 1024px Specific Adjustments */
+@media (min-width: 1024px) and (max-width: 1024px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .bill-card {
+        width: 420px;
+    }
+    
+    .offer-card {
+        width: 300px;
+    }
+    
+    .primary-menu .nav-link {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix for 1024px resolution */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .container {
+        max-width: 1000px;
+    }
+    
+    .bill-card {
+        width: 440px;
+    }
+    
+    .offer-card {
+        width: 310px;
+    }
+}
+
+/* Touch Device Optimizations for Tablets */
+@media (hover: none) and (pointer: coarse) and (min-width: 768px) and (max-width: 1024px) {
+    /* Increase touch targets */
+    .scroll-btn,
+    .apply-btn,
+    .btn-primary,
+    .bg-light-3,
+    .nav-link {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .bill-link.apply-btn {
+        min-height: 38px;
+    }
+    
+    /* Better scrolling experience */
+    .horizontal-scroll,
+    .bills-scroll-container {
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .offer-card,
+    .bill-card {
+        scroll-snap-align: start;
+    }
+}
+
+/* Ensure proper spacing for all elements */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Headers */
+    h2.text-4 {
+        font-size: 1.3rem !important;
+    }
+    
+    h3.text-4 {
+        font-size: 1.1rem !important;
+    }
+    
+    h4.text-4 {
+        font-size: 1rem !important;
+    }
+    
+    /* Buttons */
+    .btn {
+        font-size: 0.85rem;
+        padding: 8px 18px;
+    }
+    
+    /* Badges */
+    .badge {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+    }
+    
+    /* Progress Bars */
+    .goals-progress-bar {
+        height: 6px;
+    }
+    
+    /* Modal adjustments if any */
+    .modal-dialog {
+        margin: 1.5rem;
+    }
+    
+    .modal-content {
+        border-radius: 20px;
+    }
+    
+    /* Form Controls */
+    .form-control,
+    .form-select {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    /* Tables */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .table {
+        min-width: 600px;
+    }
+    
+    .table td,
+    .table th {
+        padding: 8px 6px;
+        font-size: 0.8rem;
+    }
+}

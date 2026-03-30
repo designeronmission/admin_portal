@@ -7044,3 +7044,47 @@ input[type="number"] {
             color: #dc2626;
         }
         
+
+
+
+        /* Connect Bank */
+
+
+          .connect-card {
+            background: white;
+            border-radius: 32px;
+            padding: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid #edf2f7;
+        }
+        .connect-bank{
+            width: 100%;
+        }
+        
+
+        .connect-form-section {
+            padding: 48px;
+        }
+        
+        
+        .security-badge {
+            background: #fef9e6;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        
+        .security-badge i {
+            font-size: 1.5rem;
+            color: #f59e0b;
+        }
+        
+        .security-badge p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
