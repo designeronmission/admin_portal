@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Terms of Use</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+</head>
+
+<body>
+    <div id="main-wrapper">
+
+          <!-- Minimal header replica from ROJA design (clean) -->
+        <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                    <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="push-notifications.html">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">11</span>
+                                    </a>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                        <ul class="dropdown-menu dropdown-menu-center settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
+                                        <li class="profile-header">
+                                            <div class="d-flex align-items-center px-3 py-3">
+                                                <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
+                                                    width="48" height="48" alt="Profile">
+                                                <div>
+                                                    <h6 class="mb-0 fw-600">John Snow</h6>
+                                                    <span class="text-2 text-muted">john.snow@email.com</span>
+                                                    <div class="mt-1">
+                                                        <span class="badge bg-success rounded-pill">Premium</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown-divider"></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="profile.html"><i
+                                                    class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <!-- Account Settings -->
+                                        <li><a class="dropdown-item" href="Account.html"><i
+                                                    class="fas fa-user-shield me-2"></i>Account </a></li>
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance
+                                            </a>
+                                        </li>
+
+                                        <!-- Transaction History Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_history.html">
+                                                <i class="fas fa-clock-rotate-left  me-2"></i>Transaction History
+                                            </a>
+                                        </li>
+
+                                        <!-- Bank Account Summary Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_summary.html">
+                                                <i class="fas fa-file-invoice me-2"></i>Bank Account Summary
+                                            </a>
+                                        </li>
+
+                                    <li class="dropdown-submenu"><a class="dropdown-item active"
+                                                href="bank-statements.html"><i class="fas fa-file-invoice me-2"></i>Bank
+                                                Statements</a></li>
+
+                                        <li><a class="dropdown-item" href="payment-methods.html"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="payment-arrangement.html">
+                                                <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
+                                            </a>
+                                        </li>
+
+                                        <li><a class="dropdown-item active" href="subscription_plan.html"><i
+                                                    class="fas fa-tag me-2"></i>Subscription</a></li>
+
+                                        <!-- Reminders Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="Reminders.html">
+                                                <i class="fas fa-clock me-2"></i>Reminders
+                                            </a>
+                                        </li>
+
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="change-pin.html">
+                                                <i class="fas fa-key me-2"></i>Change PIN
+                                            </a>
+                                        </li>
+
+                                        <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="notification.html">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                            </a>
+                                        </li>
+
+                                        <li class="dropdown-divider"></li>
+
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-file-contract text-light me-2"></i> Terms of Use</h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2"></i>
+                        <span class="text-light fw-500">Terms of Use</span>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+                            <!-- Effective Date -->
+                            <div class="effective-date">
+                                <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                <span class="fw-500">Effective Date: <span class="text-primary">01-11-2024</span></span>
+                            </div>
+
+                            <!-- Introduction -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">Welcome to ROJA</h3>
+                                <p class="terms-text">
+                                    These Terms of Use ("Terms") govern your access to and use of the ROJA mobile application ("App"), 
+                                    including any content, functionality, and services offered on or through the App. By using our App, 
+                                    you agree to be bound by these Terms. Please read them carefully before using the App.
+                                </p>
+                                <p class="terms-text">
+                                    ROJA ("we," "our," or "us") provides a personal financial health platform that helps you manage 
+                                    your finances, track budgets, set goals, and access cash advances. If you do not agree to these 
+                                    Terms, you must not access or use the App.
+                                </p>
+                            </div>
+
+                            <!-- 1. Eligibility -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">1. Eligibility</h3>
+                                <p class="terms-text">
+                                    By using the App, you represent and warrant that:
+                                </p>
+                                <ul class="terms-list">
+                                    <li>You are at least 18 years of age or the age of majority in your jurisdiction.</li>
+                                    <li>You have the legal capacity to enter into these Terms.</li>
+                                    <li>You will provide accurate, current, and complete information during registration.</li>
+                                    <li>Your use of the App complies with all applicable laws and regulations.</li>
+                                </ul>
+                            </div>
+
+                            <!-- 2. Account Registration -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">2. Account Registration</h3>
+                                <p class="terms-text">
+                                    To access certain features of the App, you must create an account. You agree to:
+                                </p>
+                                <ul class="terms-list">
+                                    <li>Provide accurate and complete registration information.</li>
+                                    <li>Maintain the security and confidentiality of your account credentials.</li>
+                                    <li>Notify us immediately of any unauthorized use of your account.</li>
+                                    <li>Be responsible for all activities that occur under your account.</li>
+                                </ul>
+                                <p class="terms-text">
+                                    We reserve the right to suspend or terminate your account if any information provided is inaccurate, 
+                                    false, or incomplete.
+                                </p>
+                            </div>
+
+                            <!-- 3. Financial Services and Cash Advances -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">3. Financial Services and Cash Advances</h3>
+                                <p class="terms-text">
+                                    ROJA offers cash advance services that allow you to request funds up to your approved limit. 
+                                    By requesting a cash advance, you agree to:
+                                </p>
+                                <ul class="terms-list">
+                                    <li>Repay the advance amount plus any applicable fees by the specified due date.</li>
+                                    <li>Authorize automatic debiting of your linked payment method for repayment.</li>
+                                    <li>Provide accurate bank account information for fund disbursement and repayment.</li>
+                                    <li>Understand that cash advances are subject to approval based on your financial history.</li>
+                                </ul>
+                                <p class="terms-text">
+                                    We reserve the right to modify, suspend, or discontinue any financial service at any time without notice.
+                                </p>
+                            </div>
+
+                            <!-- 4. Fees and Charges -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">4. Fees and Charges</h3>
+                                <p class="terms-text">
+                                    Certain features of the App may be subject to fees, including but not limited to:
+                                </p>
+                                <ul class="terms-list">
+                                    <li><strong>Subscription Fees:</strong> Monthly or annual fees for premium features.</li>
+                                    <li><strong>Cash Advance Fees:</strong> Convenience fees for instant funding options.</li>
+                                    <li><strong>Late Payment Fees:</strong> Charges for overdue repayments.</li>
+                                </ul>
+                                <p class="terms-text">
+                                    All fees will be disclosed before you incur them. We reserve the right to change fees upon notice.
+                                </p>
+                            </div>
+
+                            <!-- 5. User Conduct -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">5. User Conduct</h3>
+                                <p class="terms-text">
+                                    You agree not to use the App for any unlawful or prohibited purpose, including but not limited to:
+                                </p>
+                                <ul class="terms-list">
+                                    <li>Engaging in fraudulent or deceptive activities.</li>
+                                    <li>Attempting to gain unauthorized access to our systems or other users' accounts.</li>
+                                    <li>Interfering with the proper functioning of the App.</li>
+                                    <li>Using the App to harass, abuse, or harm others.</li>
+                                    <li>Reverse engineering or copying any part of the App.</li>
+                                </ul>
+                            </div>
+
+                            <!-- 6. Privacy and Data Protection -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">6. Privacy and Data Protection</h3>
+                                <p class="terms-text">
+                                    Your privacy is important to us. Our <a href="privacy-policy.html" class="text-primary">Privacy Policy</a> 
+                                    explains how we collect, use, and protect your personal information. By using the App, you consent to 
+                                    our data practices as described in the Privacy Policy.
+                                </p>
+                            </div>
+
+                            <!-- 7. Intellectual Property -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">7. Intellectual Property</h3>
+                                <p class="terms-text">
+                                    The App and its entire contents, features, and functionality are owned by ROJA and are protected by 
+                                    copyright, trademark, and other intellectual property laws. You may not reproduce, distribute, modify, 
+                                    or create derivative works of any content without our express written consent.
+                                </p>
+                            </div>
+
+                            <!-- 8. Third-Party Services -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">8. Third-Party Services</h3>
+                                <p class="terms-text">
+                                    The App may integrate with third-party services, such as financial institutions and payment processors. 
+                                    We are not responsible for the practices, policies, or security of these third-party services. Your use 
+                                    of third-party services is subject to their respective terms and conditions.
+                                </p>
+                            </div>
+
+                            <!-- 9. Disclaimer of Warranties -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">9. Disclaimer of Warranties</h3>
+                                <p class="terms-text">
+                                    THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. 
+                                    WE DO NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, ERROR-FREE, OR SECURE. YOUR USE OF THE APP IS AT 
+                                    YOUR SOLE RISK.
+                                </p>
+                            </div>
+
+                            <!-- 10. Limitation of Liability -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">10. Limitation of Liability</h3>
+                                <p class="terms-text">
+                                    TO THE MAXIMUM EXTENT PERMITTED BY LAW, ROJA SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, 
+                                    CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO YOUR USE OF THE APP. OUR TOTAL LIABILITY 
+                                    SHALL NOT EXCEED THE AMOUNT YOU PAID US, IF ANY, IN THE PAST SIX MONTHS.
+                                </p>
+                            </div>
+
+                            <!-- 11. Indemnification -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">11. Indemnification</h3>
+                                <p class="terms-text">
+                                    You agree to indemnify, defend, and hold harmless ROJA and its officers, directors, employees, and agents 
+                                    from any claims, damages, losses, or expenses arising out of your use of the App or violation of these Terms.
+                                </p>
+                            </div>
+
+                            <!-- 12. Termination -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">12. Termination</h3>
+                                <p class="terms-text">
+                                    We may suspend or terminate your access to the App at any time, without notice, for any reason, including 
+                                    violation of these Terms. Upon termination, your right to use the App will cease immediately.
+                                </p>
+                            </div>
+
+                            <!-- 13. Governing Law -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">13. Governing Law</h3>
+                                <p class="terms-text">
+                                    These Terms shall be governed by and construed in accordance with the laws of the State of Texas, without 
+                                    regard to its conflict of law principles. Any legal action arising out of these Terms shall be brought in 
+                                    the federal or state courts located in Texas.
+                                </p>
+                            </div>
+
+                            <!-- 14. Changes to Terms -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">14. Changes to Terms</h3>
+                                <p class="terms-text">
+                                    We may update these Terms from time to time. We will notify you of any material changes through the App 
+                                    or via email. Your continued use of the App after the effective date constitutes acceptance of the updated Terms.
+                                </p>
+                            </div>
+
+                            <!-- 15. Contact Us -->
+                            <div class="terms-section">
+                                <h3 class="terms-title">15. Contact Us</h3>
+                                <p class="terms-text">
+                                    If you have any questions about these Terms, please contact us at:
+                                </p>
+                                <div class="footer-contact">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <i class="fas fa-envelope text-primary"></i>
+                                                <span>kumar@bzcloud.uk</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="d-flex align-items-center gap-2">
+                                                <i class="fas fa-map-marker-alt text-primary"></i>
+                                                <span>Church Street, Center, Texas, 75935</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Acceptance -->
+                            <div class="terms-section mt-4">
+                                <div class="alert alert-light bg-light-1 border-0 rounded-3 p-3">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span class="fw-500">By using our App, you acknowledge that you have read and understood these Terms of Use and agree to be bound by them.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <!-- Footer with social icons -->
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="privacy-policy.html">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="terms-of-use.html">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() { 
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none'; 
+            });
+            btt.addEventListener('click', function(e) { 
+                e.preventDefault(); 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1842,6 +1842,15 @@
             .connect-form-section {
                 padding: 24px;
             }
+                        .terms-title {
+                font-size: 1.1rem;
+            }
+            .terms-text, .terms-list li {
+                font-size: 0.85rem;
+            }
+            .effective-date {
+                padding: 8px 16px;
+            }
 
         }
         
@@ -2438,3 +2447,6 @@
         font-size: 0.8rem;
     }
 }
+
+
+ 
