@@ -1114,7 +1114,13 @@
     width: 70px;
     font-size: 0.8rem;
     padding: 4px 8px;
+  
   }
+  
+   .budget-set{
+    width: 100% !important  ;
+  }
+
 
   .amount-value {
     font-size: 0.85rem;
@@ -1244,6 +1250,10 @@
     width: 60px;
     font-size: 0.7rem;
     padding: 3px 6px;
+  }
+  
+   .budget-set{
+    width: 100% !important  ;
   }
 
   .amount-value {
@@ -1443,6 +1453,7 @@
   .group-header .col-sm-6:last-child {
     width: 50%;
   }
+
 }
 
 /* Touch Device Optimizations */

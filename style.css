@@ -5798,6 +5798,12 @@ input:checked + .switch-slider:before {
   color: white;
 }
 
+.budget-set{
+  background: #131d58 !important;
+  color: white !important; 
+  width: 70% !important;
+}
+
 .budget-value {
   cursor: pointer;
   padding: 6px 12px;
