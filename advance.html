@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROJA – Get Cash Advance</title>
-    <!-- Fonts & Base CSS -->
+    <!-- Fonts & Base CSS (same as original ROJA style) -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
-    <!-- Bootstrap + fontawesome -->
+    <!-- Bootstrap + fontawesome (required by the provided style.css structure) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/owl.carousel.min.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="responsive.css" />
 </head>
@@ -111,36 +112,19 @@
                                             </div>
                                         </li>
                                         <li class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="profile.html"><i
-                                                    class="fas fa-user me-2"></i>My Profile</a></li>
-                                        <li><a class="dropdown-item" href="Account.html"><i
-                                                    class="fas fa-user-shield me-2"></i>Account</a></li>
-                                        <li class="dropdown-submenu"><a class="dropdown-item" href="advance.html"><i
-                                                    class="fas fa-list-ul me-2"></i>Advance</a></li>
-                                        <li class="dropdown-submenu"><a class="dropdown-item"
-                                                href="transaction_history.html"><i
-                                                    class="fas fa-clock-rotate-left me-2"></i>Transaction History</a>
-                                        </li>
-                                        <li class="dropdown-submenu"><a class="dropdown-item"
-                                                href="transaction_summary.html"><i
-                                                    class="fas fa-file-invoice me-2"></i>Bank Account Summary</a></li>
-                                        <li><a class="dropdown-item" href="payment-methods.html"><i
-                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
-                                        <li class="dropdown-submenu"><a class="dropdown-item"
-                                                href="payment-arrangement.html"><i
-                                                    class="fas fa-exchange-alt me-2"></i>Payment Arrangement</a></li>
-                                        <li><a class="dropdown-item active" href="subscription_plan.html"><i
-                                                    class="fas fa-tag me-2"></i>Subscription</a></li>
-                                        <li class="dropdown-submenu"><a class="dropdown-item" href="Reminders.html"><i
-                                                    class="fas fa-clock me-2"></i>Reminders</a></li>
-                                        <li class="dropdown-submenu"><a class="dropdown-item" href="change-pin.html"><i
-                                                    class="fas fa-key me-2"></i>Change PIN</a></li>
-                                        <li class="dropdown-submenu"><a class="dropdown-item"
-                                                href="notification.html"><i
-                                                    class="fas fa-bell me-2"></i>Notifications</a></li>
+                                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My Profile</a></li>
+                                        <li><a class="dropdown-item" href="Account.html"><i class="fas fa-user-shield me-2"></i>Account</a></li>
+                                        <li><a class="dropdown-item" href="advance.html"><i class="fas fa-list-ul me-2"></i>Advance</a></li>
+                                        <li><a class="dropdown-item" href="transaction_history.html"><i class="fas fa-clock-rotate-left me-2"></i>Transaction History</a></li>
+                                        <li><a class="dropdown-item" href="transaction_summary.html"><i class="fas fa-file-invoice me-2"></i>Bank Account Summary</a></li>
+                                        <li><a class="dropdown-item" href="payment-methods.html"><i class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+                                        <li><a class="dropdown-item" href="payment-arrangement.html"><i class="fas fa-exchange-alt me-2"></i>Payment Arrangement</a></li>
+                                        <li><a class="dropdown-item active" href="subscription_plan.html"><i class="fas fa-tag me-2"></i>Subscription</a></li>
+                                        <li><a class="dropdown-item" href="Reminders.html"><i class="fas fa-clock me-2"></i>Reminders</a></li>
+                                        <li><a class="dropdown-item" href="change-pin.html"><i class="fas fa-key me-2"></i>Change PIN</a></li>
+                                        <li><a class="dropdown-item" href="notification.html"><i class="fas fa-bell me-2"></i>Notifications</a></li>
                                         <li class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item text-danger" href="#"><i
-                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+                                        <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -160,8 +144,7 @@
                 <!-- Breadcrumb -->
                 <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
                     <div class="d-flex align-items-center">
-                        <h2 class="text-4 fw-500 mb-0 text-light"><i
-                                class="fas fa-hand-holding-usd text-light me-2"></i>Advance</h2>
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-hand-holding-usd text-light me-2"></i>Advance</h2>
                     </div>
                     <div class="d-flex align-items-center">
                         <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
@@ -171,7 +154,7 @@
                 </div>
 
                 <div class="row g-4">
-                    <!-- Left Column - Sticky Sidebar -->
+                    <!-- Left Column -->
                     <div class="col-lg-4">
                         <div class="sticky-sidebar">
                             <div class="payment-schedule-card">
@@ -183,114 +166,79 @@
                                     <p class="text-white-50 small">Upcoming payment details</p>
                                 </div>
                                 <div class="detail-row">
-                                    <span class="detail-label">Available Limit</span>
+                                    <span class="detail-label">You are Approved for</span>
                                     <span class="detail-value">$25.00</span>
                                 </div>
-
                                 <div class="detail-row">
-                                    <span class="detail-label">Due Date</span>
-                                    <span class="detail-value">April 15, 2026</span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="detail-label">Amount Due</span>
+                                    <span class="detail-label">Total Outstanding</span>
                                     <span class="detail-value fw-700">$25.00</span>
                                 </div>
-                                <div class="detail-row">
-                                    <span class="detail-label">Status</span>
-                                    <span class="detail-value"><span class="status-badge">Pending</span></span>
-                                </div>
-                                <div class="detail-row">
-                                    <span class="detail-label">Auto-pay</span>
-                                    <span class="detail-value"><i class="fas fa-check-circle text-success"></i>
-                                        Enabled</span>
-                                </div>
-
                                 <div class="mt-4 pt-3 border-top border-white-10">
                                     <button class="btn btn-light rounded-pill w-100 py-3 pay-now-btn-sticky"
                                         id="payNowStickyBtn">
                                         <i class="fas fa-credit-card me-2"></i>Pay Now
                                     </button>
                                 </div>
-
-                                <div class="mt-3 text-center">
-                                    <small class="text-white-50">
-                                        <i class="fas fa-info-circle me-1"></i>Auto-pay will deduct on due date
-                                    </small>
-                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Column - Scrollable Transaction History -->
+                    <!-- Right Column -->
                     <div class="col-lg-8">
                         <div class="scrollable-content">
-                            <!-- List of Advances Card -->
                             <div class="bg-white rounded-4 shadow-sm p-4">
                                 <div class="d-flex justify-content-between align-items-center mb-4">
                                     <h5 class="fw-600 mb-0">
                                         <i class="fas fa-list text-primary me-2"></i>List of Advances
                                     </h5>
                                 </div>
-
                                 <div class="table-responsive">
                                     <table class="table table-hover align-middle">
                                         <thead class="bg-light-1">
+                                            <tr>
                                                 <th class="py-3">TXN ON</th>
                                                 <th class="py-3">ADV. AMOUNT</th>
                                                 <th class="py-3">Payment Method</th>
                                                 <th class="py-3">DISBURSEMENT</th>
                                                 <th class="py-3">TXN. STATUS</th>
                                                 <th class="py-3">Action</th>
-                                            </thead>
+                                            </tr>
+                                        </thead>
                                         <tbody>
                                             <tr>
                                                 <td class="py-3">Mar 15, 2026 02:30 PM</td>
                                                 <td class="py-3 fw-600 text-success">+$20.00</td>
                                                 <td class="py-3">Instant Funding</td>
-                                                <td class="py-3">	$18.00</td>
-                                                <td class="py-3"><span
-                                                        class="badge bg-success rounded-pill px-3 py-1">Success</span>
-                                                </td>
-                                                <td class="py-3"><a href="view_advance.html" class="text-primary"><i
-                                                            class="fas fa-eye"></i></a></td>
+                                                <td class="py-3">$18.00</td>
+                                                <td class="py-3"><span class="badge bg-success rounded-pill px-3 py-1">Success</span></td>
+                                                <td class="py-3"><a href="view_advance.html" class="text-primary"><i class="fas fa-eye"></i></a></td>
                                             </tr>
                                             <tr>
                                                 <td class="py-3">Feb 28, 2026 11:15 AM</td>
                                                 <td class="py-3 fw-600 text-success">+$20.00</td>
                                                 <td class="py-3">Standard ACH</td>
-                                                <td class="py-3">	$18.00</td>
-                                                <td class="py-3"><span
-                                                        class="badge bg-success rounded-pill px-3 py-1">Success</span>
-                                                </td>
-                                                <td class="py-3"><a href="view_advance.html" class="text-primary"><i
-                                                            class="fas fa-eye"></i></a></td>
+                                                <td class="py-3">$18.00</td>
+                                                <td class="py-3"><span class="badge bg-success rounded-pill px-3 py-1">Success</span></td>
+                                                <td class="py-3"><a href="view_advance.html" class="text-primary"><i class="fas fa-eye"></i></a></td>
                                             </tr>
                                             <tr>
                                                 <td class="py-3">Feb 10, 2026 09:45 AM</td>
                                                 <td class="py-3 fw-600 text-success">+$20.00</td>
                                                 <td class="py-3">Instant Funding</td>
                                                 <td class="py-3">$18.00</td>
-                                                <td class="py-3"><span
-                                                        class="badge bg-success rounded-pill px-3 py-1">Success</span>
-                                                </td>
-                                                <td class="py-3"><a href="view_advance.html" class="text-primary"><i
-                                                            class="fas fa-eye"></i></a></td>
+                                                <td class="py-3"><span class="badge bg-success rounded-pill px-3 py-1">Success</span></td>
+                                                <td class="py-3"><a href="view_advance.html" class="text-primary"><i class="fas fa-eye"></i></a></td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </div>
-
-                                <!-- Pagination -->
                                 <div class="d-flex justify-content-between align-items-center mt-4 pt-2">
-                                    <p class="text-muted small mb-0">Showing 1 to 7 of 7 transactions</p>
+                                    <p class="text-muted small mb-0">Showing 1 to 3 of 3 transactions</p>
                                     <nav>
                                         <ul class="pagination mb-0">
-                                            <li class="page-item disabled"><a class="page-link" href="#"><i
-                                                        class="fas fa-chevron-left"></i></a></li>
+                                            <li class="page-item disabled"><a class="page-link" href="#"><i class="fas fa-chevron-left"></i></a></li>
                                             <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#"><i
-                                                        class="fas fa-chevron-right"></i></a></li>
+                                            <li class="page-item"><a class="page-link" href="#"><i class="fas fa-chevron-right"></i></a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -306,8 +254,7 @@
                 <div class="footer-copyright">
                     <div class="row">
                         <div class="col-lg">
-                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.
-                            </p>
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p>
                         </div>
                         <div class="col-lg d-lg-flex justify-content-lg-end">
                             <ul class="nav justify-content-center">
@@ -323,7 +270,7 @@
         <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
     </div>
 
-    <!-- Get Cash Modal -->
+    <!-- Get Cash Modal (unchanged but kept for completeness) -->
     <div class="modal fade" id="getCashModal" tabindex="-1" aria-labelledby="getCashModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg rounded-4">
@@ -336,76 +283,46 @@
                         <span class="text-muted">Advance Amount</span>
                         <h3 class="text-6 fw-700 text-primary mb-0">$20.00</h3>
                     </div>
-
                     <div class="mb-4">
-                        <label class="form-label fw-600 mb-3">
-                            <i class="fas fa-university text-primary me-2"></i>Select Payment Method
-                        </label>
+                        <label class="form-label fw-600 mb-3"><i class="fas fa-university text-primary me-2"></i>Select Payment Method</label>
                         <select class="form-select rounded-pill border-0 bg-light-1 py-1 px-4" id="bankAccountSelect">
                             <option value="chase">Chase Bank - Checking ****1234</option>
                             <option value="boa">Bank of America - Savings ****5678</option>
                             <option value="wells">Wells Fargo - Checking ****9012</option>
                         </select>
                     </div>
-
                     <div class="mb-4">
-                        <label class="form-label fw-600 mb-3">
-                            <i class="fas fa-credit-card text-primary me-2"></i>Select Payment Mode
-                        </label>
-
+                        <label class="form-label fw-600 mb-3"><i class="fas fa-credit-card text-primary me-2"></i>Select Payment Mode</label>
                         <div class="border rounded-3 p-3 mb-3 payment-option">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="instantFunding"
-                                    value="instant" checked>
-                                <label class="form-check-label fw-500 ms-2 text-3" for="instantFunding">
-                                    Instant Funding
-                                    <span class="badge bg-primary-soft text-primary ms-2">Recommended</span>
-                                </label>
-                                <p class="text-muted mt-2 mb-0 ms-4">$2.00 convenience fee • Typically available within
-                                    minutes</p>
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="instantFunding" value="instant" checked>
+                                <label class="form-check-label fw-500 ms-2 text-3" for="instantFunding">Instant Funding <span class="badge bg-primary-soft text-primary ms-2">Recommended</span></label>
+                                <p class="text-muted mt-2 mb-0 ms-4">$2.00 convenience fee • Typically available within minutes</p>
                             </div>
                         </div>
-
                         <div class="border rounded-3 p-3 payment-option">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="standardACH"
-                                    value="standard">
-                                <label class="form-check-label fw-500 ms-2 text-3" for="standardACH">
-                                    Standard ACH Transfer
-                                </label>
-                                <p class="text-muted mt-2 mb-0 ms-4">No fee • Typically available in 2–3 business days
-                                </p>
+                                <input class="form-check-input" type="radio" name="paymentMethod" id="standardACH" value="standard">
+                                <label class="form-check-label fw-500 ms-2 text-3" for="standardACH">Standard ACH Transfer</label>
+                                <p class="text-muted mt-2 mb-0 ms-4">No fee • Typically available in 2–3 business days</p>
                             </div>
                         </div>
                     </div>
-
                     <div class="border-top pt-3 mb-3">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span>Advance Amount</span>
-                            <span class="fw-600">$20.00</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2" id="feeRow">
-                            <span>Convenience Fee</span>
-                            <span class="fw-600 text-danger">$2.00</span>
-                        </div>
-                        <div class="d-flex justify-content-between pt-2 border-top">
-                            <span class="fw-600">Total to Repay</span>
-                            <span class="fw-700 text-primary" id="totalAmount">$22.00</span>
-                        </div>
+                        <div class="d-flex justify-content-between mb-2"><span>Advance Amount</span><span class="fw-600">$20.00</span></div>
+                        <div class="d-flex justify-content-between mb-2" id="feeRow"><span>Convenience Fee</span><span class="fw-600 text-danger">$2.00</span></div>
+                        <div class="d-flex justify-content-between pt-2 border-top"><span class="fw-600">Total to Repay</span><span class="fw-700 text-primary" id="totalAmount">$22.00</span></div>
                     </div>
-
                     <div class="d-flex gap-3 mt-4">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
-                            data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1"
-                            id="confirmCashBtn">Confirm & Get Cash <i class="fas fa-arrow-right ms-2"></i></button>
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="confirmCashBtn">Confirm & Get Cash <i class="fas fa-arrow-right ms-2"></i></button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Pay Now Modal -->
+    <!-- Pay Now Modal (WITH ADD CARD BUTTON + INTEGRATED ADD CARD MODAL INSIDE THEME) -->
     <div class="modal fade" id="payNowModal" tabindex="-1" aria-labelledby="payNowModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg rounded-4">
@@ -426,33 +343,113 @@
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-600 mb-3">
-                            <i class="fas fa-dollar-sign text-primary me-2"></i>Payment Amount
-                        </label>
+                        <label class="form-label fw-600 mb-3"><i class="fas fa-dollar-sign text-primary me-2"></i>Payment Amount</label>
                         <div class="input-group">
                             <span class="input-group-text bg-transparent border-end-0">$</span>
-                            <input type="number" class="form-control rounded-pill-start" id="paymentAmount"
-                                placeholder="Enter amount" value="25.00">
+                            <input type="number" class="form-control rounded-pill-start" id="paymentAmount" placeholder="Enter amount" value="25.00">
                         </div>
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label fw-600 mb-3">
-                            <i class="fas fa-credit-card text-primary me-2"></i>Select Payment Method
-                        </label>
+                        <label class="form-label fw-600 mb-3"><i class="fas fa-credit-card text-primary me-2"></i>Select Payment Method</label>
                         <select class="form-select rounded-pill border-0 bg-light-1 py-1 px-4" id="payPaymentMethod">
                             <option value="visa">Visa ending in 2224 (Default)</option>
                             <option value="mastercard">Mastercard ending in 5678</option>
                             <option value="bank">Chirp Test Bank - Checking XX1771</option>
                         </select>
+                        <!-- ADD CARD BUTTON - integrated with theme, triggers nested modal -->
+                        <button class="btn btn-outline-primary rounded-pill w-100 py-2 mt-3" type="button" data-bs-toggle="modal" data-bs-target="#addCardModal">
+                            <i class="fas fa-plus-circle me-2"></i>Add a Card
+                        </button>
                     </div>
 
                     <div class="d-flex gap-3 mt-4">
-                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1"
-                            data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="confirmPayBtn">Pay
-                            Now <i class="fas fa-arrow-right ms-2"></i></button>
+                        <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="confirmPayBtn">Pay Now <i class="fas fa-arrow-right ms-2"></i></button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD CARD MODAL - fully themed, interactive preview, flip effect, consistent with ROJA style -->
+    <div class="modal fade" id="addCardModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <div>
+                        <h5 class="modal-title fw-700">Add New Card</h5>
+                        <p class="text-muted small mb-0">Enter your card details securely</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <!-- Card Preview Flip -->
+                    <div class="card-flip-container mb-4" id="previewFlipContainer">
+                        <div class="card-flipper" id="previewFlipper">
+                            <div class="card-front">
+                                <div class="card-preview" id="cardPreviewFront">
+                                    <div class="card-chip"></div>
+                                    <div class="card-number" id="previewNumber">**** **** **** ****</div>
+                                    <div class="card-details">
+                                        <div class="card-holder">
+                                            <span>Card Holder</span>
+                                            <span id="previewHolder">YOUR NAME</span>
+                                        </div>
+                                        <div class="card-expiry">
+                                            <span>Valid Thru</span>
+                                            <div class="expiry-date" id="previewExpiry">MM/YY</div>
+                                        </div>
+                                    </div>
+                                    <div class="card-brand" id="previewBrand"><i class="fab fa-cc-visa"></i></div>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <div class="card-preview">
+                                    <div class="cvv-strip"></div>
+                                    <div class="cvv-number" id="previewCVV">***</div>
+                                    <div class="card-details mt-3">
+                                        <div class="card-holder">
+                                            <span>Card Holder</span>
+                                            <span id="previewHolderBack">YOUR NAME</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-brand" id="previewBrandBack"><i class="fab fa-cc-visa"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="addCardForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-500">Card Number</label>
+                            <input type="text" class="form-control rounded-pill" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-500">Card Holder Name</label>
+                            <input type="text" class="form-control rounded-pill" id="cardHolderName" placeholder="JOHN DOE">
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-500">Expiry Date</label>
+                                <input type="text" class="form-control rounded-pill" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-500">CVV</label>
+                                <input type="password" class="form-control rounded-pill" id="cvv" placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                        <div class="mb-4 mt-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="setAsDefaultCard">
+                                <label class="form-check-label" for="setAsDefaultCard">Set as default payment method</label>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 mt-2">
+                            <button type="button" class="btn btn-outline-secondary rounded-pill flex-grow-1" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary rounded-pill flex-grow-1" id="saveCardBtn">Save Card <i class="fas fa-check ms-2"></i></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -461,6 +458,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // back to top
             var btt = document.getElementById('back-to-top');
             window.addEventListener('scroll', function () {
                 btt.style.display = window.scrollY > 300 ? 'block' : 'none';
@@ -470,14 +468,13 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Get Cash Modal Elements
+            // Cash modal logic (unchanged)
             const instantRadio = document.getElementById('instantFunding');
             const standardRadio = document.getElementById('standardACH');
             const feeRow = document.getElementById('feeRow');
             const totalAmount = document.getElementById('totalAmount');
-
             function updatePaymentMethodUI() {
-                if (instantRadio.checked) {
+                if (instantRadio && instantRadio.checked) {
                     feeRow.style.display = 'flex';
                     totalAmount.innerText = '$22.00';
                 } else {
@@ -485,61 +482,178 @@
                     totalAmount.innerText = '$20.00';
                 }
             }
-
-            instantRadio.addEventListener('change', updatePaymentMethodUI);
-            standardRadio.addEventListener('change', updatePaymentMethodUI);
+            if (instantRadio) instantRadio.addEventListener('change', updatePaymentMethodUI);
+            if (standardRadio) standardRadio.addEventListener('change', updatePaymentMethodUI);
             updatePaymentMethodUI();
 
-            // Confirm Cash Button
-            document.getElementById('confirmCashBtn').addEventListener('click', function () {
-                let selectedMethod = '';
-                let selectedBank = document.getElementById('bankAccountSelect').options[document.getElementById('bankAccountSelect').selectedIndex].text;
-                let fee = '';
+            const confirmCashBtn = document.getElementById('confirmCashBtn');
+            if (confirmCashBtn) {
+                confirmCashBtn.addEventListener('click', function () {
+                    let selectedMethod = instantRadio?.checked ? 'Instant Funding' : 'Standard ACH Transfer';
+                    let selectedBank = document.getElementById('bankAccountSelect')?.options[document.getElementById('bankAccountSelect').selectedIndex]?.text || 'Bank Account';
+                    alert(`✅ Cash advance of $20.00 requested successfully!\nPayment Method: ${selectedMethod}\nBank Account: ${selectedBank}\n${instantRadio?.checked ? '$2.00 convenience fee' : 'No fee'}\nFunds will be processed shortly.`);
+                    bootstrap.Modal.getInstance(document.getElementById('getCashModal'))?.hide();
+                });
+            }
 
-                if (instantRadio.checked) {
-                    selectedMethod = 'Instant Funding';
-                    fee = '$2.00 convenience fee';
-                } else {
-                    selectedMethod = 'Standard ACH Transfer';
-                    fee = 'No fee';
-                }
-
-                let message = `✅ Cash advance of $20.00 requested successfully!\n\n`;
-                message += `Payment Method: ${selectedMethod}\n`;
-                message += `Bank Account: ${selectedBank}\n`;
-                message += `${fee}\n\nFunds will be processed shortly.`;
-
-                alert(message);
-                bootstrap.Modal.getInstance(document.getElementById('getCashModal')).hide();
-            });
-
-            // Pay Now Button
+            // Pay Now Sticky & Confirm
             const payNowStickyBtn = document.getElementById('payNowStickyBtn');
-            const payNowModal = new bootstrap.Modal(document.getElementById('payNowModal'));
+            const payNowModalElem = document.getElementById('payNowModal');
+            const payNowModal = new bootstrap.Modal(payNowModalElem);
+            if (payNowStickyBtn) {
+                payNowStickyBtn.addEventListener('click', () => payNowModal.show());
+            }
+            const confirmPayBtn = document.getElementById('confirmPayBtn');
+            if (confirmPayBtn) {
+                confirmPayBtn.addEventListener('click', function () {
+                    const amount = document.getElementById('paymentAmount').value;
+                    const selectMethod = document.getElementById('payPaymentMethod');
+                    const selectedMethod = selectMethod?.options[selectMethod.selectedIndex]?.text || 'Card';
+                    if (!amount || amount <= 0) {
+                        alert('Please enter a valid payment amount');
+                        return;
+                    }
+                    if (parseFloat(amount) > 25.00) {
+                        alert('Payment amount cannot exceed due amount of $25.00');
+                        return;
+                    }
+                    alert(`✅ Payment of $${amount} processed successfully!\n\nPayment Method: ${selectedMethod}\n\nYour payment has been applied to Advance ID: AID235`);
+                    bootstrap.Modal.getInstance(payNowModalElem)?.hide();
+                });
+            }
 
-            payNowStickyBtn.addEventListener('click', function () {
-                payNowModal.show();
-            });
+            // --- ADD CARD MODAL interactive preview with flip effect (theme consistent, no extra CSS conflict)---
+            const cardNumberInput = document.getElementById('cardNumber');
+            const cardHolderInput = document.getElementById('cardHolderName');
+            const expiryInput = document.getElementById('expiryDate');
+            const cvvInput = document.getElementById('cvv');
+            const previewNumberSpan = document.getElementById('previewNumber');
+            const previewHolderSpan = document.getElementById('previewHolder');
+            const previewHolderBackSpan = document.getElementById('previewHolderBack');
+            const previewExpirySpan = document.getElementById('previewExpiry');
+            const previewCVVspan = document.getElementById('previewCVV');
+            const previewBrand = document.getElementById('previewBrand');
+            const previewBrandBack = document.getElementById('previewBrandBack');
+            const flipper = document.getElementById('previewFlipper');
 
-            // Confirm Pay Button
-            document.getElementById('confirmPayBtn').addEventListener('click', function () {
-                const amount = document.getElementById('paymentAmount').value;
-                const selectedMethod = document.getElementById('payPaymentMethod').options[document.getElementById('payPaymentMethod').selectedIndex].text;
+            // Flip card on CVV focus
+            if (cvvInput) {
+                cvvInput.addEventListener('focus', () => {
+                    if (flipper) flipper.style.transform = 'rotateY(180deg)';
+                });
+                cvvInput.addEventListener('blur', () => {
+                    if (flipper) flipper.style.transform = 'rotateY(0deg)';
+                });
+            }
+            function getCardBrand(cardNumber) {
+                const cleaned = cardNumber.replace(/\s/g, '');
+                if (/^4/.test(cleaned)) return '<i class="fab fa-cc-visa"></i>';
+                if (/^5[1-5]/.test(cleaned)) return '<i class="fab fa-cc-mastercard"></i>';
+                if (/^3[47]/.test(cleaned)) return '<i class="fab fa-cc-amex"></i>';
+                if (/^6(?:011|5)/.test(cleaned)) return '<i class="fab fa-cc-discover"></i>';
+                return '<i class="fas fa-credit-card"></i>';
+            }
 
-                if (!amount || amount <= 0) {
-                    alert('Please enter a valid payment amount');
-                    return;
-                }
+            function formatCardNumber(value) {
+                let v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+                let matches = v.match(/\d{4,16}/g);
+                let group = (matches && matches[0]) ? matches[0] : '';
+                let parts = [];
+                for (let i = 0; i < group.length; i += 4) parts.push(group.substring(i, i+4));
+                if (parts.length) return parts.join(' ');
+                return value;
+            }
 
-                if (parseFloat(amount) > 9.99) {
-                    alert('Payment amount cannot exceed due amount of $9.99');
-                    return;
-                }
-
-                alert(`✅ Payment of $${amount} processed successfully!\n\nPayment Method: ${selectedMethod}\n\nYour payment has been applied to Advance ID: AID235`);
-                bootstrap.Modal.getInstance(document.getElementById('payNowModal')).hide();
-                document.getElementById('paymentAmount').value = '9.99';
-            });
+            if (cardNumberInput) {
+                cardNumberInput.addEventListener('input', function(e) {
+                    let formatted = formatCardNumber(this.value);
+                    this.value = formatted;
+                    let raw = formatted.replace(/\s/g, '');
+                    let display = raw.replace(/.(?=.{4})/g, '*');
+                    if (display.length >= 12) {
+                        let last4 = raw.slice(-4);
+                        display = '**** **** **** ' + last4;
+                    } else if (display.length > 4) {
+                        display = display.replace(/.(?=.{4})/g, '*');
+                    }
+                    previewNumberSpan.innerText = display || '**** **** **** ****';
+                    const brandHtml = getCardBrand(raw);
+                    previewBrand.innerHTML = brandHtml;
+                    previewBrandBack.innerHTML = brandHtml;
+                });
+            }
+            if (cardHolderInput) {
+                cardHolderInput.addEventListener('input', function() {
+                    let val = this.value.toUpperCase() || 'YOUR NAME';
+                    previewHolderSpan.innerText = val;
+                    previewHolderBackSpan.innerText = val;
+                });
+            }
+            if (expiryInput) {
+                expiryInput.addEventListener('input', function(e) {
+                    let val = this.value.replace(/[^0-9]/g, '');
+                    if (val.length >= 2) {
+                        val = val.slice(0,2) + '/' + val.slice(2,4);
+                    }
+                    this.value = val.slice(0,5);
+                    previewExpirySpan.innerText = val || 'MM/YY';
+                });
+            }
+            if (cvvInput) {
+                cvvInput.addEventListener('input', function() {
+                    let val = this.value.replace(/[^0-9]/g, '').slice(0,4);
+                    this.value = val;
+                    previewCVVspan.innerText = val || '***';
+                });
+            }
+            const saveCardBtn = document.getElementById('saveCardBtn');
+            if (saveCardBtn) {
+                saveCardBtn.addEventListener('click', function() {
+                    const cardNum = document.getElementById('cardNumber')?.value;
+                    const holder = document.getElementById('cardHolderName')?.value;
+                    const expiry = document.getElementById('expiryDate')?.value;
+                    if (!cardNum || cardNum.replace(/\s/g, '').length < 13) {
+                        alert('Please enter a valid card number');
+                        return;
+                    }
+                    if (!holder) {
+                        alert('Please enter card holder name');
+                        return;
+                    }
+                    if (!expiry || expiry.length < 5) {
+                        alert('Enter expiry date (MM/YY)');
+                        return;
+                    }
+                    const isDefault = document.getElementById('setAsDefaultCard')?.checked;
+                    let last4 = cardNum.replace(/\s/g, '').slice(-4);
+                    let newOption = document.createElement('option');
+                    newOption.value = `card_${Date.now()}`;
+                    let brandName = cardNum.replace(/\s/g, '').startsWith('4') ? 'Visa' : 'Card';
+                    newOption.text = `${brandName} ending in ${last4} ${isDefault ? '(Default)' : ''}`;
+                    const paymentSelect = document.getElementById('payPaymentMethod');
+                    if (paymentSelect) {
+                        paymentSelect.appendChild(newOption);
+                        newOption.selected = true;
+                        if (isDefault) {
+                            for (let opt of paymentSelect.options) {
+                                if (opt !== newOption && opt.text.includes('(Default)')) {
+                                    opt.text = opt.text.replace(' (Default)', '');
+                                }
+                            }
+                        }
+                    }
+                    alert(`Card ending in ${last4} added successfully!`);
+                    bootstrap.Modal.getInstance(document.getElementById('addCardModal'))?.hide();
+                    document.getElementById('addCardForm')?.reset();
+                    previewNumberSpan.innerText = '**** **** **** ****';
+                    previewHolderSpan.innerText = 'YOUR NAME';
+                    previewHolderBackSpan.innerText = 'YOUR NAME';
+                    previewExpirySpan.innerText = 'MM/YY';
+                    previewCVVspan.innerText = '***';
+                    previewBrand.innerHTML = '<i class="fab fa-cc-visa"></i>';
+                    previewBrandBack.innerHTML = '<i class="fab fa-cc-visa"></i>';
+                });
+            }
         });
     </script>
 </body>
