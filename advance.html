@@ -19,17 +19,25 @@
 <body>
     <div id="main-wrapper">
 
+          <!-- Minimal header replica from ROJA design (clean) -->
         <header id="header" class="border-bottom-0">
             <div class="container">
                 <div class="header-row">
                     <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
                         <div class="logo me-4 position-relative">
                             <a class="d-flex" href="#">
-                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
                             </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Centered Navigation with Icons -->
                     <div class="header-column justify-content-center">
                         <nav class="primary-menu navbar navbar-expand-lg">
                             <div id="header-nav" class="collapse navbar-collapse">
@@ -72,32 +80,20 @@
                     <div class="header-column justify-content-end">
                         <nav class="login-signup navbar navbar-expand">
                             <ul class="navbar-nav align-items-center">
-                                <li class="dropdown notifications">
-                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                    <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="push-notifications.html">
                                         <span class="text-5"><i class="far fa-bell"></i></span>
                                         <span class="count">11</span>
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-end notifications-dropdown">
-                                        <li class="dropdown-header">
-                                            <div class="d-flex justify-content-between align-items-center px-3 py-2">
-                                                <span class="text-3 fw-600">Notifications</span>
-                                                <span class="badge bg-primary rounded-pill">11 New</span>
-                                            </div>
-                                        </li>
-                                        <li class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item notification-item" href="#">New offer available</a>
-                                        </li>
-                                        <li><a class="dropdown-item notification-item" href="#">Budget alert</a></li>
-                                        <li><a class="dropdown-item notification-item" href="#">Transaction
-                                                Success</a></li>
-                                    </ul>
                                 </li>
 
+                                <!-- Settings Dropdown (with Profile inside) -->
                                 <li class="dropdown settings ms-2">
-                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                                    <a class="dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="text-5"><i class="fas fa-cog"></i></span>
                                     </a>
-                                   <ul class="dropdown-menu dropdown-menu-center settings-dropdown">
+                                        <ul class="dropdown-menu dropdown-menu-center settings-dropdown">
+                                        <!-- Profile Section inside Settings -->
                                         <li class="profile-header">
                                             <div class="d-flex align-items-center px-3 py-3">
                                                 <img class="rounded-circle me-3" src="vendor/images/profile-1.png"
@@ -112,29 +108,91 @@
                                             </div>
                                         </li>
                                         <li class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i>My Profile</a></li>
-                                        <li><a class="dropdown-item" href="Account.html"><i class="fas fa-user-shield me-2"></i>Account</a></li>
-                                        <li><a class="dropdown-item" href="advance.html"><i class="fas fa-list-ul me-2"></i>Advance</a></li>
-                                        <li><a class="dropdown-item" href="transaction_history.html"><i class="fas fa-clock-rotate-left me-2"></i>Transaction History</a></li>
-                                        <li><a class="dropdown-item" href="transaction_summary.html"><i class="fas fa-file-invoice me-2"></i>Bank Account Summary</a></li>
-                                        <li><a class="dropdown-item" href="payment-methods.html"><i class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
-                                        <li><a class="dropdown-item" href="payment-arrangement.html"><i class="fas fa-exchange-alt me-2"></i>Payment Arrangement</a></li>
-                                        <li><a class="dropdown-item active" href="subscription_plan.html"><i class="fas fa-tag me-2"></i>Subscription</a></li>
-                                        <li><a class="dropdown-item" href="Reminders.html"><i class="fas fa-clock me-2"></i>Reminders</a></li>
-                                        <li><a class="dropdown-item" href="change-pin.html"><i class="fas fa-key me-2"></i>Change PIN</a></li>
-                                        <li><a class="dropdown-item" href="notification.html"><i class="fas fa-bell me-2"></i>Notifications</a></li>
+
+                                        <!-- Profile Links -->
+                                        <li><a class="dropdown-item" href="profile.html"><i
+                                                    class="fas fa-user me-2"></i>My
+                                                Profile</a></li>
+                                        <!-- Account Settings -->
+                                        <li><a class="dropdown-item" href="Account.html"><i
+                                                    class="fas fa-user-shield me-2"></i>Account </a></li>
+                                        <!-- List of Advance Sub-items -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="advance.html">
+                                                <i class="fas fa-list-ul me-2"></i>Advance
+                                            </a>
+                                        </li>
+
+                                        <!-- Transaction History Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_history.html">
+                                                <i class="fas fa-clock-rotate-left  me-2"></i>Transaction History
+                                            </a>
+                                        </li>
+
+                                        <!-- Bank Account Summary Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="transaction_summary.html">
+                                                <i class="fas fa-file-invoice me-2"></i>Bank Account Summary
+                                            </a>
+                                        </li>
+
+                                    <li class="dropdown-submenu"><a class="dropdown-item active"
+                                                href="bank-statements.html"><i class="fas fa-file-invoice me-2"></i>Bank
+                                                Statements</a></li>
+
+                                        <li><a class="dropdown-item" href="payment-methods.html"><i
+                                                    class="fas fa-credit-card me-2"></i>Payment Methods</a></li>
+
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="payment-arrangement.html">
+                                                <i class="fas fa-exchange-alt me-2"></i>Payment Arrangement
+                                            </a>
+                                        </li>
+
+                                        <li><a class="dropdown-item active" href="subscription_plan.html"><i
+                                                    class="fas fa-tag me-2"></i>Subscription</a></li>
+
+                                        <!-- Reminders Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="Reminders.html">
+                                                <i class="fas fa-clock me-2"></i>Reminders
+                                            </a>
+                                        </li>
+
+                                        <!-- Payment Arrangement Section -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="change-pin.html">
+                                                <i class="fas fa-key me-2"></i>Change PIN
+                                            </a>
+                                        </li>
+
+                                        <!-- Notifications Settings -->
+                                        <li class="dropdown-submenu">
+                                            <a class="dropdown-item" href="notification.html">
+                                                <i class="fas fa-bell me-2"></i>Notifications
+                                            </a>
+                                        </li>
+
                                         <li class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
+
+                                        <li><a class="dropdown-item text-danger" href="#"><i
+                                                    class="fas fa-sign-out-alt me-2"></i>Sign Out</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </nav>
 
+                        <!-- Mobile Menu Button -->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#header-nav">
-                            <span></span><span></span><span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </button>
                     </div>
+
                 </div>
             </div>
         </header>

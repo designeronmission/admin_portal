@@ -4,590 +4,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROJA – Secure Login</title>
+    <title>ROJA – Sign In</title>
     <!-- Fonts & Base CSS -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
     <!-- Bootstrap + fontawesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Your existing style.css (contains all theme classes) -->
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="responsive.css" />
-
-    <style>
-        .auth-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #eef2f6 100%);
-        }
-        
-        .auth-image {
-            background: linear-gradient(135deg, #0f172a 0%, #131d58 50%, #1e2a7a 100%);
-            height: 100%;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 48px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .auth-image::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -30%;
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        
-        .auth-image::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -30%;
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        
-        .auth-image-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            color: white;
-            max-width: 400px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .auth-image-content h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .auth-image-content p {
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-        
-        .feature-list {
-            text-align: left;
-            margin-top: 40px;
-        }
-        
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 60px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .feature-item i {
-            width: 28px;
-            font-size: 1rem;
-        }
-        
-        .auth-form {
-            background: white;
-            padding: 48px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-        
-        .auth-form::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #131d58, #4f46e5, #131d58);
-        }
-        
-        .form-container {
-            width: 100%;
-            max-width: 440px;
-            margin: 0 auto;
-            animation: fadeInUp 0.6s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .form-control-custom {
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 14px 18px;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-        
-        .form-control-custom:focus {
-            border-color: #131d58;
-            box-shadow: 0 0 0 3px rgba(19, 29, 88, 0.1);
-            background: white;
-            outline: none;
-        }
-        
-        .input-group-custom {
-            display: flex;
-            align-items: center;
-            background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 16px;
-            transition: all 0.2s ease;
-        }
-        
-        .input-group-custom:focus-within {
-            border-color: #131d58;
-            box-shadow: 0 0 0 3px rgba(19, 29, 88, 0.1);
-            background: white;
-        }
-        
-        .input-group-text-custom {
-            background: transparent;
-            border: none;
-            padding: 14px 0 14px 18px;
-            color: #64748b;
-        }
-        
-        .input-group-custom input {
-            background: transparent;
-            border: none;
-            padding: 14px 18px 14px 0;
-            flex: 1;
-            outline: none;
-        }
-        
-        .btn-primary-custom {
-            background: linear-gradient(135deg, #131d58 0%, #1e2a7a 100%);
-            border: none;
-            border-radius: 16px;
-            padding: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary-custom:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(19, 29, 88, 0.25);
-        }
-        
-        .btn-primary-custom:active {
-            transform: translateY(0);
-        }
-        
-        .otp-input-group {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-        }
-        
-        .otp-input {
-            width: 52px;
-            height: 60px;
-            text-align: center;
-            font-size: 1.3rem;
-            font-weight: 600;
-            border: 2px solid #e2e8f0;
-            border-radius: 14px;
-            background: #f8fafc;
-            transition: all 0.2s ease;
-        }
-        
-        .otp-input:focus {
-            border-color: #131d58;
-            box-shadow: 0 0 0 3px rgba(19, 29, 88, 0.1);
-            outline: none;
-            background: white;
-        }
-        
-        .pin-input-group {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-        }
-        
-        .pin-input {
-            width: 65px;
-            height: 75px;
-            text-align: center;
-            font-size: 1.6rem;
-            font-weight: 600;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            background: #f8fafc;
-            transition: all 0.2s ease;
-        }
-        
-        .pin-input:focus {
-            border-color: #131d58;
-            box-shadow: 0 0 0 3px rgba(19, 29, 88, 0.1);
-            outline: none;
-            background: white;
-        }
-        
-        .resend-timer {
-            color: #64748b;
-            font-size: 0.85rem;
-        }
-        
-        .resend-link {
-            color: #131d58;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .resend-link:hover {
-            text-decoration: underline;
-        }
-        
-        .back-link {
-            color: #64748b;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        
-        .back-link:hover {
-            color: #131d58;
-        }
-        
-        @media (max-width: 991px) {
-            .auth-image {
-                display: none;
-            }
-            .auth-form {
-                min-height: auto;
-                padding: 40px 24px;
-            }
-            .form-container {
-                max-width: 100%;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .auth-form {
-                padding: 32px 20px;
-            }
-            .otp-input {
-                width: 44px;
-                height: 52px;
-                font-size: 1.1rem;
-            }
-            .pin-input {
-                width: 55px;
-                height: 65px;
-                font-size: 1.3rem;
-            }
-            .otp-input-group, .pin-input-group {
-                gap: 8px;
-            }
-        }
-    </style>
-
 </head>
 
-<body>
-    <div class="auth-container">
-        <div class="container-fluid p-0">
-            <div class="row g-0">
-                <!-- Left Side - Image with Features -->
-                <div class="col-lg-6">
-                    <div class="auth-image">
-                        <div class="auth-image-content">
-                            <div class="mb-4">
-                                <img src="vendor/images/roja-org.png" alt="ROJA" style="height: 55px;">
-                            </div>
-                            <h2>Welcome Back to ROJA</h2>
-                            <p class="mb-4">Your trusted partner for smarter financial management.</p>
-                            
-                            <div class="feature-list">
-                                <div class="feature-item">
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>Track your spending effortlessly</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-bullseye"></i>
-                                    <span>Set and achieve financial goals</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-shield-alt"></i>
-                                    <span>Bank-level security for your data</span>
-                                </div>
-                                <div class="feature-item">
-                                    <i class="fas fa-bolt"></i>
-                                    <span>Instant cash advances when you need them</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Right Side - Form -->
-                <div class="col-lg-6">
-                    <div class="auth-form">
-                        <div class="form-container">
-                            <div class="text-center mb-4 d-block d-lg-none">
-                                <img src="vendor/images/roja-org.png" alt="ROJA" style="height: 45px;">
-                            </div>
-                            
+<body class="bg-light">
+    <div id="main-wrapper">
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-8">
+                        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
+                            <!-- Logo & Brand -->
                             <div class="text-center mb-4">
-                                <h3 class="fw-700 mb-2">Sign In</h3>
-                                <p class="text-muted">Enter your phone number to access your account</p>
+                                <div class="logo-area d-inline-flex align-items-center gap-2 mb-3">
+                                                                 <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                                </div>
+                                <h3 class="fw-600 mb-1" id="stepTitle">Welcome Back</h3>
+                                <p class="text-muted small" id="stepSubtitle">Enter your mobile number to continue</p>
                             </div>
-                            
+
+                            <!-- Step Indicators (using existing badge classes) -->
+                            <div class="step-indicator d-flex align-items-center justify-content-center gap-2 mb-4">
+                                <div class="step-badge rounded-circle d-flex align-items-center justify-content-center" id="step1Badge" style="width: 36px; height: 36px; background: #e9ecef;">1</div>
+                                <div class="step-line" id="stepLine1" style="width: 40px; height: 2px; background: #dee2e6;"></div>
+                                <div class="step-badge rounded-circle d-flex align-items-center justify-content-center" id="step2Badge" style="width: 36px; height: 36px; background: #e9ecef;">2</div>
+                                <div class="step-line" id="stepLine2" style="width: 40px; height: 2px; background: #dee2e6;"></div>
+                                <div class="step-badge rounded-circle d-flex align-items-center justify-content-center" id="step3Badge" style="width: 36px; height: 36px; background: #e9ecef;">3</div>
+                            </div>
+
                             <!-- Step 1: Phone Number -->
-                            <div id="loginStep1">
+                            <div id="step1Panel">
                                 <div class="mb-4">
-                                    <label class="form-label fw-500 mb-2">Cell Phone Number</label>
-                                    <div class="input-group-custom">
-                                        <span class="input-group-text-custom">+1</span>
-                                        <input type="tel" id="phoneNumber" placeholder="(555) 555-5555">
+                                    <label class="form-label fw-500 small text-secondary">Mobile Number (US)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light"><i class="fas fa-phone-alt text-muted"></i></span>
+                                        <input type="tel" class="form-control" id="phoneNumber" placeholder="(555) 555-5555" value="(212) 555-1234">
                                     </div>
+                                    <div class="form-text small text-muted mt-1">Enter 10-digit US mobile number</div>
                                 </div>
-                                <button class="btn btn-primary-custom w-100" id="sendOtpBtn">
-                                    <i class="fas fa-arrow-right me-2"></i>Continue
-                                </button>
-                                <div class="text-center mt-4">
-                                    <p class="text-muted small">Don't have an account? <a href="signup.html" class="text-primary fw-500 text-decoration-none">Create Account</a></p>
-                                </div>
+                                <button type="button" id="getOtpBtn" class="btn btn-primary w-100"><i class="fas fa-paper-plane me-2"></i>Get OTP</button>
                             </div>
-                            
+
                             <!-- Step 2: OTP Verification -->
-                            <div id="loginStep2" style="display: none;">
-                                <div class="text-center mb-4">
-                                    <div class="mb-3">
-                                        <i class="fas fa-envelope-open-text text-primary fa-2x"></i>
+                            <div id="step2Panel" style="display: none;">
+                                <div class="mb-4">
+                                    <label class="form-label fw-500 small text-secondary">Verification Code (OTP)</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light"><i class="fas fa-envelope"></i></span>
+                                        <input type="text" class="form-control" id="otpCode" placeholder="Enter 6-digit code" maxlength="6" autocomplete="off">
                                     </div>
-                                    <p class="text-muted">We've sent a verification code to <br><strong id="phoneDisplay" class="text-dark"></strong></p>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="form-text small text-muted">Enter OTP sent to your mobile</div>
+                                        <button type="button" id="resendOtpBtn" class="btn btn-sm btn-link text-primary p-0" disabled>Resend OTP <span id="timerText">(30s)</span></button>
+                                    </div>
                                 </div>
-                                <div class="otp-input-group mb-4">
-                                    <input type="text" class="otp-input" maxlength="1" id="otp1">
-                                    <input type="text" class="otp-input" maxlength="1" id="otp2">
-                                    <input type="text" class="otp-input" maxlength="1" id="otp3">
-                                    <input type="text" class="otp-input" maxlength="1" id="otp4">
-                                    <input type="text" class="otp-input" maxlength="1" id="otp5">
-                                    <input type="text" class="otp-input" maxlength="1" id="otp6">
+                                <button type="button" id="verifyOtpBtn" class="btn btn-primary w-100 mb-2"><i class="fas fa-check-circle me-2"></i>Verify OTP</button>
+                                <button type="button" id="backToPhoneBtn" class="btn btn-outline-secondary w-100"><i class="fas fa-arrow-left me-2"></i>Back</button>
+                            </div>
+
+                            <!-- Step 3: PIN Entry (4-digit PIN with dots) -->
+                            <div id="step3Panel" style="display: none;">
+                                <div class="text-center mb-3">
+                                    <i class="fas fa-lock-circle fa-2x text-primary opacity-75"></i>
                                 </div>
-                                <div class="text-center mb-4">
-                                    <span class="resend-timer" id="timerText">Resend code in <span id="timer">60</span>s</span>
-                                    <a href="#" class="resend-link" id="resendLink" style="display: none;">Resend Code</a>
+                                <label class="form-label fw-500 small text-secondary text-center d-block mb-3">Enter Your Secure PIN</label>
+                                <div class="pin-container text-center" id="pinContainer" style="cursor: pointer;">
+                                    <div class="pin-dots d-flex justify-content-center gap-3 mb-3">
+                                        <div class="pin-dot" data-index="0" style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 600;">•</div>
+                                        <div class="pin-dot" data-index="1" style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 600;">•</div>
+                                        <div class="pin-dot" data-index="2" style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 600;">•</div>
+                                        <div class="pin-dot" data-index="3" style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 600;">•</div>
+                                    </div>
+                                    <input type="password" id="pinInputHidden" class="pin-input-hidden" style="position: absolute; opacity: 0; width: 1px; height: 1px;" maxlength="4" inputmode="numeric">
                                 </div>
-                                <button class="btn btn-primary-custom w-100" id="verifyOtpBtn">
-                                    <i class="fas fa-check-circle me-2"></i>Verify OTP
-                                </button>
-                                <div class="text-center mt-3">
-                                    <a href="#" class="back-link" id="backToPhoneBtn">
-                                        <i class="fas fa-arrow-left me-1"></i>Back to phone number
-                                    </a>
+                                <div class="text-center mt-2"><small class="text-muted">4-digit PIN</small></div>
+                                <div class="mt-4">
+                                    <button type="button" id="loginWithPinBtn" class="btn btn-primary w-100 mb-2" disabled><i class="fas fa-sign-in-alt me-2"></i>Login</button>
+                                    <button type="button" id="backToOtpBtn" class="btn btn-outline-secondary w-100"><i class="fas fa-arrow-left me-2"></i>Back</button>
                                 </div>
                             </div>
-                            
-                            <!-- Step 3: PIN Verification -->
-                            <div id="loginStep3" style="display: none;">
-                                <div class="text-center mb-4">
-                                    <div class="mb-3">
-                                        <i class="fas fa-key text-primary fa-2x"></i>
-                                    </div>
-                                    <h5 class="fw-600 mb-1">Enter Your PIN</h5>
-                                    <p class="text-muted small">Enter your 4-digit security PIN to continue</p>
-                                </div>
-                                <div class="pin-input-group mb-4">
-                                    <input type="password" class="pin-input" maxlength="1" id="pin1">
-                                    <input type="password" class="pin-input" maxlength="1" id="pin2">
-                                    <input type="password" class="pin-input" maxlength="1" id="pin3">
-                                    <input type="password" class="pin-input" maxlength="1" id="pin4">
-                                </div>
-                                <button class="btn btn-primary-custom w-100" id="verifyPinBtn">
-                                    <i class="fas fa-unlock-alt me-2"></i>Verify PIN
-                                </button>
-                                <div class="text-center mt-3">
-                                    <a href="#" class="back-link" id="forgotPinBtn">
-                                        <i class="fas fa-question-circle me-1"></i>Forgot PIN?
-                                    </a>
-                                </div>
+
+                            <hr class="my-4">
+                            <div class="text-center footer-links">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#helpModal"><i class="far fa-question-circle me-1"></i> Need help?</a>
+                                <span class="mx-2 text-muted">|</span>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal"><i class="fas fa-user-plus me-1"></i> Create Account</a>
+                            </div>
+                            <div class="text-center mt-3">
+                                <small class="text-muted">By signing in, you agree to our <a href="terms-of-use.html" class="text-decoration-none">Terms</a> & <a href="privacy-policy.html" class="text-decoration-none">Privacy</a></small>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg"><p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p></div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end"><ul class="nav justify-content-center"><li class="nav-item"><a class="nav-link" href="privacy-policy.html">Privacy</a></li><li class="nav-item"><a class="nav-link" href="terms-of-use.html">Terms</a></li></ul></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
     </div>
 
+    <!-- Modals -->
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"><div class="modal-content rounded-4"><div class="modal-header border-0 pb-0"><h5 class="modal-title fw-600">Support Center</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p class="text-muted">Having trouble signing in? Contact our support team:</p><ul class="list-unstyled"><li><i class="fas fa-envelope text-primary me-2"></i> kumar@bzcloud.uk</li><li class="mt-2"><i class="fas fa-phone-alt text-primary me-2"></i> (XXX) XXX-XXXX (US Support)</li></ul><div class="alert alert-light mt-3 small">We never ask for your full PIN or OTP via call or text.</div></div><div class="modal-footer border-0 pt-0"><button type="button" class="btn btn-outline-secondary rounded-3 px-4" data-bs-dismiss="modal">Close</button></div></div></div>
+    </div>
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered"><div class="modal-content rounded-4"><div class="modal-header border-0 pb-0"><h5 class="modal-title fw-600">Create ROJA Account</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p class="text-muted">Join ROJA to manage your financial health, track budgets, and access cash advances.</p><div class="alert alert-info small"><i class="fas fa-mobile-alt me-2"></i> Demo mode: Use phone (212) 555-1234, OTP: 123456, PIN: 1234</div></div><div class="modal-footer border-0 pt-0"><button type="button" class="btn btn-primary rounded-3 px-4" data-bs-dismiss="modal">Got it</button></div></div></div>
+    </div>
+
+    <!-- Toast -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100"><div id="liveToast" class="toast align-items-center text-white bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000"><div class="d-flex"><div class="toast-body" id="toastMessage">Notification</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let userPhone = '';
+        // DOM elements
+        const step1Panel = document.getElementById('step1Panel');
+        const step2Panel = document.getElementById('step2Panel');
+        const step3Panel = document.getElementById('step3Panel');
+        const step1Badge = document.getElementById('step1Badge');
+        const step2Badge = document.getElementById('step2Badge');
+        const step3Badge = document.getElementById('step3Badge');
+        const stepLine1 = document.getElementById('stepLine1');
+        const stepLine2 = document.getElementById('stepLine2');
+        const stepTitle = document.getElementById('stepTitle');
+        const stepSubtitle = document.getElementById('stepSubtitle');
+        
+        const phoneInput = document.getElementById('phoneNumber');
+        const getOtpBtn = document.getElementById('getOtpBtn');
+        const otpCode = document.getElementById('otpCode');
+        const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+        const resendOtpBtn = document.getElementById('resendOtpBtn');
+        const backToPhoneBtn = document.getElementById('backToPhoneBtn');
+        const backToOtpBtn = document.getElementById('backToOtpBtn');
+        const loginWithPinBtn = document.getElementById('loginWithPinBtn');
+        const pinInputHidden = document.getElementById('pinInputHidden');
+        const pinDots = document.querySelectorAll('.pin-dot');
+        
+        let currentStep = 1;
+        let generatedOtp = null;
+        let timerInterval = null;
+        let timerSeconds = 30;
+        let verifiedPhone = '';
+        let enteredPin = '';
+        
+        const toastEl = document.getElementById('liveToast');
+        let bsToast;
+        function showToast(message, isError = false) {
+            if (!bsToast) bsToast = new bootstrap.Toast(toastEl, { autohide: true, delay: 3000 });
+            toastMessage.innerText = message;
+            if (isError) { toastEl.classList.remove('bg-dark'); toastEl.classList.add('bg-danger'); }
+            else { toastEl.classList.remove('bg-danger'); toastEl.classList.add('bg-dark'); }
+            bsToast.show();
+            setTimeout(() => { toastEl.classList.remove('bg-danger'); toastEl.classList.add('bg-dark'); }, 3500);
+        }
+        
+        function isValidUSPhone(phone) {
+            const digits = phone.replace(/\D/g, '');
+            return digits.length === 10 || (digits.length === 11 && digits[0] === '1');
+        }
+        function normalizePhoneDigits(phone) {
+            let digits = phone.replace(/\D/g, '');
+            if (digits.length === 11 && digits[0] === '1') digits = digits.slice(1);
+            return digits;
+        }
+        
+        function updateStepUI() {
+            step1Badge.classList.remove('active', 'completed');
+            step2Badge.classList.remove('active', 'completed');
+            step3Badge.classList.remove('active', 'completed');
+            stepLine1.classList.remove('completed');
+            stepLine2.classList.remove('completed');
             
-            // OTP inputs
-            const otpInputs = ['otp1', 'otp2', 'otp3', 'otp4', 'otp5', 'otp6'];
-            otpInputs.forEach((id, index) => {
-                const input = document.getElementById(id);
-                input.addEventListener('keyup', function(e) {
-                    if (this.value.length === 1 && index < otpInputs.length - 1) {
-                        document.getElementById(otpInputs[index + 1]).focus();
-                    }
-                    if (e.key === 'Backspace' && !this.value && index > 0) {
-                        document.getElementById(otpInputs[index - 1]).focus();
-                    }
-                });
-            });
-            
-            // PIN inputs
-            const pinInputs = ['pin1', 'pin2', 'pin3', 'pin4'];
-            pinInputs.forEach((id, index) => {
-                const input = document.getElementById(id);
-                input.addEventListener('keyup', function(e) {
-                    if (this.value.length === 1 && index < pinInputs.length - 1) {
-                        document.getElementById(pinInputs[index + 1]).focus();
-                    }
-                    if (e.key === 'Backspace' && !this.value && index > 0) {
-                        document.getElementById(pinInputs[index - 1]).focus();
-                    }
-                });
-            });
-            
-            // Send OTP
-            const sendBtn = document.getElementById('sendOtpBtn');
-            sendBtn.addEventListener('click', function() {
-                const phone = document.getElementById('phoneNumber').value;
-                if (!phone || phone.length < 10) {
-                    alert('Please enter a valid phone number');
-                    return;
-                }
-                userPhone = phone;
-                document.getElementById('phoneDisplay').innerHTML = phone;
-                document.getElementById('loginStep1').style.display = 'none';
-                document.getElementById('loginStep2').style.display = 'block';
-                startTimer();
-                
-                // Animate OTP input
-                document.getElementById('otp1').focus();
-            });
-            
-            // Back to phone
-            document.getElementById('backToPhoneBtn').addEventListener('click', function(e) {
-                e.preventDefault();
-                document.getElementById('loginStep2').style.display = 'none';
-                document.getElementById('loginStep1').style.display = 'block';
-                clearInterval(timerInterval);
-                // Clear OTP inputs
-                otpInputs.forEach(id => document.getElementById(id).value = '');
-            });
-            
-            // Verify OTP
-            document.getElementById('verifyOtpBtn').addEventListener('click', function() {
-                let otp = '';
-                otpInputs.forEach(id => otp += document.getElementById(id).value);
-                if (otp.length === 6) {
-                    document.getElementById('loginStep2').style.display = 'none';
-                    document.getElementById('loginStep3').style.display = 'block';
-                    pinInputs.forEach(id => document.getElementById(id).value = '');
-                    setTimeout(() => document.getElementById('pin1').focus(), 100);
-                } else {
-                    alert('Please enter the complete 6-digit OTP');
-                }
-            });
-            
-            // Verify PIN
-            document.getElementById('verifyPinBtn').addEventListener('click', function() {
-                let pin = '';
-                pinInputs.forEach(id => pin += document.getElementById(id).value);
-                if (pin.length === 4) {
-                    // Show loading state
-                    const btn = this;
-                    const originalText = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Verifying...';
-                    btn.disabled = true;
-                    
-                    setTimeout(() => {
-                        alert('Login successful!');
-                        window.location.href = 'dashboard.html';
-                    }, 800);
-                } else {
-                    alert('Please enter your 4-digit PIN');
-                }
-            });
-            
-            // Forgot PIN
-            document.getElementById('forgotPinBtn').addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('PIN reset instructions will be sent to your registered email. Please contact support for assistance.');
-            });
-            
-            // Timer functionality
-            let timerInterval;
-            function startTimer() {
-                let timeLeft = 60;
-                const timerSpan = document.getElementById('timer');
-                const resendLink = document.getElementById('resendLink');
-                const timerText = document.getElementById('timerText');
-                
-                if (timerInterval) clearInterval(timerInterval);
-                timerText.style.display = 'inline';
-                resendLink.style.display = 'none';
-                
-                timerInterval = setInterval(() => {
-                    if (timeLeft <= 0) {
-                        clearInterval(timerInterval);
-                        timerText.style.display = 'none';
-                        resendLink.style.display = 'inline';
-                    } else {
-                        timerSpan.textContent = timeLeft;
-                        timeLeft--;
-                    }
-                }, 1000);
+            if (currentStep >= 1) {
+                if (currentStep > 1) { step1Badge.classList.add('completed'); step1Badge.style.background = '#28a745'; step1Badge.style.color = 'white'; }
+                else { step1Badge.classList.add('active'); step1Badge.style.background = '#131d58'; step1Badge.style.color = 'white'; }
+            }
+            if (currentStep >= 2) {
+                stepLine1.classList.add('completed'); stepLine1.style.background = '#28a745';
+                if (currentStep > 2) { step2Badge.classList.add('completed'); step2Badge.style.background = '#28a745'; step2Badge.style.color = 'white'; }
+                else { step2Badge.classList.add('active'); step2Badge.style.background = '#131d58'; step2Badge.style.color = 'white'; }
+            }
+            if (currentStep >= 3) {
+                stepLine2.classList.add('completed'); stepLine2.style.background = '#28a745';
+                step3Badge.classList.add('active'); step3Badge.style.background = '#131d58'; step3Badge.style.color = 'white';
             }
             
-            // Resend code
-            document.getElementById('resendLink').addEventListener('click', function(e) {
-                e.preventDefault();
-                startTimer();
-                this.style.display = 'none';
-                document.getElementById('timerText').style.display = 'inline';
-                alert('A new verification code has been sent to your phone.');
-                // Clear OTP inputs
-                otpInputs.forEach(id => document.getElementById(id).value = '');
-                document.getElementById('otp1').focus();
-            });
+            step1Panel.style.display = currentStep === 1 ? 'block' : 'none';
+            step2Panel.style.display = currentStep === 2 ? 'block' : 'none';
+            step3Panel.style.display = currentStep === 3 ? 'block' : 'none';
             
-            // Enter key navigation
-            const phoneInput = document.getElementById('phoneNumber');
-            phoneInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendBtn.click();
-                }
-            });
+            if (currentStep === 1) { stepTitle.innerText = 'Welcome Back'; stepSubtitle.innerText = 'Enter your mobile number to continue'; }
+            else if (currentStep === 2) { stepTitle.innerText = 'Verify OTP'; stepSubtitle.innerText = `Enter the code sent to ${formatPhoneDisplay(verifiedPhone)}`; }
+            else { stepTitle.innerText = 'Enter PIN'; stepSubtitle.innerText = 'Secure 4-digit PIN'; }
+        }
+        
+        function formatPhoneDisplay(phoneDigits) {
+            if (!phoneDigits) return '';
+            const cleaned = phoneDigits.replace(/\D/g, '');
+            if (cleaned.length === 10) return `(${cleaned.slice(0,3)}) ${cleaned.slice(3,6)}-${cleaned.slice(6)}`;
+            return phoneDigits;
+        }
+        
+        phoneInput.addEventListener('input', function(e) {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length > 10) value = value.slice(0, 10);
+            if (value.length >= 6) this.value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6,10)}`;
+            else if (value.length >= 3) this.value = `(${value.slice(0,3)}) ${value.slice(3)}`;
+            else if (value.length > 0) this.value = `(${value}`;
+            else this.value = '';
         });
+        
+        function startResendTimer() {
+            if (timerInterval) clearInterval(timerInterval);
+            timerSeconds = 30;
+            resendOtpBtn.disabled = true;
+            const timerSpan = document.getElementById('timerText');
+            timerSpan.innerText = `(${timerSeconds}s)`;
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                if (timerSeconds <= 0) { clearInterval(timerInterval); resendOtpBtn.disabled = false; timerSpan.innerText = `(Resend)`; }
+                else { timerSpan.innerText = `(${timerSeconds}s)`; }
+            }, 1000);
+        }
+        
+        function sendOtpToPhone(phoneDigits) {
+            generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
+            showToast(`Demo OTP sent to ${formatPhoneDisplay(phoneDigits)}: ${generatedOtp}`, false);
+            startResendTimer();
+            return generatedOtp;
+        }
+        
+        getOtpBtn.addEventListener('click', () => {
+            const phone = phoneInput.value.trim();
+            if (!phone) { showToast('Please enter your mobile number', true); return; }
+            if (!isValidUSPhone(phone)) { showToast('Please enter a valid 10-digit US mobile number', true); return; }
+            const phoneDigits = normalizePhoneDigits(phone);
+            verifiedPhone = phoneDigits;
+            sendOtpToPhone(phoneDigits);
+            currentStep = 2;
+            updateStepUI();
+            otpCode.value = '';
+            otpCode.focus();
+        });
+        
+        verifyOtpBtn.addEventListener('click', () => {
+            const otpValue = otpCode.value.trim();
+            if (!otpValue) { showToast('Please enter the OTP code', true); return; }
+            const isValidOtp = (generatedOtp && otpValue === generatedOtp) || otpValue === '123456';
+            if (isValidOtp) {
+                showToast('OTP verified successfully!', false);
+                currentStep = 3;
+                updateStepUI();
+                enteredPin = '';
+                pinInputHidden.value = '';
+                updatePinDots();
+                pinInputHidden.focus();
+            } else { showToast('Invalid OTP. Please try again.', true); }
+        });
+        
+        resendOtpBtn.addEventListener('click', () => {
+            if (!verifiedPhone) { showToast('Phone number missing. Please go back.', true); return; }
+            sendOtpToPhone(verifiedPhone);
+        });
+        
+        backToPhoneBtn.addEventListener('click', () => { currentStep = 1; updateStepUI(); if (timerInterval) clearInterval(timerInterval); });
+        backToOtpBtn.addEventListener('click', () => { currentStep = 2; updateStepUI(); otpCode.value = ''; otpCode.focus(); });
+        
+        function updatePinDots() {
+            const pinLength = enteredPin.length;
+            pinDots.forEach((dot, idx) => {
+                if (idx < pinLength) { dot.innerText = '●'; dot.style.borderColor = '#131d58'; dot.style.background = '#f0f4fa'; }
+                else { dot.innerText = '•'; dot.style.borderColor = '#e9ecef'; dot.style.background = '#f8f9fa'; }
+            });
+            loginWithPinBtn.disabled = pinLength !== 4;
+        }
+        
+        pinInputHidden.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 4) value = value.slice(0, 4);
+            enteredPin = value;
+            pinInputHidden.value = enteredPin;
+            updatePinDots();
+        });
+        
+        document.getElementById('pinContainer').addEventListener('click', () => { pinInputHidden.focus(); });
+        
+        loginWithPinBtn.addEventListener('click', () => {
+            if (enteredPin.length !== 4) { showToast('Please enter a 4-digit PIN', true); return; }
+            const last4Phone = verifiedPhone.slice(-4);
+            const isValidPin = (enteredPin === '1234' || enteredPin === '0000' || enteredPin === last4Phone || enteredPin === '1111');
+            if (isValidPin) {
+                showToast(`✅ Login successful! Redirecting to dashboard...`, false);
+                setTimeout(() => { window.location.href = "index.html"; }, 1200);
+            } else { showToast('Incorrect PIN. Demo PIN: 1234', true); enteredPin = ''; pinInputHidden.value = ''; updatePinDots(); pinInputHidden.focus(); }
+        });
+        
+        // back to top script
+        document.addEventListener('DOMContentLoaded', function() {
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() { btt.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+            btt.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        });
+        
+        updateStepUI();
     </script>
 </body>
-
 </html>
