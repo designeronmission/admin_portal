@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Settings</title>
+    <!-- Fonts & Base CSS -->
+       <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <style>
+        /* Enhanced Settings Page Styles */
+        .settings-card {
+            background: white;
+            border-radius: 10px;
+            border: 1px solid #edf2f7;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 28px;
+            position: relative;
+        }
+        .settings-card:hover {
+            box-shadow: 0 20px 35px -12px rgba(19, 29, 88, 0.12);
+            transform: translateY(-2px);
+        }
+        .settings-group-header {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            padding: 18px 28px;
+            border-bottom: 1px solid #edf2f7;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .settings-group-header:hover {
+            background: linear-gradient(135deg, #f1f5f9 0%, #fefefe 100%);
+        }
+        .settings-group-header h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 0;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .settings-group-header h4 span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .settings-group-header i:first-child {
+            color: #131d58;
+            font-size: 1.2rem;
+        }
+        .group-toggle-icon {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            transition: transform 0.3s ease;
+        }
+        .settings-group-header.collapsed .group-toggle-icon {
+            transform: rotate(-90deg);
+        }
+        .settings-items-wrapper {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .settings-items-row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .settings-item {
+            flex: 1 1 50%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 28px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            text-decoration: none;
+            color: #334155;
+            background: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .settings-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #131d58 0%, #1e2a7a 100%);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+            z-index: 0;
+        }
+        .settings-item:hover::before {
+            opacity: 0.03;
+        }
+        .settings-item:nth-child(odd) {
+            border-right: 1px solid #f1f5f9;
+        }
+        .settings-item:hover {
+            transform: translateX(4px);
+        }
+        .settings-item-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        .settings-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #ffffff 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+        .settings-icon i {
+            font-size: 1.25rem;
+            color: #131d58;
+            transition: all 0.2s ease;
+        }
+        .settings-item:hover .settings-icon {
+            background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(19, 29, 88, 0.1);
+        }
+        .settings-item:hover .settings-icon i {
+            transform: scale(1.1);
+        }
+        .settings-info h6 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            color: #1e293b;
+        }
+        .settings-info p {
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin: 0;
+            line-height: 1.4;
+        }
+        .settings-arrow i {
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            transition: all 0.25s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .settings-item:hover .settings-arrow i {
+            color: #131d58;
+            transform: translateX(5px);
+        }
+        /* Badge for notifications */
+        .settings-badge {
+            background: #dc2626;
+            color: white;
+            font-size: 0.6rem;
+            padding: 2px 8px;
+            border-radius: 30px;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+        /* Sign out item */
+        .settings-item-full {
+            flex: 1 1 100%;
+            border-right: none !important;
+        }
+        .signout-item {
+            border-top: 1px solid #edf2f7;
+        }
+        .signout-item .settings-icon i {
+            color: #dc2626;
+        }
+        .signout-item:hover .settings-icon {
+            background: linear-gradient(135deg, #fee2e2 0%, #ffffff 100%);
+        }
+        .signout-item .settings-info h6 {
+            color: #dc2626;
+        }
+        /* Quick stats bar */
+        .stats-bar {
+            background: linear-gradient(135deg, #131d58 0%, #1e2a7a 100%);
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+            color: white;
+        }
+        .stat-item {
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        .stat-item:last-child {
+            border-right: none;
+        }
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+        /* Search bar */
+        .settings-search {
+            background: white;
+            border-radius: 60px;
+            padding: 12px 20px;
+            margin-bottom: 28px;
+            border: 1px solid #edf2f7;
+            transition: all 0.2s ease;
+        }
+        .settings-search:focus-within {
+            border-color: #131d58;
+            box-shadow: 0 0 0 3px rgba(19, 29, 88, 0.1);
+        }
+        .settings-search input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        .settings-search input::placeholder {
+            color: #94a3b8;
+        }
+        .settings-search i {
+            color: #94a3b8;
+            font-size: 1rem;
+        }
+        /* Animation for items */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .settings-item {
+            animation: slideIn 0.3s ease forwards;
+        }
+        .settings-item:nth-child(1) { animation-delay: 0.05s; }
+        .settings-item:nth-child(2) { animation-delay: 0.1s; }
+        .settings-item:nth-child(3) { animation-delay: 0.15s; }
+        .settings-item:nth-child(4) { animation-delay: 0.2s; }
+        .settings-item:nth-child(5) { animation-delay: 0.25s; }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .settings-item {
+                flex: 1 1 100%;
+                border-right: none !important;
+            }
+            .settings-group-header {
+                padding: 14px 20px;
+            }
+            .settings-item {
+                padding: 14px 20px;
+            }
+            .settings-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .stat-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding-bottom: 12px;
+                margin-bottom: 12px;
+            }
+            .stat-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+            .stats-bar .row {
+                gap: 12px;
+            }
+        }
+        /* Tooltip */
+        [data-tooltip] {
+            position: relative;
+        }
+        [data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1e293b;
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 8px;
+            white-space: nowrap;
+            z-index: 100;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-wrapper">
+           <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <!-- Logo with embossed effect -->
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
+                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
+                            </a>
+                            <!-- Embossed highlight effect -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100"
+                                style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Centered Navigation with Icons -->
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="fas fa-chart-pie me-1"></i>
+                                            <span>Dashboard</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <i class="fas fa-lightbulb me-1"></i>
+                                            <span>Insights</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="budget.html">
+                                            <i class="fas fa-wallet me-1"></i>
+                                            <span>Budget</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="goals.html">
+                                            <i class="fas fa-bullseye me-1"></i>
+                                            <span>Goals</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="offers.html">
+                                            <i class="fas fa-tag me-1"></i>
+                                            <span>Offers</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="header-column justify-content-end">
+                        <nav class="login-signup navbar navbar-expand">
+                            <ul class="navbar-nav align-items-center">
+                                <li class="dropdown notifications">
+                                    <a class="dropdown-toggle" href="push-notifications.html">
+                                        <span class="text-5"><i class="far fa-bell"></i></span>
+                                        <span class="count">11</span>
+                                    </a>
+                                </li>
+
+                                <!-- Settings Dropdown (with Profile inside) -->
+                                <li class="dropdown settings ms-2">
+                                    <a class="dropdown-toggle" href="settings.html">
+                                        <span class="text-5"><i class="fas fa-cog"></i></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <!-- Mobile Menu Button -->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#header-nav">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-sliders-h text-light me-2"></i> Settings</h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                       <a href="index.html"><span class="text-light opacity-75">Dashboard</span></a>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2"></i>
+                        <span class="text-light fw-500">Settings</span>
+                    </div>
+                </div>
+
+
+                <!-- Search Bar -->
+                <div class="settings-search d-flex align-items-center gap-3">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="settingsSearch" placeholder="Search settings... (e.g., PIN, Payment, Profile)" autocomplete="off">
+                    <i class="fas fa-sliders-h" id="clearSearch" style="cursor: pointer; display: none;"></i>
+                </div>
+
+                <!-- Settings Groups -->
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Group 1: Profile & Account -->
+                        <div class="settings-card" data-group="profile">
+                            <div class="settings-group-header" data-group-toggle>
+                                <h4>
+                                    <span><i class="fas fa-user-circle"></i> Profile & Account</span>
+                                    <i class="fas fa-chevron-down group-toggle-icon"></i>
+                                </h4>
+                            </div>
+                            <div class="settings-items-wrapper">
+                                <div class="settings-items-row">
+                                    <a href="profile.html" class="settings-item" data-search="profile settings personal info edit name email photo">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-user"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Profile Settings</h6>
+                                                <p>Edit your personal information and photo</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                    <a href="Account.html" class="settings-item" data-search="accounts bank linked financial institutions">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-building"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Accounts</h6>
+                                                <p>Manage linked bank accounts</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Group 2: Financial & Transactions -->
+                        <div class="settings-card" data-group="financial">
+                            <div class="settings-group-header" data-group-toggle>
+                                <h4>
+                                    <span><i class="fas fa-chart-line"></i> Financial & Transactions</span>
+                                    <i class="fas fa-chevron-down group-toggle-icon"></i>
+                                </h4>
+                            </div>
+                            <div class="settings-items-wrapper">
+                                <div class="settings-items-row">
+                                    <a href="advance.html" class="settings-item" data-search="advance cash advance request borrow">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Advance</h6>
+                                                <p>Request and manage cash advances</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                    <a href="transaction_history.html" class="settings-item" data-search="transaction history past payments activity">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-history"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Transaction History</h6>
+                                                <p>View all your past transactions</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                    <a href="transaction_summary.html" class="settings-item" data-search="bank account summary overview balance">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-file-invoice"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Bank Account Summary</h6>
+                                                <p>Overview of all linked accounts</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                    <a href="payment-methods.html" class="settings-item" data-search="payment methods credit card debit card add remove">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-credit-card"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Payment Methods</h6>
+                                                <p>Manage your payment options</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                    <a href="payment-arrangement.html" class="settings-item" data-search="payment arrangement schedule repayment plan">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-calendar-check"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Payment Arrangement</h6>
+                                                <p>Set up repayment schedules</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Group 3: Preferences & Security -->
+                        <div class="settings-card" data-group="security">
+                            <div class="settings-group-header" data-group-toggle>
+                                <h4>
+                                    <span><i class="fas fa-lock"></i> Preferences & Security</span>
+                                    <i class="fas fa-chevron-down group-toggle-icon"></i>
+                                </h4>
+                            </div>
+                            <div class="settings-items-wrapper">
+                                <div class="settings-items-row">
+                                    <a href="subscription_plan.html" class="settings-item" data-search="subscription plan premium billing upgrade">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-tag"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Subscription Plan</h6>
+                                                <p>View and manage your subscription</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                    <a href="Reminders.html" class="settings-item" data-search="reminders alerts bill due dates">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-bell"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Reminders</h6>
+                                                <p>Set up bill alerts and reminders</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                    <a href="change-pin.html" class="settings-item" data-search="change pin security password code">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-key"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Change PIN</h6>
+                                                <p>Update your secure 4-digit PIN</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                    <a href="notification.html" class="settings-item" data-search="manage notifications push email sms alerts">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-envelope"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Manage Notifications</h6>
+                                                <p>Configure push and email alerts</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Group 4: Sign Out -->
+                        <div class="settings-card">
+                            <div class="settings-items-wrapper">
+                                <div class="settings-items-row">
+                                    <a href="#" class="settings-item settings-item-full signout-item" id="signoutBtn" data-search="sign out logout exit">
+                                        <div class="settings-item-left">
+                                            <div class="settings-icon"><i class="fas fa-sign-out-alt"></i></div>
+                                            <div class="settings-info">
+                                                <h6>Sign Out</h6>
+                                                <p>Log out of your ROJA account</p>
+                                            </div>
+                                        </div>
+                                        <div class="settings-arrow"><i class="fas fa-chevron-right"></i></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Notice -->
+                        <div class="text-center mt-4">
+                            <small class="text-muted">
+                                <i class="fas fa-shield-alt me-1"></i> Your data is encrypted and secure
+                                <span class="mx-2">•</span>
+                                <i class="fas fa-clock me-1"></i> Last login: Today, 10:30 AM
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg"><p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p></div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end"><ul class="nav justify-content-center"><li class="nav-item"><a class="nav-link" href="privacy-policy.html">Privacy</a></li><li class="nav-item"><a class="nav-link" href="terms-of-use.html">Terms</a></li></ul></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <!-- Sign Out Confirmation Modal -->
+    <div class="modal fade" id="signoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-600">Sign Out</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-3">
+                        <i class="fas fa-sign-out-alt fa-3x text-primary opacity-50"></i>
+                    </div>
+                    <p class="text-center text-muted">Are you sure you want to sign out of your ROJA account?</p>
+                    <div class="alert alert-light small">
+                        <i class="fas fa-info-circle me-1"></i> You'll need to sign in again to access your account.
+                    </div>
+                </div>
+                <div class="modal-footer border-0 pt-0 justify-content-center gap-3">
+                    <button type="button" class="btn btn-outline-secondary rounded-3 px-4" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger rounded-3 px-4" id="confirmSignoutBtn">Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+        <div id="liveToast" class="toast align-items-center text-white bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000">
+            <div class="d-flex">
+                <div class="toast-body" id="toastMessage">Notification</div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Back to top
+        document.addEventListener('DOMContentLoaded', function() {
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() { 
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none'; 
+            });
+            btt.addEventListener('click', function(e) { 
+                e.preventDefault(); 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            });
+        });
+
+        // Collapsible Groups
+        document.querySelectorAll('[data-group-toggle]').forEach(header => {
+            const wrapper = header.closest('.settings-card').querySelector('.settings-items-wrapper');
+            const icon = header.querySelector('.group-toggle-icon');
+            
+            // Initially all expanded
+            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+            
+            header.addEventListener('click', () => {
+                if (wrapper.style.maxHeight && wrapper.style.maxHeight !== '0px') {
+                    wrapper.style.maxHeight = '0px';
+                    icon.style.transform = 'rotate(-90deg)';
+                } else {
+                    wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('settingsSearch');
+        const clearSearch = document.getElementById('clearSearch');
+        const settingsItems = document.querySelectorAll('.settings-item');
+        const settingsCards = document.querySelectorAll('.settings-card');
+
+        function filterSettings() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            let hasVisible = false;
+            
+            settingsItems.forEach(item => {
+                const searchText = item.getAttribute('data-search') || '';
+                const title = item.querySelector('.settings-info h6')?.innerText.toLowerCase() || '';
+                const desc = item.querySelector('.settings-info p')?.innerText.toLowerCase() || '';
+                
+                const matches = searchTerm === '' || 
+                    title.includes(searchTerm) || 
+                    desc.includes(searchTerm) || 
+                    searchText.includes(searchTerm);
+                
+                if (matches) {
+                    item.style.display = 'flex';
+                    hasVisible = true;
+                    // Expand parent card if has visible items
+                    const parentCard = item.closest('.settings-card');
+                    if (parentCard && searchTerm !== '') {
+                        const wrapper = parentCard.querySelector('.settings-items-wrapper');
+                        if (wrapper && wrapper.style.maxHeight === '0px') {
+                            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+                            const icon = parentCard.querySelector('.group-toggle-icon');
+                            if (icon) icon.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Hide cards with no visible items
+            settingsCards.forEach(card => {
+                const hasVisibleItems = Array.from(card.querySelectorAll('.settings-item')).some(item => item.style.display !== 'none');
+                if (searchTerm !== '') {
+                    card.style.display = hasVisibleItems ? 'block' : 'none';
+                } else {
+                    card.style.display = 'block';
+                }
+            });
+            
+            clearSearch.style.display = searchTerm !== '' ? 'block' : 'none';
+            
+            // Show no results message
+            let noResultsMsg = document.getElementById('noResultsMsg');
+            const visibleItems = Array.from(settingsItems).filter(item => item.style.display !== 'none').length;
+            if (searchTerm !== '' && visibleItems === 0) {
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.id = 'noResultsMsg';
+                    noResultsMsg.className = 'text-center py-5';
+                    noResultsMsg.innerHTML = '<i class="fas fa-search fa-3x text-muted mb-3 d-block"></i><p class="text-muted">No settings found matching "' + searchTerm + '"</p>';
+                    document.querySelector('.row .col-12').appendChild(noResultsMsg);
+                } else {
+                    noResultsMsg.style.display = 'block';
+                }
+            } else if (noResultsMsg) {
+                noResultsMsg.style.display = 'none';
+            }
+        }
+        
+        searchInput.addEventListener('input', filterSettings);
+        clearSearch.addEventListener('click', () => {
+            searchInput.value = '';
+            filterSettings();
+        });
+
+        // Sign Out Modal
+        const signoutBtn = document.getElementById('signoutBtn');
+        const signoutModal = new bootstrap.Modal(document.getElementById('signoutModal'));
+        const confirmSignoutBtn = document.getElementById('confirmSignoutBtn');
+        const toastEl = document.getElementById('liveToast');
+        let bsToast;
+
+        function showToast(message, isError = false) {
+            if (!bsToast) bsToast = new bootstrap.Toast(toastEl, { autohide: true, delay: 3000 });
+            toastMessage.innerText = message;
+            if (isError) {
+                toastEl.classList.remove('bg-dark');
+                toastEl.classList.add('bg-danger');
+            } else {
+                toastEl.classList.remove('bg-danger');
+                toastEl.classList.add('bg-dark');
+            }
+            bsToast.show();
+            setTimeout(() => {
+                toastEl.classList.remove('bg-danger');
+                toastEl.classList.add('bg-dark');
+            }, 3500);
+        }
+
+        signoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            signoutModal.show();
+        });
+
+        confirmSignoutBtn.addEventListener('click', () => {
+            signoutModal.hide();
+            showToast('Signed out successfully. Redirecting to login...', false);
+            setTimeout(() => {
+                window.location.href = "signin.html";
+            }, 1500);
+        });
+
+        // Demo toast for settings items
+        const demoItems = document.querySelectorAll('.settings-item:not(#signoutBtn)');
+        demoItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                const href = item.getAttribute('href');
+                if (href === '#' || !href || href === '') {
+                    e.preventDefault();
+                    const title = item.querySelector('.settings-info h6')?.innerText || 'Settings';
+                    showToast(`Opening ${title}... (Demo)`, false);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

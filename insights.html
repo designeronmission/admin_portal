@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROJA – Insights</title>
+    <!-- Fonts & Base CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Bootstrap + fontawesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Insights Page Styling */
+        .insight-stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid #edf2f7;
+            transition: all 0.2s ease;
+            height: 100%;
+        }
+        
+        .insight-stat-card:hover {
+            border-color: #131d58;
+            box-shadow: 0 8px 20px rgba(19, 29, 88, 0.08);
+            transform: translateY(-2px);
+        }
+        
+        .insight-stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: #64748b;
+            margin-bottom: 12px;
+        }
+        
+        .insight-stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1e293b;
+            line-height: 1.2;
+        }
+        
+        .insight-trend {
+            font-size: 0.75rem;
+            margin-top: 10px;
+            color: #64748b;
+        }
+        
+        .progress-bg {
+            background: #e2ecf3;
+            border-radius: 20px;
+            height: 6px;
+            margin: 12px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 20px;
+        }
+        
+        .insight-card-panel {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #edf2f7;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .insight-card-header {
+            padding: 16px 20px;
+            background: #fafcff;
+            border-bottom: 1px solid #edf2f7;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .insight-card-body {
+            padding: 20px;
+        }
+        
+        .insight-row-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+        
+        .insight-row-list:last-child {
+            border-bottom: none;
+        }
+        
+        .insight-tag {
+            display: inline-block;
+            background: #f1f5f9;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        .insight-tag.critical {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+        
+        .insight-tag.advice {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+        
+        .insight-tag.save {
+            background: #e0f2e0;
+            color: #166534;
+        }
+        
+        .insight-tag.success {
+            background: #e0f2e0;
+            color: #166534;
+        }
+        
+        .insight-badge {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 12px 16px;
+            margin: 12px 0;
+            font-size: 0.85rem;
+        }
+        
+        .tx-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+        
+        .tx-table th,
+        .tx-table td {
+            text-align: left;
+            padding: 10px 8px;
+            border-bottom: 1px solid #edf2f7;
+        }
+        
+        .tx-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #475569;
+        }
+        
+        .debit {
+            color: #ef4444;
+            font-weight: 600;
+        }
+        
+        .credit {
+            color: #10b981;
+            font-weight: 600;
+        }
+        
+        .tab-bar-custom {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 28px;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 6px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn-custom {
+            background: transparent;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #64748b;
+        }
+        
+        .tab-btn-custom:hover {
+            color: #131d58;
+            background: #f1f5f9;
+        }
+        
+        .tab-btn-custom.active {
+            background: #131d58;
+            color: white;
+        }
+        
+        .tab-content-custom {
+            display: none;
+            animation: fadeIn 0.25s ease;
+        }
+        
+        .tab-content-custom.active-tab {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .small-note {
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-wrapper">
+
+        <header id="header" class="border-bottom-0">
+            <div class="container">
+                <div class="header-row">
+                    <div class="header-column justify-content-start">
+                        <div class="logo me-4 position-relative">
+                            <a class="d-flex" href="#">
+                                <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;">
+                            </a>
+                            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 50%); pointer-events: none; border-radius: 4px;"></div>
+                        </div>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header-nav">
+                            <span></span><span></span><span></span>
+                        </button>
+                    </div>
+                    <div class="header-column justify-content-center">
+                        <nav class="primary-menu navbar navbar-expand-lg">
+                            <div id="header-nav" class="collapse navbar-collapse">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-chart-pie me-1"></i><span>Dashboard</span></a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="#"><i class="fas fa-lightbulb me-1"></i><span>Insights</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="budget.html"><i class="fas fa-wallet me-1"></i><span>Budget</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="goals.html"><i class="fas fa-bullseye me-1"></i><span>Goals</span></a></li>
+                                    <li class="nav-item"><a class="nav-link" href="offers.html"><i class="fas fa-tag me-1"></i><span>Offers</span></a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="header-column justify-content-end">
+                        <div class="d-flex align-items-center">
+                            <span class="text-5 me-3"><i class="far fa-bell"></i></span>
+                            <img class="rounded-circle" src="vendor/images/profile-1.png" width="40" height="40" alt="profile">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="content" class="py-4">
+            <div class="container">
+                <!-- Header with Breadcrumbs -->
+                <div class="d-flex align-items-center flex-wrap justify-content-between mb-4 background-blue">
+                    <div class="d-flex align-items-center">
+                        <h2 class="text-4 fw-500 mb-0 text-light"><i class="fas fa-lightbulb text-light me-2"></i> Insights</h2>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="text-light opacity-75">Dashboard</span>
+                        <i class="fas fa-chevron-right text-light opacity-50 mx-2" style="font-size: 0.7rem;"></i>
+                        <span class="text-light fw-500">Insights</span>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tab-bar-custom">
+                    <button class="tab-btn-custom active" data-tab="transactions">Transactions</button>
+                    <button class="tab-btn-custom" data-tab="categories">Categories</button>
+                    <button class="tab-btn-custom" data-tab="trends">Trends</button>
+                </div>
+
+                <!-- ================= TAB 1: TRANSACTIONS ================= -->
+                <div id="tab-transactions" class="tab-content-custom active-tab">
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insight-stat-card">
+                                <div class="insight-stat-label"><i class="fas fa-dollar-sign me-1"></i> TOTAL INFLOW (last 90d)</div>
+                                <div class="insight-stat-number">$6,254.41</div>
+                                <div class="insight-trend">Paychecks + reimbursements</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insight-stat-card">
+                                <div class="insight-stat-label"><i class="fas fa-chart-line me-1"></i> TOTAL OUTFLOW (last 90d)</div>
+                                <div class="insight-stat-number">$6,819.32</div>
+                                <div class="insight-trend">Net cashflow: <span class="debit">- $564.91</span></div>
+                                <div class="progress-bg d-flex">
+                                    <div class="progress-fill" style="width: 48%; background: #10b981;"></div>
+                                    <div style="background: #ef4444; width: 52%; height: 100%; border-radius: 20px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insight-stat-card">
+                                <div class="insight-stat-label"><i class="fas fa-exclamation-triangle me-1"></i> OVERDRAFT / LATE FEES</div>
+                                <div class="insight-stat-number">$102</div>
+                                <div class="insight-trend">Late fee $39 + Interest $21.71 + Maintenance $28</div>
+                                <span class="insight-tag critical mt-2 d-inline-block">~$102 avoidable in 90 days</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insight-stat-card">
+                                <div class="insight-stat-label"><i class="fas fa-bolt me-1"></i> HIGH-RISK DAYS</div>
+                                <div class="insight-stat-number">22 days</div>
+                                <div class="insight-trend">Balance estimated &lt;$20 after large debits</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-7">
+                            <div class="insight-card-panel">
+                                <div class="insight-card-header"><i class="fas fa-exchange-alt me-2 text-primary"></i> Recent transactions (sample: last 15)</div>
+                                <div class="insight-card-body" style="overflow-x: auto;">
+                                    <table class="tx-table">
+                                        <thead>
+                                            <tr><th>Date</th><th>Type</th><th>Amount</th><th>Description</th></tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>2022-09-16</td><td class="debit">DEBIT</td><td class="debit">$11.40</td><td>Interest Charge · Finance fee</td></tr>
+                                            <tr><td>2022-09-16</td><td class="credit">CREDIT</td><td class="credit">$40.00</td><td>Online payment from check</td></tr>
+                                            <tr><td>2022-09-16</td><td class="debit">DEBIT</td><td class="debit">$50.99</td><td>Brigit Protection</td></tr>
+                                            <tr><td>2022-09-16</td><td class="debit">DEBIT</td><td class="debit">$20.64</td><td>Amazon shopping</td></tr>
+                                            <tr><td>2022-09-16</td><td class="credit">CREDIT</td><td class="credit">$738.39</td><td>Action Gypsum PAYCHECK</td></tr>
+                                            <tr><td>2022-09-13</td><td class="debit">DEBIT</td><td class="debit">$38.10</td><td>Chevron gas</td></tr>
+                                            <tr><td>2022-09-13</td><td class="debit">DEBIT</td><td class="debit">$51.12</td><td>Black Angus dining</td></tr>
+                                            <tr><td>2022-09-12</td><td class="debit">DEBIT</td><td class="debit">$139.00</td><td>Hotels.com</td></tr>
+                                            <tr><td>2022-09-12</td><td class="debit">DEBIT</td><td class="debit">$71.00</td><td>Natural Nails & Spa</td></tr>
+                                            <tr><td>2022-09-12</td><td class="debit">DEBIT</td><td class="debit">$151.06</td><td>Kemper Auto insurance</td></tr>
+                                            <tr><td>2022-09-12</td><td class="debit">DEBIT</td><td class="debit">$300.00</td><td>Cashback Loans</td></tr>
+                                            <tr><td>2022-09-09</td><td class="credit">CREDIT</td><td class="credit">$740.21</td><td>Action Gypsum PAYCHECK</td></tr>
+                                            <tr><td>2022-09-07</td><td class="debit">DEBIT</td><td class="debit">$172.22</td><td>Toyota auto payment</td></tr>
+                                            <tr><td>2022-09-07</td><td class="debit">DEBIT</td><td class="debit">$129.48</td><td>OneMain Financial loan</td></tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="small-note"><i class="fas fa-info-circle me-1"></i> Frequent large debits: Cashback Loans, auto, insurance → rapid balance drops after paycheck.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="insight-card-panel">
+                                <div class="insight-card-header"><i class="fas fa-exclamation-circle me-2 text-primary"></i> Fee & overdraft analysis</div>
+                                <div class="insight-card-body">
+                                    <div class="insight-row-list"><span><i class="fas fa-dollar-sign me-2 text-muted"></i>Late fee (Credit card)</span><span>$39.00</span><span class="insight-tag critical">avoidable</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-chart-line me-2 text-muted"></i>Interest charges (2x)</span><span>$21.71</span><span class="insight-tag advice">carry balance</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-building me-2 text-muted"></i>Monthly maintenance fees</span><span>$28.00</span><span>waiver possible</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-bell me-2 text-muted"></i>Potential NSF risk</span><span>Multiple low-balance days</span><span class="insight-tag critical">action needed</span></div>
+                                    <div class="insight-badge"><i class="fas fa-check-circle text-success me-2"></i> <strong>Action:</strong> Keep $75 buffer after each paycheck to avoid $35+ NSF/late fees.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="insight-card-panel">
+                                <div class="insight-card-header"><i class="fas fa-lightbulb me-2 text-primary"></i> Transaction insights</div>
+                                <div class="insight-card-body">
+                                    <div class="insight-row-list"><span><i class="fas fa-money-bill-wave me-2 text-muted"></i>Paycheck pattern</span><span>Action Gypsum: ~$658–$740 (bi-weekly)</span><span class="insight-tag success">stable income</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-hand-holding-usd me-2 text-muted"></i>Loan repayments (OneMain + LendingPoint)</span><span>$129.48 + $101.70</span><span class="insight-tag advice">fixed obligations</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-car me-2 text-muted"></i>Auto payment (Toyota)</span><span>$172–$355 / month</span><span>large recurring</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-sync-alt me-2 text-muted"></i>Cashback Loans cycle</span><span>$300 debit + $255 credit</span><span class="insight-tag critical">high-cost borrowing</span></div>
+                                    <div class="small-note"><i class="fas fa-lightbulb text-warning me-1"></i> Cash advance cycle reduces net cash: each $300 advance costs ~$45 in fees / interest.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= TAB 2: CATEGORIES ================= -->
+                <div id="tab-categories" class="tab-content-custom">
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-3 col-sm-6"><div class="insight-stat-card"><div class="insight-stat-label"><i class="fas fa-utensils me-1"></i> TOP SPENDING CATEGORY</div><div class="insight-stat-number">Food & Dining</div><div class="insight-trend">~$580 (Uber Eats + restaurants)</div></div></div>
+                        <div class="col-md-3 col-sm-6"><div class="insight-stat-card"><div class="insight-stat-label"><i class="fas fa-car me-1"></i> AUTO & TRANSPORT</div><div class="insight-stat-number">$670+</div><div class="insight-trend">Toyota payments + gas + insurance</div></div></div>
+                        <div class="col-md-3 col-sm-6"><div class="insight-stat-card"><div class="insight-stat-label"><i class="fas fa-hand-holding-usd me-1"></i> LOAN & CASH ADVANCE</div><div class="insight-stat-number">$915</div><div class="insight-trend">OneMain + Cashback Loans</div></div></div>
+                        <div class="col-md-3 col-sm-6"><div class="insight-stat-card"><div class="insight-stat-label"><i class="fas fa-shopping-bag me-1"></i> SHOPPING / SUBSCRIPTIONS</div><div class="insight-stat-number">~$210</div><div class="insight-trend">Amazon, Target, streaming</div></div></div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="insight-card-panel">
+                                <div class="insight-card-header"><i class="fas fa-chart-pie me-2 text-primary"></i> Spending breakdown (last 90 days)</div>
+                                <div class="insight-card-body">
+                                    <div class="insight-row-list"><span><i class="fas fa-utensils me-2 text-muted"></i>Food & Dining (Uber Eats, restaurants)</span><strong>$582.41</strong><span class="insight-tag">high frequency</span></div>
+                                    <div class="progress-bg"><div class="progress-fill" style="width:34%; background:#f59e0b;"></div></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-car me-2 text-muted"></i>Auto (Toyota + gas + Kemper)</span><strong>$671.89</strong><span class="insight-tag">essential</span></div>
+                                    <div class="progress-bg"><div class="progress-fill" style="width:39%; background:#3b82f6;"></div></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-hand-holding-usd me-2 text-muted"></i>Loan payments (OneMain, LendingPoint)</span><strong>$379.66</strong></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-sync-alt me-2 text-muted"></i>Cashback Loans (advance cycle)</span><strong>$600 debit / $510 credit</strong><span class="insight-tag critical">net -$90 + fees</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-shopping-bag me-2 text-muted"></i>Shopping (Amazon, Target, Walmart)</span><strong>$188.42</strong></div>
+                                    <div class="insight-badge"><i class="fas fa-chart-line me-2"></i> Cashback Loans pattern: withdraw $300, later repay $255 → effective loss ~$45 each cycle.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="insight-card-panel">
+                                <div class="insight-card-header"><i class="fas fa-tags me-2 text-primary"></i> Tagged spend & improvement areas</div>
+                                <div class="insight-card-body">
+                                    <div class="insight-row-list"><span><i class="fas fa-pizza-slice me-2 text-muted"></i>Uber Eats / delivery fees</span><span>$200+ (multiple small orders)</span><span class="insight-tag advice">reduce by meal planning</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-repeat me-2 text-muted"></i>Subscription & recurring</span><span>Peacock, Prime, CarePass ~$20/mo</span><span class="insight-tag save">review necessity</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-shield-alt me-2 text-muted"></i>Brigit & Afterpay fees</span><span>$50.99 + $15.11</span><span>BNPL interest adds up</span></div>
+                                    <div class="insight-tag save mt-2 d-inline-block"><i class="fas fa-check me-1"></i> Simple switch: replace 3 Uber Eats orders with grocery -> save ~$80/month.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="insight-card-panel">
+                                <div class="insight-card-header"><i class="fas fa-bullseye me-2 text-primary"></i> Categorized action board</div>
+                                <div class="insight-card-body">
+                                    <div class="insight-row-list"><span><i class="fas fa-utensils me-2 text-muted"></i>Reduce dining & delivery by 25%</span><span>→ ~$140 monthly saving</span><span class="insight-tag save">high impact</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-car me-2 text-muted"></i>Refinance or review auto insurance (Kemper $150+)</span><span>shop around</span><span class="insight-tag advice">potential saving</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-piggy-bank me-2 text-muted"></i>Stop Cashback Loans cycle: build $200 emergency fund</span><span>saves $45 per loop</span><span class="insight-tag save">urgent</span></div>
+                                    <div class="small-note"><i class="fas fa-info-circle me-1"></i> Afterpay/Klarna/Sezzle installments appear frequently — consider consolidating to avoid multiple micro-debits.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= TAB 3: TRENDS ================= -->
+                <div id="tab-trends" class="tab-content-custom">
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-3 col-sm-6"><div class="insight-stat-card"><div class="insight-stat-label"><i class="fas fa-chart-line me-1"></i> CASHFLOW TREND (MoM)</div><div class="insight-stat-number">-2.3%</div><div class="insight-trend">Outflow slightly > inflow</div></div></div>
+                        <div class="col-md-3 col-sm-6"><div class="insight-stat-card"><div class="insight-stat-label"><i class="fas fa-sync-alt me-1"></i> CASH ADVANCE CYCLE</div><div class="insight-stat-number">$90 net loss</div><div class="insight-trend">each $300 advance costs ~$45</div></div></div>
+                        <div class="col-md-3 col-sm-6"><div class="insight-stat-card"><div class="insight-stat-label"><i class="fas fa-chart-simple me-1"></i> PROJECTED BUFFER</div><div class="insight-stat-number">$0–$35</div><div class="insight-trend">if spending continues same pattern</div></div></div>
+                        <div class="col-md-3 col-sm-6"><div class="insight-stat-card"><div class="insight-stat-label"><i class="fas fa-bell me-1"></i> LOW BALANCE ALERT</div><div class="insight-stat-number">75% of days</div><div class="insight-trend">balance &lt;$100 after large bills</div></div></div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-6">
+                            <div class="insight-card-panel">
+                                <div class="insight-card-header"><i class="fas fa-chart-line me-2 text-primary"></i> Trend: Income vs Essential expenses</div>
+                                <div class="insight-card-body">
+                                    <div class="insight-row-list"><span><i class="fas fa-money-bill-wave me-2 text-muted"></i>Avg monthly income</span><span>$2,085</span><span>Action Gypsum payroll</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-home me-2 text-muted"></i>Essential (Auto + Loan + Insurance)</span><span>$1,024/mo</span><span class="insight-tag">fixed</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-utensils me-2 text-muted"></i>Discretionary (Food delivery + shopping)</span><span>$580/mo</span><span class="insight-tag advice">cut by 20% = $116 saved</span></div>
+                                    <div class="progress-bg d-flex mt-2">
+                                        <div class="progress-fill" style="width:49%; background:#166534;"></div>
+                                        <div style="background:#dc2626; width:28%; height:100%; border-radius:20px;"></div>
+                                    </div>
+                                    <div class="small-note mt-2">If discretionary reduced by $100, monthly surplus could reach +$60 instead of negative.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="insight-card-panel">
+                                <div class="insight-card-header"><i class="fas fa-chart-simple me-2 text-primary"></i> Projection: "Small changes" scenario</div>
+                                <div class="insight-card-body">
+                                    <div class="insight-row-list"><span><i class="fas fa-check-circle text-success me-2"></i>Cut 4 Uber Eats orders/month</span><span>→ save $75</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-check-circle text-success me-2"></i>Stop Cashback Loans cycle</span><span>→ save $45/month</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-check-circle text-success me-2"></i>Reduce Afterpay/Brigit by half</span><span>→ save $45</span></div>
+                                    <div class="insight-badge mt-3"><i class="fas fa-star text-warning me-2"></i> <strong>Potential monthly saving: ~$165</strong> — enough to build emergency fund & avoid late fees.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="insight-card-panel">
+                                <div class="insight-card-header"><i class="fas fa-calendar-alt me-2 text-primary"></i> Trend-based recommendations</div>
+                                <div class="insight-card-body">
+                                    <div class="insight-row-list"><span><i class="fas fa-bolt me-2 text-warning"></i>Cash advance trap</span><span>Pattern: Cashback Loans debit $300, later credit $255 → net -$45 + interest. Break the cycle with a $200 mini-savings.</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-calendar-week me-2 text-muted"></i>Paycheck timing</span><span>Paydays ~9th and 23rd. Large debits (Toyota, OneMain) hit right after → schedule them for 2 days after payday to avoid low balance.</span></div>
+                                    <div class="insight-row-list"><span><i class="fas fa-shield-alt me-2 text-muted"></i>Overdraft prevention</span><span>Enable low-balance alert at $100, auto-transfer $25 from savings as buffer.</span></div>
+                                    <div class="insight-tag save mt-2 d-inline-block"><i class="fas fa-check me-1"></i> Simple 30-day goal: reduce delivery apps by 50% and avoid new Cashback Loans.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <footer id="footer">
+            <div class="container">
+                <div class="footer-copyright">
+                    <div class="row">
+                        <div class="col-lg">
+                            <p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p>
+                        </div>
+                        <div class="col-lg d-lg-flex justify-content-lg-end">
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item"><a class="nav-link" href="#">Privacy</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Terms</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var btt = document.getElementById('back-to-top');
+            window.addEventListener('scroll', function() {
+                btt.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            btt.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Tab switching
+            const tabs = ['transactions', 'categories', 'trends'];
+            const contents = {
+                transactions: document.getElementById('tab-transactions'),
+                categories: document.getElementById('tab-categories'),
+                trends: document.getElementById('tab-trends')
+            };
+            const btns = document.querySelectorAll('.tab-btn-custom');
+
+            function activateTab(tabId) {
+                tabs.forEach(id => contents[id].classList.remove('active-tab'));
+                contents[tabId].classList.add('active-tab');
+                btns.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-tab') === tabId) btn.classList.add('active');
+                });
+            }
+            
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const id = btn.getAttribute('data-tab');
+                    if (id && contents[id]) activateTab(id);
+                });
+            });
+            
+            if (!contents.transactions.classList.contains('active-tab')) activateTab('transactions');
+        });
+    </script>
+</body>
+</html>
+```

@@ -1,330 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROJA – Sign In</title>
-    <!-- Fonts & Base CSS -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
-    <!-- Bootstrap + fontawesome -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ROJA • Sign In & Create Account</title>
+    <!-- Google Fonts + Base -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Your existing style.css (contains all theme classes) -->
-    <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
 </head>
+<body>
 
-<body class="bg-light">
-    <div id="main-wrapper">
-
-        <div id="content" class="py-4">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 col-md-8">
-                        <div class="bg-white rounded-4 shadow-sm p-4 p-md-5">
-                            <!-- Logo & Brand -->
-                            <div class="text-center mb-4">
-                                <div class="logo-area d-inline-flex align-items-center gap-2 mb-3">
-                                                                 <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;"
-                                    class="position-relative" style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));">
-                                </div>
-                                <h3 class="fw-600 mb-1" id="stepTitle">Welcome Back</h3>
-                                <p class="text-muted small" id="stepSubtitle">Enter your mobile number to continue</p>
-                            </div>
-
-                            <!-- Step Indicators (using existing badge classes) -->
-                            <div class="step-indicator d-flex align-items-center justify-content-center gap-2 mb-4">
-                                <div class="step-badge rounded-circle d-flex align-items-center justify-content-center" id="step1Badge" style="width: 36px; height: 36px; background: #e9ecef;">1</div>
-                                <div class="step-line" id="stepLine1" style="width: 40px; height: 2px; background: #dee2e6;"></div>
-                                <div class="step-badge rounded-circle d-flex align-items-center justify-content-center" id="step2Badge" style="width: 36px; height: 36px; background: #e9ecef;">2</div>
-                                <div class="step-line" id="stepLine2" style="width: 40px; height: 2px; background: #dee2e6;"></div>
-                                <div class="step-badge rounded-circle d-flex align-items-center justify-content-center" id="step3Badge" style="width: 36px; height: 36px; background: #e9ecef;">3</div>
-                            </div>
-
-                            <!-- Step 1: Phone Number -->
-                            <div id="step1Panel">
-                                <div class="mb-4">
-                                    <label class="form-label fw-500 small text-secondary">Mobile Number (US)</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light"><i class="fas fa-phone-alt text-muted"></i></span>
-                                        <input type="tel" class="form-control" id="phoneNumber" placeholder="(555) 555-5555" value="(212) 555-1234">
-                                    </div>
-                                    <div class="form-text small text-muted mt-1">Enter 10-digit US mobile number</div>
-                                </div>
-                                <button type="button" id="getOtpBtn" class="btn btn-primary w-100"><i class="fas fa-paper-plane me-2"></i>Get OTP</button>
-                            </div>
-
-                            <!-- Step 2: OTP Verification -->
-                            <div id="step2Panel" style="display: none;">
-                                <div class="mb-4">
-                                    <label class="form-label fw-500 small text-secondary">Verification Code (OTP)</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light"><i class="fas fa-envelope"></i></span>
-                                        <input type="text" class="form-control" id="otpCode" placeholder="Enter 6-digit code" maxlength="6" autocomplete="off">
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center mt-2">
-                                        <div class="form-text small text-muted">Enter OTP sent to your mobile</div>
-                                        <button type="button" id="resendOtpBtn" class="btn btn-sm btn-link text-primary p-0" disabled>Resend OTP <span id="timerText">(30s)</span></button>
-                                    </div>
-                                </div>
-                                <button type="button" id="verifyOtpBtn" class="btn btn-primary w-100 mb-2"><i class="fas fa-check-circle me-2"></i>Verify OTP</button>
-                                <button type="button" id="backToPhoneBtn" class="btn btn-outline-secondary w-100"><i class="fas fa-arrow-left me-2"></i>Back</button>
-                            </div>
-
-                            <!-- Step 3: PIN Entry (4-digit PIN with dots) -->
-                            <div id="step3Panel" style="display: none;">
-                                <div class="text-center mb-3">
-                                    <i class="fas fa-lock-circle fa-2x text-primary opacity-75"></i>
-                                </div>
-                                <label class="form-label fw-500 small text-secondary text-center d-block mb-3">Enter Your Secure PIN</label>
-                                <div class="pin-container text-center" id="pinContainer" style="cursor: pointer;">
-                                    <div class="pin-dots d-flex justify-content-center gap-3 mb-3">
-                                        <div class="pin-dot" data-index="0" style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 600;">•</div>
-                                        <div class="pin-dot" data-index="1" style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 600;">•</div>
-                                        <div class="pin-dot" data-index="2" style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 600;">•</div>
-                                        <div class="pin-dot" data-index="3" style="width: 50px; height: 50px; background: #f8f9fa; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 600;">•</div>
-                                    </div>
-                                    <input type="password" id="pinInputHidden" class="pin-input-hidden" style="position: absolute; opacity: 0; width: 1px; height: 1px;" maxlength="4" inputmode="numeric">
-                                </div>
-                                <div class="text-center mt-2"><small class="text-muted">4-digit PIN</small></div>
-                                <div class="mt-4">
-                                    <button type="button" id="loginWithPinBtn" class="btn btn-primary w-100 mb-2" disabled><i class="fas fa-sign-in-alt me-2"></i>Login</button>
-                                    <button type="button" id="backToOtpBtn" class="btn btn-outline-secondary w-100"><i class="fas fa-arrow-left me-2"></i>Back</button>
-                                </div>
-                            </div>
-
-                            <hr class="my-4">
-                            <div class="text-center footer-links">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#helpModal"><i class="far fa-question-circle me-1"></i> Need help?</a>
-                                <span class="mx-2 text-muted">|</span>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal"><i class="fas fa-user-plus me-1"></i> Create Account</a>
-                            </div>
-                            <div class="text-center mt-3">
-                                <small class="text-muted">By signing in, you agree to our <a href="terms-of-use.html" class="text-decoration-none">Terms</a> & <a href="privacy-policy.html" class="text-decoration-none">Privacy</a></small>
-                            </div>
-                        </div>
-                    </div>
+<div class="auth-container">
+    <div class="row g-0">
+        <!-- LEFT: BRAND SIDE -->
+        <div class="col-lg-6 d-flex">
+            <div class="brand-side w-100">
+                <div class="brand-logo-area">
+                    <a class="d-flex" href="#">
+                        <img src="vendor/images/roja-org.png" alt="Roja-logo" style="height:50px;" onerror="this.style.display='none'">
+                    </a>       
+                </div>
+                <div class="brand-motto"> 
+                    <h2 class="text-white">Welcome to<br>Customer Portal</h2>
+                    <p>Secure access to intelligent cash advances, budgeting tools & financial wellness.</p>
                 </div>
             </div>
         </div>
 
-        <footer id="footer">
-            <div class="container">
-                <div class="footer-copyright">
-                    <div class="row">
-                        <div class="col-lg"><p class="text-center text-lg-start mb-0">Copyright &copy; 2025 ROJA. All Rights Reserved.</p></div>
-                        <div class="col-lg d-lg-flex justify-content-lg-end"><ul class="nav justify-content-center"><li class="nav-item"><a class="nav-link" href="privacy-policy.html">Privacy</a></li><li class="nav-item"><a class="nav-link" href="terms-of-use.html">Terms</a></li></ul></div>
+        <!-- RIGHT: DYNAMIC PANEL (Login OR Signup) -->
+        <div class="col-lg-6">
+            <div class="form-side">
+                <!-- ================= LOGIN PANEL ================= -->
+                <div id="loginPanel">
+                    <div class="step-indicator-custom">
+                        <div class="step-circle" id="step1Circle">1</div>
+                        <div class="step-line" id="stepLine1C"></div>
+                        <div class="step-circle" id="step2Circle">2</div>
+                        <div class="step-line" id="stepLine2C"></div>
+                        <div class="step-circle" id="step3Circle">3</div>
+                    </div>
+
+                    <div class="text-center mb-4">
+                        <h3 class="fw-bold" id="dynamicTitle" style="color: #0f2b4d;">Welcome Back</h3>
+                        <p class="text-muted" id="dynamicSubtitle">Enter your mobile number to continue</p>
+                    </div>
+
+                    <div id="step1Form">
+                        <div class="mb-4">
+                            <label class="form-label-custom d-block">Cell Phone Number</label>
+                            <div class="input-group-custom d-flex align-items-center">
+                                <span class="input-group-text-custom bg-transparent px-3"><i class="fas fa-phone text-secondary"></i></span> 
+                                <input type="tel" id="phoneNumberInput" class="form-control-clean form-control" placeholder="(555) 555-5555" value="(212) 555-1234">
+                            </div>
+                            <div class="form-text small mt-1">10-digit US number · demo ready</div>
+                        </div>
+                        <button id="sendOtpMainBtn" class="btn btn-primary-roja text-white w-100 py-3"><i class="fas fa-paper-plane me-2"></i> Send OTP</button>
+                    </div>
+
+                    <div id="step2Form" style="display: none;">
+                        <div class="mb-4">
+                            <label class="form-label-custom">Verification code (OTP)</label>
+                            <div class="input-group-custom d-flex align-items-center">
+                                <span class="input-group-text-custom px-3"><i class="fas fa-key"></i></span>
+                                <input type="text" id="otpInput" class="form-control-clean form-control" placeholder="6-digit code" maxlength="6" autocomplete="off">
+                            </div>
+                            <div class="d-flex justify-content-between mt-2 align-items-center">
+                                <div class="small text-muted"><i class="far fa-clock"></i> Enter OTP received</div>
+                                <button id="resendOtpBtn2" class="btn btn-sm btn-link text-decoration-none p-0" disabled>Resend <span id="timerSpan">(30s)</span></button>
+                            </div>
+                        </div>
+                        <button id="verifyOtpBtn2" class="btn btn-primary-roja text-white w-100 py-3 mb-2"><i class="fas fa-check-circle me-2"></i> Verify & Continue</button>
+                        <button id="backToPhoneBtn" class="btn btn-outline-roja w-100 py-2"><i class="fas fa-arrow-left me-2"></i> Back</button>
+                    </div>
+
+                    <div id="step3Form" style="display: none;">
+                        <div class="text-center mb-2"><i class="fas fa-shield-haltered fa-2x" style="color:#0f2b4d;"></i></div>
+                        <label class="form-label-custom text-center d-block mb-3">Secure 4-digit PIN</label>
+                        <div class="pin-dots-wrapper text-center mb-3" id="pinWrapper" style="cursor:pointer;">
+                            <div class="d-flex justify-content-center gap-3">
+                                <div class="pin-dot-modern" data-idx="0">•</div>
+                                <div class="pin-dot-modern" data-idx="1">•</div>
+                                <div class="pin-dot-modern" data-idx="2">•</div>
+                                <div class="pin-dot-modern" data-idx="3">•</div>
+                            </div>
+                            <input type="password" id="hiddenPinInput" maxlength="4" inputmode="numeric" style="position:absolute; opacity:0; width:1px; height:1px;">
+                        </div>
+                        <div class="text-center small text-muted mb-4">4-digit numeric PIN</div>
+                        <button id="loginPinFinalBtn" class="btn btn-primary-roja w-100 py-3 mb-2 text-white" disabled><i class="fas fa-sign-in-alt me-2"></i> Login</button>
+                        <button id="backToOtpStepBtn" class="btn btn-outline-roja w-100 py-2"><i class="fas fa-chevron-left me-2"></i> Back</button>
+                    </div>
+
+                    <hr class="my-4">
+                    <div class="footer-links d-flex justify-content-center gap-3">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#helpModal"><i class="far fa-question-circle"></i> Help</a>
+                        <span class="text-muted">|</span>
+                        <a href="#" id="showSignupLink"><i class="fas fa-user-plus"></i> Create account</a>
+                    </div>
+                    <p class="text-center text-muted mt-3 small">By signing in, you agree to our <a href="#" class="text-decoration-none">Terms</a> & <a href="#" class="text-decoration-none">Privacy</a>.</p>
+                </div>
+
+                <!-- ================= SIGNUP PANEL (replaces login in same place) ================= -->
+                <div id="signupPanel" style="display: none;">
+                    <div class="text-center mb-3">
+                        <h3 class="fw-bold" style="color:#0f2b4d;">Create Account</h3>
+                        <p class="text-muted small">Join ROJA for financial freedom</p>
+                    </div>
+                    <div class="signup-form-container">
+                        <form id="signupForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">First Name <span class="required-star">*</span></label>
+                                    <div class="input-group-custom"><input type="text" id="firstName" class="form-control-clean" placeholder="John"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-custom">Last Name <span class="required-star">*</span></label>
+                                    <div class="input-group-custom"><input type="text" id="lastName" class="form-control-clean" placeholder="Doe"></div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-custom">Email Address <span class="required-star">*</span></label>
+                                    <div class="input-group-custom"><input type="email" id="emailSignup" class="form-control-clean" placeholder="hello@roja.com"></div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-custom">Cell Phone Number <span class="required-star">*</span></label>
+                                    <div class="input-group-custom"><input type="tel" id="phoneSignup" class="form-control-clean" placeholder="(555) 555-5555"></div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-custom">Date of Birth <span class="required-star">*</span></label>
+                                    <div class="input-group-custom"><input type="date" id="dobSignup" class="form-control-clean"></div>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-custom">Address <span class="required-star">*</span></label>
+                                    <div class="input-group-custom"><input type="text" id="addressSignup" class="form-control-clean" placeholder="Street address"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label-custom">City <span class="required-star">*</span></label>
+                                    <div class="input-group-custom"><input type="text" id="citySignup" class="form-control-clean" placeholder="New York"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label-custom">State <span class="required-star">*</span></label>
+                                    <div class="input-group-custom"><input type="text" id="stateSignup" class="form-control-clean" placeholder="NY"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label-custom">ZIP Code <span class="required-star">*</span></label>
+                                    <div class="input-group-custom"><input type="text" id="zipSignup" class="form-control-clean" placeholder="10001"></div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="smsConsent">
+                                        <label class="form-check-label small fw-medium" for="smsConsent">By checking this box, you agree to receive text messages.</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="tos-text-sm">
+                                        <i class="fas fa-info-circle me-1 text-primary"></i> By submitting, you agree to receive messages from Roja. Msg & Data rates may apply. Messages will be used for MFA authentication and account notices, frequency will vary with use. Reply STOP to opt-out or HELP for help.
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" id="signupSubmitBtn" class="btn btn-primary-roja text-white w-100 mt-4 py-3"><i class="fas fa-user-check me-2"></i> Sign Up</button>
+                            <div class="text-center mt-3">
+                                <a href="#" id="backToLoginLink" class="text-decoration-none text-dark small">Already have an account? <span style="color:#0f2b4d;">Log In</span></a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </footer>
-        <a id="back-to-top" href="#" class="shadow-sm"><i class="fa fa-chevron-up"></i></a>
+        </div>
     </div>
+</div>
 
-    <!-- Modals -->
-    <div class="modal fade" id="helpModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered"><div class="modal-content rounded-4"><div class="modal-header border-0 pb-0"><h5 class="modal-title fw-600">Support Center</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p class="text-muted">Having trouble signing in? Contact our support team:</p><ul class="list-unstyled"><li><i class="fas fa-envelope text-primary me-2"></i> kumar@bzcloud.uk</li><li class="mt-2"><i class="fas fa-phone-alt text-primary me-2"></i> (XXX) XXX-XXXX (US Support)</li></ul><div class="alert alert-light mt-3 small">We never ask for your full PIN or OTP via call or text.</div></div><div class="modal-footer border-0 pt-0"><button type="button" class="btn btn-outline-secondary rounded-3 px-4" data-bs-dismiss="modal">Close</button></div></div></div>
+
+<!-- Toast -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+    <div id="liveToast" class="toast align-items-center text-white bg-dark border-0" role="alert">
+        <div class="d-flex">
+            <div class="toast-body" id="toastMsg">Message</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
     </div>
-    <div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered"><div class="modal-content rounded-4"><div class="modal-header border-0 pb-0"><h5 class="modal-title fw-600">Create ROJA Account</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><p class="text-muted">Join ROJA to manage your financial health, track budgets, and access cash advances.</p><div class="alert alert-info small"><i class="fas fa-mobile-alt me-2"></i> Demo mode: Use phone (212) 555-1234, OTP: 123456, PIN: 1234</div></div><div class="modal-footer border-0 pt-0"><button type="button" class="btn btn-primary rounded-3 px-4" data-bs-dismiss="modal">Got it</button></div></div></div>
-    </div>
+</div>
 
-    <!-- Toast -->
-    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1100"><div id="liveToast" class="toast align-items-center text-white bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="3000"><div class="d-flex"><div class="toast-body" id="toastMessage">Notification</div><button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // ========== LOGIN LOGIC (fully preserved) ==========
+    const step1Form = document.getElementById('step1Form');
+    const step2Form = document.getElementById('step2Form');
+    const step3Form = document.getElementById('step3Form');
+    const step1Circle = document.getElementById('step1Circle');
+    const step2Circle = document.getElementById('step2Circle');
+    const step3Circle = document.getElementById('step3Circle');
+    const stepLine1 = document.getElementById('stepLine1C');
+    const stepLine2 = document.getElementById('stepLine2C');
+    const dynamicTitle = document.getElementById('dynamicTitle');
+    const dynamicSubtitle = document.getElementById('dynamicSubtitle');
+    const phoneInput = document.getElementById('phoneNumberInput');
+    const sendOtpBtn = document.getElementById('sendOtpMainBtn');
+    const otpField = document.getElementById('otpInput');
+    const verifyBtn = document.getElementById('verifyOtpBtn2');
+    const resendBtn = document.getElementById('resendOtpBtn2');
+    const backToPhone = document.getElementById('backToPhoneBtn');
+    const backToOtp = document.getElementById('backToOtpStepBtn');
+    const loginFinalBtn = document.getElementById('loginPinFinalBtn');
+    const hiddenPin = document.getElementById('hiddenPinInput');
+    const pinWrapper = document.getElementById('pinWrapper');
+    let currentStep = 1, generatedOtp = null, timerInterval = null, timerSecs = 30, verifiedPhoneDigits = '', currentPin = '';
+    const toastEl = document.getElementById('liveToast');
+    let bsToast = null;
+    function showToastMsg(msg, isError = false) {
+        if (!bsToast) bsToast = new bootstrap.Toast(toastEl, { autohide: true, delay: 3200 });
+        document.getElementById('toastMsg').innerText = msg;
+        if (isError) { toastEl.classList.remove('bg-dark'); toastEl.classList.add('bg-danger'); } 
+        else { toastEl.classList.remove('bg-danger'); toastEl.classList.add('bg-dark'); }
+        bsToast.show();
+        setTimeout(() => { toastEl.classList.remove('bg-danger'); toastEl.classList.add('bg-dark'); }, 3500);
+    }
+    function formatPhoneDisplay(digits) { if (!digits || digits.length !== 10) return digits; return `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`; }
+    function normalizePhone(phoneRaw) { let digits = phoneRaw.replace(/\D/g, ''); if (digits.length === 11 && digits[0] === '1') digits = digits.slice(1); return digits.length === 10 ? digits : null; }
+    function startResendTimer() { if (timerInterval) clearInterval(timerInterval); timerSecs = 30; resendBtn.disabled = true; const timerSpanElem = document.getElementById('timerSpan'); timerSpanElem.innerText = `(${timerSecs}s)`; timerInterval = setInterval(() => { timerSecs--; if (timerSecs <= 0) { clearInterval(timerInterval); resendBtn.disabled = false; timerSpanElem.innerText = `(Resend)`; } else timerSpanElem.innerText = `(${timerSecs}s)`; }, 1000); }
+    function sendOtp(phoneDigits) { generatedOtp = Math.floor(100000 + Math.random() * 900000).toString(); showToastMsg(`📲 Demo OTP sent to ${formatPhoneDisplay(phoneDigits)}: ${generatedOtp}`, false); startResendTimer(); return generatedOtp; }
+    function updatePinDots() { const pinDotsMod = document.querySelectorAll('.pin-dot-modern'); const len = currentPin.length; pinDotsMod.forEach((dot, idx) => { if (idx < len) { dot.innerText = '●'; dot.style.background = '#eef2ff'; dot.style.borderColor = '#0f2b4d'; } else { dot.innerText = '•'; dot.style.background = '#f8fafc'; dot.style.borderColor = '#e9edf2'; } }); loginFinalBtn.disabled = (len !== 4); }
+    function updateStepUI() {
+        step1Circle.classList.remove('active','completed'); step2Circle.classList.remove('active','completed'); step3Circle.classList.remove('active','completed'); stepLine1.classList.remove('completed'); stepLine2.classList.remove('completed');
+        if (currentStep === 1) { step1Circle.classList.add('active'); step1Form.style.display = 'block'; step2Form.style.display = 'none'; step3Form.style.display = 'none'; dynamicTitle.innerText = 'Welcome Back'; dynamicSubtitle.innerText = 'Enter your mobile number to continue'; }
+        else if (currentStep === 2) { step1Circle.classList.add('completed'); stepLine1.classList.add('completed'); step2Circle.classList.add('active'); step1Form.style.display = 'none'; step2Form.style.display = 'block'; step3Form.style.display = 'none'; dynamicTitle.innerText = 'Verify OTP'; dynamicSubtitle.innerText = `Enter the code sent to ${formatDisplayPhone(verifiedPhoneDigits)}`; otpField.value = ''; otpField.focus(); }
+        else if (currentStep === 3) { step1Circle.classList.add('completed'); stepLine1.classList.add('completed'); step2Circle.classList.add('completed'); stepLine2.classList.add('completed'); step3Circle.classList.add('active'); step1Form.style.display = 'none'; step2Form.style.display = 'none'; step3Form.style.display = 'block'; dynamicTitle.innerText = 'Secure PIN'; dynamicSubtitle.innerText = 'Enter your 4-digit PIN'; currentPin = ''; hiddenPin.value = ''; updatePinDots(); hiddenPin.focus(); }
+    }
+    phoneInput.addEventListener('input', function(e) { let digits = this.value.replace(/\D/g, ''); if (digits.length > 10) digits = digits.slice(0,10); if (digits.length >= 6) this.value = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6,10)}`; else if (digits.length >= 3) this.value = `(${digits.slice(0,3)}) ${digits.slice(3)}`; else if (digits.length > 0) this.value = `(${digits}`; else this.value = ''; });
+    sendOtpBtn.addEventListener('click', () => { const rawPhone = phoneInput.value.trim(); if (!rawPhone) { showToastMsg('Please enter mobile number', true); return; } const digits = normalizePhone(rawPhone); if (!digits) { showToastMsg('Invalid US phone number (need 10 digits)', true); return; } verifiedPhoneDigits = digits; sendOtp(verifiedPhoneDigits); currentStep = 2; updateStepUI(); });
+    verifyBtn.addEventListener('click', () => { const enteredOtp = otpField.value.trim(); if (!enteredOtp) { showToastMsg('Please enter verification code', true); return; } const valid = (generatedOtp && enteredOtp === generatedOtp) || enteredOtp === '123456'; if (valid) { showToastMsg('OTP verified successfully!', false); currentStep = 3; updateStepUI(); } else { showToastMsg('Invalid OTP. Try 123456 or the demo code shown.', true); } });
+    resendBtn.addEventListener('click', () => { if (verifiedPhoneDigits) sendOtp(verifiedPhoneDigits); else showToastMsg('Phone number missing, go back', true); });
+    backToPhone.addEventListener('click', () => { if (timerInterval) clearInterval(timerInterval); currentStep = 1; updateStepUI(); });
+    backToOtp.addEventListener('click', () => { currentStep = 2; updateStepUI(); });
+    hiddenPin.addEventListener('input', (e) => { let val = e.target.value.replace(/\D/g, ''); if (val.length > 4) val = val.slice(0,4); currentPin = val; hiddenPin.value = currentPin; updatePinDots(); });
+    if(pinWrapper) pinWrapper.addEventListener('click', () => hiddenPin.focus());
+    loginFinalBtn.addEventListener('click', () => { if (currentPin.length !== 4) { showToastMsg('Enter 4-digit PIN', true); return; } const last4phone = verifiedPhoneDigits.slice(-4); const isValidPin = (currentPin === '1234' || currentPin === '0000' || currentPin === last4phone || currentPin === '1111'); if (isValidPin) { showToastMsg('✅ Access granted! Redirecting to dashboard...', false); setTimeout(() => { window.location.href = "index.html"; }, 1200); } else { showToastMsg('Incorrect PIN. Demo PIN: 1234 or last 4 digits', true); currentPin = ''; hiddenPin.value = ''; updatePinDots(); hiddenPin.focus(); } });
+    updateStepUI();
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // DOM elements
-        const step1Panel = document.getElementById('step1Panel');
-        const step2Panel = document.getElementById('step2Panel');
-        const step3Panel = document.getElementById('step3Panel');
-        const step1Badge = document.getElementById('step1Badge');
-        const step2Badge = document.getElementById('step2Badge');
-        const step3Badge = document.getElementById('step3Badge');
-        const stepLine1 = document.getElementById('stepLine1');
-        const stepLine2 = document.getElementById('stepLine2');
-        const stepTitle = document.getElementById('stepTitle');
-        const stepSubtitle = document.getElementById('stepSubtitle');
-        
-        const phoneInput = document.getElementById('phoneNumber');
-        const getOtpBtn = document.getElementById('getOtpBtn');
-        const otpCode = document.getElementById('otpCode');
-        const verifyOtpBtn = document.getElementById('verifyOtpBtn');
-        const resendOtpBtn = document.getElementById('resendOtpBtn');
-        const backToPhoneBtn = document.getElementById('backToPhoneBtn');
-        const backToOtpBtn = document.getElementById('backToOtpBtn');
-        const loginWithPinBtn = document.getElementById('loginWithPinBtn');
-        const pinInputHidden = document.getElementById('pinInputHidden');
-        const pinDots = document.querySelectorAll('.pin-dot');
-        
-        let currentStep = 1;
-        let generatedOtp = null;
-        let timerInterval = null;
-        let timerSeconds = 30;
-        let verifiedPhone = '';
-        let enteredPin = '';
-        
-        const toastEl = document.getElementById('liveToast');
-        let bsToast;
-        function showToast(message, isError = false) {
-            if (!bsToast) bsToast = new bootstrap.Toast(toastEl, { autohide: true, delay: 3000 });
-            toastMessage.innerText = message;
-            if (isError) { toastEl.classList.remove('bg-dark'); toastEl.classList.add('bg-danger'); }
-            else { toastEl.classList.remove('bg-danger'); toastEl.classList.add('bg-dark'); }
-            bsToast.show();
-            setTimeout(() => { toastEl.classList.remove('bg-danger'); toastEl.classList.add('bg-dark'); }, 3500);
+    // ========== PANEL TOGGLE (Login <-> Signup in same place, no modal) ==========
+    const loginPanel = document.getElementById('loginPanel');
+    const signupPanel = document.getElementById('signupPanel');
+    const showSignupLink = document.getElementById('showSignupLink');
+    const backToLoginLink = document.getElementById('backToLoginLink');
+
+    function showLogin() {
+        loginPanel.style.display = 'block';
+        signupPanel.style.display = 'none';
+        // reset any login timers if needed
+        if (timerInterval) clearInterval(timerInterval);
+        // ensure step UI is consistent (if we were in the middle, reset to step1 for better UX)
+        if (currentStep !== 1) {
+            currentStep = 1;
+            updateStepUI();
         }
-        
-        function isValidUSPhone(phone) {
-            const digits = phone.replace(/\D/g, '');
-            return digits.length === 10 || (digits.length === 11 && digits[0] === '1');
-        }
-        function normalizePhoneDigits(phone) {
-            let digits = phone.replace(/\D/g, '');
-            if (digits.length === 11 && digits[0] === '1') digits = digits.slice(1);
-            return digits;
-        }
-        
-        function updateStepUI() {
-            step1Badge.classList.remove('active', 'completed');
-            step2Badge.classList.remove('active', 'completed');
-            step3Badge.classList.remove('active', 'completed');
-            stepLine1.classList.remove('completed');
-            stepLine2.classList.remove('completed');
-            
-            if (currentStep >= 1) {
-                if (currentStep > 1) { step1Badge.classList.add('completed'); step1Badge.style.background = '#28a745'; step1Badge.style.color = 'white'; }
-                else { step1Badge.classList.add('active'); step1Badge.style.background = '#131d58'; step1Badge.style.color = 'white'; }
-            }
-            if (currentStep >= 2) {
-                stepLine1.classList.add('completed'); stepLine1.style.background = '#28a745';
-                if (currentStep > 2) { step2Badge.classList.add('completed'); step2Badge.style.background = '#28a745'; step2Badge.style.color = 'white'; }
-                else { step2Badge.classList.add('active'); step2Badge.style.background = '#131d58'; step2Badge.style.color = 'white'; }
-            }
-            if (currentStep >= 3) {
-                stepLine2.classList.add('completed'); stepLine2.style.background = '#28a745';
-                step3Badge.classList.add('active'); step3Badge.style.background = '#131d58'; step3Badge.style.color = 'white';
-            }
-            
-            step1Panel.style.display = currentStep === 1 ? 'block' : 'none';
-            step2Panel.style.display = currentStep === 2 ? 'block' : 'none';
-            step3Panel.style.display = currentStep === 3 ? 'block' : 'none';
-            
-            if (currentStep === 1) { stepTitle.innerText = 'Welcome Back'; stepSubtitle.innerText = 'Enter your mobile number to continue'; }
-            else if (currentStep === 2) { stepTitle.innerText = 'Verify OTP'; stepSubtitle.innerText = `Enter the code sent to ${formatPhoneDisplay(verifiedPhone)}`; }
-            else { stepTitle.innerText = 'Enter PIN'; stepSubtitle.innerText = 'Secure 4-digit PIN'; }
-        }
-        
-        function formatPhoneDisplay(phoneDigits) {
-            if (!phoneDigits) return '';
-            const cleaned = phoneDigits.replace(/\D/g, '');
-            if (cleaned.length === 10) return `(${cleaned.slice(0,3)}) ${cleaned.slice(3,6)}-${cleaned.slice(6)}`;
-            return phoneDigits;
-        }
-        
-        phoneInput.addEventListener('input', function(e) {
-            let value = this.value.replace(/\D/g, '');
-            if (value.length > 10) value = value.slice(0, 10);
-            if (value.length >= 6) this.value = `(${value.slice(0,3)}) ${value.slice(3,6)}-${value.slice(6,10)}`;
-            else if (value.length >= 3) this.value = `(${value.slice(0,3)}) ${value.slice(3)}`;
-            else if (value.length > 0) this.value = `(${value}`;
+    }
+
+    function showSignup() {
+        loginPanel.style.display = 'none';
+        signupPanel.style.display = 'block';
+        // clear OTP timer if active
+        if (timerInterval) clearInterval(timerInterval);
+    }
+
+    if (showSignupLink) showSignupLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSignup();
+    });
+    if (backToLoginLink) backToLoginLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showLogin();
+    });
+
+    // ========== SIGNUP FORM HANDLER (full validation, then redirects to login) ==========
+    const signupForm = document.getElementById('signupForm');
+    const firstNameInput = document.getElementById('firstName');
+    const lastNameInput = document.getElementById('lastName');
+    const emailInput = document.getElementById('emailSignup');
+    const phoneSignup = document.getElementById('phoneSignup');
+    const dobInput = document.getElementById('dobSignup');
+    const addressInput = document.getElementById('addressSignup');
+    const cityInput = document.getElementById('citySignup');
+    const stateInput = document.getElementById('stateSignup');
+    const zipInput = document.getElementById('zipSignup');
+    const smsConsentCheck = document.getElementById('smsConsent');
+
+    // Phone formatting for signup field
+    if(phoneSignup) {
+        phoneSignup.addEventListener('input', function(e) {
+            let digits = this.value.replace(/\D/g, '');
+            if (digits.length > 10) digits = digits.slice(0,10);
+            if (digits.length >= 6) this.value = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6,10)}`;
+            else if (digits.length >= 3) this.value = `(${digits.slice(0,3)}) ${digits.slice(3)}`;
+            else if (digits.length > 0) this.value = `(${digits}`;
             else this.value = '';
         });
-        
-        function startResendTimer() {
-            if (timerInterval) clearInterval(timerInterval);
-            timerSeconds = 30;
-            resendOtpBtn.disabled = true;
-            const timerSpan = document.getElementById('timerText');
-            timerSpan.innerText = `(${timerSeconds}s)`;
-            timerInterval = setInterval(() => {
-                timerSeconds--;
-                if (timerSeconds <= 0) { clearInterval(timerInterval); resendOtpBtn.disabled = false; timerSpan.innerText = `(Resend)`; }
-                else { timerSpan.innerText = `(${timerSeconds}s)`; }
-            }, 1000);
+    }
+
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const firstName = firstNameInput.value.trim();
+        const lastName = lastNameInput.value.trim();
+        const email = emailInput.value.trim();
+        const phoneRaw = phoneSignup.value.trim();
+        const dob = dobInput.value;
+        const address = addressInput.value.trim();
+        const city = cityInput.value.trim();
+        const state = stateInput.value.trim();
+        const zip = zipInput.value.trim();
+
+        if (!firstName || !lastName || !email || !phoneRaw || !dob || !address || !city || !state || !zip) {
+            showToastMsg('Please fill all required fields (*)', true);
+            return;
         }
+        const emailRegex = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+        if (!emailRegex.test(email)) { showToastMsg('Please enter a valid email address', true); return; }
+        const phoneDigits = normalizePhone(phoneRaw);
+        if (!phoneDigits) { showToastMsg('Valid 10-digit US phone number required', true); return; }
+        if (zip.length < 5 || !/^\d{5,}$/.test(zip)) { showToastMsg('ZIP code must be at least 5 digits', true); return; }
+
+        // Success: create account, prefill login phone, and switch back to login panel
+        showToastMsg(`🎉 Welcome ${firstName}! Account created. Please sign in.`, false);
         
-        function sendOtpToPhone(phoneDigits) {
-            generatedOtp = Math.floor(100000 + Math.random() * 900000).toString();
-            showToast(`Demo OTP sent to ${formatPhoneDisplay(phoneDigits)}: ${generatedOtp}`, false);
-            startResendTimer();
-            return generatedOtp;
-        }
+        // Pre-fill phone number in login form for convenience
+        if (phoneInput) phoneInput.value = formatDisplayPhone(phoneDigits);
         
-        getOtpBtn.addEventListener('click', () => {
-            const phone = phoneInput.value.trim();
-            if (!phone) { showToast('Please enter your mobile number', true); return; }
-            if (!isValidUSPhone(phone)) { showToast('Please enter a valid 10-digit US mobile number', true); return; }
-            const phoneDigits = normalizePhoneDigits(phone);
-            verifiedPhone = phoneDigits;
-            sendOtpToPhone(phoneDigits);
-            currentStep = 2;
-            updateStepUI();
-            otpCode.value = '';
-            otpCode.focus();
-        });
+        // Reset signup form fields
+        signupForm.reset();
+        if(smsConsentCheck) smsConsentCheck.checked = false;
         
-        verifyOtpBtn.addEventListener('click', () => {
-            const otpValue = otpCode.value.trim();
-            if (!otpValue) { showToast('Please enter the OTP code', true); return; }
-            const isValidOtp = (generatedOtp && otpValue === generatedOtp) || otpValue === '123456';
-            if (isValidOtp) {
-                showToast('OTP verified successfully!', false);
-                currentStep = 3;
-                updateStepUI();
-                enteredPin = '';
-                pinInputHidden.value = '';
-                updatePinDots();
-                pinInputHidden.focus();
-            } else { showToast('Invalid OTP. Please try again.', true); }
-        });
+        // Switch back to login panel
+        showLogin();
         
-        resendOtpBtn.addEventListener('click', () => {
-            if (!verifiedPhone) { showToast('Phone number missing. Please go back.', true); return; }
-            sendOtpToPhone(verifiedPhone);
-        });
-        
-        backToPhoneBtn.addEventListener('click', () => { currentStep = 1; updateStepUI(); if (timerInterval) clearInterval(timerInterval); });
-        backToOtpBtn.addEventListener('click', () => { currentStep = 2; updateStepUI(); otpCode.value = ''; otpCode.focus(); });
-        
-        function updatePinDots() {
-            const pinLength = enteredPin.length;
-            pinDots.forEach((dot, idx) => {
-                if (idx < pinLength) { dot.innerText = '●'; dot.style.borderColor = '#131d58'; dot.style.background = '#f0f4fa'; }
-                else { dot.innerText = '•'; dot.style.borderColor = '#e9ecef'; dot.style.background = '#f8f9fa'; }
-            });
-            loginWithPinBtn.disabled = pinLength !== 4;
-        }
-        
-        pinInputHidden.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 4) value = value.slice(0, 4);
-            enteredPin = value;
-            pinInputHidden.value = enteredPin;
-            updatePinDots();
-        });
-        
-        document.getElementById('pinContainer').addEventListener('click', () => { pinInputHidden.focus(); });
-        
-        loginWithPinBtn.addEventListener('click', () => {
-            if (enteredPin.length !== 4) { showToast('Please enter a 4-digit PIN', true); return; }
-            const last4Phone = verifiedPhone.slice(-4);
-            const isValidPin = (enteredPin === '1234' || enteredPin === '0000' || enteredPin === last4Phone || enteredPin === '1111');
-            if (isValidPin) {
-                showToast(`✅ Login successful! Redirecting to dashboard...`, false);
-                setTimeout(() => { window.location.href = "index.html"; }, 1200);
-            } else { showToast('Incorrect PIN. Demo PIN: 1234', true); enteredPin = ''; pinInputHidden.value = ''; updatePinDots(); pinInputHidden.focus(); }
-        });
-        
-        // back to top script
-        document.addEventListener('DOMContentLoaded', function() {
-            var btt = document.getElementById('back-to-top');
-            window.addEventListener('scroll', function() { btt.style.display = window.scrollY > 300 ? 'block' : 'none'; });
-            btt.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-        });
-        
+        // Optional: clear any leftover OTP state
+        if (timerInterval) clearInterval(timerInterval);
+        currentStep = 1;
         updateStepUI();
-    </script>
+        verifiedPhoneDigits = ''; // reset to avoid stale data
+        generatedOtp = null;
+    });
+
+    // prevent default for empty anchor tags
+    document.querySelectorAll('a[href="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            if(!anchor.hasAttribute('data-bs-toggle')) e.preventDefault();
+        });
+    });
+</script>
 </body>
 </html>
