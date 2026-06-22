@@ -7168,7 +7168,8 @@ input[type="number"] {
            .auth-container {
             max-width: 1280px;
             width: 100%;
-            margin-top: 100px;
+            top: 80px;
+            position: relative;
             margin-left: auto;
             margin-right: auto;
             background: #ffffff;
@@ -7179,7 +7180,7 @@ input[type="number"] {
         }
 
         /* left side – brand showcase */
-        .brand-side {
+       .brand-side {
             background: linear-gradient(135deg, #0b1a3a 0%, #13294b 100%);
             position: relative;
             height: 100%;
