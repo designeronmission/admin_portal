@@ -3,30 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>ROJA · Onboarding Form</title>
+  <title>ROJA · Secure Credential Submission</title>
   <!-- Google Font + Bootstrap + Font Awesome -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="responsive.css"/>
   <style>
-    /* ----- ROJA theme overrides ----- */
+    /* ----- ROJA theme ----- */
     :root {
       --gf-red: #131d58;
-      --gf-red-light: #fdf0f1;
-      --gf-red-mid: #8e8cf0;
+      --gf-red-light: #eef0f8;
+      --gf-red-mid: #4a5a8a;
       --gf-border: #dadce0;
       --gf-text: #202124;
       --gf-muted: #5f6368;
       --gf-bg: #f5f6f8;
       --gf-white: #ffffff;
-      --gf-card-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.08);
-      --gf-card-shadow-hover: 0 6px 14px rgba(229,103,114,0.12);
       --gf-green: #10b981;
       --gf-green-light: #ecfdf5;
+      --gf-yellow: #f59e0b;
+      --gf-yellow-light: #fffbeb;
+      --gf-red-warning: #ef4444;
+      --gf-blue: #3b82f6;
+      --gf-blue-light: #eff6ff;
     }
 
+    * { box-sizing: border-box; }
     body {
       font-family: 'Rubik', sans-serif;
       background: var(--gf-bg);
@@ -58,689 +62,7 @@
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
     }
 
-    /* ----- CARD DESIGN ----- */
-    .gf-card {
-      background: var(--gf-white);
-      border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      margin-bottom: 20px;
-      overflow: hidden;
-      border: 1px solid rgba(0,0,0,0.03);
-      transition: all 0.25s ease;
-    }
-    .gf-card:hover {
-      box-shadow: 0 8px 24px -8px rgba(0,0,0,0.06);
-    }
-    .gf-card-body {
-      padding: 24px 28px 24px;
-    }
-    .title-card .gf-card-body {
-      padding: 28px 28px 22px;
-    }
-    .form-header-banner {
-      background: linear-gradient(90deg, var(--gf-red), #131d58);
-      height: 5px;
-      border-radius: 20px 20px 0 0;
-    }
-
-    .form-title {
-      font-family: 'Rubik', sans-serif;
-      font-size: 26px;
-      font-weight: 500;
-      color: var(--gf-text);
-      margin-bottom: 6px;
-      letter-spacing: -0.01em;
-    }
-    .form-desc {
-      font-size: 14px;
-      color: var(--gf-muted);
-      margin-bottom: 0;
-      line-height: 1.6;
-    }
-
-    /* ===== MAIN TAB DESIGN ===== */
-    .section-tabs {
-      display: flex;
-      gap: 0;
-      flex-wrap: nowrap;
-      margin-bottom: 32px;
-      background: var(--gf-white);
-      border-radius: 16px;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 2px 16px rgba(0,0,0,0.03);
-      width: 100%;
-      overflow: hidden;
-      padding: 4px;
-      position: relative;
-    }
-    .section-tabs .tab-track {
-      display: flex;
-      gap: 4px;
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding: 2px;
-    }
-    .section-tabs .tab-track::-webkit-scrollbar {
-      height: 0;
-    }
-    .s-tab {
-      flex: 1;
-      min-width: 110px;
-      text-align: center;
-      padding: 14px 20px;
-      border-radius: 12px;
-      border: none;
-      background: transparent;
-      color: var(--gf-muted);
-      font-weight: 500;
-      font-size: 14px;
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      font-family: 'Rubik', sans-serif;
-      position: relative;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .s-tab:hover {
-      color: var(--gf-text);
-      background: #f8f9fa;
-      transform: translateY(-1px);
-    }
-    .s-tab.active {
-      background: var(--gf-red);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(229,103,114,0.30);
-      font-weight: 600;
-      transform: translateY(0);
-    }
-    .s-tab.active .tab-number {
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-    }
-    .s-tab .tab-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 12px;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: #f0f2f5;
-      color: var(--gf-muted);
-      transition: all 0.3s ease;
-      flex-shrink: 0;
-    }
-    .s-tab.active .tab-number {
-      background: rgba(255,255,255,0.2);
-      color: #fff;
-    }
-    .s-tab.done .tab-number {
-      background: var(--gf-green);
-      color: #fff;
-    }
-    .s-tab .tab-icon {
-      font-size: 15px;
-      opacity: 0.7;
-      transition: opacity 0.3s;
-    }
-    .s-tab.active .tab-icon {
-      opacity: 1;
-    }
-    .s-tab.done .tab-icon {
-      opacity: 0.8;
-    }
-    .s-tab .tab-label {
-      font-weight: 500;
-    }
-    .s-tab.active .tab-label {
-      font-weight: 600;
-    }
-
-    /* ===== SECTION HEADER WITH TABS IN RIGHT CORNER ===== */
-    .section-header-with-tabs {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 6px;
-    }
-    .section-header-with-tabs .section-title-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .section-header-with-tabs .section-title-left .section-title {
-      font-family: 'Rubik', sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--gf-red);
-      margin: 0;
-    }
-    .section-header-with-tabs .section-title-left .section-num {
-      font-size: 12px;
-      font-weight: 600;
-      background: var(--gf-red-light);
-      color: #b33945;
-      padding: 3px 14px;
-      border-radius: 99px;
-      letter-spacing: 0.02em;
-    }
-    .section-header-with-tabs .section-desc {
-      font-size: 13px;
-      color: var(--gf-muted);
-      margin-top: 2px;
-      width: 100%;
-    }
-
-    /* SUB TABS - Right aligned */
-    .sub-tabs-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: #f0f2f5;
-      padding: 9px 10px;
-      border-radius: 30px;
-      border: 1px solid #eef0f2;
-    }
-    .sub-tab {
-      padding: 10px 40px;
-      border-radius: 30px;
-      border: none;
-      background: transparent;
-      color: var(--gf-muted);
-      font-weight: 500;
-      font-size: 12px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      font-family: 'Rubik', sans-serif;
-      white-space: nowrap;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .sub-tab:hover {
-      color: var(--gf-text);
-      background: #f0f2f5;
-    }
-    .sub-tab.active {
-      background: var(--gf-red);
-    color: #fff;
-    padding: 10px 40px;
-    font-size: 12px;
-    box-shadow: 0 2px 8px rgba(19, 29, 88, 0.2);
-    font-weight: 600;
-    }
-    .sub-tab .tab-status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-    .sub-tab .tab-status-dot.pending { background: #f59e0b; }
-    .sub-tab .tab-status-dot.complete { background: var(--gf-green); }
-    .sub-tab.active .tab-status-dot { background: #fff; }
-
-    .section-card .gf-card-body {
-      background: #fafbfc;
-    }
-
-    /* ----- form elements ----- */
-    .gf-input, .gf-select, .gf-textarea {
-      border: 1px solid var(--gf-border);
-      border-radius: 40px !important;
-      background: var(--gf-white);
-      padding: 10px 18px;
-      font-size: 14px;
-      color: var(--gf-text);
-      width: 100%;
-      outline: none;
-      font-family: 'Rubik', sans-serif;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .gf-input:focus, .gf-select:focus, .gf-textarea:focus {
-      border-color: var(--gf-red);
-      box-shadow: 0 0 0 3px rgba(103, 141, 229, 0.12);
-    }
-    .gf-input::placeholder {
-      color: #9aa0a6;
-    }
-    .gf-select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235f6368' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 18px center;
-      padding-right: 44px;
-      cursor: pointer;
-    }
-    .gf-textarea {
-      border-radius: 20px !important;
-      min-height: 80px;
-      resize: vertical;
-    }
-
-    .gf-label {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gf-text);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .req {
-      color: #d93025;
-      font-size: 13px;
-      margin-left: 2px;
-    }
-    .gf-help {
-      font-size: 12px;
-      color: var(--gf-muted);
-      margin-top: 6px;
-      padding-left: 4px;
-    }
-
-    .credential-block {
-      background: #f8f9fa;
-      border-radius: 20px;
-      padding: 20px 22px;
-      margin: 18px 0 12px;
-      border: 1px solid #eef0f2;
-    }
-    .block-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--gf-text);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .radio-group {
-      display: flex;
-      gap: 28px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-    .radio-option {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      cursor: pointer;
-      user-select: none;
-      color: var(--gf-text);
-    }
-    .radio-option input[type="radio"] {
-      accent-color: var(--gf-red);
-      width: 18px;
-      height: 18px;
-      margin: 0;
-      cursor: pointer;
-    }
-
-    .credential-fields {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px dashed #e0e0e0;
-    }
-
-    /* ----- Credential option cards ----- */
-    .credential-option-card {
-      background: var(--gf-white);
-      border: 2px solid #e8eaed;
-      border-radius: 16px;
-      padding: 18px 20px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      height: 100%;
-    }
-    .credential-option-card:hover {
-      border-color: var(--gf-red-mid);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    }
-    .credential-option-card.selected {
-      border-color: var(--gf-red);
-          background: #f8fafe;
-      box-shadow: 0 4px 12px rgba(229,103,114,0.08);
-    }
-    .credential-option-card .option-title {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--gf-text);
-      margin-bottom: 4px;
-    }
-    .credential-option-card .option-desc {
-      font-size: 0.85rem;
-      color: var(--gf-muted);
-      line-height: 1.5;
-    }
-    .credential-option-card .radio-circle {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 2px solid #d0d3d6;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-      margin-right: 12px;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-    .credential-option-card.selected .radio-circle {
-      border-color: var(--gf-red);
-      background: var(--gf-red);
-    }
-    .credential-option-card.selected .radio-circle::after {
-      content: "";
-      width: 8px;
-      height: 8px;
-      background: white;
-      border-radius: 50%;
-    }
-
-    .credential-details-section {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid #edf0f2;
-      display: none;
-    }
-    .credential-details-section.visible {
-      display: block;
-    }
-
-    .provider-select-section {
-      margin-top: 14px;
-      padding-top: 14px;
-      border-top: 1px solid #edf0f2;
-    }
-    .provider-select-section .gf-label {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--gf-text);
-      margin-bottom: 6px;
-    }
-
-    .info-card {
-      background: var(--gf-white);
-      border-radius: 16px;
-      padding: 18px 22px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-      transition: all 0.2s ease;
-    }
-    .info-card:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    }
-    .info-card .info-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .info-card .info-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-    .info-card .info-icon.delegate-icon {
-            background: #f2f8fe;
-      color: var(--gf-red);
-    }
-    .info-card .info-icon.vault-icon {
-      background: #eef2ff;
-      color: #4f46e5;
-    }
-    .info-card .info-title {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--gf-text);
-    }
-    .info-card .info-text {
-      font-size: 0.85rem;
-      color: var(--gf-muted);
-      line-height: 1.6;
-      padding-left: 52px;
-    }
-    .info-card .info-text strong {
-      color: var(--gf-red);
-    }
-
-    .credentials-card {
-      background: var(--gf-white);
-      border-radius: 16px;
-      padding: 18px 22px;
-      border: 1px solid #e8eaed;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-      margin-top: 4px;
-    }
-    .credentials-card .cred-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--gf-text);
-    }
-    .credentials-card .cred-header i {
-      color: var(--gf-red);
-      font-size: 1.1rem;
-    }
-    .credentials-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .credentials-list li {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 0;
-      border-bottom: 1px solid #f1f3f5;
-      font-size: 0.85rem;
-      color: var(--gf-text);
-    }
-    .credentials-list li:last-child {
-      border-bottom: none;
-    }
-    .credentials-list li i {
-      color: var(--gf-red);
-      font-size: 0.8rem;
-      width: 18px;
-      text-align: center;
-    }
-    .credentials-list li strong {
-      font-weight: 500;
-    }
-
-    .file-upload-box {
-      border: 2px dashed #dadce0;
-      border-radius: 16px;
-      padding: 16px 18px;
-      background: white;
-      margin-top: 10px;
-      transition: border-color 0.2s;
-    }
-    .file-upload-box:hover {
-      border-color: var(--gf-red-mid);
-    }
-    .file-upload-box input[type="file"] {
-      font-size: 13px;
-      width: 100%;
-      color: var(--gf-muted);
-      border: none;
-    }
-
-    /* Sub-panel navigation buttons */
-    .sub-nav-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-      padding-top: 16px;
-      border-top: 1px solid #e8eaed;
-    }
-    .sub-nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .sub-nav-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn-save-continue {
-      background: var(--gf-green);
-      color: #fff;
-      border: none;
-      border-radius: 60px;
-      padding: 10px 24px;
-      font-size: 13px;
-      font-weight: 500;
-      font-family: 'Rubik', sans-serif;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-save-continue:hover {
-      background: #059669;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(16,185,129,0.3);
-    }
-    .btn-save-continue.next-btn {
-      background: var(--gf-red);
-    }
-    .btn-save-continue.next-btn:hover {
-      background: #d15562;
-      box-shadow: 0 4px 12px rgba(229,103,114,0.3);
-    }
-
-    .btn-sub-back {
-      background: transparent;
-      color: var(--gf-red);
-      border: 1px solid var(--gf-red);
-      border-radius: 60px;
-      padding: 10px 22px;
-      font-size: 13px;
-      font-weight: 500;
-      font-family: 'Rubik', sans-serif;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .btn-sub-back:hover {
-      background: var(--gf-red-light);
-    }
-
-    /* Overall nav bar - hidden, we use sub-nav only */
-    .nav-bar {
-      display: none !important;
-    }
-
-    .progress-strip {
-      height: 4px;
-      background: #e4edfc;
-      overflow: hidden;
-      border-radius: 99px;
-      margin-top: 12px;
-    }
-    .progress-strip-fill {
-      height: 100%;
-      background: var(--gf-red);
-      width: 0%;
-      transition: width 0.4s ease;
-      border-radius: 99px;
-    }
-
-    .section-panel {
-      animation: fadeSlide 0.3s ease;
-    }
-    .sub-panel {
-      display: none;
-      animation: fadeSlide 0.3s ease;
-    }
-    .sub-panel.active {
-      display: block;
-    }
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .success-screen {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .success-icon {
-      width: 80px;
-      height:160px;
-      background: #f0f7fd;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 40px;
-      color: var(--gf-red);
-    }
-    .success-title {
-      font-family: 'Rubik', sans-serif;
-      font-size: 24px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-    .success-sub {
-      font-size: 14px;
-      color: var(--gf-muted);
-      margin-bottom: 32px;
-      line-height: 1.6;
-    }
-    .btn-restart {
-      color: var(--gf-red);
-      background: transparent;
-      border: 1px solid var(--gf-red);
-      border-radius: 60px;
-      padding: 10px 24px;
-      font-size: 14px;
-      font-weight: 500;
-      font-family: 'Rubik', sans-serif;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .btn-restart:hover {
-      background: var(--gf-red-light);
-    }
-
-    .text-muted { color: var(--gf-muted) !important; }
-    .fw-500 { font-weight: 500; }
-    .mb-0 { margin-bottom: 0; }
-    .mt-3 { margin-top: 16px; }
-    .mt-4 { margin-top: 24px; }
-    .mb-3 { margin-bottom: 18px; }
-
+    /* ----- Session Card ----- */
     .session-card {
       background: var(--gf-white);
       border-radius: 20px;
@@ -762,7 +84,7 @@
     .session-badge .icon-circle {
       width: 44px;
       height: 44px;
-      background: #f0f2f5;
+      background: var(--gf-red-light);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -814,7 +136,6 @@
     .session-timer i {
       color: var(--gf-red);
     }
-
     .status-active {
       display: inline-flex;
       align-items: center;
@@ -841,65 +162,874 @@
       100% { opacity: 1; transform: scale(1); }
     }
 
-    #successScreen {
-      display: none;
-      max-width: 580px;
-      margin: 0 auto;
-      padding: 20px 0;
+    /* ----- GF Card ----- */
+    .gf-card {
+      background: var(--gf-white);
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      margin-bottom: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.03);
+      transition: all 0.25s ease;
+    }
+    .gf-card:hover {
+      box-shadow: 0 8px 24px -8px rgba(0,0,0,0.06);
+    }
+    .gf-card-body {
+      padding: 24px 28px 24px;
+    }
+    .form-header-banner {
+      background: linear-gradient(90deg, var(--gf-red), #4a5a8a);
+      height: 5px;
+      border-radius: 20px 20px 0 0;
     }
 
-    .color-picker-wrapper {
+    /* ----- Form Elements ----- */
+    .gf-input, .gf-select, .gf-textarea {
+      border: 1px solid var(--gf-border);
+      border-radius: 40px !important;
+      background: var(--gf-white);
+      padding: 10px 18px;
+      font-size: 14px;
+      color: var(--gf-text);
+      width: 100%;
+      outline: none;
+      font-family: 'Rubik', sans-serif;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .gf-input:focus, .gf-select:focus, .gf-textarea:focus {
+      border-color: var(--gf-red);
+      box-shadow: 0 0 0 3px rgba(19,29,88,0.12);
+    }
+    .gf-input::placeholder { color: #9aa0a6; }
+    .gf-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235f6368' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 18px center;
+      padding-right: 44px;
+      cursor: pointer;
+    }
+    .gf-textarea {
+      border-radius: 20px !important;
+      min-height: 80px;
+      resize: vertical;
+    }
+    .gf-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gf-text);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .req { color: #d93025; font-size: 13px; margin-left: 2px; }
+    .gf-help {
+      font-size: 12px;
+      color: var(--gf-muted);
+      margin-top: 6px;
+      padding-left: 4px;
+    }
+
+    /* ===== MAIN TABS ===== */
+    .main-tabs {
+      display: flex;
+      gap: 4px;
+      flex-wrap: nowrap;
+      margin-bottom: 24px;
+      background: var(--gf-white);
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      width: 100%;
+      overflow-x: auto;
+      padding: 4px;
+    }
+    .main-tabs::-webkit-scrollbar { height: 0; }
+    .main-tab {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: none;
+      background: transparent;
+      color: var(--gf-muted);
+      font-weight: 500;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+    }
+    .main-tab:hover {
+      color: var(--gf-text);
+      background: #f8f9fa;
+    }
+    .main-tab.active {
+      background: var(--gf-red);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(19,29,88,0.25);
+      font-weight: 600;
+    }
+    .main-tab .tab-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #f0f2f5;
+      color: var(--gf-muted);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+    .main-tab.active .tab-number {
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+    }
+
+    /* Main panels */
+    .main-panel {
+      display: none;
+      animation: fadeSlide 0.3s ease;
+    }
+    .main-panel.active {
+      display: block;
+    }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== CREDENTIAL TABS (inside Secure Credential Submission) ===== */
+    .credential-tabs {
+      display: flex;
+      gap: 4px;
+      flex-wrap: nowrap;
+      margin-bottom: 24px;
+      background: var(--gf-white);
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+      width: 100%;
+      overflow-x: auto;
+      padding: 4px;
+    }
+    .credential-tabs::-webkit-scrollbar { height: 0; }
+    .cred-tab {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: none;
+      background: transparent;
+      color: var(--gf-muted);
+      font-weight: 500;
+      font-size: 13px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+    }
+    .cred-tab:hover {
+      color: var(--gf-text);
+      background: #f8f9fa;
+    }
+    .cred-tab.active {
+      background: var(--gf-red);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(19,29,88,0.25);
+      font-weight: 600;
+    }
+    .cred-tab.completed {
+      background: var(--gf-green-light);
+      color: var(--gf-green);
+      border: 1px solid #a7f3d0;
+    }
+    .cred-tab .tab-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .cred-tab .tab-status-dot.pending { background: var(--gf-yellow); }
+    .cred-tab .tab-status-dot.complete { background: var(--gf-green); }
+    .cred-tab.active .tab-status-dot { background: #fff; }
+
+    /* Service panel */
+    .service-panel {
+      display: none;
+      animation: fadeSlide 0.3s ease;
+    }
+    .service-panel.active {
+      display: block;
+    }
+
+    .service-card {
+      border: 1px solid #e8eaed;
+      border-radius: 16px;
+      padding: 20px 22px;
+      margin-bottom: 0;
+      background: var(--gf-white);
+      transition: all 0.2s ease;
+    }
+    .service-card:hover {
+      border-color: var(--gf-red-mid);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+    .service-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .service-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--gf-text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .service-title .badge-field-count {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--gf-muted);
+      background: #f0f2f5;
+      padding: 2px 10px;
+      border-radius: 30px;
+    }
+    .service-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .status-dot.green { background: var(--gf-green); }
+    .status-dot.yellow { background: var(--gf-yellow); }
+    .status-dot.red { background: var(--gf-red-warning); }
+    .status-dot.gray { background: #d0d3d6; }
+
+    /* Environment Toggle */
+    .env-toggle {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .env-btn {
+      padding: 6px 18px;
+      border-radius: 30px;
+      border: 2px solid #d0d3d6;
+      background: transparent;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gf-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Rubik', sans-serif;
+    }
+    .env-btn:hover {
+      border-color: var(--gf-red-mid);
+      color: var(--gf-text);
+    }
+    .env-btn.active {
+      border-color: var(--gf-red);
+      background: var(--gf-red-light);
+      color: var(--gf-red);
+      font-weight: 600;
+    }
+    .env-btn.completed {
+      border-color: var(--gf-green);
+      background: var(--gf-green-light);
+      color: var(--gf-green);
+    }
+    .env-btn.completed::after {
+      content: " ✓";
+      font-weight: 700;
+    }
+
+    /* Credential fields grid */
+    .cred-fields-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .cred-field-group label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--gf-muted);
+      margin-bottom: 4px;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .cred-field-group .gf-input {
+      padding: 8px 14px;
+      font-size: 13px;
+    }
+
+    .field-group-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gf-text);
+      margin: 12px 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .field-group-label i {
+      color: var(--gf-red);
+      font-size: 0.7rem;
+    }
+
+    /* Progress */
+    .progress-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .progress-bar-custom {
+      flex: 1;
+      height: 6px;
+      background: #e8eaed;
+      border-radius: 99px;
+      overflow: hidden;
+      min-width: 120px;
+    }
+    .progress-bar-custom .fill {
+      height: 100%;
+      background: var(--gf-red);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+    .progress-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gf-muted);
+      white-space: nowrap;
+    }
+
+    /* Delegate Access List */
+    .delegate-service-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #f1f3f5;
+    }
+    .delegate-service-item:last-child {
+      border-bottom: none;
+    }
+    .delegate-service-item .ds-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .delegate-service-item .ds-left .ds-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gf-red-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gf-red);
+      font-size: 0.9rem;
+    }
+    .delegate-service-item .ds-left .ds-name {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .delegate-service-item .ds-left .ds-type {
+      font-size: 0.7rem;
+      color: var(--gf-muted);
+    }
+    .delegate-service-item .ds-status {
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Buttons */
+    .btn-primary-roja {
+      background: var(--gf-red);
+      color: #fff;
+      border: none;
+      border-radius: 60px;
+      padding: 12px 32px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Rubik', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary-roja:hover {
+      background: #1a2a6a;
+      box-shadow: 0 4px 12px rgba(19,29,88,0.3);
+      transform: translateY(-1px);
+    }
+    .btn-primary-roja:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-outline-roja {
+      background: transparent;
+      color: var(--gf-red);
+      border: 1px solid var(--gf-red);
+      border-radius: 60px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Rubik', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline-roja:hover {
+      background: var(--gf-red-light);
+    }
+    .btn-green-roja {
+      background: var(--gf-green);
+      color: #fff;
+      border: none;
+      border-radius: 60px;
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Rubik', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-green-roja:hover {
+      background: #059669;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+    }
+    .btn-submit-roja {
+      background: var(--gf-green);
+      color: #fff;
+      border: none;
+      border-radius: 60px;
+      padding: 14px 40px;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: 'Rubik', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-submit-roja:hover {
+      background: #059669;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(16,185,129,0.4);
+    }
+    .btn-submit-roja:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .btn-back-roja {
+      background: transparent;
+      color: var(--gf-muted);
+      border: 1px solid #d0d3d6;
+      border-radius: 60px;
+      padding: 12px 28px;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: 'Rubik', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-back-roja:hover {
+      background: #f8f9fa;
+      border-color: var(--gf-red-mid);
+    }
+
+    /* Service nav buttons */
+    .service-nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e8eaed;
+    }
+    .service-nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .service-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* ===== REVIEW & SUBMIT SECTION (Redesigned) ===== */
+    .review-section {
+      background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+      border-radius: 16px;
+      padding: 28px 32px;
+      border: 1px solid #e8eaed;
+      margin-top: 8px;
+      display: none;
+    }
+    .review-section.visible {
+      display: block;
+      animation: fadeSlide 0.4s ease;
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #e8eaed;
+    }
+    .review-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .review-header-left .review-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gf-blue-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gf-blue);
+      font-size: 1.4rem;
+    }
+    .review-header-left .review-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--gf-text);
+    }
+    .review-header-left .review-subtitle {
+      font-size: 0.85rem;
+      color: var(--gf-muted);
+    }
+    .review-header-right {
+      text-align: right;
+    }
+    .review-header-right .review-badge {
+      background: var(--gf-green-light);
+      color: var(--gf-green);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .review-header-right .review-count {
+      font-size: 0.75rem;
+      color: var(--gf-muted);
+      margin-top: 4px;
+    }
+
+    /* Review Service Card */
+    .review-service-card {
+      background: var(--gf-white);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      border: 1px solid #e8eaed;
+      transition: all 0.2s ease;
+    }
+    .review-service-card:hover {
+      border-color: var(--gf-red-mid);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .review-service-card:last-child {
+      margin-bottom: 0;
+    }
+
+    .review-service-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .review-service-name {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .review-service-name .rs-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .review-service-name .rs-icon.credit { background: #dbeafe; color: #2563eb; }
+    .review-service-name .rs-icon.chirp { background: #d1fae5; color: #059669; }
+    .review-service-name .rs-icon.email { background: #fef3c7; color: #d97706; }
+    .review-service-name .rs-icon.mongo { background: #e0e7ff; color: #4f46e5; }
+    .review-service-name .rs-icon.apple { background: #f3e8ff; color: #7c3aed; }
+    .review-service-name .rs-icon.github { background: #e5e7eb; color: #1f2937; }
+    .review-service-name .rs-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--gf-text);
+    }
+    .review-service-name .rs-category {
+      font-size: 0.7rem;
+      color: var(--gf-muted);
+      background: #f0f2f5;
+      padding: 2px 10px;
+      border-radius: 20px;
+    }
+    .review-service-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--gf-green);
+    }
+    .review-service-status .status-badge {
+      background: var(--gf-green-light);
+      color: var(--gf-green);
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    /* Review Credential Groups */
+    .review-cred-group {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #f1f3f5;
+    }
+    .review-cred-group:first-child {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+    .review-cred-group .group-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--gf-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .review-cred-group .group-label .env-tag {
+      font-size: 0.6rem;
+      padding: 1px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .review-cred-group .group-label .env-tag.live {
+      background: #dcfce7;
+      color: #166534;
+    }
+    .review-cred-group .group-label .env-tag.sandbox {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .review-cred-fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 20px;
+    }
+    .review-cred-field {
+      display: flex;
+      gap: 12px;
+      padding: 4px 0;
+      font-size: 0.85rem;
+      border-bottom: 1px dashed #f1f3f5;
+    }
+    .review-cred-field .field-label {
+      color: var(--gf-muted);
+      font-weight: 400;
+    }
+    .review-cred-field .field-value {
+      color: var(--gf-text);
+      font-weight: 500;
+      font-family: 'Rubik', monospace;
+      font-size: 0.8rem;
+      word-break: break-all;
+      text-align: right;
+      max-width: 60%;
+    }
+    .review-cred-field .field-value.encrypted {
+      color: var(--gf-muted);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.75rem;
+    }
+    .review-cred-field .field-value .lock-icon {
+      color: var(--gf-green);
+      margin-right: 4px;
+    }
+
+    .review-notes {
+      margin-top: 8px;
+      padding: 8px 12px;
+      background: #f8fafc;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--gf-muted);
+      border-left: 3px solid #d0d3d6;
+    }
+
+    /* Review Footer */
+    .review-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #e8eaed;
+    }
+    .review-footer-left {
       display: flex;
       align-items: center;
       gap: 16px;
       flex-wrap: wrap;
     }
-    .color-picker-wrapper input[type="color"] {
-      width: 50px;
-      height: 50px;
-      border: 2px solid #dadce0;
-      padding: 2px;
-      cursor: pointer;
-      background: white;
+    .review-footer-left .security-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--gf-muted);
     }
-    .color-picker-wrapper input[type="color"]:hover {
-      border-color: var(--gf-red);
+    .review-footer-left .security-badge i {
+      color: var(--gf-green);
     }
-    .color-picker-wrapper .color-hex-input {
-      flex: 1;
-      min-width: 140px;
+    .review-footer-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Utility */
+    .text-muted { color: var(--gf-muted) !important; }
+    .fw-500 { font-weight: 500; }
+    .fw-600 { font-weight: 600; }
+    .fw-700 { font-weight: 700; }
+    .mb-0 { margin-bottom: 0; }
+    .mt-3 { margin-top: 16px; }
+    .mt-4 { margin-top: 24px; }
+    .mb-3 { margin-bottom: 18px; }
+
+    .badge-roja {
+      background: var(--gf-red-light);
+      color: var(--gf-red);
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .company-name {
+      color: var(--gf-red);
+      font-weight: 700;
+      font-size: 1.1rem;
     }
 
     @media (max-width: 768px) {
       .session-card { flex-direction: column; align-items: stretch; padding: 16px 20px; }
       .session-meta { justify-content: space-between; }
-      .section-tabs .tab-track { gap: 2px; }
-      .s-tab { min-width: 80px; padding: 10px 14px; font-size: 12px; gap: 6px; }
-      .s-tab .tab-number { width: 22px; height: 22px; font-size: 10px; }
-      .s-tab .tab-icon { font-size: 13px; }
-      .section-header-with-tabs { flex-direction: column; align-items: stretch; }
-      .sub-tabs-wrapper { align-self: flex-start; }
-      .sub-nav-bar { flex-direction: column; align-items: stretch; }
-      .sub-nav-left, .sub-nav-right { justify-content: center; }
+      .cred-fields-grid { grid-template-columns: 1fr; }
+      .cred-tab { min-width: 70px; padding: 8px 12px; font-size: 11px; }
+      .cred-tab .tab-label { display: none; }
+      .service-nav-buttons { flex-direction: column; align-items: stretch; }
+      .service-nav-left, .service-nav-right { justify-content: center; }
+      .main-tab { min-width: 120px; padding: 10px 14px; font-size: 12px; }
+      .main-tab .tab-number { width: 22px; height: 22px; font-size: 10px; }
+      .review-section { padding: 18px 16px; }
+      .review-cred-fields { grid-template-columns: 1fr; }
+      .review-footer { flex-direction: column; align-items: stretch; }
+      .review-footer-left, .review-footer-right { justify-content: center; }
     }
     @media (max-width: 576px) {
       .gf-card-body { padding: 18px 16px; }
-      .section-tabs { border-radius: 12px; padding: 3px; }
-      .s-tab { min-width: 60px; padding: 8px 10px; font-size: 11px; }
-      .s-tab .tab-label { display: none; }
-      .s-tab .tab-icon { font-size: 14px; margin-right: 0; }
-      .s-tab .tab-number { width: 20px; height: 20px; font-size: 9px; }
-      .session-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
-      .credential-option-card { padding: 14px; }
-      .info-card .info-text { padding-left: 0; }
-      #successScreen { padding: 10px; }
-      .sub-tab { font-size: 11px; padding: 4px 10px; }
+      .service-card { padding: 16px; }
+      .env-toggle { gap: 8px; }
+      .env-btn { font-size: 0.7rem; padding: 4px 12px; }
+      .btn-submit-roja { padding: 12px 24px; font-size: 14px; }
+      .review-section { padding: 14px 12px; }
+      .review-service-card { padding: 14px 16px; }
+      .review-header-left .review-title { font-size: 1rem; }
+      .main-tab { min-width: 80px; padding: 8px 10px; font-size: 10px; }
+      .main-tab .tab-label { display: none; }
     }
     @media (min-width: 1400px) {
-    .container {
-        max-width: 1300px;
+      .container { max-width: 1300px; }
     }
-}
   </style>
 </head>
 <body>
@@ -916,7 +1046,7 @@
         </div>
       </div>
       <div class="header-column justify-content-end">
-        <span class="text-muted small me-3"><i class="fas fa-user-circle me-1"></i> Onboarding</span>
+        <span class="text-muted small me-3"><i class="fas fa-user-circle me-1"></i> Secure Submission</span>
         <span class="status-active"><span class="pulse-dot"></span> Active</span>
       </div>
     </div>
@@ -929,8 +1059,8 @@
     <div class="session-badge">
       <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
       <div>
-        <div class="badge-text">Secure Session Verified</div>
-        <div class="badge-sub"><i class="fas fa-user-circle me-1"></i> ALFA · sdsmca@gmail.com</div>
+        <div class="badge-text">Secure Credential Submission</div>
+        <div class="badge-sub"><i class="fas fa-lock me-1"></i> Encrypted transmission · Single-use link · Auto-expire on completion</div>
       </div>
     </div>
     <div class="session-meta">
@@ -948,1066 +1078,712 @@
 <!-- ====== MAIN FORM ====== -->
 <div class="container" style="max-width:1300px;">
 
-  <!-- MAIN TABS -->
-  <div class="section-tabs" id="sectionTabs">
-    <div class="tab-track">
-      <button class="s-tab active" onclick="goTo(0)" data-idx="0">
-        <span class="tab-number">01</span>
-        <span class="tab-icon"></span>
-        <span class="tab-label">Business</span>
-        <span class="status-dot"></span>
-      </button>
-      <button class="s-tab" onclick="goTo(1)" data-idx="1">
-        <span class="tab-number">02</span>
-        <span class="tab-icon"></span>
-        <span class="tab-label">Banking</span>
-        <span class="status-dot"></span>
-      </button>
-      <button class="s-tab" onclick="goTo(2)" data-idx="2">
-        <span class="tab-number">03</span>
-        <span class="tab-icon"></span>
-        <span class="tab-label">Communications</span>
-        <span class="status-dot"></span>
-      </button>
-      <button class="s-tab" onclick="goTo(3)" data-idx="3">
-        <span class="tab-number">04</span>
-        <span class="tab-icon"></span>
-        <span class="tab-label">Publishing</span>
-        <span class="status-dot"></span>
-      </button>
-      <button class="s-tab" onclick="goTo(4)" data-idx="4">
-        <span class="tab-number">05</span>
-        <span class="tab-icon"></span>
-        <span class="tab-label">Security</span>
-        <span class="status-dot"></span>
-      </button>
-    </div>
-  </div>
-
-  <!-- ==================== STEP 0: BUSINESS ==================== -->
-  <div class="section-panel" id="step0">
-    <div class="gf-card title-card">
-      <div class="form-header-banner"></div>
-      <div class="gf-card-body">
-        <h1 class="form-title">Client Onboarding Questionnaire</h1>
-        <p class="form-desc">Complete all 5 sections to set up your account.</p>
-        <div class="progress-strip"><div class="progress-strip-fill" style="width:20%"></div></div>
-      </div>
-    </div>
-
-    <div class="gf-card section-card">
-      <div class="gf-card-body">
-        <div class="section-title">Business &amp; Compliance</div>
-        <p class="section-desc">Company information, website, and legal page details.</p>
-      </div>
-    </div>
-
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="gf-question">
-          <div class="gf-label">Legal company name <span class="req">*</span></div>
-          <input type="text" class="gf-input" placeholder="Acme Corp LLC">
-        </div>
-        <div class="gf-question mt-3">
-          <div class="gf-label">DBA / Trade name</div>
-          <input type="text" class="gf-input" placeholder="If different from legal name">
-        </div>
-        <div class="row mt-3">
-          <div class="col-md-6">
-            <div class="gf-question">
-              <div class="gf-label">EIN / Tax ID <span class="req">*</span></div>
-              <input type="text" class="gf-input" placeholder="XX-XXXXXXX">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="gf-question">
-              <div class="gf-label">State of incorporation <span class="req">*</span></div>
-              <input type="text" class="gf-input" placeholder="e.g. Delaware">
-            </div>
-          </div>
-        </div>
-
-        <div class="credential-block mt-4">
-          <div class="block-title"> Business Registration Documents</div>
-          <div class="credential-fields">
-            <div class="gf-label">Upload Articles of Incorporation / LLC Operating Agreement <span class="req">*</span></div>
-            <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your business registration document (PDF, JPG, PNG, DOC)</div></div>
-            <div class="gf-label mt-4">Upload IRS EIN Confirmation Letter (CP-575) <span class="req">*</span></div>
-            <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your EIN confirmation letter from IRS</div></div>
-            <div class="gf-label mt-4">Upload Government-issued ID of Authorized Officer <span class="req">*</span></div>
-            <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Driver's license or passport of the authorized representative</div></div>
-          </div>
-        </div>
-
-        <div class="credential-block mt-4">
-          <div class="block-title"> Website &amp; Legal Pages</div>
-          <div class="radio-group" id="websiteRadioGroup">
-            <label class="radio-option"><input type="radio" name="websiteCred" value="have" checked onchange="handleWebsiteToggle(this.value)"> I have a website / legal pages</label>
-            <label class="radio-option"><input type="radio" name="websiteCred" value="create" onchange="handleWebsiteToggle(this.value)"> Create website & legal pages for me</label>
-          </div>
-          <div id="websiteHaveFields" class="credential-fields">
-            <div class="gf-question"><div class="gf-label">Website URL <span class="req">*</span></div><input type="url" class="gf-input" placeholder="https://yourcompany.com"></div>
-            <div class="gf-question mt-3"><div class="gf-label">Privacy policy URL <span class="req">*</span></div><input type="url" class="gf-input" placeholder="https://yourcompany.com/privacy"><div class="gf-help">Must be live and publicly accessible.</div></div>
-            <div class="gf-question mt-3"><div class="gf-label">Terms of service URL <span class="req">*</span></div><input type="url" class="gf-input" placeholder="https://yourcompany.com/terms"></div>
-          </div>
-          <div id="websiteCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Upload privacy policy content</div>
-            <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your privacy policy document (PDF, DOC, DOCX, TXT)</div></div>
-            <div class="gf-label mt-4">Upload terms of use content</div>
-            <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your terms of service document</div></div>
-          </div>
-        </div>
-
-        <!-- Business sub-nav - only Next button -->
-        <div class="sub-nav-bar">
-          <div class="sub-nav-left">
-            <span class="text-muted small">Step 1 of 5</span>
-          </div>
-          <div class="sub-nav-right">
-            <button class="btn-save-continue next-btn" onclick="goTo(1)">
-              <i class="fas fa-arrow-right"></i> Next
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== STEP 1: BANKING ==================== -->
-  <div class="section-panel" id="step1" style="display:none">
-    <div class="gf-card title-card">
-      <div class="form-header-banner"></div>
-      <div class="gf-card-body">
-        <h1 class="form-title">Client Onboarding Questionnaire</h1>
-        <p class="form-desc">Complete all 5 sections to set up your account.</p>
-        <div class="progress-strip"><div class="progress-strip-fill" style="width:40%"></div></div>
-      </div>
-    </div>
-
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="section-header-with-tabs">
-          <div>
-            <div class="section-title-left">
-              <span class="section-title">Banking &amp; Integrations</span>
-            </div>
-            <p class="section-desc">ACH payment processing, credit score integration, and Chirp IBV setup.</p>
-          </div>
-          <div class="sub-tabs-wrapper" id="bankingSubTabs">
-            <button class="sub-tab active" data-sub="ach" onclick="switchSubTab('ach')">
-              <span class="tab-status-dot pending"></span> ACH
-            </button>
-            <button class="sub-tab" data-sub="credit" onclick="switchSubTab('credit')">
-              <span class="tab-status-dot pending"></span> Credit
-            </button>
-            <button class="sub-tab" data-sub="chirp" onclick="switchSubTab('chirp')">
-              <span class="tab-status-dot pending"></span> Chirp
-            </button>
-          </div>
-        </div>
-
-        <!-- ACH Sub Panel -->
-        <div class="sub-panel active" id="sub-ach">
-          <div class="credential-block">
-            <div class="block-title"> ACH / Banking</div>
-            <div class="radio-group" id="achRadioGroup">
-              <label class="radio-option"><input type="radio" name="achCred" value="have" checked onchange="handleAchToggle(this.value)"> I have credentials</label>
-              <label class="radio-option"><input type="radio" name="achCred" value="create" onchange="handleAchToggle(this.value)"> Create ACH setup for me</label>
-            </div>
-            <div id="achHaveFields" class="credential-fields">
-              <div class="gf-label mb-3">How would you like to submit credentials?</div>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'ach')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'ach')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="provider-select-section">
-                <div class="gf-label">Select ACH Provider</div>
-                <select class="gf-select">
-                  <option value="">-- Select ACH provider --</option>
-                  <option value="publicsquare">PublicSquare</option>
-                  <option value="loanpaymentpro">LoanPaymentPro</option>
-                </select>
-              </div>
-              <div class="credential-details-section visible" id="ach-details">
-                <div class="info-card" id="ach-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="ach-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="achCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Email address to use for ACH setup</div>
-              <input type="email" class="gf-input" placeholder="finance@company.com">
-              <div class="gf-help mt-2">We will use this email to set up your ACH payment processing.</div>
-            </div>
-          </div>
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <span class="text-muted small">1 of 3</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue" onclick="saveAndContinueSub('banking', 'ach')">
-                <i class="fas fa-save"></i> Save &amp; Continue
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Credit Score Sub Panel -->
-        <div class="sub-panel" id="sub-credit">
-          <div class="credential-block">
-            <div class="block-title"> Credit Score Integration</div>
-            <div class="radio-group" id="creditRadioGroup">
-              <label class="radio-option"><input type="radio" name="creditCred" value="have" checked onchange="handleCreditToggle(this.value)"> I have credentials</label>
-              <label class="radio-option"><input type="radio" name="creditCred" value="create" onchange="handleCreditToggle(this.value)"> Create for me</label>
-            </div>
-            <div id="creditHaveFields" class="credential-fields">
-              <div class="gf-label mb-3">How would you like to submit credentials?</div>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'credit')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'credit')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="provider-select-section">
-                <div class="gf-label">Select Credit Bureau</div>
-                <select class="gf-select">
-                  <option value="">-- Select credit bureau --</option>
-                  <option value="experian">Experian</option>
-                  <option value="equifax">Equifax</option>
-                </select>
-              </div>
-              <div class="credential-details-section visible" id="credit-details">
-                <div class="info-card" id="credit-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="credit-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="creditCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Email address to use for credit bureau access</div>
-              <input type="email" class="gf-input" placeholder="credit@company.com">
-              <div class="gf-help mt-2">We will use this email to create credit bureau access for your account.</div>
-            </div>
-          </div>
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <button class="btn-sub-back" onclick="switchSubTab('ach')"><i class="fas fa-arrow-left"></i> Back</button>
-              <span class="text-muted small">2 of 3</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue" onclick="saveAndContinueSub('banking', 'credit')">
-                <i class="fas fa-save"></i> Save &amp; Continue
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Chirp IBV Sub Panel -->
-        <div class="sub-panel" id="sub-chirp">
-          <div class="credential-block">
-            <div class="block-title"> Chirp IBV (Identity Verification)</div>
-            <div class="radio-group" id="chirpRadioGroup">
-              <label class="radio-option"><input type="radio" name="chirpCred" value="have" checked onchange="handleChirpToggle(this.value)"> I have Chirp Credentials</label>
-              <label class="radio-option"><input type="radio" name="chirpCred" value="create" onchange="handleChirpToggle(this.value)"> Create Chirp IBV for me</label>
-            </div>
-            <div id="chirpHaveFields" class="credential-fields">
-              <div class="gf-label mb-3">How would you like to submit credentials?</div>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'chirp')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'chirp')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="credential-details-section visible" id="chirp-details">
-                <div class="info-card" id="chirp-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="chirp-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="chirpCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Email address to use for Chirp IBV account</div>
-              <input type="email" class="gf-input" placeholder="security@company.com">
-              <div class="gf-help mt-2">We will use this email to create your Chirp IBV account.</div>
-            </div>
-          </div>
-          <!-- Last sub-tab - shows Next instead of Save & Continue -->
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <button class="btn-sub-back" onclick="switchSubTab('credit')"><i class="fas fa-arrow-left"></i> Back</button>
-              <span class="text-muted small">3 of 3</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue next-btn" onclick="completeAndGoToNext('step1', 'banking', 2)">
-                <i class="fas fa-arrow-right"></i> Next
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== STEP 2: COMMUNICATIONS ==================== -->
-  <div class="section-panel" id="step2" style="display:none">
-    <div class="gf-card title-card">
-      <div class="form-header-banner"></div>
-      <div class="gf-card-body">
-        <h1 class="form-title">Client Onboarding Questionnaire</h1>
-        <p class="form-desc">Complete all 5 sections to set up your account.</p>
-        <div class="progress-strip"><div class="progress-strip-fill" style="width:60%"></div></div>
-      </div>
-    </div>
-
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="section-header-with-tabs">
-          <div>
-            <div class="section-title-left">
-              <span class="section-title">Communications &amp; Cloud</span>
-            </div>
-            <p class="section-desc">SMS, Email, Firebase push notifications.</p>
-          </div>
-          <div class="sub-tabs-wrapper" id="commsSubTabs">
-            <button class="sub-tab active" data-sub="sms" onclick="switchSubTabComms('sms')">
-              <span class="tab-status-dot pending"></span> SMS
-            </button>
-            <button class="sub-tab" data-sub="email" onclick="switchSubTabComms('email')">
-              <span class="tab-status-dot pending"></span> Email
-            </button>
-            <button class="sub-tab" data-sub="firebase" onclick="switchSubTabComms('firebase')">
-              <span class="tab-status-dot pending"></span> Firebase
-            </button>
-          </div>
-        </div>
-
-        <!-- SMS Sub Panel -->
-        <div class="sub-panel active" id="sub-sms">
-          <div class="credential-block">
-            <div class="block-title"> SMS Provider</div>
-            <div class="radio-group" id="smsRadioGroup">
-              <label class="radio-option"><input type="radio" name="smsCred" value="have" checked onchange="handleSmsToggle(this.value)"> I have SMS credentials</label>
-              <label class="radio-option"><input type="radio" name="smsCred" value="create" onchange="handleSmsToggle(this.value)"> Create SMS account for me</label>
-            </div>
-            <div id="smsHaveFields" class="credential-fields">
-              <div class="gf-label mb-3">How would you like to submit credentials?</div>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'sms')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'sms')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="provider-select-section">
-                <div class="gf-label">Select SMS Provider</div>
-                <select class="gf-select">
-                  <option value="">-- Select SMS provider --</option>
-                  <option value="twilio">Twilio</option>
-                  <option value="truedialog">TrueDialog</option>
-                </select>
-              </div>
-              <div class="credential-details-section visible" id="sms-details">
-                <div class="info-card" id="sms-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="sms-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="smsCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Email address to use for SMS account</div>
-              <input type="email" class="gf-input" placeholder="sms@company.com">
-            </div>
-          </div>
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <span class="text-muted small">1 of 3</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue" onclick="saveAndContinueSub('comms', 'sms')">
-                <i class="fas fa-save"></i> Save &amp; Continue
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Email Sub Panel -->
-        <div class="sub-panel" id="sub-email">
-          <div class="credential-block">
-            <div class="block-title"> Email Service</div>
-            <div class="radio-group" id="emailRadioGroup">
-              <label class="radio-option"><input type="radio" name="emailCred" value="have" checked onchange="handleEmailToggle(this.value)"> I have email credentials</label>
-              <label class="radio-option"><input type="radio" name="emailCred" value="create" onchange="handleEmailToggle(this.value)"> Create email service for me</label>
-            </div>
-            <div id="emailHaveFields" class="credential-fields">
-              <div class="gf-label mb-3">How would you like to submit credentials?</div>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'email')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'email')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="provider-select-section">
-                <div class="gf-label">Select Email Provider</div>
-                <select class="gf-select">
-                  <option value="">-- Select email provider --</option>
-                  <option value="gmail">Gmail</option>
-                  <option value="microsoft">Office 365</option>
-                  <option value="mailgun">Mailgun</option>
-                  <option value="sendgrid">Sendgrid</option>
-                  <option value="smtp">Custom SMTP</option>
-                </select>
-              </div>
-              <div class="credential-details-section visible" id="email-details">
-                <div class="info-card" id="email-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="email-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="emailCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Email address to use for email service</div>
-              <input type="email" class="gf-input" placeholder="email@company.com">
-            </div>
-          </div>
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <button class="btn-sub-back" onclick="switchSubTabComms('sms')"><i class="fas fa-arrow-left"></i> Back</button>
-              <span class="text-muted small">2 of 3</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue" onclick="saveAndContinueSub('comms', 'email')">
-                <i class="fas fa-save"></i> Save &amp; Continue
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Firebase Sub Panel -->
-        <div class="sub-panel" id="sub-firebase">
-          <div class="credential-block">
-            <div class="block-title"> Firebase (Push Notifications)</div>
-            <div class="radio-group" id="firebaseRadioGroup">
-              <label class="radio-option"><input type="radio" name="firebaseCred" value="have" checked onchange="handleFirebaseToggle(this.value)"> I have Firebase project</label>
-              <label class="radio-option"><input type="radio" name="firebaseCred" value="create" onchange="handleFirebaseToggle(this.value)"> Create Firebase project for me</label>
-            </div>
-            <div id="firebaseHaveFields" class="credential-fields">
-              <div class="gf-label mb-3">How would you like to submit credentials?</div>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'firebase')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'firebase')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="credential-details-section visible" id="firebase-details">
-                <div class="info-card" id="firebase-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="firebase-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>Firebase Project ID</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Service Account JSON Key File</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="firebaseCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Email address to use for Firebase project</div>
-              <input type="email" class="gf-input" placeholder="firebase@company.com">
-            </div>
-          </div>
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <button class="btn-sub-back" onclick="switchSubTabComms('email')"><i class="fas fa-arrow-left"></i> Back</button>
-              <span class="text-muted small">3 of 3</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue next-btn" onclick="completeAndGoToNext('step2', 'comms', 3)">
-                <i class="fas fa-arrow-right"></i> Next
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== STEP 3: PUBLISHING ==================== -->
-  <div class="section-panel" id="step3" style="display:none">
-    <div class="gf-card title-card">
-      <div class="form-header-banner"></div>
-      <div class="gf-card-body">
-        <h1 class="form-title">Client Onboarding Questionnaire</h1>
-        <p class="form-desc">Complete all 5 sections to set up your account.</p>
-        <div class="progress-strip"><div class="progress-strip-fill" style="width:80%"></div></div>
-      </div>
-    </div>
-
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="section-header-with-tabs">
-          <div>
-            <div class="section-title-left">
-              <span class="section-title">Mobile App Publishing</span>
-            </div>
-            <p class="section-desc">Google Play Console and Apple Developer Program account details.</p>
-          </div>
-          <div class="sub-tabs-wrapper" id="publishSubTabs">
-            <button class="sub-tab active" data-sub="play" onclick="switchSubTabPublish('play')">
-              <span class="tab-status-dot pending"></span> Play Console
-            </button>
-            <button class="sub-tab" data-sub="apple" onclick="switchSubTabPublish('apple')">
-              <span class="tab-status-dot pending"></span> Apple
-            </button>
-          </div>
-        </div>
-
-        <!-- Google Play -->
-        <div class="sub-panel active" id="sub-play">
-          <div class="credential-block">
-            <div class="block-title"> Google Play Console</div>
-            <div class="radio-group mb-2" id="playRadioGroup">
-              <label class="radio-option"><input type="radio" name="playCred" value="have" checked onchange="handlePlayToggle(this.value)"> I have credentials</label>
-              <label class="radio-option"><input type="radio" name="playCred" value="create" onchange="handlePlayToggle(this.value)"> Create for me</label>
-            </div>
-            <div id="playHaveFields" class="credential-fields">
-              <div class="gf-question"><div class="gf-label">Developer account email <span class="req">*</span></div><input type="email" class="gf-input" placeholder="developer@company.com"></div>
-              <div class="gf-question mt-3"><div class="gf-label">Password</div><input type="password" class="gf-input" placeholder="Enter account password"></div>
-              <div class="gf-question mt-3"><div class="gf-label">App package name</div><input type="text" class="gf-input" placeholder="com.appname"><div class="gf-help">Reverse domain format.</div></div>
-              <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
-              <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
-              <div class="row g-3 mt-1">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'play')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'play')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="credential-details-section visible" id="play-details">
-                <div class="info-card" id="play-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="play-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>Google Play Console email</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Account password</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Upload keystore / signing key</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="playCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Email address to use for Google Play</div>
-              <input type="email" class="gf-input" placeholder="play@company.com">
-              <div class="gf-label mt-4">Upload DUNS Number document</div>
-              <div class="file-upload-box"><input type="file" accept=".pdf,.jpg,.png"><div class="gf-help">Upload DUNS number certificate</div></div>
-            </div>
-          </div>
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <span class="text-muted small">1 of 2</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue" onclick="saveAndContinueSub('publish', 'play')">
-                <i class="fas fa-save"></i> Save &amp; Continue
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Apple -->
-        <div class="sub-panel" id="sub-apple">
-          <div class="credential-block">
-            <div class="block-title"> Apple Developer Program</div>
-            <div class="radio-group" id="appleRadioGroup">
-              <label class="radio-option"><input type="radio" name="appleCred" value="have" checked onchange="handleAppleToggle(this.value)"> I have credentials</label>
-              <label class="radio-option"><input type="radio" name="appleCred" value="create" onchange="handleAppleToggle(this.value)"> Create for me</label>
-            </div>
-            <div id="appleHaveFields" class="credential-fields">
-              <div class="gf-question"><div class="gf-label">Apple ID (developer email) <span class="req">*</span></div><input type="email" class="gf-input" placeholder="dev@company.com"></div>
-              <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
-              <div class="gf-question mt-3"><div class="gf-label">App Bundle ID</div><input type="text" class="gf-input" placeholder="com.company.appname"><div class="gf-help">Must match your provisioning profile.</div></div>
-              <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
-              <div class="row g-3 mt-1">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'apple')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'apple')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="credential-details-section visible" id="apple-details">
-                <div class="info-card" id="apple-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="apple-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>Apple ID Email</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Apple ID password</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>App Store Connect access</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="appleCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Apple ID email to use <span class="req">*</span></div>
-              <input type="email" class="gf-input" placeholder="dev@company.com">
-              <div class="gf-label mt-4">Upload DUNS Number document</div>
-              <div class="file-upload-box"><input type="file" accept=".pdf,.jpg,.png"><div class="gf-help">Upload DUNS number certificate</div></div>
-            </div>
-          </div>
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <button class="btn-sub-back" onclick="switchSubTabPublish('play')"><i class="fas fa-arrow-left"></i> Back</button>
-              <span class="text-muted small">2 of 2</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue next-btn" onclick="completeAndGoToNext('step3', 'publish', 4)">
-                <i class="fas fa-arrow-right"></i> Next
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==================== STEP 4: SECURITY ==================== -->
-  <div class="section-panel" id="step4" style="display:none">
-    <div class="gf-card title-card">
-      <div class="form-header-banner"></div>
-      <div class="gf-card-body">
-        <h1 class="form-title">Client Onboarding Questionnaire</h1>
-        <p class="form-desc">Complete all 5 sections to set up your account.</p>
-        <div class="progress-strip"><div class="progress-strip-fill" style="width:100%"></div></div>
-      </div>
-    </div>
-
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="section-header-with-tabs">
-          <div>
-            <div class="section-title-left">
-              <span class="section-title">Security &amp; Branding</span>
-            </div>
-            <p class="section-desc">GitHub repository access and brand asset details.</p>
-          </div>
-          <div class="sub-tabs-wrapper" id="securitySubTabs">
-            <button class="sub-tab active" data-sub="github" onclick="switchSubTabSecurity('github')">
-              <span class="tab-status-dot pending"></span> GitHub
-            </button>
-            <button class="sub-tab" data-sub="branding" onclick="switchSubTabSecurity('branding')">
-              <span class="tab-status-dot pending"></span> Branding
-            </button>
-          </div>
-        </div>
-
-        <!-- GitHub -->
-        <div class="sub-panel active" id="sub-github">
-          <div class="credential-block">
-            <div class="block-title"> Git / GitHub Repository</div>
-            <div class="radio-group" id="gitRadioGroup">
-              <label class="radio-option"><input type="radio" name="gitCred" value="have" checked onchange="handleGitToggle(this.value)"> I have a GitHub repo</label>
-              <label class="radio-option"><input type="radio" name="gitCred" value="create" onchange="handleGitToggle(this.value)"> Create repository for me</label>
-            </div>
-            <div id="gitHaveFields" class="credential-fields">
-              <div class="gf-question"><div class="gf-label">GitHub username</div><input type="text" class="gf-input" placeholder="@username"></div>
-              <div class="gf-question mt-3"><div class="gf-label">Password / Personal Access Token</div><input type="password" class="gf-input" placeholder="Enter password or token"></div>
-              <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
-              <div class="row g-3 mt-1">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'git')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'git')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="credential-details-section visible" id="git-details">
-                <div class="info-card" id="git-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="git-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>GitHub Username</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Personal Access Token (with repo access)</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Repository URL</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="gitCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Email address to use for GitHub repository</div>
-              <input type="email" class="gf-input" placeholder="git@company.com">
-            </div>
-          </div>
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <span class="text-muted small">1 of 2</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue" onclick="saveAndContinueSub('security', 'github')">
-                <i class="fas fa-save"></i> Save &amp; Continue
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Branding -->
-        <div class="sub-panel" id="sub-branding">
-          <div class="credential-block">
-            <div class="block-title mb-3"> Branding Assets</div>
-            <div class="gf-question">
-              <div class="gf-label">Primary brand color <span class="req">*</span></div>
-              <div class="color-picker-wrapper">
-                <input type="color" id="primaryColorPicker" value="#E56772" onchange="document.getElementById('primaryColorHex').value = this.value">
-                <input type="text" class="gf-input color-hex-input" id="primaryColorHex" value="#E56772" placeholder="#E56772" onchange="document.getElementById('primaryColorPicker').value = this.value">
-              </div>
-            </div>
-            <div class="gf-question mt-3">
-              <div class="gf-label">Secondary / accent color</div>
-              <div class="color-picker-wrapper">
-                <input type="color" id="secondaryColorPicker" value="#FF5A00" onchange="document.getElementById('secondaryColorHex').value = this.value">
-                <input type="text" class="gf-input color-hex-input" id="secondaryColorHex" value="#FF5A00" placeholder="#FF5A00" onchange="document.getElementById('secondaryColorPicker').value = this.value">
-              </div>
-            </div>
-            <div class="gf-label mt-4">Upload logo (SVG or PNG) <span class="req">*</span></div>
-            <div class="file-upload-box"><input type="file" accept="image/*"><div class="gf-help">Upload your logo in SVG or high-resolution PNG format.</div></div>
-            <div class="credential-fields">
-              <div class="gf-label">Security contact email</div>
-              <input type="email" class="gf-input" placeholder="developer@gmail.com">
-            </div>
-            <div class="gf-question mt-4"><div class="gf-label">Additional notes</div><textarea class="gf-textarea" placeholder="Any other details..."></textarea></div>
-          </div>
-          <!-- Last sub-tab - shows Submit instead of Next -->
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <button class="btn-sub-back" onclick="switchSubTabSecurity('github')"><i class="fas fa-arrow-left"></i> Back</button>
-              <span class="text-muted small">2 of 2</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue next-btn" onclick="submitForm()">
-                <i class="fas fa-send"></i> Submit Onboarding
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- ===== SUCCESS SCREEN ===== -->
-<div id="successScreen">
+  <!-- Company Header -->
   <div class="gf-card">
-    <div class="form-header-banner"></div>
-    <div class="gf-card-body success-screen">
-      <div class="success-icon"><img src="succsfully__registred.gif" alt="success" onerror="this.style.display='none'; this.parentElement.innerHTML='✓'"></div>
-      <h2 class="success-title">Your onboarding form has been submitted!</h2>
-      <p class="success-sub">Thank you for completing the client onboarding questionnaire.<br>Our team will review your submission and reach out within 1–2 business days.</p>
-      <button class="btn-restart" onclick="restartForm()"><i class="fas fa-undo"></i> Submit another response</button>
+    <div class="gf-card-body">
+      <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+        <div>
+          <h4 class="fw-600 mb-1"><span class="company-name">Finserv Technologies</span></h4>
+          <p class="text-muted small mb-0"><i class="fas fa-info-circle me-1"></i> Both Live and Sandbox credentials are mandatory. The submit button stays disabled until both environments are complete for every service.</p>
+        </div>
+        <div class="text-end">
+          <span class="badge-roja">Progress</span>
+          <div class="fw-700 mt-1" style="font-size:1.3rem;" id="progressCount">0 / 6 <span class="text-muted" style="font-size:0.8rem;">completed</span></div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- ===== MAIN TABS ===== -->
+  <div class="main-tabs" id="mainTabs">
+    <button class="main-tab active" data-main="credential" onclick="switchMainTab('credential')">
+      <span class="tab-number">01</span>
+      <span class="tab-label">Secure Credential Submission</span>
+    </button>
+    <button class="main-tab" data-main="delegate" onclick="switchMainTab('delegate')">
+      <span class="tab-number">02</span>
+      <span class="tab-label">Delegate Access Services</span>
+    </button>
+  </div>
+
+  <!-- ==================== MAIN PANEL 1: SECURE CREDENTIAL SUBMISSION ==================== -->
+  <div class="main-panel active" id="main-credential">
+    <div class="gf-card">
+      <div class="form-header-banner"></div>
+      <div class="gf-card-body">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-4">
+          <div>
+            <h5 class="fw-600 mb-0"><i class="fas fa-key me-2" style="color:var(--gf-red);"></i>Secure Credential Submission</h5>
+            <p class="text-muted small mb-0">Your secure session is active and protected. All credentials submitted will be encrypted.</p>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge-roja">Live + Sandbox</span>
+            <span class="badge-roja" style="background:#f0f2f5;color:#333;" id="envCount">0 / 12</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-section">
+          <span class="progress-text"><i class="fas fa-chart-simple me-1"></i> <span id="progressPercent">0%</span> complete</span>
+          <div class="progress-bar-custom">
+            <div class="fill" id="progressFill" style="width:0%;"></div>
+          </div>
+          <span class="progress-text"><span id="envProgress">0</span> / 12 environments</span>
+        </div>
+
+        <!-- ===== CREDENTIAL TABS ===== -->
+        <div class="credential-tabs" id="credentialTabs">
+          <button class="cred-tab active" data-tab="credit" onclick="switchTab('credit')">
+            <span class="tab-status-dot pending"></span>
+            <span class="tab-label">Credit Integration</span>
+          </button>
+          <button class="cred-tab" data-tab="chirp" onclick="switchTab('chirp')">
+            <span class="tab-status-dot pending"></span>
+            <span class="tab-label">Chirp IBV</span>
+          </button>
+          <button class="cred-tab" data-tab="email" onclick="switchTab('email')">
+            <span class="tab-status-dot pending"></span>
+            <span class="tab-label">Email Service</span>
+          </button>
+          <button class="cred-tab" data-tab="mongo" onclick="switchTab('mongo')">
+            <span class="tab-status-dot pending"></span>
+            <span class="tab-label">MongoDB Atlas</span>
+          </button>
+          <button class="cred-tab" data-tab="apple" onclick="switchTab('apple')">
+            <span class="tab-status-dot pending"></span>
+            <span class="tab-label">Apple Developer</span>
+          </button>
+          <button class="cred-tab" data-tab="github" onclick="switchTab('github')">
+            <span class="tab-status-dot pending"></span>
+            <span class="tab-label">GitHub</span>
+          </button>
+        </div>
+
+        <!-- ==================== CREDIT INTEGRATION TAB ==================== -->
+        <div class="service-panel active" id="panel-credit">
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-title">
+                Credit Integration (EQUIFAX)
+                <span class="badge-field-count">8 fields</span>
+              </div>
+              <div class="service-status">
+                <span class="status-dot yellow" id="credit-status-dot"></span>
+                <span id="credit-status-text">In Progress</span>
+              </div>
+            </div>
+
+            <div class="env-toggle">
+              <button class="env-btn active" data-service="credit" onclick="toggleEnv(this, 'credit')">Live</button>
+              <button class="env-btn" data-service="credit" onclick="toggleEnv(this, 'credit')">Sandbox</button>
+            </div>
+
+            <div class="cred-fields-grid">
+              <div class="cred-field-group">
+                <label id="credit-clientid-label">Client ID</label>
+                <input type="text" class="gf-input" placeholder="Enter Client ID">
+              </div>
+              <div class="cred-field-group">
+                <label id="credit-clientsecret-label">Client Secret</label>
+                <input type="password" class="gf-input" placeholder="Enter Client Secret">
+              </div>
+              <div class="cred-field-group">
+                <label id="credit-apikey-label">API Key</label>
+                <input type="text" class="gf-input" placeholder="Enter API Key">
+              </div>
+              <div class="cred-field-group">
+                <label id="credit-secretkey-label">Secret Key</label>
+                <input type="password" class="gf-input" placeholder="Enter Secret Key">
+              </div>
+              <div class="cred-field-group">
+                <label id="credit-username-label">Username</label>
+                <input type="text" class="gf-input" placeholder="Enter Username">
+              </div>
+              <div class="cred-field-group">
+                <label id="credit-password-label">Password</label>
+                <input type="password" class="gf-input" placeholder="Enter Password">
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <label class="field-group-label"><i class="fas fa-sticky-note"></i> Notes</label>
+              <textarea class="gf-textarea" rows="2" placeholder="Optional notes"></textarea>
+            </div>
+
+            <div class="mt-3 d-flex align-items-center gap-2">
+              <i class="fas fa-lock text-muted" style="font-size:0.8rem;"></i>
+              <span class="text-muted small">Credentials are encrypted at rest.</span>
+            </div>
+
+            <div class="service-nav-buttons">
+              <div class="service-nav-left">
+                <button class="btn-outline-roja" onclick="switchTab('chirp')">Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+              <div class="service-nav-right">
+                <button class="btn-green-roja" onclick="saveAndContinue('credit')">
+                  <i class="fas fa-save"></i> Save &amp; Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== CHIRP IBV TAB ==================== -->
+        <div class="service-panel" id="panel-chirp">
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-title">
+                Chirp IBV
+                <span class="badge-field-count">5 fields</span>
+              </div>
+              <div class="service-status">
+                <span class="status-dot gray" id="chirp-status-dot"></span>
+                <span id="chirp-status-text">Not Started</span>
+              </div>
+            </div>
+
+            <div class="env-toggle">
+              <button class="env-btn active" data-service="chirp" onclick="toggleEnv(this, 'chirp')">Live</button>
+              <button class="env-btn" data-service="chirp" onclick="toggleEnv(this, 'chirp')">Sandbox</button>
+            </div>
+
+            <div class="cred-fields-grid">
+              <div class="cred-field-group">
+                <label id="chirp-clientid-label">Client ID</label>
+                <input type="text" class="gf-input" placeholder="Enter Client ID">
+              </div>
+              <div class="cred-field-group">
+                <label id="chirp-clientsecret-label">Client Secret</label>
+                <input type="password" class="gf-input" placeholder="Enter Client Secret">
+              </div>
+              <div class="cred-field-group">
+                <label id="chirp-apikey-label">API Key</label>
+                <input type="text" class="gf-input" placeholder="Enter API Key">
+              </div>
+              <div class="cred-field-group">
+                <label id="chirp-secretkey-label">Secret Key</label>
+                <input type="password" class="gf-input" placeholder="Enter Secret Key">
+              </div>
+            </div>
+            <div class="mt-2 text-muted small">
+              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+            </div>
+
+            <div class="service-nav-buttons">
+              <div class="service-nav-left">
+                <button class="btn-outline-roja me-2" onclick="switchTab('credit')"><i class="fas fa-arrow-left"></i> Back</button>
+                <button class="btn-outline-roja" onclick="switchTab('email')">Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+              <div class="service-nav-right">
+                <button class="btn-green-roja" onclick="saveAndContinue('chirp')">
+                  <i class="fas fa-save"></i> Save &amp; Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== EMAIL SERVICE TAB ==================== -->
+        <div class="service-panel" id="panel-email">
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-title">
+                Email Service (MAILGUN)
+                <span class="badge-field-count">9 fields</span>
+              </div>
+              <div class="service-status">
+                <span class="status-dot gray" id="email-status-dot"></span>
+                <span id="email-status-text">Not Started</span>
+              </div>
+            </div>
+
+            <div class="env-toggle">
+              <button class="env-btn active" data-service="email" onclick="toggleEnv(this, 'email')">Live</button>
+              <button class="env-btn" data-service="email" onclick="toggleEnv(this, 'email')">Sandbox</button>
+            </div>
+
+            <div class="cred-fields-grid">
+              <div class="cred-field-group">
+                <label id="email-apikey-label">API Key</label>
+                <input type="text" class="gf-input" placeholder="Enter API Key">
+              </div>
+              <div class="cred-field-group">
+                <label id="email-secretkey-label">Secret Key</label>
+                <input type="password" class="gf-input" placeholder="Enter Secret Key">
+              </div>
+              <div class="cred-field-group">
+                <label id="email-domain-label">Domain</label>
+                <input type="text" class="gf-input" placeholder="Enter Domain">
+              </div>
+              <div class="cred-field-group">
+                <label id="email-smtpusername-label">SMTP Username</label>
+                <input type="text" class="gf-input" placeholder="Enter SMTP Username">
+              </div>
+              <div class="cred-field-group">
+                <label id="email-smtppassword-label">SMTP Password</label>
+                <input type="password" class="gf-input" placeholder="Enter SMTP Password">
+              </div>
+              <div class="cred-field-group">
+                <label id="email-fromemail-label">From Email</label>
+                <input type="email" class="gf-input" placeholder="Enter From Email">
+              </div>
+            </div>
+            <div class="mt-2 text-muted small">
+              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+            </div>
+
+            <div class="service-nav-buttons">
+              <div class="service-nav-left">
+                <button class="btn-outline-roja me-2" onclick="switchTab('chirp')"><i class="fas fa-arrow-left"></i> Back</button>
+                <button class="btn-outline-roja" onclick="switchTab('mongo')">Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+              <div class="service-nav-right">
+                <button class="btn-green-roja" onclick="saveAndContinue('email')">
+                  <i class="fas fa-save"></i> Save &amp; Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== MONGODB ATLAS TAB ==================== -->
+        <div class="service-panel" id="panel-mongo">
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-title">
+                MongoDB Atlas
+                <span class="badge-field-count">6 fields</span>
+              </div>
+              <div class="service-status">
+                <span class="status-dot gray" id="mongo-status-dot"></span>
+                <span id="mongo-status-text">Not Started</span>
+              </div>
+            </div>
+
+            <div class="env-toggle">
+              <button class="env-btn active" data-service="mongo" onclick="toggleEnv(this, 'mongo')">Live</button>
+              <button class="env-btn" data-service="mongo" onclick="toggleEnv(this, 'mongo')">Sandbox</button>
+            </div>
+
+            <div class="cred-fields-grid">
+              <div class="cred-field-group">
+                <label id="mongo-cluster-label">Cluster Name</label>
+                <input type="text" class="gf-input" placeholder="Enter Cluster Name">
+              </div>
+              <div class="cred-field-group">
+                <label id="mongo-username-label">Database Username</label>
+                <input type="text" class="gf-input" placeholder="Enter Username">
+              </div>
+              <div class="cred-field-group">
+                <label id="mongo-password-label">Database Password</label>
+                <input type="password" class="gf-input" placeholder="Enter Password">
+              </div>
+              <div class="cred-field-group">
+                <label id="mongo-connection-label">Connection String</label>
+                <input type="text" class="gf-input" placeholder="Enter Connection URI">
+              </div>
+            </div>
+            <div class="mt-2 text-muted small">
+              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+            </div>
+
+            <div class="service-nav-buttons">
+              <div class="service-nav-left">
+                <button class="btn-outline-roja me-2" onclick="switchTab('email')"><i class="fas fa-arrow-left"></i> Back</button>
+                <button class="btn-outline-roja" onclick="switchTab('apple')">Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+              <div class="service-nav-right">
+                <button class="btn-green-roja" onclick="saveAndContinue('mongo')">
+                  <i class="fas fa-save"></i> Save &amp; Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== APPLE DEVELOPER TAB ==================== -->
+        <div class="service-panel" id="panel-apple">
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-title">
+                <i class="fab fa-apple" style="color:var(--gf-red);"></i>
+                Apple Developer
+                <span class="badge-field-count">6 fields</span>
+              </div>
+              <div class="service-status">
+                <span class="status-dot gray" id="apple-status-dot"></span>
+                <span id="apple-status-text">Not Started</span>
+              </div>
+            </div>
+
+            <div class="env-toggle">
+              <button class="env-btn active" data-service="apple" onclick="toggleEnv(this, 'apple')">Live</button>
+              <button class="env-btn" data-service="apple" onclick="toggleEnv(this, 'apple')">Sandbox</button>
+            </div>
+
+            <div class="cred-fields-grid">
+              <div class="cred-field-group">
+                <label id="apple-email-label">Apple ID Email</label>
+                <input type="email" class="gf-input" placeholder="Enter Apple ID Email">
+              </div>
+              <div class="cred-field-group">
+                <label id="apple-password-label">Apple ID Password</label>
+                <input type="password" class="gf-input" placeholder="Enter Password">
+              </div>
+              <div class="cred-field-group">
+                <label id="apple-teamid-label">Team ID</label>
+                <input type="text" class="gf-input" placeholder="Enter Team ID">
+              </div>
+              <div class="cred-field-group">
+                <label id="apple-apikey-label">App Store Connect API Key</label>
+                <input type="text" class="gf-input" placeholder="Enter API Key">
+              </div>
+            </div>
+            <div class="mt-2 text-muted small">
+              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+            </div>
+
+            <div class="service-nav-buttons">
+              <div class="service-nav-left">
+                <button class="btn-outline-roja me-2" onclick="switchTab('mongo')"><i class="fas fa-arrow-left"></i> Back</button>
+                <button class="btn-outline-roja" onclick="switchTab('github')">Next <i class="fas fa-arrow-right"></i></button>
+              </div>
+              <div class="service-nav-right">
+                <button class="btn-green-roja" onclick="saveAndContinue('apple')">
+                  <i class="fas fa-save"></i> Save &amp; Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== GITHUB TAB ==================== -->
+        <div class="service-panel" id="panel-github">
+          <div class="service-card">
+            <div class="service-header">
+              <div class="service-title">
+                GitHub
+                <span class="badge-field-count">4 fields</span>
+              </div>
+              <div class="service-status">
+                <span class="status-dot gray" id="github-status-dot"></span>
+                <span id="github-status-text">Not Started</span>
+              </div>
+            </div>
+
+            <div class="env-toggle">
+              <button class="env-btn active" data-service="github" onclick="toggleEnv(this, 'github')">Live</button>
+              <button class="env-btn" data-service="github" onclick="toggleEnv(this, 'github')">Sandbox</button>
+            </div>
+
+            <div class="cred-fields-grid">
+              <div class="cred-field-group">
+                <label id="github-username-label">GitHub Username</label>
+                <input type="text" class="gf-input" placeholder="Enter Username">
+              </div>
+              <div class="cred-field-group">
+                <label id="github-token-label">Personal Access Token</label>
+                <input type="password" class="gf-input" placeholder="Enter Token">
+              </div>
+              <div class="cred-field-group">
+                <label id="github-repo-label">Repository Name</label>
+                <input type="text" class="gf-input" placeholder="Enter Repository">
+              </div>
+              <div class="cred-field-group">
+                <label id="github-org-label">Organization</label>
+                <input type="text" class="gf-input" placeholder="Enter Organization">
+              </div>
+            </div>
+            <div class="mt-2 text-muted small">
+              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+            </div>
+
+            <div class="service-nav-buttons">
+              <div class="service-nav-left">
+                <button class="btn-outline-roja me-2" onclick="switchTab('apple')"><i class="fas fa-arrow-left"></i> Back</button>
+              </div>
+              <div class="service-nav-right">
+                <button class="btn-green-roja" onclick="showReviewAndSubmit()">
+                  <i class="fas fa-save"></i> Save &amp; Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== REVIEW & SUBMIT SECTION (Redesigned) ===== -->
+        <div class="review-section" id="reviewSection">
+          <!-- Header -->
+          <div class="review-header">
+            <div class="review-header-left">
+              <div class="review-icon"><i class="fas fa-clipboard-check"></i></div>
+              <div>
+                <div class="review-title">Final Review — All Credentials</div>
+                <div class="review-subtitle"><span id="reviewServiceCount">2</span> services · <span id="reviewFieldCount">28</span> fields (Live + Sandbox)</div>
+              </div>
+            </div>
+            <div class="review-header-right">
+              <div class="review-badge"><i class="fas fa-check-circle"></i> Both envs</div>
+              <div class="review-count"><span id="reviewCompletedCount">0</span> of <span id="reviewTotalCount">6</span> services completed</div>
+            </div>
+          </div>
+
+          <!-- Info Banner -->
+          <div class="alert alert-info border-0 rounded-3 d-flex align-items-center gap-3 mb-4" style="background: #eff6ff; color: #1e40af; padding: 12px 20px;">
+            <i class="fas fa-info-circle" style="font-size:1.1rem;"></i>
+            <span class="small">Final submission. Both Live and Sandbox credentials included. Once submitted all fields become read-only.</span>
+          </div>
+
+          <!-- Service Cards -->
+          <div id="reviewServiceList">
+            <!-- Chirp IBV - Example -->
+            <div class="review-service-card" data-service="chirp">
+              <div class="review-service-header">
+                <div class="review-service-name">
+                  <div>
+                    <span class="rs-name">Chirp IBV</span>
+                    <span class="rs-category">Banking</span>
+                  </div>
+                </div>
+                <div class="review-service-status">
+                  <i class="fas fa-check-circle"></i>
+                  <span class="status-badge">Both envs</span>
+                </div>
+              </div>
+
+              <!-- Live Credentials -->
+              <div class="review-cred-group">
+                <div class="group-label">
+                  LIVE CREDENTIALS
+                  <span class="env-tag live">previously saved</span>
+                </div>
+                <div class="review-cred-fields">
+                  <div class="review-cred-field">
+                    <span class="field-label">API Key</span>
+                    <span class="field-value">qazxcd45tgbnhy678</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Secret Key</span>
+                    <span class="field-value">okmhny65tgbvfr43e</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Username</span>
+                    <span class="field-value">liveusername</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Password</span>
+                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sandbox Credentials -->
+              <div class="review-cred-group">
+                <div class="group-label">
+                  SANDBOX CREDENTIALS
+                  <span class="env-tag sandbox">test environment</span>
+                </div>
+                <div class="review-cred-fields">
+                  <div class="review-cred-field">
+                    <span class="field-label">API Key</span>
+                    <span class="field-value">sandbox_api_key_12345</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Secret Key</span>
+                    <span class="field-value">sandbox_secret_key_67890</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Username</span>
+                    <span class="field-value">sandboxuser</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Password</span>
+                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Credit Integration - Example -->
+            <div class="review-service-card" data-service="credit">
+              <div class="review-service-header">
+                <div class="review-service-name">
+                  <div>
+                    <span class="rs-name">Credit Integration</span>
+                    <span class="rs-category">EQUIFAX</span>
+                  </div>
+                </div>
+                <div class="review-service-status">
+                  <i class="fas fa-check-circle"></i>
+                  <span class="status-badge">Both envs</span>
+                </div>
+              </div>
+
+              <div class="review-cred-group">
+                <div class="group-label">
+                  LIVE CREDENTIALS
+                  <span class="env-tag live">previously saved</span>
+                </div>
+                <div class="review-cred-fields">
+                  <div class="review-cred-field">
+                    <span class="field-label">Client ID</span>
+                    <span class="field-value">eqfx_live_client_001</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Client Secret</span>
+                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">API Key</span>
+                    <span class="field-value">eqfx_api_live_xyz789</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Secret Key</span>
+                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="review-cred-group">
+                <div class="group-label">
+                  SANDBOX CREDENTIALS
+                  <span class="env-tag sandbox">test environment</span>
+                </div>
+                <div class="review-cred-fields">
+                  <div class="review-cred-field">
+                    <span class="field-label">Client ID</span>
+                    <span class="field-value">eqfx_sandbox_client_002</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Client Secret</span>
+                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">API Key</span>
+                    <span class="field-value">eqfx_api_sandbox_abc123</span>
+                  </div>
+                  <div class="review-cred-field">
+                    <span class="field-label">Secret Key</span>
+                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div class="review-footer">
+            <div class="review-footer-left">
+              <span class="security-badge"><i class="fas fa-lock"></i> All data encrypted at rest</span>
+              <span class="security-badge"><i class="fas fa-shield-alt"></i> Secure transmission</span>
+            </div>
+            <div class="review-footer-right">
+              <button class="btn-back-roja" onclick="hideReviewAndGoBack()">
+                <i class="fas fa-arrow-left"></i> Go Back &amp; Edit
+              </button>
+              <button class="btn-submit-roja" onclick="submitAllCredentials()" id="submitAllBtn">
+                <i class="fas fa-check-circle"></i> Confirm &amp; Submit All
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MAIN PANEL 2: DELEGATE ACCESS SERVICES ==================== -->
+  <div class="main-panel" id="main-delegate">
+    <div class="gf-card">
+      <div class="form-header-banner" style="background: linear-gradient(90deg, #f59e0b, #d97706);"></div>
+      <div class="gf-card-body">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <i class="fas fa-user-shield text-warning" style="font-size:1.2rem;"></i>
+          <h5 class="fw-600 mb-0">Delegate Access Services</h5>
+          <span class="badge-roja ms-2">Manual Setup</span>
+        </div>
+        <p class="text-muted small mb-3">These services use Delegate Access (Manual setup). No credentials need to be submitted — our team configures these on your behalf once access is granted.</p>
+
+        <div class="delegate-service-item">
+          <div class="ds-left">
+            <div class="ds-icon"><i class="fas fa-university"></i></div>
+            <div>
+              <div class="ds-name">ACH / Banking</div>
+              <div class="ds-type">Banking · Delegate Access — Manual Setup</div>
+            </div>
+          </div>
+          <div class="ds-status">
+            <span class="status-dot yellow"></span>
+            <span>Access Pending</span>
+            <button class="btn btn-sm btn-outline-primary ms-2 rounded-pill" style="font-size:0.7rem; padding:2px 12px;">I have granted access</button>
+          </div>
+        </div>
+
+        <div class="delegate-service-item">
+          <div class="ds-left">
+            <div class="ds-icon"><i class="fas fa-sms"></i></div>
+            <div>
+              <div class="ds-name">SMS Provider</div>
+              <div class="ds-type">Communications · Delegate Access — Manual Setup</div>
+            </div>
+          </div>
+          <div class="ds-status">
+            <span class="status-dot green"></span>
+            <span style="color:var(--gf-green);">Access Granted</span>
+          </div>
+        </div>
+
+        <div class="delegate-service-item">
+          <div class="ds-left">
+            <div class="ds-icon"><i class="fab fa-aws"></i></div>
+            <div>
+              <div class="ds-name">AWS</div>
+              <div class="ds-type">Cloud · Delegate Access — Manual Setup</div>
+            </div>
+          </div>
+          <div class="ds-status">
+            <span class="status-dot green"></span>
+            <span style="color:var(--gf-green);">Access Granted</span>
+          </div>
+        </div>
+
+        <div class="delegate-service-item">
+          <div class="ds-left">
+            <div class="ds-icon"><i class="fab fa-google-play"></i></div>
+            <div>
+              <div class="ds-name">Google Play</div>
+              <div class="ds-type">Security · Delegate Access — Manual Setup</div>
+            </div>
+          </div>
+          <div class="ds-status">
+            <span class="status-dot green"></span>
+            <span style="color:var(--gf-green);">Access Granted</span>
+          </div>
+        </div>
+
+        <div class="mt-3 p-3 bg-warning bg-opacity-10 rounded-3 border border-warning border-opacity-25">
+          <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+          <span class="fw-500">1 delegate service still awaiting access. Please grant access to our team to continue.</span>
+        </div>
+
+        <!-- Delegate Access Progress -->
+        <div class="mt-4 pt-3 border-top">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+            <span class="fw-500">Delegate Access Progress</span>
+            <span class="text-muted small">3 / 4 completed</span>
+          </div>
+          <div class="progress-bar-custom mt-2">
+            <div class="fill" style="width:75%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 </div>
 
 <!-- ====== FOOTER ====== -->
-<footer id="footer" class="border-bottom-0">
+<footer id="footer" class="border-bottom-0 mt-4">
   <div class="container">
     <div class="header-row">
       <div class="header-column justify-content-start">
@@ -2023,253 +1799,385 @@
     </div>
   </div>
 </footer>
-
 <!-- ===== SCRIPTS ===== -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // ---------- Main navigation ----------
-  let current = 0;
-  const total = 5;
-  const completed = new Array(total).fill(false);
-  const tabs = document.querySelectorAll('.s-tab');
-
-  // Track sub-tab completion for each section
-  const subCompletion = {
-    banking: { ach: false, credit: false, chirp: false },
-    comms: { sms: false, email: false, firebase: false },
-    publish: { play: false, apple: false },
-    security: { github: false, branding: false }
+  // Track service completion status
+  const serviceStatus = {
+    credit: { live: false, sandbox: false },
+    chirp: { live: false, sandbox: false },
+    email: { live: false, sandbox: false },
+    mongo: { live: false, sandbox: false },
+    apple: { live: false, sandbox: false },
+    github: { live: false, sandbox: false }
   };
 
-  function goTo(idx) {
-    if (idx < current) {
-      document.getElementById('step' + current).style.display = 'none';
-      current = idx;
-      document.getElementById('step' + current).style.display = 'block';
-      updateTabs();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-    if (idx > current) {
-      completed[current] = true;
-    }
-    document.getElementById('step' + current).style.display = 'none';
-    current = idx;
-    document.getElementById('step' + current).style.display = 'block';
-    updateTabs();
-    // Scroll to top of the new section
-    setTimeout(() => {
-      const panel = document.getElementById('step' + idx);
-      if (panel) {
-        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const serviceNames = {
+    credit: 'Credit Integration (EQUIFAX)',
+    chirp: 'Chirp IBV',
+    email: 'Email Service (MAILGUN)',
+    mongo: 'MongoDB Atlas',
+    apple: 'Apple Developer',
+    github: 'GitHub'
+  };
+
+  const fieldLabels = {
+    credit: {
+      live: {
+        clientid: 'Live Client ID',
+        clientsecret: 'Live Client Secret',
+        apikey: 'Live API Key',
+        secretkey: 'Live Secret Key',
+        username: 'Live Username',
+        password: 'Live Password'
+      },
+      sandbox: {
+        clientid: 'Sandbox Client ID',
+        clientsecret: 'Sandbox Client Secret',
+        apikey: 'Sandbox API Key',
+        secretkey: 'Sandbox Secret Key',
+        username: 'Sandbox Username',
+        password: 'Sandbox Password'
       }
-    }, 100);
-  }
-
-  function updateTabs() {
-    tabs.forEach((t, i) => {
-      t.classList.remove('active', 'done');
-      if (i === current) t.classList.add('active');
-      else if (completed[i]) t.classList.add('done');
-    });
-  }
-
-  function submitForm() {
-    completed[current] = true;
-    for (let i = 0; i < total; i++) {
-      document.getElementById('step' + i).style.display = 'none';
-    }
-    document.getElementById('sectionTabs').style.display = 'none';
-    document.getElementById('successScreen').style.display = 'block';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function restartForm() {
-    current = 0;
-    completed.fill(false);
-    for (const key in subCompletion) {
-      for (const subKey in subCompletion[key]) {
-        subCompletion[key][subKey] = false;
+    },
+    chirp: {
+      live: {
+        clientid: 'Live Client ID',
+        clientsecret: 'Live Client Secret',
+        apikey: 'Live API Key',
+        secretkey: 'Live Secret Key'
+      },
+      sandbox: {
+        clientid: 'Sandbox Client ID',
+        clientsecret: 'Sandbox Client Secret',
+        apikey: 'Sandbox API Key',
+        secretkey: 'Sandbox Secret Key'
+      }
+    },
+    email: {
+      live: {
+        apikey: 'Live API Key',
+        secretkey: 'Live Secret Key',
+        domain: 'Live Domain',
+        smtpusername: 'Live SMTP Username',
+        smtppassword: 'Live SMTP Password',
+        fromemail: 'Live From Email'
+      },
+      sandbox: {
+        apikey: 'Sandbox API Key',
+        secretkey: 'Sandbox Secret Key',
+        domain: 'Sandbox Domain',
+        smtpusername: 'Sandbox SMTP Username',
+        smtppassword: 'Sandbox SMTP Password',
+        fromemail: 'Sandbox From Email'
+      }
+    },
+    mongo: {
+      live: {
+        cluster: 'Live Cluster Name',
+        username: 'Live Database Username',
+        password: 'Live Database Password',
+        connection: 'Live Connection String'
+      },
+      sandbox: {
+        cluster: 'Sandbox Cluster Name',
+        username: 'Sandbox Database Username',
+        password: 'Sandbox Database Password',
+        connection: 'Sandbox Connection String'
+      }
+    },
+    apple: {
+      live: {
+        email: 'Live Apple ID Email',
+        password: 'Live Apple ID Password',
+        teamid: 'Live Team ID',
+        apikey: 'Live App Store Connect API Key'
+      },
+      sandbox: {
+        email: 'Sandbox Apple ID Email',
+        password: 'Sandbox Apple ID Password',
+        teamid: 'Sandbox Team ID',
+        apikey: 'Sandbox App Store Connect API Key'
+      }
+    },
+    github: {
+      live: {
+        username: 'Live GitHub Username',
+        token: 'Live Personal Access Token',
+        repo: 'Live Repository Name',
+        org: 'Live Organization'
+      },
+      sandbox: {
+        username: 'Sandbox GitHub Username',
+        token: 'Sandbox Personal Access Token',
+        repo: 'Sandbox Repository Name',
+        org: 'Sandbox Organization'
       }
     }
-    document.getElementById('successScreen').style.display = 'none';
-    document.getElementById('sectionTabs').style.display = 'flex';
-    for (let i = 0; i < total; i++) {
-      document.getElementById('step' + i).style.display = i === 0 ? 'block' : 'none';
-    }
-    document.querySelectorAll('.sub-tab .tab-status-dot').forEach(dot => {
-      dot.className = 'tab-status-dot pending';
-    });
-    ['banking', 'comms', 'publish', 'security'].forEach(section => {
-      const wrapper = document.getElementById(section + 'SubTabs');
-      if (wrapper) {
-        const firstTab = wrapper.querySelector('.sub-tab');
-        if (firstTab) {
-          const subId = firstTab.dataset.sub;
-          if (section === 'banking') switchSubTab(subId);
-          else if (section === 'comms') switchSubTabComms(subId);
-          else if (section === 'publish') switchSubTabPublish(subId);
-          else if (section === 'security') switchSubTabSecurity(subId);
-        }
-      }
-    });
-    updateTabs();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  let currentTab = 'credit';
+  let reviewShown = false;
+  let currentMainTab = 'credential';
+
+  // Switch main tabs
+  function switchMainTab(tabId) {
+    document.querySelectorAll('.main-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('main-' + tabId).classList.add('active');
+    document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.main-tab[data-main="${tabId}"]`).classList.add('active');
+    currentMainTab = tabId;
   }
 
-  // ---------- Sub-tab switching functions ----------
-  function switchSubTab(tabId) {
-    const wrapper = document.querySelector('#bankingSubTabs');
-    switchSubTabGeneric(wrapper, tabId, 'sub-', 'banking');
+  // Switch credential tabs
+  function switchTab(tabId) {
+    document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + tabId).classList.add('active');
+    document.querySelectorAll('.cred-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.cred-tab[data-tab="${tabId}"]`).classList.add('active');
+    currentTab = tabId;
+    updateProgress();
   }
 
-  function switchSubTabComms(tabId) {
-    const wrapper = document.querySelector('#commsSubTabs');
-    switchSubTabGeneric(wrapper, tabId, 'sub-', 'comms');
-  }
-
-  function switchSubTabPublish(tabId) {
-    const wrapper = document.querySelector('#publishSubTabs');
-    switchSubTabGeneric(wrapper, tabId, 'sub-', 'publish');
-  }
-
-  function switchSubTabSecurity(tabId) {
-    const wrapper = document.querySelector('#securitySubTabs');
-    switchSubTabGeneric(wrapper, tabId, 'sub-', 'security');
-  }
-
-  function switchSubTabGeneric(wrapper, tabId, prefix, section) {
-    if (!wrapper) return;
-    const parent = wrapper.closest('.gf-card-body');
-    if (!parent) return;
-
-    const tabs = wrapper.querySelectorAll('.sub-tab');
-    tabs.forEach(tab => {
-      tab.classList.remove('active');
-      if (tab.dataset.sub === tabId) {
-        tab.classList.add('active');
-      }
-    });
-
-    const panels = parent.querySelectorAll('.sub-panel');
-    panels.forEach(panel => {
-      panel.classList.remove('active');
-      if (panel.id === prefix + tabId) {
-        panel.classList.add('active');
-      }
-    });
-  }
-
-  function saveAndContinueSub(section, subId) {
-    if (subCompletion[section] && subCompletion[section][subId] !== undefined) {
-        subCompletion[section][subId] = true;
-    }
-
-    const wrapper = document.getElementById(section + 'SubTabs');
-    if (wrapper) {
-        const tabs = wrapper.querySelectorAll('.sub-tab');
-        tabs.forEach(tab => {
-            if (tab.dataset.sub === subId) {
-                const dot = tab.querySelector('.tab-status-dot');
-                if (dot) {
-                    dot.className = 'tab-status-dot complete';
-                }
-            }
-        });
-    }
-
-    const subKeys = Object.keys(subCompletion[section]);
-    const currentIdx = subKeys.indexOf(subId);
-    if (currentIdx < subKeys.length - 1) {
-        const nextSub = subKeys[currentIdx + 1];
-        if (section === 'banking') switchSubTab(nextSub);
-        else if (section === 'comms') switchSubTabComms(nextSub);
-        else if (section === 'publish') switchSubTabPublish(nextSub);
-        else if (section === 'security') switchSubTabSecurity(nextSub);
-        
-        // Scroll to top of the new sub-tab with smooth animation
-        setTimeout(() => {
-            const panel = document.getElementById('sub-' + nextSub);
-            if (panel) {
-                // Get the parent card or container
-                const card = panel.closest('.gf-card');
-                if (card) {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-        }, 150); // Slight delay for the tab switch animation
-    }
+  // Toggle environment buttons with label updates
+  function toggleEnv(btn, service) {
+    const parent = btn.closest('.env-toggle');
+    const allBtns = parent.querySelectorAll('.env-btn');
     
-    showToast('Saved successfully!');
-}
+    allBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    const env = btn.textContent.trim().toLowerCase();
+    updateFieldLabels(service, env);
+    
+    updateProgress();
+  }
 
-  // ---------- Complete section and go to next main tab ----------
-  function completeAndGoToNext(stepId, section, nextTabIdx) {
-    // Mark the last sub-tab as completed
-    const subKeys = Object.keys(subCompletion[section]);
-    const lastSub = subKeys[subKeys.length - 1];
-    if (subCompletion[section] && subCompletion[section][lastSub] !== undefined) {
-      subCompletion[section][lastSub] = true;
+  // Update field labels based on environment
+  function updateFieldLabels(service, env) {
+    const labels = fieldLabels[service];
+    if (!labels || !labels[env]) return;
+    
+    const envLabels = labels[env];
+    const panel = document.getElementById('panel-' + service);
+    if (!panel) return;
+    
+    const fields = panel.querySelectorAll('.cred-field-group');
+    fields.forEach(field => {
+      const label = field.querySelector('label');
+      if (!label) return;
+      
+      const id = label.id;
+      const key = id.replace(service + '-', '').replace('-label', '');
+      
+      if (envLabels[key]) {
+        label.textContent = envLabels[key];
+      }
+    });
+  }
+
+  // Show Review & Submit section
+  function showReviewAndSubmit() {
+    // Mark GitHub as completed
+    const tab = document.querySelector(`.cred-tab[data-tab="github"]`);
+    if (tab) {
+      tab.classList.add('completed');
+      const dot = tab.querySelector('.tab-status-dot');
+      if (dot) {
+        dot.classList.remove('pending');
+        dot.classList.add('complete');
+      }
     }
 
-    const wrapper = document.getElementById(section + 'SubTabs');
-    if (wrapper) {
-      const tabs = wrapper.querySelectorAll('.sub-tab');
-      tabs.forEach(tab => {
-        if (tab.dataset.sub === lastSub) {
+    const statusDot = document.getElementById('github-status-dot');
+    const statusText = document.getElementById('github-status-text');
+    if (statusDot) statusDot.className = 'status-dot green';
+    if (statusText) statusText.textContent = 'Completed';
+
+    if (serviceStatus.github) {
+      serviceStatus.github.live = true;
+      serviceStatus.github.sandbox = true;
+    }
+
+    showToast('Credentials saved successfully for GitHub');
+
+    // Show review section
+    const reviewSection = document.getElementById('reviewSection');
+    if (reviewSection) {
+      reviewSection.classList.add('visible');
+      reviewShown = true;
+      updateReviewData();
+    }
+
+    updateProgress();
+
+    // Scroll to review section
+    setTimeout(() => {
+      reviewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 300);
+  }
+
+  // Hide review and go back
+  function hideReviewAndGoBack() {
+    const reviewSection = document.getElementById('reviewSection');
+    if (reviewSection) {
+      reviewSection.classList.remove('visible');
+      reviewShown = false;
+    }
+    // Go back to the last active tab
+    const tabs = ['credit', 'chirp', 'email', 'mongo', 'apple', 'github'];
+    switchTab(tabs[tabs.length - 1]);
+  }
+
+  // Update review data
+  function updateReviewData() {
+    let completed = 0;
+    let totalFields = 0;
+    const services = Object.keys(serviceStatus);
+    
+    services.forEach(service => {
+      // Count fields for each service
+      const labels = fieldLabels[service];
+      if (labels) {
+        const liveFields = Object.keys(labels.live || {}).length;
+        const sandboxFields = Object.keys(labels.sandbox || {}).length;
+        totalFields += liveFields + sandboxFields;
+      }
+      
+      if (serviceStatus[service].live && serviceStatus[service].sandbox) {
+        completed++;
+      }
+    });
+
+    document.getElementById('reviewCompletedCount').textContent = completed;
+    document.getElementById('reviewTotalCount').textContent = services.length;
+    document.getElementById('reviewServiceCount').textContent = services.length;
+    document.getElementById('reviewFieldCount').textContent = totalFields;
+  }
+
+  // Save and continue for regular tabs
+  function saveAndContinue(service) {
+    const tab = document.querySelector(`.cred-tab[data-tab="${service}"]`);
+    if (tab) {
+      tab.classList.add('completed');
+      const dot = tab.querySelector('.tab-status-dot');
+      if (dot) {
+        dot.classList.remove('pending');
+        dot.classList.add('complete');
+      }
+    }
+
+    const statusDot = document.getElementById(service + '-status-dot');
+    const statusText = document.getElementById(service + '-status-text');
+    if (statusDot) statusDot.className = 'status-dot green';
+    if (statusText) statusText.textContent = 'Completed';
+
+    if (serviceStatus[service]) {
+      serviceStatus[service].live = true;
+      serviceStatus[service].sandbox = true;
+    }
+
+    showToast('Credentials saved successfully for ' + serviceNames[service]);
+
+    if (reviewShown) {
+      updateReviewData();
+    }
+
+    const tabs = ['credit', 'chirp', 'email', 'mongo', 'apple', 'github'];
+    const currentIdx = tabs.indexOf(service);
+    if (currentIdx < tabs.length - 1) {
+      setTimeout(() => {
+        switchTab(tabs[currentIdx + 1]);
+      }, 300);
+    }
+
+    updateProgress();
+  }
+
+  // Update progress
+  function updateProgress() {
+    let completed = 0;
+    let totalEnvs = 0;
+
+    for (const service in serviceStatus) {
+      const envBtns = document.querySelectorAll(`.env-btn[data-service="${service}"]`);
+      const completedEnvs = document.querySelectorAll(`.env-btn[data-service="${service}"].active, .env-btn[data-service="${service}"].completed`);
+      
+      if (envBtns.length === 2 && completedEnvs.length === 2) {
+        const tab = document.querySelector(`.cred-tab[data-tab="${service}"]`);
+        if (tab) {
+          tab.classList.add('completed');
           const dot = tab.querySelector('.tab-status-dot');
           if (dot) {
-            dot.className = 'tab-status-dot complete';
+            dot.classList.remove('pending');
+            dot.classList.add('complete');
           }
         }
-      });
-    }
-
-    showToast('Section completed!');
-
-    // Go to next main tab
-    goTo(nextTabIdx);
-  }
-
-  // ---------- Credential option selector ----------
-  function selectCredOption(element, section) {
-    const parentBlock = element.closest('.credential-fields') || element.closest('.credential-block');
-    if (!parentBlock) return;
-    
-    const cards = parentBlock.querySelectorAll('.credential-option-card');
-    cards.forEach(card => {
-      card.classList.remove('selected');
-    });
-    
-    const clickedCard = element.closest('.credential-option-card');
-    if (clickedCard) {
-      clickedCard.classList.add('selected');
-    }
-    
-    const detailsSection = parentBlock.querySelector('.credential-details-section');
-    if (detailsSection) {
-      detailsSection.classList.add('visible');
-      
-      const delegateInfo = detailsSection.querySelector('.info-card:not(.vault-info)');
-      const vaultInfo = detailsSection.querySelector('.info-card.vault-info');
-      
-      const isDelegate = clickedCard && clickedCard.querySelector('.option-title')?.textContent.includes('Delegate');
-      
-      if (delegateInfo && vaultInfo) {
-        if (isDelegate) {
-          delegateInfo.style.display = 'block';
-          vaultInfo.style.display = 'none';
-        } else {
-          delegateInfo.style.display = 'none';
-          vaultInfo.style.display = 'block';
+        const statusDot = document.getElementById(service + '-status-dot');
+        const statusText = document.getElementById(service + '-status-text');
+        if (statusDot) statusDot.className = 'status-dot green';
+        if (statusText) statusText.textContent = 'Completed';
+        
+        if (serviceStatus[service]) {
+          serviceStatus[service].live = true;
+          serviceStatus[service].sandbox = true;
         }
+        completed++;
       }
     }
+
+    const allEnvBtns = document.querySelectorAll('.env-btn');
+    const completedEnvs = document.querySelectorAll('.env-btn.active, .env-btn.completed');
+    const total = allEnvBtns.length;
+    const progress = total > 0 ? Math.round((completedEnvs.length / total) * 100) : 0;
+
+    const fill = document.getElementById('progressFill');
+    const percent = document.getElementById('progressPercent');
+    const envProgress = document.getElementById('envProgress');
+    const envCount = document.getElementById('envCount');
+    const progressCount = document.getElementById('progressCount');
+
+    if (fill) fill.style.width = progress + '%';
+    if (percent) percent.textContent = progress + '%';
+    if (envProgress) envProgress.textContent = completedEnvs.length;
+    if (envCount) envCount.textContent = completedEnvs.length + ' / ' + total;
+    if (progressCount) {
+      const totalServices = Object.keys(serviceStatus).length;
+      progressCount.innerHTML = completed + ' / ' + totalServices + ' <span class="text-muted" style="font-size:0.8rem;">completed</span>';
+    }
+
+    if (reviewShown) {
+      updateReviewData();
+    }
   }
 
-  // ---------- Toast notification ----------
+  // Submit all credentials
+  function submitAllCredentials() {
+    const totalServices = Object.keys(serviceStatus).length;
+    let completed = 0;
+    for (const service in serviceStatus) {
+      if (serviceStatus[service].live && serviceStatus[service].sandbox) {
+        completed++;
+      }
+    }
+
+    if (completed < totalServices) {
+      alert('Please complete all Live and Sandbox environments for every service before submitting.');
+      return;
+    }
+    
+    // Show success message
+    const submitBtn = document.getElementById('submitAllBtn');
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    submitBtn.disabled = true;
+    
+    setTimeout(() => {
+      submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Submitted Successfully!';
+      submitBtn.style.background = '#059669';
+      alert('All credentials submitted successfully! Our team will review and configure your services.');
+    }, 1500);
+  }
+
+  // Toast notification
   function showToast(message) {
     const existing = document.querySelector('.toast-notification');
     if (existing) existing.remove();
@@ -2316,63 +2224,16 @@
     }, 3000);
   }
 
-  // ---------- Toggle helpers ----------
-  function handleWebsiteToggle(val) {
-    document.getElementById('websiteHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('websiteCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handleAchToggle(val) {
-    document.getElementById('achHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('achCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handleCreditToggle(val) {
-    document.getElementById('creditHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('creditCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handleChirpToggle(val) {
-    document.getElementById('chirpHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('chirpCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handleSmsToggle(val) {
-    document.getElementById('smsHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('smsCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handleEmailToggle(val) {
-    document.getElementById('emailHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('emailCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handleFirebaseToggle(val) {
-    document.getElementById('firebaseHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('firebaseCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handlePlayToggle(val) {
-    document.getElementById('playHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('playCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handleAppleToggle(val) {
-    document.getElementById('appleHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('appleCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handleGitToggle(val) {
-    document.getElementById('gitHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('gitCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-
-  // ---------- Init ----------
-  window.addEventListener('load', function() {
-    updateTabs();
-    handleWebsiteToggle('have');
-    handleAchToggle('have');
-    handleCreditToggle('have');
-    handleChirpToggle('have');
-    handleSmsToggle('have');
-    handleEmailToggle('have');
-    handleFirebaseToggle('have');
-    handlePlayToggle('have');
-    handleAppleToggle('have');
-    handleGitToggle('have');
+  // Init
+  document.addEventListener('DOMContentLoaded', function() {
+    updateProgress();
+    for (const service in fieldLabels) {
+      updateFieldLabels(service, 'live');
+    }
+    updateReviewData();
   });
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
