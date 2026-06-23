@@ -98,7 +98,7 @@
       line-height: 1.6;
     }
 
-    /* ===== NEW TAB DESIGN ===== */
+    /* ===== MAIN TAB DESIGN ===== */
     .section-tabs {
       display: flex;
       gap: 0;
@@ -136,7 +136,7 @@
       font-weight: 500;
       font-size: 14px;
       transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: default;
+      cursor: pointer;
       font-family: 'Rubik', sans-serif;
       position: relative;
       white-space: nowrap;
@@ -161,7 +161,6 @@
       background: rgba(255,255,255,0.2);
       color: #fff;
     }
-
     .s-tab .tab-number {
       display: inline-flex;
       align-items: center;
@@ -201,24 +200,29 @@
     .s-tab.active .tab-label {
       font-weight: 600;
     }
-    .s-tab.active .status-dot {
-      display: inline-block;
-      background: #fff;
-    }
 
-    .section-card .gf-card-body {
-      background: #fafbfc;
+    /* ===== SECTION HEADER WITH TABS IN RIGHT CORNER ===== */
+    .section-header-with-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 6px;
     }
-    .section-title {
-      font-family: 'Rubik', sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--gf-red);
+    .section-header-with-tabs .section-title-left {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    .section-num {
+    .section-header-with-tabs .section-title-left .section-title {
+      font-family: 'Rubik', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--gf-red);
+      margin: 0;
+    }
+    .section-header-with-tabs .section-title-left .section-num {
       font-size: 12px;
       font-weight: 600;
       background: var(--gf-red-light);
@@ -227,9 +231,64 @@
       border-radius: 99px;
       letter-spacing: 0.02em;
     }
-    .section-desc {
+    .section-header-with-tabs .section-desc {
       font-size: 13px;
       color: var(--gf-muted);
+      margin-top: 2px;
+      width: 100%;
+    }
+
+    /* SUB TABS - Right aligned */
+    .sub-tabs-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f0f2f5;
+      padding: 9px 10px;
+      border-radius: 30px;
+      border: 1px solid #eef0f2;
+    }
+    .sub-tab {
+      padding: 10px 40px;
+      border-radius: 30px;
+      border: none;
+      background: transparent;
+      color: var(--gf-muted);
+      font-weight: 500;
+      font-size: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sub-tab:hover {
+      color: var(--gf-text);
+      background: #f0f2f5;
+    }
+    .sub-tab.active {
+      background: var(--gf-red);
+    color: #fff;
+    padding: 10px 40px;
+    font-size: 12px;
+    box-shadow: 0 2px 8px rgba(19, 29, 88, 0.2);
+    font-weight: 600;
+    }
+    .sub-tab .tab-status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .sub-tab .tab-status-dot.pending { background: #f59e0b; }
+    .sub-tab .tab-status-dot.complete { background: var(--gf-green); }
+    .sub-tab.active .tab-status-dot { background: #fff; }
+
+    .section-card .gf-card-body {
+      background: #fafbfc;
     }
 
     /* ----- form elements ----- */
@@ -398,7 +457,6 @@
       display: block;
     }
 
-    /* ----- Provider dropdown ----- */
     .provider-select-section {
       margin-top: 14px;
       padding-top: 14px;
@@ -411,7 +469,6 @@
       margin-bottom: 6px;
     }
 
-    /* ----- Info hint cards ----- */
     .info-card {
       background: var(--gf-white);
       border-radius: 16px;
@@ -462,7 +519,6 @@
       color: var(--gf-red);
     }
 
-    /* ----- Credentials needed card ----- */
     .credentials-card {
       background: var(--gf-white);
       border-radius: 16px;
@@ -529,67 +585,79 @@
       border: none;
     }
 
-    /* nav bar */
-    .nav-bar {
-      background: var(--gf-white);
-      border-radius: 60px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-      padding: 14px 24px;
+    /* Sub-panel navigation buttons */
+    .sub-nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #e8eaed;
+    }
+    .sub-nav-left {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 10px;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 16px;
-      border: 1px solid rgba(0,0,0,0.03);
     }
-    .step-text {
-      font-size: 13px;
-      color: var(--gf-muted);
-      font-weight: 500;
+    .sub-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .btn-gf-next, .btn-gf-submit {
-      background: var(--gf-red);
+
+    .btn-save-continue {
+      background: var(--gf-green);
       color: #fff;
       border: none;
       border-radius: 60px;
-      padding: 10px 28px;
-      font-size: 14px;
+      padding: 10px 24px;
+      font-size: 13px;
       font-weight: 500;
       font-family: 'Rubik', sans-serif;
       cursor: pointer;
-      transition: background 0.2s, box-shadow 0.2s;
+      transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
-    .btn-gf-next:hover, .btn-gf-submit:hover {
+    .btn-save-continue:hover {
+      background: #059669;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+    }
+    .btn-save-continue.next-btn {
+      background: var(--gf-red);
+    }
+    .btn-save-continue.next-btn:hover {
       background: #d15562;
       box-shadow: 0 4px 12px rgba(229,103,114,0.3);
     }
-    .btn-gf-back {
+
+    .btn-sub-back {
       background: transparent;
       color: var(--gf-red);
-      border: none;
+      border: 1px solid var(--gf-red);
       border-radius: 60px;
       padding: 10px 22px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       font-family: 'Rubik', sans-serif;
       cursor: pointer;
-      transition: background 0.2s;
+      transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
-    .btn-gf-back:hover {
+    .btn-sub-back:hover {
       background: var(--gf-red-light);
     }
-    .btn-gf-submit {
-      background: #c62828;
-    }
-    .btn-gf-submit:hover {
-      background: #b71c1c;
+
+    /* Overall nav bar - hidden, we use sub-nav only */
+    .nav-bar {
+      display: none !important;
     }
 
     .progress-strip {
@@ -609,6 +677,13 @@
 
     .section-panel {
       animation: fadeSlide 0.3s ease;
+    }
+    .sub-panel {
+      display: none;
+      animation: fadeSlide 0.3s ease;
+    }
+    .sub-panel.active {
+      display: block;
     }
     @keyframes fadeSlide {
       from { opacity: 0; transform: translateY(10px); }
@@ -666,7 +741,6 @@
     .mt-4 { margin-top: 24px; }
     .mb-3 { margin-bottom: 18px; }
 
-    /* ----- Session Card ----- */
     .session-card {
       background: var(--gf-white);
       border-radius: 20px;
@@ -767,7 +841,6 @@
       100% { opacity: 1; transform: scale(1); }
     }
 
-    /* Success Screen container */
     #successScreen {
       display: none;
       max-width: 580px;
@@ -775,35 +848,6 @@
       padding: 20px 0;
     }
 
-    @media (max-width: 768px) {
-      .session-card { flex-direction: column; align-items: stretch; padding: 16px 20px; }
-      .session-meta { justify-content: space-between; }
-      .section-tabs .tab-track { gap: 2px; }
-      .s-tab { min-width: 80px; padding: 10px 14px; font-size: 12px; gap: 6px; }
-      .s-tab .tab-number { width: 22px; height: 22px; font-size: 10px; }
-      .s-tab .tab-icon { font-size: 13px; }
-    }
-    @media (max-width: 576px) {
-      .gf-card-body { padding: 18px 16px; }
-      .nav-bar { padding: 12px 16px; }
-      .section-tabs { border-radius: 12px; padding: 3px; }
-      .s-tab { min-width: 60px; padding: 8px 10px; font-size: 11px; }
-      .s-tab .tab-label { display: none; }
-      .s-tab .tab-icon { font-size: 14px; margin-right: 0; }
-      .s-tab .tab-number { width: 20px; height: 20px; font-size: 9px; }
-      .session-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
-      .credential-option-card { padding: 14px; }
-      .info-card .info-text { padding-left: 0; }
-      #successScreen { padding: 10px; }
-    }
-    @media (min-width: 1400px) {
-    .container {
-        max-width: 1300px;
-    }
-}
-
-
-  /* Color picker styling */
     .color-picker-wrapper {
       display: flex;
       align-items: center;
@@ -825,6 +869,37 @@
       flex: 1;
       min-width: 140px;
     }
+
+    @media (max-width: 768px) {
+      .session-card { flex-direction: column; align-items: stretch; padding: 16px 20px; }
+      .session-meta { justify-content: space-between; }
+      .section-tabs .tab-track { gap: 2px; }
+      .s-tab { min-width: 80px; padding: 10px 14px; font-size: 12px; gap: 6px; }
+      .s-tab .tab-number { width: 22px; height: 22px; font-size: 10px; }
+      .s-tab .tab-icon { font-size: 13px; }
+      .section-header-with-tabs { flex-direction: column; align-items: stretch; }
+      .sub-tabs-wrapper { align-self: flex-start; }
+      .sub-nav-bar { flex-direction: column; align-items: stretch; }
+      .sub-nav-left, .sub-nav-right { justify-content: center; }
+    }
+    @media (max-width: 576px) {
+      .gf-card-body { padding: 18px 16px; }
+      .section-tabs { border-radius: 12px; padding: 3px; }
+      .s-tab { min-width: 60px; padding: 8px 10px; font-size: 11px; }
+      .s-tab .tab-label { display: none; }
+      .s-tab .tab-icon { font-size: 14px; margin-right: 0; }
+      .s-tab .tab-number { width: 20px; height: 20px; font-size: 9px; }
+      .session-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .credential-option-card { padding: 14px; }
+      .info-card .info-text { padding-left: 0; }
+      #successScreen { padding: 10px; }
+      .sub-tab { font-size: 11px; padding: 4px 10px; }
+    }
+    @media (min-width: 1400px) {
+    .container {
+        max-width: 1300px;
+    }
+}
   </style>
 </head>
 <body>
@@ -873,7 +948,7 @@
 <!-- ====== MAIN FORM ====== -->
 <div class="container" style="max-width:1300px;">
 
-  <!-- NEW DESIGN TABS -->
+  <!-- MAIN TABS -->
   <div class="section-tabs" id="sectionTabs">
     <div class="tab-track">
       <button class="s-tab active" onclick="goTo(0)" data-idx="0">
@@ -901,7 +976,7 @@
         <span class="status-dot"></span>
       </button>
       <button class="s-tab" onclick="goTo(4)" data-idx="4">
-        <span class="tab-number" >05</span>
+        <span class="tab-number">05</span>
         <span class="tab-icon"></span>
         <span class="tab-label">Security</span>
         <span class="status-dot"></span>
@@ -922,9 +997,7 @@
 
     <div class="gf-card section-card">
       <div class="gf-card-body">
-        <div class="section-title">
-          Business &amp; Compliance
-        </div>
+        <div class="section-title">Business &amp; Compliance</div>
         <p class="section-desc">Company information, website, and legal page details.</p>
       </div>
     </div>
@@ -954,36 +1027,29 @@
           </div>
         </div>
 
-                <!-- Website & Legal Pages -->
         <div class="credential-block mt-4">
           <div class="block-title"> Business Registration Documents</div>
-          <!-- CREATE FOR ME -->
           <div class="credential-fields">
             <div class="gf-label">Upload Articles of Incorporation / LLC Operating Agreement <span class="req">*</span></div>
             <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your business registration document (PDF, JPG, PNG, DOC)</div></div>
             <div class="gf-label mt-4">Upload IRS EIN Confirmation Letter (CP-575) <span class="req">*</span></div>
             <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your EIN confirmation letter from IRS</div></div>
-            <div class="gf-label mt-4">Upload Government-issued ID of Authorized Officer <span class="req">*</span> </div>
+            <div class="gf-label mt-4">Upload Government-issued ID of Authorized Officer <span class="req">*</span></div>
             <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Driver's license or passport of the authorized representative</div></div>
           </div>
         </div>
 
-        <!-- Website & Legal Pages -->
         <div class="credential-block mt-4">
           <div class="block-title"> Website &amp; Legal Pages</div>
           <div class="radio-group" id="websiteRadioGroup">
             <label class="radio-option"><input type="radio" name="websiteCred" value="have" checked onchange="handleWebsiteToggle(this.value)"> I have a website / legal pages</label>
             <label class="radio-option"><input type="radio" name="websiteCred" value="create" onchange="handleWebsiteToggle(this.value)"> Create website & legal pages for me</label>
           </div>
-
-          <!-- I HAVE CREDENTIALS -->
           <div id="websiteHaveFields" class="credential-fields">
             <div class="gf-question"><div class="gf-label">Website URL <span class="req">*</span></div><input type="url" class="gf-input" placeholder="https://yourcompany.com"></div>
             <div class="gf-question mt-3"><div class="gf-label">Privacy policy URL <span class="req">*</span></div><input type="url" class="gf-input" placeholder="https://yourcompany.com/privacy"><div class="gf-help">Must be live and publicly accessible.</div></div>
             <div class="gf-question mt-3"><div class="gf-label">Terms of service URL <span class="req">*</span></div><input type="url" class="gf-input" placeholder="https://yourcompany.com/terms"></div>
           </div>
-
-          <!-- CREATE FOR ME -->
           <div id="websiteCreateFields" class="credential-fields" style="display:none;">
             <div class="gf-label">Upload privacy policy content</div>
             <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your privacy policy document (PDF, DOC, DOCX, TXT)</div></div>
@@ -991,12 +1057,19 @@
             <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your terms of service document</div></div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="nav-bar">
-      <span class="step-text">Step 1 of 5</span>
-      <button class="btn-gf-next" onclick="goTo(1)">Next <i class="fas fa-arrow-right"></i></button>
+        <!-- Business sub-nav - only Next button -->
+        <div class="sub-nav-bar">
+          <div class="sub-nav-left">
+            <span class="text-muted small">Step 1 of 5</span>
+          </div>
+          <div class="sub-nav-right">
+            <button class="btn-save-continue next-btn" onclick="goTo(1)">
+              <i class="fas fa-arrow-right"></i> Next
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -1005,676 +1078,568 @@
     <div class="gf-card title-card">
       <div class="form-header-banner"></div>
       <div class="gf-card-body">
-            <h1 class="form-title">Client Onboarding Questionnaire</h1>
-            <p class="form-desc">Complete all 5 sections to set up your account.</p>
+        <h1 class="form-title">Client Onboarding Questionnaire</h1>
+        <p class="form-desc">Complete all 5 sections to set up your account.</p>
         <div class="progress-strip"><div class="progress-strip-fill" style="width:40%"></div></div>
       </div>
     </div>
-    <div class="gf-card section-card">
-      <div class="gf-card-body">
-        <div class="section-title">Banking &amp; Integrations</div>
-        <p class="section-desc">ACH payment processing, credit score integration, and Chirp IBV setup.</p>
-      </div>
-    </div>
 
-    <!-- ACH -->
     <div class="gf-card">
       <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> ACH / Banking</div>
-          <div class="radio-group" id="achRadioGroup">
-            <label class="radio-option"><input type="radio" name="achCred" value="have" checked onchange="handleAchToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="achCred" value="create" onchange="handleAchToggle(this.value)"> Create ACH setup for me</label>
+        <div class="section-header-with-tabs">
+          <div>
+            <div class="section-title-left">
+              <span class="section-title">Banking &amp; Integrations</span>
+            </div>
+            <p class="section-desc">ACH payment processing, credit score integration, and Chirp IBV setup.</p>
           </div>
+          <div class="sub-tabs-wrapper" id="bankingSubTabs">
+            <button class="sub-tab active" data-sub="ach" onclick="switchSubTab('ach')">
+              <span class="tab-status-dot pending"></span> ACH
+            </button>
+            <button class="sub-tab" data-sub="credit" onclick="switchSubTab('credit')">
+              <span class="tab-status-dot pending"></span> Credit
+            </button>
+            <button class="sub-tab" data-sub="chirp" onclick="switchSubTab('chirp')">
+              <span class="tab-status-dot pending"></span> Chirp
+            </button>
+          </div>
+        </div>
 
-          <!-- I HAVE CREDENTIALS -->
-          <div id="achHaveFields" class="credential-fields">
-            <div class="gf-label mb-3">How would you like to submit credentials?</div>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'ach')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+        <!-- ACH Sub Panel -->
+        <div class="sub-panel active" id="sub-ach">
+          <div class="credential-block">
+            <div class="block-title"> ACH / Banking</div>
+            <div class="radio-group" id="achRadioGroup">
+              <label class="radio-option"><input type="radio" name="achCred" value="have" checked onchange="handleAchToggle(this.value)"> I have credentials</label>
+              <label class="radio-option"><input type="radio" name="achCred" value="create" onchange="handleAchToggle(this.value)"> Create ACH setup for me</label>
+            </div>
+            <div id="achHaveFields" class="credential-fields">
+              <div class="gf-label mb-3">How would you like to submit credentials?</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'ach')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Delegate Access</div>
+                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="credential-option-card" onclick="selectCredOption(this, 'ach')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Secure Vault Submission</div>
+                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'ach')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+              <div class="provider-select-section">
+                <div class="gf-label">Select ACH Provider</div>
+                <select class="gf-select">
+                  <option value="">-- Select ACH provider --</option>
+                  <option value="publicsquare">PublicSquare</option>
+                  <option value="loanpaymentpro">LoanPaymentPro</option>
+                </select>
+              </div>
+              <div class="credential-details-section visible" id="ach-details">
+                <div class="info-card" id="ach-delegate-info">
+                  <div class="info-header">
+                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="info-title">Delegate Access Required</div>
+                  </div>
+                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
+                </div>
+                <div class="info-card" id="ach-vault-info" style="display:none;">
+                  <div class="info-header">
+                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+                    <div class="info-title">Secure Vault Submission</div>
+                  </div>
+                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+                </div>
+                <div class="credentials-card">
+                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+                  <ul class="credentials-list">
+                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="achCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Email address to use for ACH setup</div>
+              <input type="email" class="gf-input" placeholder="finance@company.com">
+              <div class="gf-help mt-2">We will use this email to set up your ACH payment processing.</div>
+            </div>
+          </div>
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <span class="text-muted small">1 of 3</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue" onclick="saveAndContinueSub('banking', 'ach')">
+                <i class="fas fa-save"></i> Save &amp; Continue
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Credit Score Sub Panel -->
+        <div class="sub-panel" id="sub-credit">
+          <div class="credential-block">
+            <div class="block-title"> Credit Score Integration</div>
+            <div class="radio-group" id="creditRadioGroup">
+              <label class="radio-option"><input type="radio" name="creditCred" value="have" checked onchange="handleCreditToggle(this.value)"> I have credentials</label>
+              <label class="radio-option"><input type="radio" name="creditCred" value="create" onchange="handleCreditToggle(this.value)"> Create for me</label>
+            </div>
+            <div id="creditHaveFields" class="credential-fields">
+              <div class="gf-label mb-3">How would you like to submit credentials?</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'credit')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Delegate Access</div>
+                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="credential-option-card" onclick="selectCredOption(this, 'credit')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Secure Vault Submission</div>
+                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="provider-select-section">
+                <div class="gf-label">Select Credit Bureau</div>
+                <select class="gf-select">
+                  <option value="">-- Select credit bureau --</option>
+                  <option value="experian">Experian</option>
+                  <option value="equifax">Equifax</option>
+                </select>
+              </div>
+              <div class="credential-details-section visible" id="credit-details">
+                <div class="info-card" id="credit-delegate-info">
+                  <div class="info-header">
+                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="info-title">Delegate Access Required</div>
+                  </div>
+                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
+                </div>
+                <div class="info-card" id="credit-vault-info" style="display:none;">
+                  <div class="info-header">
+                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+                    <div class="info-title">Secure Vault Submission</div>
+                  </div>
+                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+                </div>
+                <div class="credentials-card">
+                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+                  <ul class="credentials-list">
+                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select ACH Provider</div>
-              <select class="gf-select" id="achProvider">
-                <option value="">-- Select ACH provider --</option>
-                <option value="publicsquare">PublicSquare</option>
-                <option value="loanpaymentpro">LoanPaymentPro</option>
-              </select>
-            </div>
-
-            <div class="credential-details-section visible" id="ach-details">
-              <!-- Delegate Info Card -->
-              <div class="info-card" id="ach-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <!-- Vault Info Card -->
-              <div class="info-card" id="ach-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <!-- Credentials needed card -->
-              <div class="credentials-card">
-                <div class="cred-header">
-                  <i class="fas fa-key"></i>
-                  <span>Credentials needed from you:</span>
-                </div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                </ul>
-              </div>
+            <div id="creditCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Email address to use for credit bureau access</div>
+              <input type="email" class="gf-input" placeholder="credit@company.com">
+              <div class="gf-help mt-2">We will use this email to create credit bureau access for your account.</div>
             </div>
           </div>
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <button class="btn-sub-back" onclick="switchSubTab('ach')"><i class="fas fa-arrow-left"></i> Back</button>
+              <span class="text-muted small">2 of 3</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue" onclick="saveAndContinueSub('banking', 'credit')">
+                <i class="fas fa-save"></i> Save &amp; Continue
+              </button>
+            </div>
+          </div>
+        </div>
 
-          <!-- CREATE FOR ME -->
-          <div id="achCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for ACH setup</div>
-            <input type="email" class="gf-input" placeholder="finance@company.com">
-            <div class="gf-help mt-2">We will use this email to set up your ACH payment processing.</div>
+        <!-- Chirp IBV Sub Panel -->
+        <div class="sub-panel" id="sub-chirp">
+          <div class="credential-block">
+            <div class="block-title"> Chirp IBV (Identity Verification)</div>
+            <div class="radio-group" id="chirpRadioGroup">
+              <label class="radio-option"><input type="radio" name="chirpCred" value="have" checked onchange="handleChirpToggle(this.value)"> I have Chirp Credentials</label>
+              <label class="radio-option"><input type="radio" name="chirpCred" value="create" onchange="handleChirpToggle(this.value)"> Create Chirp IBV for me</label>
+            </div>
+            <div id="chirpHaveFields" class="credential-fields">
+              <div class="gf-label mb-3">How would you like to submit credentials?</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'chirp')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Delegate Access</div>
+                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="credential-option-card" onclick="selectCredOption(this, 'chirp')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Secure Vault Submission</div>
+                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="credential-details-section visible" id="chirp-details">
+                <div class="info-card" id="chirp-delegate-info">
+                  <div class="info-header">
+                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="info-title">Delegate Access Required</div>
+                  </div>
+                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
+                </div>
+                <div class="info-card" id="chirp-vault-info" style="display:none;">
+                  <div class="info-header">
+                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+                    <div class="info-title">Secure Vault Submission</div>
+                  </div>
+                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+                </div>
+                <div class="credentials-card">
+                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+                  <ul class="credentials-list">
+                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="chirpCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Email address to use for Chirp IBV account</div>
+              <input type="email" class="gf-input" placeholder="security@company.com">
+              <div class="gf-help mt-2">We will use this email to create your Chirp IBV account.</div>
+            </div>
+          </div>
+          <!-- Last sub-tab - shows Next instead of Save & Continue -->
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <button class="btn-sub-back" onclick="switchSubTab('credit')"><i class="fas fa-arrow-left"></i> Back</button>
+              <span class="text-muted small">3 of 3</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue next-btn" onclick="completeAndGoToNext('step1', 'banking', 2)">
+                <i class="fas fa-arrow-right"></i> Next
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Credit Score -->
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> Credit Score Integration</div>
-          <div class="radio-group" id="creditRadioGroup">
-            <label class="radio-option"><input type="radio" name="creditCred" value="have" checked onchange="handleCreditToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="creditCred" value="create" onchange="handleCreditToggle(this.value)"> Create for me</label>
-          </div>
-
-          <div id="creditHaveFields" class="credential-fields">
-            <div class="gf-label mb-3">How would you like to submit credentials?</div>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'credit')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'credit')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select Credit Bureau</div>
-              <select class="gf-select" id="creditProvider">
-                <option value="">-- Select credit bureau --</option>
-                <option value="experian">Experian</option>
-                <option value="equifax">Equifax</option>
-              </select>
-            </div>
-
-            <div class="credential-details-section visible" id="credit-details">
-              <div class="info-card" id="credit-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="credit-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="creditCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for credit bureau access</div>
-            <input type="email" class="gf-input" placeholder="credit@company.com">
-            <div class="gf-help mt-2">We will use this email to create credit bureau access for your account.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Chirp IBV -->
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> Chirp IBV (Identity Verification)</div>
-          <div class="radio-group" id="chirpRadioGroup">
-            <label class="radio-option"><input type="radio" name="chirpCred" value="have" checked onchange="handleChirpToggle(this.value)"> I have Chirp Credentials</label>
-            <label class="radio-option"><input type="radio" name="chirpCred" value="create" onchange="handleChirpToggle(this.value)"> Create Chirp IBV for me</label>
-          </div>
-
-          <div id="chirpHaveFields" class="credential-fields">
-            <div class="gf-label mb-3">How would you like to submit credentials?</div>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'chirp')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'chirp')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="credential-details-section visible" id="chirp-details">
-              <div class="info-card" id="chirp-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="chirp-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="chirpCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for Chirp IBV account</div>
-            <input type="email" class="gf-input" placeholder="security@company.com">
-            <div class="gf-help mt-2">We will use this email to create your Chirp IBV account.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-bar">
-      <button class="btn-gf-back" onclick="goTo(0)"><i class="fas fa-arrow-left"></i> Back</button>
-      <span class="step-text">Step 2 of 5</span>
-      <button class="btn-gf-next" onclick="goTo(2)">Next <i class="fas fa-arrow-right"></i></button>
     </div>
   </div>
 
-  <!-- ==================== STEP 2: COMMS ==================== -->
+  <!-- ==================== STEP 2: COMMUNICATIONS ==================== -->
   <div class="section-panel" id="step2" style="display:none">
     <div class="gf-card title-card">
       <div class="form-header-banner"></div>
       <div class="gf-card-body">
-            <h1 class="form-title">Client Onboarding Questionnaire</h1>
-            <p class="form-desc">Complete all 5 sections to set up your account.</p>
+        <h1 class="form-title">Client Onboarding Questionnaire</h1>
+        <p class="form-desc">Complete all 5 sections to set up your account.</p>
         <div class="progress-strip"><div class="progress-strip-fill" style="width:60%"></div></div>
       </div>
     </div>
-    <div class="gf-card section-card">
-      <div class="gf-card-body">
-        <div class="section-title"> Communications &amp; Cloud</div>
-        <p class="section-desc">SMS, Email, Firebase push notifications, AWS, and MongoDB Atlas.</p>
-      </div>
-    </div>
 
-    <!-- SMS -->
     <div class="gf-card">
       <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> SMS Provider</div>
-          <div class="radio-group" id="smsRadioGroup">
-            <label class="radio-option"><input type="radio" name="smsCred" value="have" checked onchange="handleSmsToggle(this.value)"> I have SMS credentials</label>
-            <label class="radio-option"><input type="radio" name="smsCred" value="create" onchange="handleSmsToggle(this.value)"> Create SMS account for me</label>
+        <div class="section-header-with-tabs">
+          <div>
+            <div class="section-title-left">
+              <span class="section-title">Communications &amp; Cloud</span>
+            </div>
+            <p class="section-desc">SMS, Email, Firebase push notifications.</p>
           </div>
+          <div class="sub-tabs-wrapper" id="commsSubTabs">
+            <button class="sub-tab active" data-sub="sms" onclick="switchSubTabComms('sms')">
+              <span class="tab-status-dot pending"></span> SMS
+            </button>
+            <button class="sub-tab" data-sub="email" onclick="switchSubTabComms('email')">
+              <span class="tab-status-dot pending"></span> Email
+            </button>
+            <button class="sub-tab" data-sub="firebase" onclick="switchSubTabComms('firebase')">
+              <span class="tab-status-dot pending"></span> Firebase
+            </button>
+          </div>
+        </div>
 
-          <div id="smsHaveFields" class="credential-fields">
-            <div class="gf-label mb-3">How would you like to submit credentials?</div>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'sms')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+        <!-- SMS Sub Panel -->
+        <div class="sub-panel active" id="sub-sms">
+          <div class="credential-block">
+            <div class="block-title"> SMS Provider</div>
+            <div class="radio-group" id="smsRadioGroup">
+              <label class="radio-option"><input type="radio" name="smsCred" value="have" checked onchange="handleSmsToggle(this.value)"> I have SMS credentials</label>
+              <label class="radio-option"><input type="radio" name="smsCred" value="create" onchange="handleSmsToggle(this.value)"> Create SMS account for me</label>
+            </div>
+            <div id="smsHaveFields" class="credential-fields">
+              <div class="gf-label mb-3">How would you like to submit credentials?</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'sms')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Delegate Access</div>
+                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="credential-option-card" onclick="selectCredOption(this, 'sms')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Secure Vault Submission</div>
+                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'sms')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+              <div class="provider-select-section">
+                <div class="gf-label">Select SMS Provider</div>
+                <select class="gf-select">
+                  <option value="">-- Select SMS provider --</option>
+                  <option value="twilio">Twilio</option>
+                  <option value="truedialog">TrueDialog</option>
+                </select>
+              </div>
+              <div class="credential-details-section visible" id="sms-details">
+                <div class="info-card" id="sms-delegate-info">
+                  <div class="info-header">
+                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="info-title">Delegate Access Required</div>
+                  </div>
+                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
+                </div>
+                <div class="info-card" id="sms-vault-info" style="display:none;">
+                  <div class="info-header">
+                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+                    <div class="info-title">Secure Vault Submission</div>
+                  </div>
+                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+                </div>
+                <div class="credentials-card">
+                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+                  <ul class="credentials-list">
+                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="smsCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Email address to use for SMS account</div>
+              <input type="email" class="gf-input" placeholder="sms@company.com">
+            </div>
+          </div>
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <span class="text-muted small">1 of 3</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue" onclick="saveAndContinueSub('comms', 'sms')">
+                <i class="fas fa-save"></i> Save &amp; Continue
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Sub Panel -->
+        <div class="sub-panel" id="sub-email">
+          <div class="credential-block">
+            <div class="block-title"> Email Service</div>
+            <div class="radio-group" id="emailRadioGroup">
+              <label class="radio-option"><input type="radio" name="emailCred" value="have" checked onchange="handleEmailToggle(this.value)"> I have email credentials</label>
+              <label class="radio-option"><input type="radio" name="emailCred" value="create" onchange="handleEmailToggle(this.value)"> Create email service for me</label>
+            </div>
+            <div id="emailHaveFields" class="credential-fields">
+              <div class="gf-label mb-3">How would you like to submit credentials?</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'email')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Delegate Access</div>
+                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="credential-option-card" onclick="selectCredOption(this, 'email')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Secure Vault Submission</div>
+                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select SMS Provider</div>
-              <select class="gf-select" id="smsProvider">
-                <option value="">-- Select SMS provider --</option>
-                <option value="twilio">Twilio</option>
-                <option value="truedialog">TrueDialog</option>
-              </select>
-            </div>
-
-            <div class="credential-details-section visible" id="sms-details">
-              <div class="info-card" id="sms-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
+              <div class="provider-select-section">
+                <div class="gf-label">Select Email Provider</div>
+                <select class="gf-select">
+                  <option value="">-- Select email provider --</option>
+                  <option value="gmail">Gmail</option>
+                  <option value="microsoft">Office 365</option>
+                  <option value="mailgun">Mailgun</option>
+                  <option value="sendgrid">Sendgrid</option>
+                  <option value="smtp">Custom SMTP</option>
+                </select>
+              </div>
+              <div class="credential-details-section visible" id="email-details">
+                <div class="info-card" id="email-delegate-info">
+                  <div class="info-header">
+                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="info-title">Delegate Access Required</div>
+                  </div>
+                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
                 </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="sms-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
+                <div class="info-card" id="email-vault-info" style="display:none;">
+                  <div class="info-header">
+                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+                    <div class="info-title">Secure Vault Submission</div>
+                  </div>
+                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
                 </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+                <div class="credentials-card">
+                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+                  <ul class="credentials-list">
+                    <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
+                  </ul>
+                </div>
               </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                </ul>
-              </div>
+            </div>
+            <div id="emailCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Email address to use for email service</div>
+              <input type="email" class="gf-input" placeholder="email@company.com">
             </div>
           </div>
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <button class="btn-sub-back" onclick="switchSubTabComms('sms')"><i class="fas fa-arrow-left"></i> Back</button>
+              <span class="text-muted small">2 of 3</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue" onclick="saveAndContinueSub('comms', 'email')">
+                <i class="fas fa-save"></i> Save &amp; Continue
+              </button>
+            </div>
+          </div>
+        </div>
 
-          <div id="smsCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for SMS account</div>
-            <input type="email" class="gf-input" placeholder="sms@company.com">
-            <div class="gf-help mt-2">We will use this email to provision and configure your SMS account.</div>
+        <!-- Firebase Sub Panel -->
+        <div class="sub-panel" id="sub-firebase">
+          <div class="credential-block">
+            <div class="block-title"> Firebase (Push Notifications)</div>
+            <div class="radio-group" id="firebaseRadioGroup">
+              <label class="radio-option"><input type="radio" name="firebaseCred" value="have" checked onchange="handleFirebaseToggle(this.value)"> I have Firebase project</label>
+              <label class="radio-option"><input type="radio" name="firebaseCred" value="create" onchange="handleFirebaseToggle(this.value)"> Create Firebase project for me</label>
+            </div>
+            <div id="firebaseHaveFields" class="credential-fields">
+              <div class="gf-label mb-3">How would you like to submit credentials?</div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'firebase')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Delegate Access</div>
+                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="credential-option-card" onclick="selectCredOption(this, 'firebase')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Secure Vault Submission</div>
+                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="credential-details-section visible" id="firebase-details">
+                <div class="info-card" id="firebase-delegate-info">
+                  <div class="info-header">
+                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="info-title">Delegate Access Required</div>
+                  </div>
+                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
+                </div>
+                <div class="info-card" id="firebase-vault-info" style="display:none;">
+                  <div class="info-header">
+                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+                    <div class="info-title">Secure Vault Submission</div>
+                  </div>
+                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+                </div>
+                <div class="credentials-card">
+                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+                  <ul class="credentials-list">
+                    <li><i class="fas fa-circle"></i> <strong>Firebase Project ID</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Service Account JSON Key File</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="firebaseCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Email address to use for Firebase project</div>
+              <input type="email" class="gf-input" placeholder="firebase@company.com">
+            </div>
+          </div>
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <button class="btn-sub-back" onclick="switchSubTabComms('email')"><i class="fas fa-arrow-left"></i> Back</button>
+              <span class="text-muted small">3 of 3</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue next-btn" onclick="completeAndGoToNext('step2', 'comms', 3)">
+                <i class="fas fa-arrow-right"></i> Next
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Email -->
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> Email Service</div>
-          <div class="radio-group" id="emailRadioGroup">
-            <label class="radio-option"><input type="radio" name="emailCred" value="have" checked onchange="handleEmailToggle(this.value)"> I have email credentials</label>
-            <label class="radio-option"><input type="radio" name="emailCred" value="create" onchange="handleEmailToggle(this.value)"> Create email service for me</label>
-          </div>
-
-          <div id="emailHaveFields" class="credential-fields">
-            <div class="gf-label mb-3">How would you like to submit credentials?</div>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'email')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'email')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select Email Provider</div>
-              <select class="gf-select" id="emailProvider">
-                <option value="">-- Select email provider --</option>
-                <option value="gmail">Gmail</option>
-                <option value="microsoft">Microsoft Office 365</option>
-                <option value="mailgun">Mailgun</option>
-                <option value="brevo">Brevo</option>
-                <option value="sendgrid">Sendgrid</option>
-                <option value="smtp">Custom SMTP</option>
-              </select>
-            </div>
-
-            <div class="credential-details-section visible" id="email-details">
-              <div class="info-card" id="email-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="email-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>API Key / Client ID</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Secret Key / Password</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Merchant ID / Account Number</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div id="emailCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for email service</div>
-            <input type="email" class="gf-input" placeholder="email@company.com">
-            <div class="gf-help mt-2">We will use this email to configure your email service.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Firebase -->
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> Firebase (Push Notifications)</div>
-          <div class="radio-group" id="firebaseRadioGroup">
-            <label class="radio-option"><input type="radio" name="firebaseCred" value="have" checked onchange="handleFirebaseToggle(this.value)"> I have Firebase project</label>
-            <label class="radio-option"><input type="radio" name="firebaseCred" value="create" onchange="handleFirebaseToggle(this.value)"> Create Firebase project for me</label>
-          </div>
-          <div id="firebaseHaveFields" class="credential-fields">
-            <div class="gf-label mb-3">How would you like to submit credentials?</div>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'firebase')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'firebase')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Provider Dropdown 
-            <div class="provider-select-section">
-              <div class="gf-label">Select Firebase Project</div>
-              <select class="gf-select" id="firebaseProvider">
-                <option value="">-- Select Firebase project --</option>
-                <option value="project1">Project Alpha</option>
-                <option value="project2">Project Beta</option>
-                <option value="project3">Project Gamma</option>
-              </select>
-            </div>-->
-
-            <div class="credential-details-section visible" id="firebase-details">
-              <div class="info-card" id="firebase-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="firebase-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>Firebase Project ID</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Service Account JSON Key File</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div id="firebaseCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for Firebase project</div>
-            <input type="email" class="gf-input" placeholder="firebase@company.com">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- AWS 
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> AWS (Amazon Web Services)</div>
-          <div class="radio-group" id="awsRadioGroup">
-            <label class="radio-option"><input type="radio" name="awsCred" value="have" checked onchange="handleAwsToggle(this.value)">I have AWS credentials</label>
-            <label class="radio-option"><input type="radio" name="awsCred" value="create" onchange="handleAwsToggle(this.value)"> Create AWS account for me</label>
-          </div>
-          <div id="awsHaveFields" class="credential-fields">
-            <div class="gf-label mb-3">How would you like to submit credentials?</div>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'aws')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'aws')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="credential-details-section visible" id="aws-details">
-              <div class="info-card" id="aws-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="aws-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>Access Key ID</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Secret Access Key</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>AWS Region</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div id="awsCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for AWS account</div>
-            <input type="email" class="gf-input" placeholder="aws@company.com">
-          </div>
-        </div>
-      </div>
-    </div>-->
-
-    <!-- MongoDB
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title">MongoDB Atlas</div>
-          <div class="radio-group" id="mongoRadioGroup">
-            <label class="radio-option"><input type="radio" name="mongoCred" value="have" checked onchange="handleMongoToggle(this.value)"> I have MongoDB Atlas </label>
-            <label class="radio-option"><input type="radio" name="mongoCred" value="create" onchange="handleMongoToggle(this.value)"> Create MongoDB Atlas for me</label>
-          </div>
-          <div id="mongoHaveFields" class="credential-fields">
-            <div class="gf-label mb-3">How would you like to submit credentials?</div>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'mongo')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'mongo')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="credential-details-section visible" id="mongo-details">
-              <div class="info-card" id="mongo-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="mongo-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>Connection String (URI)</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Database Username</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Database Password</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div id="mongoCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for MongoDB Atlas cluster</div>
-            <input type="email" class="gf-input" placeholder="mongo@company.com">
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <div class="nav-bar">
-      <button class="btn-gf-back" onclick="goTo(1)"><i class="fas fa-arrow-left"></i> Back</button>
-      <span class="step-text">Step 3 of 5</span>
-      <button class="btn-gf-next" onclick="goTo(3)">Next <i class="fas fa-arrow-right"></i></button>
     </div>
   </div>
 
@@ -1688,170 +1653,190 @@
         <div class="progress-strip"><div class="progress-strip-fill" style="width:80%"></div></div>
       </div>
     </div>
-    <div class="gf-card section-card">
-      <div class="gf-card-body">
-        <div class="section-title"> Mobile App Publishing</div>
-        <p class="section-desc">Google Play Console and Apple Developer Program account details.</p>
-      </div>
-    </div>
 
-    <!-- Google Play -->
     <div class="gf-card">
       <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> Google Play Console</div>
-          <div class="radio-group mb-2" id="playRadioGroup">
-            <label class="radio-option"><input type="radio" name="playCred" value="have" checked onchange="handlePlayToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="playCred" value="create" onchange="handlePlayToggle(this.value)"> Create for me</label>
+        <div class="section-header-with-tabs">
+          <div>
+            <div class="section-title-left">
+              <span class="section-title">Mobile App Publishing</span>
+            </div>
+            <p class="section-desc">Google Play Console and Apple Developer Program account details.</p>
           </div>
+          <div class="sub-tabs-wrapper" id="publishSubTabs">
+            <button class="sub-tab active" data-sub="play" onclick="switchSubTabPublish('play')">
+              <span class="tab-status-dot pending"></span> Play Console
+            </button>
+            <button class="sub-tab" data-sub="apple" onclick="switchSubTabPublish('apple')">
+              <span class="tab-status-dot pending"></span> Apple
+            </button>
+          </div>
+        </div>
+
+        <!-- Google Play -->
+        <div class="sub-panel active" id="sub-play">
+          <div class="credential-block">
+            <div class="block-title"> Google Play Console</div>
+            <div class="radio-group mb-2" id="playRadioGroup">
+              <label class="radio-option"><input type="radio" name="playCred" value="have" checked onchange="handlePlayToggle(this.value)"> I have credentials</label>
+              <label class="radio-option"><input type="radio" name="playCred" value="create" onchange="handlePlayToggle(this.value)"> Create for me</label>
+            </div>
+            <div id="playHaveFields" class="credential-fields">
+              <div class="gf-question"><div class="gf-label">Developer account email <span class="req">*</span></div><input type="email" class="gf-input" placeholder="developer@company.com"></div>
+              <div class="gf-question mt-3"><div class="gf-label">Password</div><input type="password" class="gf-input" placeholder="Enter account password"></div>
+              <div class="gf-question mt-3"><div class="gf-label">App package name</div><input type="text" class="gf-input" placeholder="com.appname"><div class="gf-help">Reverse domain format.</div></div>
+              <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
               <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
               <div class="row g-3 mt-1">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'play')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                <div class="col-md-6">
+                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'play')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Delegate Access</div>
+                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="credential-option-card" onclick="selectCredOption(this, 'play')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Secure Vault Submission</div>
+                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'play')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                    </div>
+              <div class="credential-details-section visible" id="play-details">
+                <div class="info-card" id="play-delegate-info">
+                  <div class="info-header">
+                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="info-title">Delegate Access Required</div>
                   </div>
+                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
+                </div>
+                <div class="info-card" id="play-vault-info" style="display:none;">
+                  <div class="info-header">
+                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+                    <div class="info-title">Secure Vault Submission</div>
+                  </div>
+                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+                </div>
+                <div class="credentials-card">
+                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+                  <ul class="credentials-list">
+                    <li><i class="fas fa-circle"></i> <strong>Google Play Console email</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Account password</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Upload keystore / signing key</strong></li>
+                  </ul>
                 </div>
               </div>
             </div>
-          
-          <div id="playHaveFields" class="credential-fields">
-            <div class="gf-question"><div class="gf-label">Developer account email <span class="req">*</span></div><input type="email" class="gf-input" placeholder="developer@company.com"></div>
-            <div class="gf-question mt-3"><div class="gf-label">Password</div><input type="password" class="gf-input" placeholder="Enter account password"></div>
-            <div class="gf-question mt-3"><div class="gf-label">App package name</div><input type="text" class="gf-input" placeholder="com.appname"><div class="gf-help">Reverse domain format.</div></div>
-            <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
-        
-        
-
-            <div class="credential-details-section visible" id="play-details">
-              <div class="info-card" id="play-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="play-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>Google Play Console email</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Account password</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Upload keystore / signing key</strong></li>
-                </ul>
-              </div>
+            <div id="playCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Email address to use for Google Play</div>
+              <input type="email" class="gf-input" placeholder="play@company.com">
+              <div class="gf-label mt-4">Upload DUNS Number document</div>
+              <div class="file-upload-box"><input type="file" accept=".pdf,.jpg,.png"><div class="gf-help">Upload DUNS number certificate</div></div>
             </div>
           </div>
-          <div id="playCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for Google Play</div>
-            <input type="email" class="gf-input" placeholder="play@company.com">
-            <div class="gf-label mt-4">Upload DUNS Number document</div>
-            <div class="file-upload-box"><input type="file" accept=".pdf,.jpg,.png"><div class="gf-help">Upload DUNS number certificate</div></div>
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <span class="text-muted small">1 of 2</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue" onclick="saveAndContinueSub('publish', 'play')">
+                <i class="fas fa-save"></i> Save &amp; Continue
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Apple -->
+        <div class="sub-panel" id="sub-apple">
+          <div class="credential-block">
+            <div class="block-title"> Apple Developer Program</div>
+            <div class="radio-group" id="appleRadioGroup">
+              <label class="radio-option"><input type="radio" name="appleCred" value="have" checked onchange="handleAppleToggle(this.value)"> I have credentials</label>
+              <label class="radio-option"><input type="radio" name="appleCred" value="create" onchange="handleAppleToggle(this.value)"> Create for me</label>
+            </div>
+            <div id="appleHaveFields" class="credential-fields">
+              <div class="gf-question"><div class="gf-label">Apple ID (developer email) <span class="req">*</span></div><input type="email" class="gf-input" placeholder="dev@company.com"></div>
+              <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
+              <div class="gf-question mt-3"><div class="gf-label">App Bundle ID</div><input type="text" class="gf-input" placeholder="com.company.appname"><div class="gf-help">Must match your provisioning profile.</div></div>
+              <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
+              <div class="row g-3 mt-1">
+                <div class="col-md-6">
+                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'apple')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Delegate Access</div>
+                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="credential-option-card" onclick="selectCredOption(this, 'apple')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Secure Vault Submission</div>
+                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="credential-details-section visible" id="apple-details">
+                <div class="info-card" id="apple-delegate-info">
+                  <div class="info-header">
+                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="info-title">Delegate Access Required</div>
+                  </div>
+                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
+                </div>
+                <div class="info-card" id="apple-vault-info" style="display:none;">
+                  <div class="info-header">
+                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+                    <div class="info-title">Secure Vault Submission</div>
+                  </div>
+                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+                </div>
+                <div class="credentials-card">
+                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+                  <ul class="credentials-list">
+                    <li><i class="fas fa-circle"></i> <strong>Apple ID Email</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Apple ID password</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>App Store Connect access</strong></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div id="appleCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Apple ID email to use <span class="req">*</span></div>
+              <input type="email" class="gf-input" placeholder="dev@company.com">
+              <div class="gf-label mt-4">Upload DUNS Number document</div>
+              <div class="file-upload-box"><input type="file" accept=".pdf,.jpg,.png"><div class="gf-help">Upload DUNS number certificate</div></div>
+            </div>
+          </div>
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <button class="btn-sub-back" onclick="switchSubTabPublish('play')"><i class="fas fa-arrow-left"></i> Back</button>
+              <span class="text-muted small">2 of 2</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue next-btn" onclick="completeAndGoToNext('step3', 'publish', 4)">
+                <i class="fas fa-arrow-right"></i> Next
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Apple -->
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> Apple Developer Program</div>
-          <div class="radio-group" id="appleRadioGroup">
-            <label class="radio-option"><input type="radio" name="appleCred" value="have" checked onchange="handleAppleToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="appleCred" value="create" onchange="handleAppleToggle(this.value)"> Create for me</label>
-          </div>
-            <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
-            <div class="row g-3 mt-1">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'apple')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'apple')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          <div id="appleHaveFields" class="credential-fields">
-            <div class="gf-question"><div class="gf-label">Apple ID (developer email) <span class="req">*</span></div><input type="email" class="gf-input" placeholder="dev@company.com"></div>
-            <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
-            <div class="gf-question mt-3"><div class="gf-label">App Bundle ID</div><input type="text" class="gf-input" placeholder="com.company.appname"><div class="gf-help">Must match your provisioning profile.</div></div>
-
-            <div class="credential-details-section visible" id="apple-details">
-              <div class="info-card" id="apple-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="apple-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>Apple ID Email</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Apple ID password</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>App Store Connect access</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div id="appleCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Apple ID email to use <span class="req">*</span></div>
-            <input type="email" class="gf-input" placeholder="dev@company.com">
-            <div class="gf-label mt-4">Upload DUNS Number document</div>
-            <div class="file-upload-box"><input type="file" accept=".pdf,.jpg,.png"><div class="gf-help">Upload DUNS number certificate</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-bar">
-      <button class="btn-gf-back" onclick="goTo(2)"><i class="fas fa-arrow-left"></i> Back</button>
-      <span class="step-text">Step 4 of 5</span>
-      <button class="btn-gf-next" onclick="goTo(4)">Next <i class="fas fa-arrow-right"></i></button>
     </div>
   </div>
 
@@ -1860,135 +1845,160 @@
     <div class="gf-card title-card">
       <div class="form-header-banner"></div>
       <div class="gf-card-body">
-       <h1 class="form-title">Client Onboarding Questionnaire</h1>
-       <p class="form-desc">Complete all 5 sections to set up your account.</p>
+        <h1 class="form-title">Client Onboarding Questionnaire</h1>
+        <p class="form-desc">Complete all 5 sections to set up your account.</p>
         <div class="progress-strip"><div class="progress-strip-fill" style="width:100%"></div></div>
       </div>
     </div>
-    <div class="gf-card section-card">
-      <div class="gf-card-body">
-        <div class="section-title"> Security &amp; Branding</div>
-        <p class="section-desc">GitHub repository access and brand asset details.</p>
-      </div>
-    </div>
 
-    <!-- GitHub -->
     <div class="gf-card">
       <div class="gf-card-body">
-        <div class="credential-block">
-          <div class="block-title"> Git / GitHub Repository</div>
-          <div class="radio-group" id="gitRadioGroup">
-            <label class="radio-option"><input type="radio" name="gitCred" value="have" checked onchange="handleGitToggle(this.value)"> I have a GitHub repo</label>
-            <label class="radio-option"><input type="radio" name="gitCred" value="create" onchange="handleGitToggle(this.value)"> Create repository for me</label>
+        <div class="section-header-with-tabs">
+          <div>
+            <div class="section-title-left">
+              <span class="section-title">Security &amp; Branding</span>
+            </div>
+            <p class="section-desc">GitHub repository access and brand asset details.</p>
           </div>
+          <div class="sub-tabs-wrapper" id="securitySubTabs">
+            <button class="sub-tab active" data-sub="github" onclick="switchSubTabSecurity('github')">
+              <span class="tab-status-dot pending"></span> GitHub
+            </button>
+            <button class="sub-tab" data-sub="branding" onclick="switchSubTabSecurity('branding')">
+              <span class="tab-status-dot pending"></span> Branding
+            </button>
+          </div>
+        </div>
 
-
-          <div id="gitHaveFields" class="credential-fields">
-            <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
-            <div class="row g-3 mt-1">
-              <div class="col-md-6">
-                <div class="credential-option-card selected" onclick="selectCredOption(this, 'git')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+        <!-- GitHub -->
+        <div class="sub-panel active" id="sub-github">
+          <div class="credential-block">
+            <div class="block-title"> Git / GitHub Repository</div>
+            <div class="radio-group" id="gitRadioGroup">
+              <label class="radio-option"><input type="radio" name="gitCred" value="have" checked onchange="handleGitToggle(this.value)"> I have a GitHub repo</label>
+              <label class="radio-option"><input type="radio" name="gitCred" value="create" onchange="handleGitToggle(this.value)"> Create repository for me</label>
+            </div>
+            <div id="gitHaveFields" class="credential-fields">
+              <div class="gf-question"><div class="gf-label">GitHub username</div><input type="text" class="gf-input" placeholder="@username"></div>
+              <div class="gf-question mt-3"><div class="gf-label">Password / Personal Access Token</div><input type="password" class="gf-input" placeholder="Enter password or token"></div>
+              <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
+              <div class="row g-3 mt-1">
+                <div class="col-md-6">
+                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'git')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Delegate Access</div>
+                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="credential-option-card" onclick="selectCredOption(this, 'git')">
+                    <div class="d-flex align-items-start">
+                      <div class="radio-circle"></div>
+                      <div>
+                        <div class="option-title">Secure Vault Submission</div>
+                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="credential-option-card" onclick="selectCredOption(this, 'git')">
-                  <div class="d-flex align-items-start">
-                    <div class="radio-circle"></div>
-                    <div>
-                      <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately</div>
-                    </div>
+              <div class="credential-details-section visible" id="git-details">
+                <div class="info-card" id="git-delegate-info">
+                  <div class="info-header">
+                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+                    <div class="info-title">Delegate Access Required</div>
                   </div>
+                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
+                </div>
+                <div class="info-card" id="git-vault-info" style="display:none;">
+                  <div class="info-header">
+                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+                    <div class="info-title">Secure Vault Submission</div>
+                  </div>
+                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+                </div>
+                <div class="credentials-card">
+                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+                  <ul class="credentials-list">
+                    <li><i class="fas fa-circle"></i> <strong>GitHub Username</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Personal Access Token (with repo access)</strong></li>
+                    <li><i class="fas fa-circle"></i> <strong>Repository URL</strong></li>
+                  </ul>
                 </div>
               </div>
             </div>
-
-
-            <div class="credential-details-section visible" id="git-details">
-              <div class="info-card" id="git-delegate-info">
-                <div class="info-header">
-                  <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                  <div class="info-title">Delegate Access Required</div>
-                </div>
-                <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-              </div>
-              <div class="info-card" id="git-vault-info" style="display:none;">
-                <div class="info-header">
-                  <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                  <div class="info-title">Secure Vault Submission</div>
-                </div>
-                <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-              </div>
-              <div class="credentials-card">
-                <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>GitHub Username</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Personal Access Token (with repo access)</strong></li>
-                   <li><i class="fas fa-circle"></i> <strong>Repository URL</strong></li>
-                </ul>
-              </div>
+            <div id="gitCreateFields" class="credential-fields" style="display:none;">
+              <div class="gf-label">Email address to use for GitHub repository</div>
+              <input type="email" class="gf-input" placeholder="git@company.com">
             </div>
           </div>
-          <div id="gitCreateFields" class="credential-fields" style="display:none;">
-            <div class="gf-label">Email address to use for GitHub repository</div>
-            <input type="email" class="gf-input" placeholder="git@company.com">
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <span class="text-muted small">1 of 2</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue" onclick="saveAndContinueSub('security', 'github')">
+                <i class="fas fa-save"></i> Save &amp; Continue
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branding -->
+        <div class="sub-panel" id="sub-branding">
+          <div class="credential-block">
+            <div class="block-title mb-3"> Branding Assets</div>
+            <div class="gf-question">
+              <div class="gf-label">Primary brand color <span class="req">*</span></div>
+              <div class="color-picker-wrapper">
+                <input type="color" id="primaryColorPicker" value="#E56772" onchange="document.getElementById('primaryColorHex').value = this.value">
+                <input type="text" class="gf-input color-hex-input" id="primaryColorHex" value="#E56772" placeholder="#E56772" onchange="document.getElementById('primaryColorPicker').value = this.value">
+              </div>
+            </div>
+            <div class="gf-question mt-3">
+              <div class="gf-label">Secondary / accent color</div>
+              <div class="color-picker-wrapper">
+                <input type="color" id="secondaryColorPicker" value="#FF5A00" onchange="document.getElementById('secondaryColorHex').value = this.value">
+                <input type="text" class="gf-input color-hex-input" id="secondaryColorHex" value="#FF5A00" placeholder="#FF5A00" onchange="document.getElementById('secondaryColorPicker').value = this.value">
+              </div>
+            </div>
+            <div class="gf-label mt-4">Upload logo (SVG or PNG) <span class="req">*</span></div>
+            <div class="file-upload-box"><input type="file" accept="image/*"><div class="gf-help">Upload your logo in SVG or high-resolution PNG format.</div></div>
+            <div class="credential-fields">
+              <div class="gf-label">Security contact email</div>
+              <input type="email" class="gf-input" placeholder="developer@gmail.com">
+            </div>
+            <div class="gf-question mt-4"><div class="gf-label">Additional notes</div><textarea class="gf-textarea" placeholder="Any other details..."></textarea></div>
+          </div>
+          <!-- Last sub-tab - shows Submit instead of Next -->
+          <div class="sub-nav-bar">
+            <div class="sub-nav-left">
+              <button class="btn-sub-back" onclick="switchSubTabSecurity('github')"><i class="fas fa-arrow-left"></i> Back</button>
+              <span class="text-muted small">2 of 2</span>
+            </div>
+            <div class="sub-nav-right">
+              <button class="btn-save-continue next-btn" onclick="submitForm()">
+                <i class="fas fa-send"></i> Submit Onboarding
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Branding -->
-    <div class="gf-card">
-      <div class="gf-card-body">
-        <div class="block-title mb-3"> Branding Assets</div>
-        <div class="gf-question">
-          <div class="gf-label">Primary brand color <span class="req">*</span></div>
-          <div class="color-picker-wrapper">
-            <input type="color" id="primaryColorPicker" value="#E56772" onchange="document.getElementById('primaryColorHex').value = this.value">
-            <input type="text" class="gf-input color-hex-input" id="primaryColorHex" value="#E56772" placeholder="#E56772" onchange="document.getElementById('primaryColorPicker').value = this.value">
-          </div>
-        </div>
-        <div class="gf-question mt-3">
-          <div class="gf-label">Secondary / accent color</div>
-          <div class="color-picker-wrapper">
-            <input type="color" id="secondaryColorPicker" value="#FF5A00" onchange="document.getElementById('secondaryColorHex').value = this.value">
-            <input type="text" class="gf-input color-hex-input" id="secondaryColorHex" value="#FF5A00" placeholder="#FF5A00" onchange="document.getElementById('secondaryColorPicker').value = this.value">
-          </div>
-        </div>
-        <div class="gf-label mt-4">Upload logo (SVG or PNG) <span class="req">*</span></div>
-        <div class="file-upload-box"><input type="file" accept="image/*"><div class="gf-help">Upload your logo in SVG or high-resolution PNG format.</div></div>
-                  <div class="credential-fields">
-            <div class="gf-label">Security contact email </div>
-            <input type="email" class="gf-input" placeholder="developer@gmail.com">
-          </div>
-        <div class="gf-question mt-4"><div class="gf-label">Additional notes</div><textarea class="gf-textarea" placeholder="Any other details..."></textarea></div>
-      </div>
-    </div>
-
-    <div class="nav-bar">
-      <button class="btn-gf-back" onclick="goTo(3)"><i class="fas fa-arrow-left"></i> Back</button>
-      <span class="step-text">Step 5 of 5</span>
-      <button class="btn-gf-submit" onclick="submitForm()"><i class="fas fa-send"></i> Submit Onboarding</button>
     </div>
   </div>
 
 </div>
 
-
-
-<!-- ===== SUCCESS SCREEN (outside main form container) ===== -->
+<!-- ===== SUCCESS SCREEN ===== -->
 <div id="successScreen">
   <div class="gf-card">
     <div class="form-header-banner"></div>
     <div class="gf-card-body success-screen">
-      <div class="success-icon"><img src="succsfully__registred.gif" alt="success"></div>
+      <div class="success-icon"><img src="succsfully__registred.gif" alt="success" onerror="this.style.display='none'; this.parentElement.innerHTML='✓'"></div>
       <h2 class="success-title">Your onboarding form has been submitted!</h2>
       <p class="success-sub">Thank you for completing the client onboarding questionnaire.<br>Our team will review your submission and reach out within 1–2 business days.</p>
       <button class="btn-restart" onclick="restartForm()"><i class="fas fa-undo"></i> Submit another response</button>
@@ -1996,8 +2006,7 @@
   </div>
 </div>
 
-
-<!-- ====== HEADER ====== -->
+<!-- ====== FOOTER ====== -->
 <footer id="footer" class="border-bottom-0">
   <div class="container">
     <div class="header-row">
@@ -2009,7 +2018,7 @@
         </div>
       </div>
       <div class="header-column justify-content-end">
-        <span class="text-muted small me-3"> © 2026 Roja One. All rights reserved.</span>
+        <span class="text-muted small me-3">© 2026 Roja One. All rights reserved.</span>
       </div>
     </div>
   </div>
@@ -2018,19 +2027,43 @@
 <!-- ===== SCRIPTS ===== -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // ---------- navigation ----------
+  // ---------- Main navigation ----------
   let current = 0;
   const total = 5;
   const completed = new Array(total).fill(false);
   const tabs = document.querySelectorAll('.s-tab');
 
+  // Track sub-tab completion for each section
+  const subCompletion = {
+    banking: { ach: false, credit: false, chirp: false },
+    comms: { sms: false, email: false, firebase: false },
+    publish: { play: false, apple: false },
+    security: { github: false, branding: false }
+  };
+
   function goTo(idx) {
-    completed[current] = true;
+    if (idx < current) {
+      document.getElementById('step' + current).style.display = 'none';
+      current = idx;
+      document.getElementById('step' + current).style.display = 'block';
+      updateTabs();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+    if (idx > current) {
+      completed[current] = true;
+    }
     document.getElementById('step' + current).style.display = 'none';
     current = idx;
     document.getElementById('step' + current).style.display = 'block';
     updateTabs();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll to top of the new section
+    setTimeout(() => {
+      const panel = document.getElementById('step' + idx);
+      if (panel) {
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   }
 
   function updateTabs() {
@@ -2043,13 +2076,10 @@
 
   function submitForm() {
     completed[current] = true;
-    // Hide all steps
     for (let i = 0; i < total; i++) {
       document.getElementById('step' + i).style.display = 'none';
     }
-    // Hide tabs
     document.getElementById('sectionTabs').style.display = 'none';
-    // Show success screen
     document.getElementById('successScreen').style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -2057,16 +2087,153 @@
   function restartForm() {
     current = 0;
     completed.fill(false);
+    for (const key in subCompletion) {
+      for (const subKey in subCompletion[key]) {
+        subCompletion[key][subKey] = false;
+      }
+    }
     document.getElementById('successScreen').style.display = 'none';
     document.getElementById('sectionTabs').style.display = 'flex';
     for (let i = 0; i < total; i++) {
       document.getElementById('step' + i).style.display = i === 0 ? 'block' : 'none';
     }
+    document.querySelectorAll('.sub-tab .tab-status-dot').forEach(dot => {
+      dot.className = 'tab-status-dot pending';
+    });
+    ['banking', 'comms', 'publish', 'security'].forEach(section => {
+      const wrapper = document.getElementById(section + 'SubTabs');
+      if (wrapper) {
+        const firstTab = wrapper.querySelector('.sub-tab');
+        if (firstTab) {
+          const subId = firstTab.dataset.sub;
+          if (section === 'banking') switchSubTab(subId);
+          else if (section === 'comms') switchSubTabComms(subId);
+          else if (section === 'publish') switchSubTabPublish(subId);
+          else if (section === 'security') switchSubTabSecurity(subId);
+        }
+      }
+    });
     updateTabs();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // ---------- credential option selector ----------
+  // ---------- Sub-tab switching functions ----------
+  function switchSubTab(tabId) {
+    const wrapper = document.querySelector('#bankingSubTabs');
+    switchSubTabGeneric(wrapper, tabId, 'sub-', 'banking');
+  }
+
+  function switchSubTabComms(tabId) {
+    const wrapper = document.querySelector('#commsSubTabs');
+    switchSubTabGeneric(wrapper, tabId, 'sub-', 'comms');
+  }
+
+  function switchSubTabPublish(tabId) {
+    const wrapper = document.querySelector('#publishSubTabs');
+    switchSubTabGeneric(wrapper, tabId, 'sub-', 'publish');
+  }
+
+  function switchSubTabSecurity(tabId) {
+    const wrapper = document.querySelector('#securitySubTabs');
+    switchSubTabGeneric(wrapper, tabId, 'sub-', 'security');
+  }
+
+  function switchSubTabGeneric(wrapper, tabId, prefix, section) {
+    if (!wrapper) return;
+    const parent = wrapper.closest('.gf-card-body');
+    if (!parent) return;
+
+    const tabs = wrapper.querySelectorAll('.sub-tab');
+    tabs.forEach(tab => {
+      tab.classList.remove('active');
+      if (tab.dataset.sub === tabId) {
+        tab.classList.add('active');
+      }
+    });
+
+    const panels = parent.querySelectorAll('.sub-panel');
+    panels.forEach(panel => {
+      panel.classList.remove('active');
+      if (panel.id === prefix + tabId) {
+        panel.classList.add('active');
+      }
+    });
+  }
+
+  function saveAndContinueSub(section, subId) {
+    if (subCompletion[section] && subCompletion[section][subId] !== undefined) {
+        subCompletion[section][subId] = true;
+    }
+
+    const wrapper = document.getElementById(section + 'SubTabs');
+    if (wrapper) {
+        const tabs = wrapper.querySelectorAll('.sub-tab');
+        tabs.forEach(tab => {
+            if (tab.dataset.sub === subId) {
+                const dot = tab.querySelector('.tab-status-dot');
+                if (dot) {
+                    dot.className = 'tab-status-dot complete';
+                }
+            }
+        });
+    }
+
+    const subKeys = Object.keys(subCompletion[section]);
+    const currentIdx = subKeys.indexOf(subId);
+    if (currentIdx < subKeys.length - 1) {
+        const nextSub = subKeys[currentIdx + 1];
+        if (section === 'banking') switchSubTab(nextSub);
+        else if (section === 'comms') switchSubTabComms(nextSub);
+        else if (section === 'publish') switchSubTabPublish(nextSub);
+        else if (section === 'security') switchSubTabSecurity(nextSub);
+        
+        // Scroll to top of the new sub-tab with smooth animation
+        setTimeout(() => {
+            const panel = document.getElementById('sub-' + nextSub);
+            if (panel) {
+                // Get the parent card or container
+                const card = panel.closest('.gf-card');
+                if (card) {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }, 150); // Slight delay for the tab switch animation
+    }
+    
+    showToast('Saved successfully!');
+}
+
+  // ---------- Complete section and go to next main tab ----------
+  function completeAndGoToNext(stepId, section, nextTabIdx) {
+    // Mark the last sub-tab as completed
+    const subKeys = Object.keys(subCompletion[section]);
+    const lastSub = subKeys[subKeys.length - 1];
+    if (subCompletion[section] && subCompletion[section][lastSub] !== undefined) {
+      subCompletion[section][lastSub] = true;
+    }
+
+    const wrapper = document.getElementById(section + 'SubTabs');
+    if (wrapper) {
+      const tabs = wrapper.querySelectorAll('.sub-tab');
+      tabs.forEach(tab => {
+        if (tab.dataset.sub === lastSub) {
+          const dot = tab.querySelector('.tab-status-dot');
+          if (dot) {
+            dot.className = 'tab-status-dot complete';
+          }
+        }
+      });
+    }
+
+    showToast('Section completed!');
+
+    // Go to next main tab
+    goTo(nextTabIdx);
+  }
+
+  // ---------- Credential option selector ----------
   function selectCredOption(element, section) {
     const parentBlock = element.closest('.credential-fields') || element.closest('.credential-block');
     if (!parentBlock) return;
@@ -2102,7 +2269,54 @@
     }
   }
 
-  // ---------- toggle helpers ----------
+  // ---------- Toast notification ----------
+  function showToast(message) {
+    const existing = document.querySelector('.toast-notification');
+    if (existing) existing.remove();
+
+    const toast = document.createElement('div');
+    toast.className = 'toast-notification';
+    toast.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #10b981;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      font-family: 'Rubik', sans-serif;
+      font-weight: 500;
+      z-index: 9999;
+      animation: slideInRight 0.4s ease;
+      max-width: 400px;
+    `;
+    toast.innerHTML = '<i class="fas fa-check-circle me-2"></i> ' + message;
+
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideInRight {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes slideOutRight {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.style.animation = 'slideOutRight 0.4s ease';
+      setTimeout(() => {
+        toast.remove();
+        style.remove();
+      }, 400);
+    }, 3000);
+  }
+
+  // ---------- Toggle helpers ----------
   function handleWebsiteToggle(val) {
     document.getElementById('websiteHaveFields').style.display = val === 'have' ? 'block' : 'none';
     document.getElementById('websiteCreateFields').style.display = val === 'create' ? 'block' : 'none';
@@ -2131,14 +2345,6 @@
     document.getElementById('firebaseHaveFields').style.display = val === 'have' ? 'block' : 'none';
     document.getElementById('firebaseCreateFields').style.display = val === 'create' ? 'block' : 'none';
   }
-  function handleAwsToggle(val) {
-    document.getElementById('awsHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('awsCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
-  function handleMongoToggle(val) {
-    document.getElementById('mongoHaveFields').style.display = val === 'have' ? 'block' : 'none';
-    document.getElementById('mongoCreateFields').style.display = val === 'create' ? 'block' : 'none';
-  }
   function handlePlayToggle(val) {
     document.getElementById('playHaveFields').style.display = val === 'have' ? 'block' : 'none';
     document.getElementById('playCreateFields').style.display = val === 'create' ? 'block' : 'none';
@@ -2152,7 +2358,7 @@
     document.getElementById('gitCreateFields').style.display = val === 'create' ? 'block' : 'none';
   }
 
-  // init
+  // ---------- Init ----------
   window.addEventListener('load', function() {
     updateTabs();
     handleWebsiteToggle('have');
@@ -2162,8 +2368,6 @@
     handleSmsToggle('have');
     handleEmailToggle('have');
     handleFirebaseToggle('have');
-    handleAwsToggle('have');
-    handleMongoToggle('have');
     handlePlayToggle('have');
     handleAppleToggle('have');
     handleGitToggle('have');
