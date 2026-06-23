@@ -136,7 +136,7 @@
       font-weight: 500;
       font-size: 14px;
       transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: default;
+      cursor: pointer;
       font-family: 'Rubik', sans-serif;
       position: relative;
       white-space: nowrap;
@@ -153,7 +153,7 @@
     .s-tab.active {
       background: var(--gf-red);
       color: #fff;
-      box-shadow: 0 4px 16px rgba(229,103,114,0.30);
+      box-shadow: 0 4px 16px rgba(19,29,88,0.30);
       font-weight: 600;
       transform: translateY(0);
     }
@@ -621,8 +621,8 @@
     }
     .success-icon {
       width: 80px;
-      height: 80px;
-      background: #fdf0f1;
+      height:160px;
+      background: #f0f7fd;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -775,6 +775,30 @@
       padding: 20px 0;
     }
 
+    /* Color picker styling */
+    .color-picker-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .color-picker-wrapper input[type="color"] {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #dadce0;
+      border-radius: 12px;
+      padding: 2px;
+      cursor: pointer;
+      background: white;
+    }
+    .color-picker-wrapper input[type="color"]:hover {
+      border-color: var(--gf-red);
+    }
+    .color-picker-wrapper .color-hex-input {
+      flex: 1;
+      min-width: 140px;
+    }
+
     @media (max-width: 768px) {
       .session-card { flex-direction: column; align-items: stretch; padding: 16px 20px; }
       .session-meta { justify-content: space-between; }
@@ -852,36 +876,36 @@
   <!-- NEW DESIGN TABS -->
   <div class="section-tabs" id="sectionTabs">
     <div class="tab-track">
-      <div class="s-tab active" data-idx="0">
+      <button class="s-tab active" onclick="goTo(0)" data-idx="0">
         <span class="tab-number">01</span>
         <span class="tab-icon"></span>
         <span class="tab-label">Business</span>
         <span class="status-dot"></span>
-      </div>
-      <div class="s-tab" data-idx="1">
+      </button>
+      <button class="s-tab" onclick="goTo(1)" data-idx="1">
         <span class="tab-number">02</span>
         <span class="tab-icon"></span>
         <span class="tab-label">Banking</span>
         <span class="status-dot"></span>
-      </div>
-      <div class="s-tab" data-idx="2">
+      </button>
+      <button class="s-tab" onclick="goTo(2)" data-idx="2">
         <span class="tab-number">03</span>
         <span class="tab-icon"></span>
         <span class="tab-label">Communications</span>
         <span class="status-dot"></span>
-      </div>
-      <div class="s-tab" data-idx="3">
+      </button>
+      <button class="s-tab" onclick="goTo(3)" data-idx="3">
         <span class="tab-number">04</span>
         <span class="tab-icon"></span>
         <span class="tab-label">Publishing</span>
         <span class="status-dot"></span>
-      </div>
-      <div class="s-tab" data-idx="4">
+      </button>
+      <button class="s-tab" onclick="goTo(4)" data-idx="4">
         <span class="tab-number">05</span>
         <span class="tab-icon"></span>
         <span class="tab-label">Security</span>
         <span class="status-dot"></span>
-      </div>
+      </button>
     </div>
   </div>
 
@@ -930,6 +954,20 @@
           </div>
         </div>
 
+                <!-- Website & Legal Pages -->
+        <div class="credential-block mt-4">
+          <div class="block-title"> Business Registration Documents</div>
+          <!-- CREATE FOR ME -->
+          <div class="credential-fields">
+            <div class="gf-label">Upload Articles of Incorporation / LLC Operating Agreement <span class="req">*</span></div>
+            <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your business registration document (PDF, JPG, PNG, DOC)</div></div>
+            <div class="gf-label mt-4">Upload IRS EIN Confirmation Letter (CP-575) <span class="req">*</span></div>
+            <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Upload your EIN confirmation letter from IRS</div></div>
+            <div class="gf-label mt-4">Upload Government-issued ID of Authorized Officer <span class="req">*</span> </div>
+            <div class="file-upload-box"><input type="file" accept=".pdf,.doc,.docx,.txt"><div class="gf-help">Driver's license or passport of the authorized representative</div></div>
+          </div>
+        </div>
+
         <!-- Website & Legal Pages -->
         <div class="credential-block mt-4">
           <div class="block-title"> Website &amp; Legal Pages</div>
@@ -967,7 +1005,8 @@
     <div class="gf-card title-card">
       <div class="form-header-banner"></div>
       <div class="gf-card-body">
-        <h1 class="form-title" style="font-size:22px;">Client Onboarding</h1>
+            <h1 class="form-title">Client Onboarding Questionnaire</h1>
+            <p class="form-desc">Complete all 5 sections to set up your account.</p>
         <div class="progress-strip"><div class="progress-strip-fill" style="width:40%"></div></div>
       </div>
     </div>
@@ -985,7 +1024,7 @@
           <div class="block-title"> ACH / Banking</div>
           <div class="radio-group" id="achRadioGroup">
             <label class="radio-option"><input type="radio" name="achCred" value="have" checked onchange="handleAchToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="achCred" value="create" onchange="handleAchToggle(this.value)"> Create for me</label>
+            <label class="radio-option"><input type="radio" name="achCred" value="create" onchange="handleAchToggle(this.value)"> Create ACH setup for me</label>
           </div>
 
           <!-- I HAVE CREDENTIALS -->
@@ -998,7 +1037,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1009,7 +1048,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
@@ -1023,7 +1062,6 @@
                 <option value="">-- Select ACH provider --</option>
                 <option value="publicsquare">PublicSquare</option>
                 <option value="loanpaymentpro">LoanPaymentPro</option>
-                <option value="stripe">Stripe</option>
               </select>
             </div>
 
@@ -1088,7 +1126,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1099,7 +1137,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
@@ -1113,7 +1151,6 @@
                 <option value="">-- Select credit bureau --</option>
                 <option value="experian">Experian</option>
                 <option value="equifax">Equifax</option>
-                <option value="transunion">TransUnion</option>
               </select>
             </div>
 
@@ -1158,8 +1195,8 @@
         <div class="credential-block">
           <div class="block-title"> Chirp IBV (Identity Verification)</div>
           <div class="radio-group" id="chirpRadioGroup">
-            <label class="radio-option"><input type="radio" name="chirpCred" value="have" checked onchange="handleChirpToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="chirpCred" value="create" onchange="handleChirpToggle(this.value)"> Create for me</label>
+            <label class="radio-option"><input type="radio" name="chirpCred" value="have" checked onchange="handleChirpToggle(this.value)"> I have Chirp Credentials</label>
+            <label class="radio-option"><input type="radio" name="chirpCred" value="create" onchange="handleChirpToggle(this.value)"> Create Chirp IBV for me</label>
           </div>
 
           <div id="chirpHaveFields" class="credential-fields">
@@ -1171,7 +1208,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1182,22 +1219,11 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select Chirp IBV Plan</div>
-              <select class="gf-select" id="chirpProvider">
-                <option value="">-- Select plan --</option>
-                <option value="basic">Basic</option>
-                <option value="pro">Pro</option>
-                <option value="enterprise">Enterprise</option>
-              </select>
             </div>
 
             <div class="credential-details-section visible" id="chirp-details">
@@ -1247,7 +1273,8 @@
     <div class="gf-card title-card">
       <div class="form-header-banner"></div>
       <div class="gf-card-body">
-        <h1 class="form-title" style="font-size:22px;">Client Onboarding</h1>
+            <h1 class="form-title">Client Onboarding Questionnaire</h1>
+            <p class="form-desc">Complete all 5 sections to set up your account.</p>
         <div class="progress-strip"><div class="progress-strip-fill" style="width:60%"></div></div>
       </div>
     </div>
@@ -1264,8 +1291,8 @@
         <div class="credential-block">
           <div class="block-title"> SMS Provider</div>
           <div class="radio-group" id="smsRadioGroup">
-            <label class="radio-option"><input type="radio" name="smsCred" value="have" checked onchange="handleSmsToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="smsCred" value="create" onchange="handleSmsToggle(this.value)"> Create for me</label>
+            <label class="radio-option"><input type="radio" name="smsCred" value="have" checked onchange="handleSmsToggle(this.value)"> I have SMS credentials</label>
+            <label class="radio-option"><input type="radio" name="smsCred" value="create" onchange="handleSmsToggle(this.value)"> Create SMS account for me</label>
           </div>
 
           <div id="smsHaveFields" class="credential-fields">
@@ -1277,7 +1304,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1288,7 +1315,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
@@ -1346,8 +1373,8 @@
         <div class="credential-block">
           <div class="block-title"> Email Service</div>
           <div class="radio-group" id="emailRadioGroup">
-            <label class="radio-option"><input type="radio" name="emailCred" value="have" checked onchange="handleEmailToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="emailCred" value="create" onchange="handleEmailToggle(this.value)"> Create for me</label>
+            <label class="radio-option"><input type="radio" name="emailCred" value="have" checked onchange="handleEmailToggle(this.value)"> I have email credentials</label>
+            <label class="radio-option"><input type="radio" name="emailCred" value="create" onchange="handleEmailToggle(this.value)"> Create email service for me</label>
           </div>
 
           <div id="emailHaveFields" class="credential-fields">
@@ -1359,7 +1386,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1370,7 +1397,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
@@ -1432,8 +1459,8 @@
         <div class="credential-block">
           <div class="block-title"> Firebase (Push Notifications)</div>
           <div class="radio-group" id="firebaseRadioGroup">
-            <label class="radio-option"><input type="radio" name="firebaseCred" value="have" checked onchange="handleFirebaseToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="firebaseCred" value="create" onchange="handleFirebaseToggle(this.value)"> Create for me</label>
+            <label class="radio-option"><input type="radio" name="firebaseCred" value="have" checked onchange="handleFirebaseToggle(this.value)"> I have Firebase project</label>
+            <label class="radio-option"><input type="radio" name="firebaseCred" value="create" onchange="handleFirebaseToggle(this.value)"> Create Firebase project for me</label>
           </div>
           <div id="firebaseHaveFields" class="credential-fields">
             <div class="gf-label mb-3">How would you like to submit credentials?</div>
@@ -1444,7 +1471,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1455,22 +1482,11 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select Firebase Project</div>
-              <select class="gf-select" id="firebaseProvider">
-                <option value="">-- Select Firebase project --</option>
-                <option value="project1">Project Alpha</option>
-                <option value="project2">Project Beta</option>
-                <option value="project3">Project Gamma</option>
-              </select>
             </div>
 
             <div class="credential-details-section visible" id="firebase-details">
@@ -1511,8 +1527,8 @@
         <div class="credential-block">
           <div class="block-title"> AWS (Amazon Web Services)</div>
           <div class="radio-group" id="awsRadioGroup">
-            <label class="radio-option"><input type="radio" name="awsCred" value="have" checked onchange="handleAwsToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="awsCred" value="create" onchange="handleAwsToggle(this.value)"> Create for me</label>
+            <label class="radio-option"><input type="radio" name="awsCred" value="have" checked onchange="handleAwsToggle(this.value)">I have AWS credentials</label>
+            <label class="radio-option"><input type="radio" name="awsCred" value="create" onchange="handleAwsToggle(this.value)"> Create AWS account for me</label>
           </div>
           <div id="awsHaveFields" class="credential-fields">
             <div class="gf-label mb-3">How would you like to submit credentials?</div>
@@ -1523,7 +1539,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1534,23 +1550,11 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select AWS Region</div>
-              <select class="gf-select" id="awsProvider">
-                <option value="">-- Select region --</option>
-                <option value="us-east-1">US East (N. Virginia)</option>
-                <option value="us-west-2">US West (Oregon)</option>
-                <option value="eu-west-1">EU (Ireland)</option>
-                <option value="ap-southeast-1">Asia Pacific (Singapore)</option>
-              </select>
             </div>
 
             <div class="credential-details-section visible" id="aws-details">
@@ -1571,8 +1575,9 @@
               <div class="credentials-card">
                 <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
                 <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>AWS Access Key ID</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>AWS Secret Access Key</strong></li>
+                  <li><i class="fas fa-circle"></i> <strong>Access Key ID</strong></li>
+                  <li><i class="fas fa-circle"></i> <strong>Secret Access Key</strong></li>
+                  <li><i class="fas fa-circle"></i> <strong>AWS Region</strong></li>
                 </ul>
               </div>
             </div>
@@ -1589,10 +1594,10 @@
     <div class="gf-card">
       <div class="gf-card-body">
         <div class="credential-block">
-          <div class="block-title"> MongoDB Atlas</div>
+          <div class="block-title">MongoDB Atlas</div>
           <div class="radio-group" id="mongoRadioGroup">
-            <label class="radio-option"><input type="radio" name="mongoCred" value="have" checked onchange="handleMongoToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="mongoCred" value="create" onchange="handleMongoToggle(this.value)"> Create for me</label>
+            <label class="radio-option"><input type="radio" name="mongoCred" value="have" checked onchange="handleMongoToggle(this.value)"> I have MongoDB Atlas </label>
+            <label class="radio-option"><input type="radio" name="mongoCred" value="create" onchange="handleMongoToggle(this.value)"> Create MongoDB Atlas for me</label>
           </div>
           <div id="mongoHaveFields" class="credential-fields">
             <div class="gf-label mb-3">How would you like to submit credentials?</div>
@@ -1603,7 +1608,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1614,23 +1619,13 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select MongoDB Atlas Cluster</div>
-              <select class="gf-select" id="mongoProvider">
-                <option value="">-- Select cluster --</option>
-                <option value="cluster1">Cluster - Production</option>
-                <option value="cluster2">Cluster - Staging</option>
-                <option value="cluster3">Cluster - Development</option>
-              </select>
-            </div>
 
             <div class="credential-details-section visible" id="mongo-details">
               <div class="info-card" id="mongo-delegate-info">
@@ -1650,7 +1645,7 @@
               <div class="credentials-card">
                 <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
                 <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>MongoDB Atlas Cluster Name</strong></li>
+                  <li><i class="fas fa-circle"></i> <strong>Connection String (URI)</strong></li>
                   <li><i class="fas fa-circle"></i> <strong>Database Username</strong></li>
                   <li><i class="fas fa-circle"></i> <strong>Database Password</strong></li>
                 </ul>
@@ -1677,13 +1672,14 @@
     <div class="gf-card title-card">
       <div class="form-header-banner"></div>
       <div class="gf-card-body">
-        <h1 class="form-title" style="font-size:22px;">Client Onboarding</h1>
+        <h1 class="form-title">Client Onboarding Questionnaire</h1>
+        <p class="form-desc">Complete all 5 sections to set up your account.</p>
         <div class="progress-strip"><div class="progress-strip-fill" style="width:80%"></div></div>
       </div>
     </div>
     <div class="gf-card section-card">
       <div class="gf-card-body">
-        <div class="section-title"> Mobile Publishing</div>
+        <div class="section-title"> Mobile App Publishing</div>
         <p class="section-desc">Google Play Console and Apple Developer Program account details.</p>
       </div>
     </div>
@@ -1693,24 +1689,19 @@
       <div class="gf-card-body">
         <div class="credential-block">
           <div class="block-title"> Google Play Console</div>
-          <div class="radio-group" id="playRadioGroup">
+          <div class="radio-group mb-2" id="playRadioGroup">
             <label class="radio-option"><input type="radio" name="playCred" value="have" checked onchange="handlePlayToggle(this.value)"> I have credentials</label>
             <label class="radio-option"><input type="radio" name="playCred" value="create" onchange="handlePlayToggle(this.value)"> Create for me</label>
           </div>
-          <div id="playHaveFields" class="credential-fields">
-            <div class="gf-question"><div class="gf-label">Developer account email <span class="req">*</span></div><input type="email" class="gf-input" placeholder="developer@company.com"></div>
-            <div class="gf-question mt-3"><div class="gf-label">Password</div><input type="password" class="gf-input" placeholder="Enter account password"></div>
-            <div class="gf-question mt-3"><div class="gf-label">App package name</div><input type="text" class="gf-input" placeholder="com.appname"><div class="gf-help">Reverse domain format.</div></div>
-            <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
-            <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
-            <div class="row g-3 mt-1">
+              <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
+              <div class="row g-3 mt-1">
               <div class="col-md-6">
                 <div class="credential-option-card selected" onclick="selectCredOption(this, 'play')">
                   <div class="d-flex align-items-start">
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1721,22 +1712,20 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select Google Play Console Type</div>
-              <select class="gf-select" id="playProvider">
-                <option value="">-- Select type --</option>
-                <option value="personal">Personal Account</option>
-                <option value="organization">Organization Account</option>
-              </select>
-            </div>
+          
+          <div id="playHaveFields" class="credential-fields">
+            <div class="gf-question"><div class="gf-label">Developer account email <span class="req">*</span></div><input type="email" class="gf-input" placeholder="developer@company.com"></div>
+            <div class="gf-question mt-3"><div class="gf-label">Password</div><input type="password" class="gf-input" placeholder="Enter account password"></div>
+            <div class="gf-question mt-3"><div class="gf-label">App package name</div><input type="text" class="gf-input" placeholder="com.appname"><div class="gf-help">Reverse domain format.</div></div>
+            <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
+        
+        
 
             <div class="credential-details-section visible" id="play-details">
               <div class="info-card" id="play-delegate-info">
@@ -1756,8 +1745,9 @@
               <div class="credentials-card">
                 <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
                 <ul class="credentials-list">
-                  <li><i class="fas fa-circle"></i> <strong>Google Play Developer Account Email</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>Service Account JSON Key File</strong></li>
+                  <li><i class="fas fa-circle"></i> <strong>Google Play Console email</strong></li>
+                  <li><i class="fas fa-circle"></i> <strong>Account password</strong></li>
+                  <li><i class="fas fa-circle"></i> <strong>Upload keystore / signing key</strong></li>
                 </ul>
               </div>
             </div>
@@ -1781,11 +1771,6 @@
             <label class="radio-option"><input type="radio" name="appleCred" value="have" checked onchange="handleAppleToggle(this.value)"> I have credentials</label>
             <label class="radio-option"><input type="radio" name="appleCred" value="create" onchange="handleAppleToggle(this.value)"> Create for me</label>
           </div>
-          <div id="appleHaveFields" class="credential-fields">
-            <div class="gf-question"><div class="gf-label">Apple ID (developer email) <span class="req">*</span></div><input type="email" class="gf-input" placeholder="dev@company.com"></div>
-            <div class="gf-question mt-3"><div class="gf-label">Password</div><input type="password" class="gf-input" placeholder="Enter Apple ID password"></div>
-            <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
-            <div class="gf-question mt-3"><div class="gf-label">App Bundle ID</div><input type="text" class="gf-input" placeholder="com.company.appname"><div class="gf-help">Must match your provisioning profile.</div></div>
             <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
             <div class="row g-3 mt-1">
               <div class="col-md-6">
@@ -1794,7 +1779,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1805,22 +1790,17 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select Apple Developer Program Type</div>
-              <select class="gf-select" id="appleProvider">
-                <option value="">-- Select type --</option>
-                <option value="individual">Individual</option>
-                <option value="organization">Organization</option>
-              </select>
-            </div>
+          <div id="appleHaveFields" class="credential-fields">
+            <div class="gf-question"><div class="gf-label">Apple ID (developer email) <span class="req">*</span></div><input type="email" class="gf-input" placeholder="dev@company.com"></div>
+            <div class="gf-question mt-3"><div class="gf-label">App Name</div><input type="text" class="gf-input" placeholder="Enter App Name"></div>
+            <div class="gf-question mt-3"><div class="gf-label">App Bundle ID</div><input type="text" class="gf-input" placeholder="com.company.appname"><div class="gf-help">Must match your provisioning profile.</div></div>
 
             <div class="credential-details-section visible" id="apple-details">
               <div class="info-card" id="apple-delegate-info">
@@ -1841,7 +1821,8 @@
                 <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
                 <ul class="credentials-list">
                   <li><i class="fas fa-circle"></i> <strong>Apple ID Email</strong></li>
-                  <li><i class="fas fa-circle"></i> <strong>App Store Connect API Key</strong></li>
+                  <li><i class="fas fa-circle"></i> <strong>Apple ID password</strong></li>
+                  <li><i class="fas fa-circle"></i> <strong>App Store Connect access</strong></li>
                 </ul>
               </div>
             </div>
@@ -1868,7 +1849,8 @@
     <div class="gf-card title-card">
       <div class="form-header-banner"></div>
       <div class="gf-card-body">
-        <h1 class="form-title" style="font-size:22px;">Client Onboarding</h1>
+       <h1 class="form-title">Client Onboarding Questionnaire</h1>
+       <p class="form-desc">Complete all 5 sections to set up your account.</p>
         <div class="progress-strip"><div class="progress-strip-fill" style="width:100%"></div></div>
       </div>
     </div>
@@ -1885,12 +1867,12 @@
         <div class="credential-block">
           <div class="block-title"> Git / GitHub Repository</div>
           <div class="radio-group" id="gitRadioGroup">
-            <label class="radio-option"><input type="radio" name="gitCred" value="have" checked onchange="handleGitToggle(this.value)"> I have credentials</label>
-            <label class="radio-option"><input type="radio" name="gitCred" value="create" onchange="handleGitToggle(this.value)"> Create for me</label>
+            <label class="radio-option"><input type="radio" name="gitCred" value="have" checked onchange="handleGitToggle(this.value)"> I have a GitHub repo</label>
+            <label class="radio-option"><input type="radio" name="gitCred" value="create" onchange="handleGitToggle(this.value)"> Create repository for me</label>
           </div>
+
+
           <div id="gitHaveFields" class="credential-fields">
-            <div class="gf-question"><div class="gf-label">GitHub username</div><input type="text" class="gf-input" placeholder="@username"></div>
-            <div class="gf-question mt-3"><div class="gf-label">Password / Personal Access Token</div><input type="password" class="gf-input" placeholder="Enter password or token"></div>
             <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
             <div class="row g-3 mt-1">
               <div class="col-md-6">
@@ -1899,7 +1881,7 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Delegate Access</div>
-                      <div class="option-desc">Our team will configure this service on your behalf.</div>
+                      <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
                     </div>
                   </div>
                 </div>
@@ -1910,22 +1892,13 @@
                     <div class="radio-circle"></div>
                     <div>
                       <div class="option-title">Secure Vault Submission</div>
-                      <div class="option-desc">A secure invite link will be sent for private credential submission.</div>
+                      <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Provider Dropdown -->
-            <div class="provider-select-section">
-              <div class="gf-label">Select Repository Type</div>
-              <select class="gf-select" id="gitProvider">
-                <option value="">-- Select type --</option>
-                <option value="public">Public Repository</option>
-                <option value="private">Private Repository</option>
-              </select>
-            </div>
 
             <div class="credential-details-section visible" id="git-details">
               <div class="info-card" id="git-delegate-info">
@@ -1947,6 +1920,7 @@
                 <ul class="credentials-list">
                   <li><i class="fas fa-circle"></i> <strong>GitHub Username</strong></li>
                   <li><i class="fas fa-circle"></i> <strong>Personal Access Token (with repo access)</strong></li>
+                   <li><i class="fas fa-circle"></i> <strong>Repository URL</strong></li>
                 </ul>
               </div>
             </div>
@@ -1963,8 +1937,20 @@
     <div class="gf-card">
       <div class="gf-card-body">
         <div class="block-title mb-3"> Branding Assets</div>
-        <div class="gf-question"><div class="gf-label">Primary brand color <span class="req">*</span></div><input type="text" class="gf-input" value="#E56772" placeholder="#E56772"><div class="gf-help">Hex color code for app theme.</div></div>
-        <div class="gf-question mt-3"><div class="gf-label">Secondary / accent color</div><input type="text" class="gf-input" placeholder="#FF5A00"></div>
+        <div class="gf-question">
+          <div class="gf-label">Primary brand color <span class="req">*</span></div>
+          <div class="color-picker-wrapper">
+            <input type="color" id="primaryColorPicker" value="#E56772" onchange="document.getElementById('primaryColorHex').value = this.value">
+            <input type="text" class="gf-input color-hex-input" id="primaryColorHex" value="#E56772" placeholder="#E56772" onchange="document.getElementById('primaryColorPicker').value = this.value">
+          </div>
+        </div>
+        <div class="gf-question mt-3">
+          <div class="gf-label">Secondary / accent color</div>
+          <div class="color-picker-wrapper">
+            <input type="color" id="secondaryColorPicker" value="#FF5A00" onchange="document.getElementById('secondaryColorHex').value = this.value">
+            <input type="text" class="gf-input color-hex-input" id="secondaryColorHex" value="#FF5A00" placeholder="#FF5A00" onchange="document.getElementById('secondaryColorPicker').value = this.value">
+          </div>
+        </div>
         <div class="gf-label mt-4">Upload logo (SVG or PNG) <span class="req">*</span></div>
         <div class="file-upload-box"><input type="file" accept="image/*"><div class="gf-help">Upload your logo in SVG or high-resolution PNG format.</div></div>
         <div class="gf-question mt-4"><div class="gf-label">Additional notes</div><textarea class="gf-textarea" placeholder="Any other details..."></textarea></div>
@@ -1985,7 +1971,7 @@
   <div class="gf-card">
     <div class="form-header-banner"></div>
     <div class="gf-card-body success-screen">
-      <div class="success-icon"><i class="fas fa-check"></i></div>
+      <div class="success-icon"><img src="succsfully__registred.gif" alt="success"></div>
       <h2 class="success-title">Your onboarding form has been submitted!</h2>
       <p class="success-sub">Thank you for completing the client onboarding questionnaire.<br>Our team will review your submission and reach out within 1–2 business days.</p>
       <button class="btn-restart" onclick="restartForm()"><i class="fas fa-undo"></i> Submit another response</button>
