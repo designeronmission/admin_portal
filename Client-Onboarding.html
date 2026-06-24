@@ -978,7 +978,7 @@
       <button class="s-tab" onclick="goTo(4)" data-idx="4">
         <span class="tab-number">05</span>
         <span class="tab-icon"></span>
-        <span class="tab-label">Security</span>
+        <span class="tab-label">Branding</span>
         <span class="status-dot"></span>
       </button>
     </div>
@@ -1870,83 +1870,98 @@
           </div>
         </div>
 
-        <!-- GitHub -->
-        <div class="sub-panel active" id="sub-github">
-          <div class="credential-block">
-            <div class="block-title"> Git / GitHub Repository</div>
-            <div class="radio-group" id="gitRadioGroup">
-              <label class="radio-option"><input type="radio" name="gitCred" value="have" checked onchange="handleGitToggle(this.value)"> I have a GitHub repo</label>
-              <label class="radio-option"><input type="radio" name="gitCred" value="create" onchange="handleGitToggle(this.value)"> Create repository for me</label>
-            </div>
-            <div id="gitHaveFields" class="credential-fields">
-              <div class="gf-question"><div class="gf-label">GitHub username</div><input type="text" class="gf-input" placeholder="@username"></div>
-              <div class="gf-question mt-3"><div class="gf-label">Password / Personal Access Token</div><input type="password" class="gf-input" placeholder="Enter password or token"></div>
-              <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
-              <div class="row g-3 mt-1">
-                <div class="col-md-6">
-                  <div class="credential-option-card selected" onclick="selectCredOption(this, 'git')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Delegate Access</div>
-                        <div class="option-desc">Grant direct access — our team will configure this service on your behalf.</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="credential-option-card" onclick="selectCredOption(this, 'git')">
-                    <div class="d-flex align-items-start">
-                      <div class="radio-circle"></div>
-                      <div>
-                        <div class="option-title">Secure Vault Submission</div>
-                        <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+ <!-- DNS -->
+<div class="sub-panel active" id="sub-dns">
+  <div class="credential-block">
+    <div class="block-title"> DNS / Domain Management</div>
+    <div class="radio-group" id="dnsRadioGroup">
+      <label class="radio-option"><input type="radio" name="dnsCred" value="have" checked onchange="handleDnsToggle(this.value)"> I have a DNS provider</label>
+      <label class="radio-option"><input type="radio" name="dnsCred" value="create" onchange="handleDnsToggle(this.value)"> Set up DNS for me</label>
+    </div>
+    <div id="dnsHaveFields" class="credential-fields">
+      <div class="gf-question"><div class="gf-label">DNS Provider</div>
+        <select class="gf-input" style="width:100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+          <option value="">Select your DNS provider</option>
+          <option value="cloudflare">Cloudflare</option>
+          <option value="godaddy">GoDaddy</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="gf-question mt-3"><div class="gf-label">API Token / Access Key</div><input type="password" class="gf-input" placeholder="Enter API token or access key"></div>
+      <div class="gf-label mt-3">How would you like to submit additional credentials?</div>
+      <div class="row g-3 mt-1">
+        <div class="col-md-6">
+          <div class="credential-option-card selected" onclick="selectCredOption(this, 'dns')">
+            <div class="d-flex align-items-start">
+              <div class="radio-circle"></div>
+              <div>
+                <div class="option-title">Delegate Access</div>
+                <div class="option-desc">Grant direct access — our team will configure DNS records on your behalf.</div>
               </div>
-              <div class="credential-details-section visible" id="git-details">
-                <div class="info-card" id="git-delegate-info">
-                  <div class="info-header">
-                    <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
-                    <div class="info-title">Delegate Access Required</div>
-                  </div>
-                  <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable configuration, verification, and integration of this service.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
-                </div>
-                <div class="info-card" id="git-vault-info" style="display:none;">
-                  <div class="info-header">
-                    <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
-                    <div class="info-title">Secure Vault Submission</div>
-                  </div>
-                  <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
-                </div>
-                <div class="credentials-card">
-                  <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
-                  <ul class="credentials-list">
-                    <li><i class="fas fa-circle"></i> <strong>GitHub Username</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Personal Access Token (with repo access)</strong></li>
-                    <li><i class="fas fa-circle"></i> <strong>Repository URL</strong></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div id="gitCreateFields" class="credential-fields" style="display:none;">
-              <div class="gf-label">Email address to use for GitHub repository</div>
-              <input type="email" class="gf-input" placeholder="git@company.com">
-            </div>
-          </div>
-          <div class="sub-nav-bar">
-            <div class="sub-nav-left">
-              <span class="text-muted small">1 of 2</span>
-            </div>
-            <div class="sub-nav-right">
-              <button class="btn-save-continue" onclick="saveAndContinueSub('security', 'github')">
-                <i class="fas fa-save"></i> Save &amp; Continue
-              </button>
             </div>
           </div>
         </div>
+        <div class="col-md-6">
+          <div class="credential-option-card" onclick="selectCredOption(this, 'dns')">
+            <div class="d-flex align-items-start">
+              <div class="radio-circle"></div>
+              <div>
+                <div class="option-title">Secure Vault Submission</div>
+                <div class="option-desc">A secure invite link will be sent so a team member can submit credentials privately</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="credential-details-section visible" id="dns-details">
+        <div class="info-card" id="dns-delegate-info">
+          <div class="info-header">
+            <div class="info-icon delegate-icon"><i class="fas fa-user-shield"></i></div>
+            <div class="info-title">Delegate Access Required</div>
+          </div>
+          <div class="info-text">Please grant Delegate access to <strong>tech@roja.one</strong> to enable DNS configuration, domain verification, and SSL certificate provisioning.<br>Access will be used solely for onboarding, validation, and operational support purposes.</div>
+        </div>
+        <div class="info-card" id="dns-vault-info" style="display:none;">
+          <div class="info-header">
+            <div class="info-icon vault-icon"><i class="fas fa-lock"></i></div>
+            <div class="info-title">Secure Vault Submission</div>
+          </div>
+          <div class="info-text">After you submit the onboarding form, a secure time-limited link will be sent to your registered email. A team member can open the link to privately submit credentials — the values go directly into the encrypted vault and are never visible to you.</div>
+        </div>
+        <div class="credentials-card">
+          <div class="cred-header"><i class="fas fa-key"></i><span>Credentials needed from you:</span></div>
+          <ul class="credentials-list">
+            <li><i class="fas fa-circle"></i> <strong>DNS Provider Name</strong></li>
+            <li><i class="fas fa-circle"></i> <strong>API Token / Access Key</strong></li>
+            <li><i class="fas fa-circle"></i> <strong>Domain Name(s)</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="dnsCreateFields" class="credential-fields" style="display:none;">
+      <div class="gf-label">Domain name to register/configure</div>
+      <input type="text" class="gf-input" placeholder="example.com">
+      <div class="gf-label mt-3">Preferred DNS provider</div>
+      <select class="gf-input" style="width:100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd;">
+        <option value="cloudflare">Cloudflare (Recommended)</option>
+        <option value="aws">AWS Route 53</option>
+        <option value="godaddy">GoDaddy</option>
+        <option value="namecheap">Namecheap</option>
+        <option value="google">Google Domains</option>
+      </select>
+    </div>
+  </div>
+  <div class="sub-nav-bar">
+    <div class="sub-nav-left">
+      <span class="text-muted small">1 of 2</span>
+    </div>
+    <div class="sub-nav-right">
+      <button class="btn-save-continue" onclick="saveAndContinueSub('security', 'dns')">
+        <i class="fas fa-save"></i> Save &amp; Continue
+      </button>
+    </div>
+  </div>
+</div>
 
         <!-- Branding -->
         <div class="sub-panel" id="sub-branding">
