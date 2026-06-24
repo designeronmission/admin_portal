@@ -8,8 +8,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="responsive.css"/>
   <style>
     /* ----- ROJA theme ----- */
     :root {
@@ -60,6 +58,11 @@
     .logo img {
       height: 40px;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+    }
+                .service-header{
+      display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
     }
 
     /* ----- Session Card ----- */
@@ -182,6 +185,9 @@
       background: linear-gradient(90deg, var(--gf-red), #4a5a8a);
       height: 5px;
       border-radius: 20px 20px 0 0;
+    }
+    .form-header-banner.review {
+      background: linear-gradient(90deg, #10b981, #059669);
     }
 
     /* ----- Form Elements ----- */
@@ -310,132 +316,138 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== CREDENTIAL TABS (inside Secure Credential Submission) ===== */
-    .credential-tabs {
-      display: flex;
-      gap: 4px;
-      flex-wrap: nowrap;
-      margin-bottom: 24px;
-      background: var(--gf-white);
+    /* ===== ACCORDION STYLES ===== */
+    .accordion-roja {
       border-radius: 16px;
-      border: 1px solid rgba(0,0,0,0.06);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.03);
-      width: 100%;
-      overflow-x: auto;
-      padding: 4px;
+      overflow: hidden;
+      border: 1px solid #e8eaed;
     }
-    .credential-tabs::-webkit-scrollbar { height: 0; }
-    .cred-tab {
-      flex: 1;
-      min-width: 100px;
-      text-align: center;
-      padding: 12px 16px;
-      border-radius: 12px;
+    .accordion-roja .accordion-item {
       border: none;
+      border-bottom: 1px solid #e8eaed;
       background: transparent;
-      color: var(--gf-muted);
-      font-weight: 500;
-      font-size: 13px;
-      transition: all 0.3s ease;
-      cursor: pointer;
+    }
+    .accordion-roja .accordion-item:last-child {
+      border-bottom: none;
+    }
+    .accordion-roja .accordion-header {
+      background: var(--gf-white);
+      padding: 0;
+    }
+    .accordion-roja .accordion-button {
+      padding: 18px 24px;
+      background: var(--gf-white);
+      border: none;
+      border-radius: 0 !important;
       font-family: 'Rubik', sans-serif;
-      white-space: nowrap;
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--gf-text);
+      box-shadow: none !important;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+    }
+    .accordion-roja .accordion-button:hover {
+      background: #f8f9fa;
+    }
+    .accordion-roja .accordion-button:not(.collapsed) {
+      background: var(--gf-red-light);
+      color: var(--gf-red);
+    }
+    .accordion-roja .accordion-button:not(.collapsed)::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23131d58' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      transform: rotate(-180deg);
+    }
+    .accordion-roja .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%235f6368' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-size: 16px;
+      width: 16px;
+      height: 16px;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+    .accordion-roja .accordion-button .accordion-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      position: relative;
-    }
-    .cred-tab:hover {
-      color: var(--gf-text);
-      background: #f8f9fa;
-    }
-    .cred-tab.active {
-      background: var(--gf-red);
-      color: #fff;
-      box-shadow: 0 4px 16px rgba(19,29,88,0.25);
-      font-weight: 600;
-    }
-    .cred-tab.completed {
-      background: var(--gf-green-light);
-      color: var(--gf-green);
-      border: 1px solid #a7f3d0;
-    }
-    .cred-tab .tab-status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      display: inline-block;
+      font-size: 0.9rem;
       flex-shrink: 0;
     }
-    .cred-tab .tab-status-dot.pending { background: var(--gf-yellow); }
-    .cred-tab .tab-status-dot.complete { background: var(--gf-green); }
-    .cred-tab.active .tab-status-dot { background: #fff; }
+    .accordion-roja .accordion-button .accordion-icon.credit { background: #dbeafe; color: #2563eb; }
+    .accordion-roja .accordion-button .accordion-icon.chirp { background: #d1fae5; color: #059669; }
+    .accordion-roja .accordion-button .accordion-icon.email { background: #fef3c7; color: #d97706; }
+    .accordion-roja .accordion-button .accordion-icon.mongo { background: #e0e7ff; color: #4f46e5; }
+    .accordion-roja .accordion-button .accordion-icon.apple { background: #f3e8ff; color: #7c3aed; }
+    .accordion-roja .accordion-button .accordion-icon.github { background: #e5e7eb; color: #1f2937; }
 
-    /* Service panel */
-    .service-panel {
-      display: none;
-      animation: fadeSlide 0.3s ease;
-    }
-    .service-panel.active {
-      display: block;
-    }
-
-    .service-card {
-      border: 1px solid #e8eaed;
-      border-radius: 16px;
-      padding: 20px 22px;
-      margin-bottom: 0;
-      background: var(--gf-white);
-      transition: all 0.2s ease;
-    }
-    .service-card:hover {
-      border-color: var(--gf-red-mid);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-    }
-    .service-header {
+    .accordion-roja .accordion-button .accordion-title {
+      flex: 1;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 14px;
+      flex-wrap: wrap;
     }
-    .service-title {
+    .accordion-roja .accordion-button .accordion-title .service-name {
       font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--gf-text);
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
-    .service-title .badge-field-count {
+    .accordion-roja .accordion-button .accordion-title .service-category {
       font-size: 0.7rem;
-      font-weight: 500;
       color: var(--gf-muted);
       background: #f0f2f5;
       padding: 2px 10px;
-      border-radius: 30px;
+      border-radius: 20px;
+      font-weight: 400;
     }
-    .service-status {
+    .accordion-roja .accordion-button .accordion-status {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 500;
+      flex-shrink: 0;
     }
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
+    .accordion-roja .accordion-button .accordion-status .status-badge {
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 600;
     }
-    .status-dot.green { background: var(--gf-green); }
-    .status-dot.yellow { background: var(--gf-yellow); }
-    .status-dot.red { background: var(--gf-red-warning); }
-    .status-dot.gray { background: #d0d3d6; }
+    .accordion-roja .accordion-button .accordion-status .status-badge.pending {
+      background: var(--gf-yellow-light);
+      color: var(--gf-yellow);
+    }
+    .accordion-roja .accordion-button .accordion-status .status-badge.live-done {
+      background: #dbeafe;
+      color: #2563eb;
+    }
+    .accordion-roja .accordion-button .accordion-status .status-badge.sandbox-done {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    .accordion-roja .accordion-button .accordion-status .status-badge.both-done {
+      background: var(--gf-green-light);
+      color: var(--gf-green);
+    }
 
-    /* Environment Toggle */
+    .accordion-roja .accordion-collapse {
+      border: none;
+    }
+    .accordion-roja .accordion-body {
+      padding: 20px 24px 24px;
+      background: #fafbfc;
+      border-top: 1px solid #e8eaed;
+    }
+
+    /* Environment Toggle inside accordion */
     .env-toggle {
       display: flex;
       gap: 12px;
@@ -580,58 +592,25 @@
       align-items: center;
       gap: 6px;
     }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .status-dot.green { background: var(--gf-green); }
+    .status-dot.yellow { background: var(--gf-yellow); }
+    .status-dot.red { background: var(--gf-red-warning); }
+    .status-dot.gray { background: #d0d3d6; }
 
     /* Buttons */
-    .btn-primary-roja {
-      background: var(--gf-red);
-      color: #fff;
-      border: none;
-      border-radius: 60px;
-      padding: 12px 32px;
-      font-size: 14px;
-      font-weight: 500;
-      font-family: 'Rubik', sans-serif;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-primary-roja:hover {
-      background: #1a2a6a;
-      box-shadow: 0 4px 12px rgba(19,29,88,0.3);
-      transform: translateY(-1px);
-    }
-    .btn-primary-roja:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
-    .btn-outline-roja {
-      background: transparent;
-      color: var(--gf-red);
-      border: 1px solid var(--gf-red);
-      border-radius: 60px;
-      padding: 10px 24px;
-      font-size: 14px;
-      font-weight: 500;
-      font-family: 'Rubik', sans-serif;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-outline-roja:hover {
-      background: var(--gf-red-light);
-    }
     .btn-green-roja {
       background: var(--gf-green);
       color: #fff;
       border: none;
       border-radius: 60px;
-      padding: 12px 28px;
-      font-size: 14px;
+      padding: 10px 24px;
+      font-size: 13px;
       font-weight: 500;
       font-family: 'Rubik', sans-serif;
       cursor: pointer;
@@ -644,6 +623,48 @@
       background: #059669;
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+    }
+    .btn-green-roja:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .btn-outline-roja {
+      background: transparent;
+      color: var(--gf-red);
+      border: 1px solid var(--gf-red);
+      border-radius: 60px;
+      padding: 10px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Rubik', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-outline-roja:hover {
+      background: var(--gf-red-light);
+    }
+    .btn-back-roja {
+      background: transparent;
+      color: var(--gf-muted);
+      border: 1px solid #d0d3d6;
+      border-radius: 60px;
+      padding: 10px 24px;
+      font-size: 13px;
+      font-weight: 500;
+      font-family: 'Rubik', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-back-roja:hover {
+      background: #f8f9fa;
+      border-color: var(--gf-red-mid);
     }
     .btn-submit-roja {
       background: var(--gf-green);
@@ -671,12 +692,12 @@
       transform: none;
       box-shadow: none;
     }
-    .btn-back-roja {
-      background: transparent;
-      color: var(--gf-muted);
-      border: 1px solid #d0d3d6;
+    .btn-save-continue {
+      background: var(--gf-red);
+      color: #fff;
+      border: none;
       border-radius: 60px;
-      padding: 12px 28px;
+      padding: 12px 32px;
       font-size: 14px;
       font-weight: 500;
       font-family: 'Rubik', sans-serif;
@@ -686,41 +707,33 @@
       align-items: center;
       gap: 8px;
     }
-    .btn-back-roja:hover {
-      background: #f8f9fa;
-      border-color: var(--gf-red-mid);
+    .btn-save-continue:hover {
+      background: #1a2a6a;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(19,29,88,0.3);
+    }
+    .btn-save-continue:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
     }
 
-    /* Service nav buttons */
-    .service-nav-buttons {
+    .accordion-actions {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
-      padding-top: 20px;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 16px;
       border-top: 1px solid #e8eaed;
     }
-    .service-nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .service-nav-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
 
-    /* ===== REVIEW & SUBMIT SECTION (Redesigned) ===== */
+    /* ===== REVIEW SECTION STYLES (inside Credential Submission) ===== */
     .review-section {
       background: linear-gradient(135deg, #f8fafc, #f1f5f9);
       border-radius: 16px;
       padding: 28px 32px;
       border: 1px solid #e8eaed;
-      margin-top: 8px;
+      margin-top: 24px;
       display: none;
     }
     .review-section.visible {
@@ -783,81 +796,134 @@
       margin-top: 4px;
     }
 
-    /* Review Service Card */
-    .review-service-card {
+    /* Review Sub Tabs */
+    .review-sub-tabs {
+      display: flex;
+      gap: 4px;
+      flex-wrap: nowrap;
+      margin-bottom: 20px;
+      background: var(--gf-white);
+      border-radius: 12px;
+      border: 1px solid #e8eaed;
+      overflow-x: auto;
+      padding: 4px;
+    }
+    .review-sub-tabs::-webkit-scrollbar { height: 0; }
+    .review-sub-tab {
+      flex: 1;
+      min-width: 100px;
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--gf-muted);
+      font-weight: 500;
+      font-size: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-family: 'Rubik', sans-serif;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .review-sub-tab:hover {
+      color: var(--gf-text);
+      background: #f8f9fa;
+    }
+    .review-sub-tab.active {
+      background: var(--gf-red);
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(19,29,88,0.15);
+    }
+    .review-sub-tab .sub-tab-status {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .review-sub-tab .sub-tab-status.complete {
+      background: var(--gf-green);
+    }
+    .review-sub-tab .sub-tab-status.incomplete {
+      background: var(--gf-yellow);
+    }
+    .review-sub-tab .sub-tab-status.missing {
+      background: #d0d3d6;
+    }
+    .review-sub-tab.active .sub-tab-status {
+      background: #fff;
+    }
+
+    /* Review Service Detail Panel */
+    .review-service-detail {
+      display: none;
+      animation: fadeSlide 0.3s ease;
       background: var(--gf-white);
       border-radius: 14px;
       padding: 20px 24px;
-      margin-bottom: 16px;
       border: 1px solid #e8eaed;
-      transition: all 0.2s ease;
     }
-    .review-service-card:hover {
-      border-color: var(--gf-red-mid);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    .review-service-card:last-child {
-      margin-bottom: 0;
+    .review-service-detail.active {
+      display: block;
     }
 
-    .review-service-header {
+    .review-service-detail .detail-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #e8eaed;
     }
-    .review-service-name {
+    .review-service-detail .detail-header .detail-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--gf-text);
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    .review-service-name .rs-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-    }
-    .review-service-name .rs-icon.credit { background: #dbeafe; color: #2563eb; }
-    .review-service-name .rs-icon.chirp { background: #d1fae5; color: #059669; }
-    .review-service-name .rs-icon.email { background: #fef3c7; color: #d97706; }
-    .review-service-name .rs-icon.mongo { background: #e0e7ff; color: #4f46e5; }
-    .review-service-name .rs-icon.apple { background: #f3e8ff; color: #7c3aed; }
-    .review-service-name .rs-icon.github { background: #e5e7eb; color: #1f2937; }
-    .review-service-name .rs-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--gf-text);
-    }
-    .review-service-name .rs-category {
+    .review-service-detail .detail-header .detail-title .detail-category {
       font-size: 0.7rem;
       color: var(--gf-muted);
       background: #f0f2f5;
       padding: 2px 10px;
       border-radius: 20px;
+      font-weight: 400;
     }
-    .review-service-status {
+    .review-service-detail .detail-header .detail-status {
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 0.75rem;
       font-weight: 500;
-      color: var(--gf-green);
     }
-    .review-service-status .status-badge {
-      background: var(--gf-green-light);
-      color: var(--gf-green);
-      padding: 2px 12px;
+    .review-service-detail .detail-header .detail-status .status-badge {
+      padding: 3px 12px;
       border-radius: 20px;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 600;
     }
+    .review-service-detail .detail-header .detail-status .status-badge.complete {
+      background: var(--gf-green-light);
+      color: var(--gf-green);
+    }
+    .review-service-detail .detail-header .detail-status .status-badge.incomplete {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    .review-service-detail .detail-header .detail-status .status-badge.missing {
+      background: #fef2f2;
+      color: #dc2626;
+    }
 
-    /* Review Credential Groups */
     .review-cred-group {
       margin-top: 12px;
       padding-top: 12px;
@@ -893,6 +959,10 @@
     .review-cred-group .group-label .env-tag.sandbox {
       background: #fef3c7;
       color: #92400e;
+    }
+    .review-cred-group .group-label .env-tag.missing {
+      background: #fef2f2;
+      color: #dc2626;
     }
 
     .review-cred-fields {
@@ -930,19 +1000,14 @@
       color: var(--gf-green);
       margin-right: 4px;
     }
-
-    .review-notes {
-      margin-top: 8px;
-      padding: 8px 12px;
-      background: #f8fafc;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      color: var(--gf-muted);
-      border-left: 3px solid #d0d3d6;
+    .review-cred-field .field-value.missing {
+      color: #dc2626;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 0.75rem;
     }
 
-    /* Review Footer */
-    .review-footer {
+    .review-actions {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -952,27 +1017,36 @@
       padding-top: 20px;
       border-top: 1px solid #e8eaed;
     }
-    .review-footer-left {
+    .review-actions-left {
       display: flex;
       align-items: center;
       gap: 16px;
       flex-wrap: wrap;
     }
-    .review-footer-left .security-badge {
+    .review-actions-left .security-badge {
       display: flex;
       align-items: center;
       gap: 6px;
       font-size: 0.8rem;
       color: var(--gf-muted);
     }
-    .review-footer-left .security-badge i {
+    .review-actions-left .security-badge i {
       color: var(--gf-green);
     }
-    .review-footer-right {
+    .review-actions-right {
       display: flex;
       align-items: center;
       gap: 12px;
       flex-wrap: wrap;
+    }
+
+    .overall-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #e8eaed;
     }
 
     /* Utility */
@@ -1004,28 +1078,30 @@
       .session-card { flex-direction: column; align-items: stretch; padding: 16px 20px; }
       .session-meta { justify-content: space-between; }
       .cred-fields-grid { grid-template-columns: 1fr; }
-      .cred-tab { min-width: 70px; padding: 8px 12px; font-size: 11px; }
-      .cred-tab .tab-label { display: none; }
-      .service-nav-buttons { flex-direction: column; align-items: stretch; }
-      .service-nav-left, .service-nav-right { justify-content: center; }
       .main-tab { min-width: 120px; padding: 10px 14px; font-size: 12px; }
       .main-tab .tab-number { width: 22px; height: 22px; font-size: 10px; }
-      .review-section { padding: 18px 16px; }
       .review-cred-fields { grid-template-columns: 1fr; }
-      .review-footer { flex-direction: column; align-items: stretch; }
-      .review-footer-left, .review-footer-right { justify-content: center; }
+      .review-actions { flex-direction: column; align-items: stretch; }
+      .review-actions-left, .review-actions-right { justify-content: center; }
+      .accordion-roja .accordion-button { padding: 14px 16px; font-size: 0.9rem; }
+      .accordion-roja .accordion-body { padding: 16px; }
+      .overall-actions { flex-direction: column; align-items: stretch; }
+      .overall-actions .btn-save-continue { justify-content: center; }
+      .review-header { flex-direction: column; align-items: stretch; }
+      .review-sub-tab { min-width: 70px; padding: 6px 10px; font-size: 10px; }
+      .review-sub-tab .tab-label { display: none; }
     }
     @media (max-width: 576px) {
       .gf-card-body { padding: 18px 16px; }
-      .service-card { padding: 16px; }
       .env-toggle { gap: 8px; }
       .env-btn { font-size: 0.7rem; padding: 4px 12px; }
       .btn-submit-roja { padding: 12px 24px; font-size: 14px; }
-      .review-section { padding: 14px 12px; }
-      .review-service-card { padding: 14px 16px; }
-      .review-header-left .review-title { font-size: 1rem; }
+      .review-service-detail { padding: 14px 16px; }
       .main-tab { min-width: 80px; padding: 8px 10px; font-size: 10px; }
       .main-tab .tab-label { display: none; }
+      .accordion-roja .accordion-button .accordion-status .status-badge { font-size: 0.55rem; padding: 2px 8px; }
+      .accordion-roja .accordion-button .accordion-title .service-category { display: none; }
+      .review-sub-tab { min-width: 50px; padding: 4px 8px; font-size: 9px; }
     }
     @media (min-width: 1400px) {
       .container { max-width: 1300px; }
@@ -1098,11 +1174,11 @@
   <div class="main-tabs" id="mainTabs">
     <button class="main-tab active" data-main="credential" onclick="switchMainTab('credential')">
       <span class="tab-number">01</span>
-      <span class="tab-label">Secure Credential Submission</span>
+      <span class="tab-label">Credential Submission</span>
     </button>
     <button class="main-tab" data-main="delegate" onclick="switchMainTab('delegate')">
       <span class="tab-number">02</span>
-      <span class="tab-label">Delegate Access Services</span>
+      <span class="tab-label">Delegate Access</span>
     </button>
   </div>
 
@@ -1131,400 +1207,426 @@
           <span class="progress-text"><span id="envProgress">0</span> / 12 environments</span>
         </div>
 
-        <!-- ===== CREDENTIAL TABS ===== -->
-        <div class="credential-tabs" id="credentialTabs">
-          <button class="cred-tab active" data-tab="credit" onclick="switchTab('credit')">
-            <span class="tab-status-dot pending"></span>
-            <span class="tab-label">Credit Integration</span>
-          </button>
-          <button class="cred-tab" data-tab="chirp" onclick="switchTab('chirp')">
-            <span class="tab-status-dot pending"></span>
-            <span class="tab-label">Chirp IBV</span>
-          </button>
-          <button class="cred-tab" data-tab="email" onclick="switchTab('email')">
-            <span class="tab-status-dot pending"></span>
-            <span class="tab-label">Email Service</span>
-          </button>
-          <button class="cred-tab" data-tab="mongo" onclick="switchTab('mongo')">
-            <span class="tab-status-dot pending"></span>
-            <span class="tab-label">MongoDB Atlas</span>
-          </button>
-          <button class="cred-tab" data-tab="apple" onclick="switchTab('apple')">
-            <span class="tab-status-dot pending"></span>
-            <span class="tab-label">Apple Developer</span>
-          </button>
-          <button class="cred-tab" data-tab="github" onclick="switchTab('github')">
-            <span class="tab-status-dot pending"></span>
-            <span class="tab-label">GitHub</span>
-          </button>
-        </div>
+        <!-- ===== ACCORDION ===== -->
+        <div class="accordion-roja" id="credentialAccordion">
 
-        <!-- ==================== CREDIT INTEGRATION TAB ==================== -->
-        <div class="service-panel active" id="panel-credit">
-          <div class="service-card">
-            <div class="service-header">
-              <div class="service-title">
-                Credit Integration (EQUIFAX)
-                <span class="badge-field-count">8 fields</span>
-              </div>
-              <div class="service-status">
-                <span class="status-dot yellow" id="credit-status-dot"></span>
-                <span id="credit-status-text">In Progress</span>
-              </div>
-            </div>
+          <!-- ===== CREDIT INTEGRATION ===== -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-credit" aria-expanded="true" aria-controls="accordion-credit" onclick="updateAccordionStatus('credit')">
+                <span class="accordion-icon credit"><i class="fas fa-building"></i></span>
+                <span class="accordion-title">
+                  <span class="service-name">Credit Integration</span>
+                  <span class="service-category">EQUIFAX</span>
+                </span>
+                <span class="accordion-status" id="credit-status-badge">
+                  <span class="status-badge pending">Pending</span>
+                </span>
+              </button>
+            </h2>
+            <div id="accordion-credit" class="accordion-collapse collapse show" data-bs-parent="#credentialAccordion">
+              <div class="accordion-body">
+                <div class="service-header">
+                  <div class="service-title">
+                    <span class="badge-field-count">8 fields</span>
+                  </div>
+                  <div class="service-status">
+                    <span class="status-dot yellow" id="credit-status-dot"></span>
+                    <span id="credit-status-text">In Progress</span>
+                  </div>
+                </div>
 
-            <div class="env-toggle">
-              <button class="env-btn active" data-service="credit" onclick="toggleEnv(this, 'credit')">Live</button>
-              <button class="env-btn" data-service="credit" onclick="toggleEnv(this, 'credit')">Sandbox</button>
-            </div>
+                <div class="env-toggle">
+                  <button class="env-btn active" data-service="credit" onclick="toggleEnv(this, 'credit')">Live</button>
+                  <button class="env-btn" data-service="credit" onclick="toggleEnv(this, 'credit')">Sandbox</button>
+                </div>
 
-            <div class="cred-fields-grid">
-              <div class="cred-field-group">
-                <label id="credit-clientid-label">Client ID</label>
-                <input type="text" class="gf-input" placeholder="Enter Client ID">
-              </div>
-              <div class="cred-field-group">
-                <label id="credit-clientsecret-label">Client Secret</label>
-                <input type="password" class="gf-input" placeholder="Enter Client Secret">
-              </div>
-              <div class="cred-field-group">
-                <label id="credit-apikey-label">API Key</label>
-                <input type="text" class="gf-input" placeholder="Enter API Key">
-              </div>
-              <div class="cred-field-group">
-                <label id="credit-secretkey-label">Secret Key</label>
-                <input type="password" class="gf-input" placeholder="Enter Secret Key">
-              </div>
-              <div class="cred-field-group">
-                <label id="credit-username-label">Username</label>
-                <input type="text" class="gf-input" placeholder="Enter Username">
-              </div>
-              <div class="cred-field-group">
-                <label id="credit-password-label">Password</label>
-                <input type="password" class="gf-input" placeholder="Enter Password">
-              </div>
-            </div>
+                <div class="cred-fields-grid">
+                  <div class="cred-field-group">
+                    <label id="credit-clientid-label">Client ID</label>
+                    <input type="text" class="gf-input" placeholder="Enter Client ID">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="credit-clientsecret-label">Client Secret</label>
+                    <input type="password" class="gf-input" placeholder="Enter Client Secret">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="credit-apikey-label">API Key</label>
+                    <input type="text" class="gf-input" placeholder="Enter API Key">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="credit-secretkey-label">Secret Key</label>
+                    <input type="password" class="gf-input" placeholder="Enter Secret Key">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="credit-username-label">Username</label>
+                    <input type="text" class="gf-input" placeholder="Enter Username">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="credit-password-label">Password</label>
+                    <input type="password" class="gf-input" placeholder="Enter Password">
+                  </div>
+                </div>
 
-            <div class="mt-3">
-              <label class="field-group-label"><i class="fas fa-sticky-note"></i> Notes</label>
-              <textarea class="gf-textarea" rows="2" placeholder="Optional notes"></textarea>
-            </div>
+                <div class="mt-3">
+                  <label class="field-group-label"><i class="fas fa-sticky-note"></i> Notes</label>
+                  <textarea class="gf-textarea" rows="2" placeholder="Optional notes"></textarea>
+                </div>
 
-            <div class="mt-3 d-flex align-items-center gap-2">
-              <i class="fas fa-lock text-muted" style="font-size:0.8rem;"></i>
-              <span class="text-muted small">Credentials are encrypted at rest.</span>
-            </div>
+                <div class="mt-3 d-flex align-items-center gap-2">
+                  <i class="fas fa-lock text-muted" style="font-size:0.8rem;"></i>
+                  <span class="text-muted small">Credentials are encrypted at rest.</span>
+                </div>
 
-            <div class="service-nav-buttons">
-              <div class="service-nav-left">
-                <button class="btn-outline-roja" onclick="switchTab('chirp')">Next <i class="fas fa-arrow-right"></i></button>
-              </div>
-              <div class="service-nav-right">
-                <button class="btn-green-roja" onclick="saveAndContinue('credit')">
-                  <i class="fas fa-save"></i> Save &amp; Continue
-                </button>
+                <div class="accordion-actions">
+                  <button class="btn-green-roja" id="credit-save-btn" onclick="saveCredential('credit')">
+                    <i class="fas fa-save"></i> <span id="credit-save-label">Save Live</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- ==================== CHIRP IBV TAB ==================== -->
-        <div class="service-panel" id="panel-chirp">
-          <div class="service-card">
-            <div class="service-header">
-              <div class="service-title">
-                Chirp IBV
-                <span class="badge-field-count">5 fields</span>
-              </div>
-              <div class="service-status">
-                <span class="status-dot gray" id="chirp-status-dot"></span>
-                <span id="chirp-status-text">Not Started</span>
-              </div>
-            </div>
+          <!-- ===== CHIRP IBV ===== -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-chirp" aria-expanded="false" aria-controls="accordion-chirp" onclick="updateAccordionStatus('chirp')">
+                <span class="accordion-icon chirp"><i class="fas fa-credit-card"></i></span>
+                <span class="accordion-title">
+                  <span class="service-name">Chirp IBV</span>
+                  <span class="service-category">Banking</span>
+                </span>
+                <span class="accordion-status" id="chirp-status-badge">
+                  <span class="status-badge pending">Pending</span>
+                </span>
+              </button>
+            </h2>
+            <div id="accordion-chirp" class="accordion-collapse collapse" data-bs-parent="#credentialAccordion">
+              <div class="accordion-body">
+                <div class="service-header">
+                  <div class="service-title">
+                    <span class="badge-field-count">5 fields</span>
+                  </div>
+                  <div class="service-status">
+                    <span class="status-dot gray" id="chirp-status-dot"></span>
+                    <span id="chirp-status-text">Not Started</span>
+                  </div>
+                </div>
 
-            <div class="env-toggle">
-              <button class="env-btn active" data-service="chirp" onclick="toggleEnv(this, 'chirp')">Live</button>
-              <button class="env-btn" data-service="chirp" onclick="toggleEnv(this, 'chirp')">Sandbox</button>
-            </div>
+                <div class="env-toggle">
+                  <button class="env-btn active" data-service="chirp" onclick="toggleEnv(this, 'chirp')">Live</button>
+                  <button class="env-btn" data-service="chirp" onclick="toggleEnv(this, 'chirp')">Sandbox</button>
+                </div>
 
-            <div class="cred-fields-grid">
-              <div class="cred-field-group">
-                <label id="chirp-clientid-label">Client ID</label>
-                <input type="text" class="gf-input" placeholder="Enter Client ID">
-              </div>
-              <div class="cred-field-group">
-                <label id="chirp-clientsecret-label">Client Secret</label>
-                <input type="password" class="gf-input" placeholder="Enter Client Secret">
-              </div>
-              <div class="cred-field-group">
-                <label id="chirp-apikey-label">API Key</label>
-                <input type="text" class="gf-input" placeholder="Enter API Key">
-              </div>
-              <div class="cred-field-group">
-                <label id="chirp-secretkey-label">Secret Key</label>
-                <input type="password" class="gf-input" placeholder="Enter Secret Key">
-              </div>
-            </div>
-            <div class="mt-2 text-muted small">
-              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
-            </div>
+                <div class="cred-fields-grid">
+                  <div class="cred-field-group">
+                    <label id="chirp-clientid-label">Client ID</label>
+                    <input type="text" class="gf-input" placeholder="Enter Client ID">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="chirp-clientsecret-label">Client Secret</label>
+                    <input type="password" class="gf-input" placeholder="Enter Client Secret">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="chirp-apikey-label">API Key</label>
+                    <input type="text" class="gf-input" placeholder="Enter API Key">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="chirp-secretkey-label">Secret Key</label>
+                    <input type="password" class="gf-input" placeholder="Enter Secret Key">
+                  </div>
+                </div>
+                <div class="mt-2 text-muted small">
+                  <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+                </div>
 
-            <div class="service-nav-buttons">
-              <div class="service-nav-left">
-                <button class="btn-outline-roja me-2" onclick="switchTab('credit')"><i class="fas fa-arrow-left"></i> Back</button>
-                <button class="btn-outline-roja" onclick="switchTab('email')">Next <i class="fas fa-arrow-right"></i></button>
-              </div>
-              <div class="service-nav-right">
-                <button class="btn-green-roja" onclick="saveAndContinue('chirp')">
-                  <i class="fas fa-save"></i> Save &amp; Continue
-                </button>
+                <div class="accordion-actions">
+                  <button class="btn-green-roja" id="chirp-save-btn" onclick="saveCredential('chirp')">
+                    <i class="fas fa-save"></i> <span id="chirp-save-label">Save Live</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- ==================== EMAIL SERVICE TAB ==================== -->
-        <div class="service-panel" id="panel-email">
-          <div class="service-card">
-            <div class="service-header">
-              <div class="service-title">
-                Email Service (MAILGUN)
-                <span class="badge-field-count">9 fields</span>
-              </div>
-              <div class="service-status">
-                <span class="status-dot gray" id="email-status-dot"></span>
-                <span id="email-status-text">Not Started</span>
-              </div>
-            </div>
+          <!-- ===== EMAIL SERVICE ===== -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-email" aria-expanded="false" aria-controls="accordion-email" onclick="updateAccordionStatus('email')">
+                <span class="accordion-icon email"><i class="fas fa-envelope"></i></span>
+                <span class="accordion-title">
+                  <span class="service-name">Email Service</span>
+                  <span class="service-category">MAILGUN</span>
+                </span>
+                <span class="accordion-status" id="email-status-badge">
+                  <span class="status-badge pending">Pending</span>
+                </span>
+              </button>
+            </h2>
+            <div id="accordion-email" class="accordion-collapse collapse" data-bs-parent="#credentialAccordion">
+              <div class="accordion-body">
+                <div class="service-header">
+                  <div class="service-title">
+                    <span class="badge-field-count">9 fields</span>
+                  </div>
+                  <div class="service-status">
+                    <span class="status-dot gray" id="email-status-dot"></span>
+                    <span id="email-status-text">Not Started</span>
+                  </div>
+                </div>
 
-            <div class="env-toggle">
-              <button class="env-btn active" data-service="email" onclick="toggleEnv(this, 'email')">Live</button>
-              <button class="env-btn" data-service="email" onclick="toggleEnv(this, 'email')">Sandbox</button>
-            </div>
+                <div class="env-toggle">
+                  <button class="env-btn active" data-service="email" onclick="toggleEnv(this, 'email')">Live</button>
+                  <button class="env-btn" data-service="email" onclick="toggleEnv(this, 'email')">Sandbox</button>
+                </div>
 
-            <div class="cred-fields-grid">
-              <div class="cred-field-group">
-                <label id="email-apikey-label">API Key</label>
-                <input type="text" class="gf-input" placeholder="Enter API Key">
-              </div>
-              <div class="cred-field-group">
-                <label id="email-secretkey-label">Secret Key</label>
-                <input type="password" class="gf-input" placeholder="Enter Secret Key">
-              </div>
-              <div class="cred-field-group">
-                <label id="email-domain-label">Domain</label>
-                <input type="text" class="gf-input" placeholder="Enter Domain">
-              </div>
-              <div class="cred-field-group">
-                <label id="email-smtpusername-label">SMTP Username</label>
-                <input type="text" class="gf-input" placeholder="Enter SMTP Username">
-              </div>
-              <div class="cred-field-group">
-                <label id="email-smtppassword-label">SMTP Password</label>
-                <input type="password" class="gf-input" placeholder="Enter SMTP Password">
-              </div>
-              <div class="cred-field-group">
-                <label id="email-fromemail-label">From Email</label>
-                <input type="email" class="gf-input" placeholder="Enter From Email">
-              </div>
-            </div>
-            <div class="mt-2 text-muted small">
-              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
-            </div>
+                <div class="cred-fields-grid">
+                  <div class="cred-field-group">
+                    <label id="email-apikey-label">API Key</label>
+                    <input type="text" class="gf-input" placeholder="Enter API Key">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="email-secretkey-label">Secret Key</label>
+                    <input type="password" class="gf-input" placeholder="Enter Secret Key">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="email-domain-label">Domain</label>
+                    <input type="text" class="gf-input" placeholder="Enter Domain">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="email-smtpusername-label">SMTP Username</label>
+                    <input type="text" class="gf-input" placeholder="Enter SMTP Username">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="email-smtppassword-label">SMTP Password</label>
+                    <input type="password" class="gf-input" placeholder="Enter SMTP Password">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="email-fromemail-label">From Email</label>
+                    <input type="email" class="gf-input" placeholder="Enter From Email">
+                  </div>
+                </div>
+                <div class="mt-2 text-muted small">
+                  <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+                </div>
 
-            <div class="service-nav-buttons">
-              <div class="service-nav-left">
-                <button class="btn-outline-roja me-2" onclick="switchTab('chirp')"><i class="fas fa-arrow-left"></i> Back</button>
-                <button class="btn-outline-roja" onclick="switchTab('mongo')">Next <i class="fas fa-arrow-right"></i></button>
-              </div>
-              <div class="service-nav-right">
-                <button class="btn-green-roja" onclick="saveAndContinue('email')">
-                  <i class="fas fa-save"></i> Save &amp; Continue
-                </button>
+                <div class="accordion-actions">
+                  <button class="btn-green-roja" id="email-save-btn" onclick="saveCredential('email')">
+                    <i class="fas fa-save"></i> <span id="email-save-label">Save Live</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- ==================== MONGODB ATLAS TAB ==================== -->
-        <div class="service-panel" id="panel-mongo">
-          <div class="service-card">
-            <div class="service-header">
-              <div class="service-title">
-                MongoDB Atlas
-                <span class="badge-field-count">6 fields</span>
-              </div>
-              <div class="service-status">
-                <span class="status-dot gray" id="mongo-status-dot"></span>
-                <span id="mongo-status-text">Not Started</span>
-              </div>
-            </div>
+          <!-- ===== MONGODB ATLAS ===== -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-mongo" aria-expanded="false" aria-controls="accordion-mongo" onclick="updateAccordionStatus('mongo')">
+                <span class="accordion-icon mongo"><i class="fas fa-database"></i></span>
+                <span class="accordion-title">
+                  <span class="service-name">MongoDB Atlas</span>
+                  <span class="service-category">Database</span>
+                </span>
+                <span class="accordion-status" id="mongo-status-badge">
+                  <span class="status-badge pending">Pending</span>
+                </span>
+              </button>
+            </h2>
+            <div id="accordion-mongo" class="accordion-collapse collapse" data-bs-parent="#credentialAccordion">
+              <div class="accordion-body">
+                <div class="service-header">
+                  <div class="service-title">
+                    <span class="badge-field-count">6 fields</span>
+                  </div>
+                  <div class="service-status">
+                    <span class="status-dot gray" id="mongo-status-dot"></span>
+                    <span id="mongo-status-text">Not Started</span>
+                  </div>
+                </div>
 
-            <div class="env-toggle">
-              <button class="env-btn active" data-service="mongo" onclick="toggleEnv(this, 'mongo')">Live</button>
-              <button class="env-btn" data-service="mongo" onclick="toggleEnv(this, 'mongo')">Sandbox</button>
-            </div>
+                <div class="env-toggle">
+                  <button class="env-btn active" data-service="mongo" onclick="toggleEnv(this, 'mongo')">Live</button>
+                  <button class="env-btn" data-service="mongo" onclick="toggleEnv(this, 'mongo')">Sandbox</button>
+                </div>
 
-            <div class="cred-fields-grid">
-              <div class="cred-field-group">
-                <label id="mongo-cluster-label">Cluster Name</label>
-                <input type="text" class="gf-input" placeholder="Enter Cluster Name">
-              </div>
-              <div class="cred-field-group">
-                <label id="mongo-username-label">Database Username</label>
-                <input type="text" class="gf-input" placeholder="Enter Username">
-              </div>
-              <div class="cred-field-group">
-                <label id="mongo-password-label">Database Password</label>
-                <input type="password" class="gf-input" placeholder="Enter Password">
-              </div>
-              <div class="cred-field-group">
-                <label id="mongo-connection-label">Connection String</label>
-                <input type="text" class="gf-input" placeholder="Enter Connection URI">
-              </div>
-            </div>
-            <div class="mt-2 text-muted small">
-              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
-            </div>
+                <div class="cred-fields-grid">
+                  <div class="cred-field-group">
+                    <label id="mongo-cluster-label">Cluster Name</label>
+                    <input type="text" class="gf-input" placeholder="Enter Cluster Name">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="mongo-username-label">Database Username</label>
+                    <input type="text" class="gf-input" placeholder="Enter Username">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="mongo-password-label">Database Password</label>
+                    <input type="password" class="gf-input" placeholder="Enter Password">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="mongo-connection-label">Connection String</label>
+                    <input type="text" class="gf-input" placeholder="Enter Connection URI">
+                  </div>
+                </div>
+                <div class="mt-2 text-muted small">
+                  <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+                </div>
 
-            <div class="service-nav-buttons">
-              <div class="service-nav-left">
-                <button class="btn-outline-roja me-2" onclick="switchTab('email')"><i class="fas fa-arrow-left"></i> Back</button>
-                <button class="btn-outline-roja" onclick="switchTab('apple')">Next <i class="fas fa-arrow-right"></i></button>
-              </div>
-              <div class="service-nav-right">
-                <button class="btn-green-roja" onclick="saveAndContinue('mongo')">
-                  <i class="fas fa-save"></i> Save &amp; Continue
-                </button>
+                <div class="accordion-actions">
+                  <button class="btn-green-roja" id="mongo-save-btn" onclick="saveCredential('mongo')">
+                    <i class="fas fa-save"></i> <span id="mongo-save-label">Save Live</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- ==================== APPLE DEVELOPER TAB ==================== -->
-        <div class="service-panel" id="panel-apple">
-          <div class="service-card">
-            <div class="service-header">
-              <div class="service-title">
-                <i class="fab fa-apple" style="color:var(--gf-red);"></i>
-                Apple Developer
-                <span class="badge-field-count">6 fields</span>
-              </div>
-              <div class="service-status">
-                <span class="status-dot gray" id="apple-status-dot"></span>
-                <span id="apple-status-text">Not Started</span>
-              </div>
-            </div>
+          <!-- ===== APPLE DEVELOPER ===== -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-apple" aria-expanded="false" aria-controls="accordion-apple" onclick="updateAccordionStatus('apple')">
+                <span class="accordion-icon apple"><i class="fab fa-apple"></i></span>
+                <span class="accordion-title">
+                  <span class="service-name">Apple Developer</span>
+                  <span class="service-category">App Store</span>
+                </span>
+                <span class="accordion-status" id="apple-status-badge">
+                  <span class="status-badge pending">Pending</span>
+                </span>
+              </button>
+            </h2>
+            <div id="accordion-apple" class="accordion-collapse collapse" data-bs-parent="#credentialAccordion">
+              <div class="accordion-body">
+                <div class="service-header">
+                  <div class="service-title">
+                    <span class="badge-field-count">6 fields</span>
+                  </div>
+                  <div class="service-status">
+                    <span class="status-dot gray" id="apple-status-dot"></span>
+                    <span id="apple-status-text">Not Started</span>
+                  </div>
+                </div>
 
-            <div class="env-toggle">
-              <button class="env-btn active" data-service="apple" onclick="toggleEnv(this, 'apple')">Live</button>
-              <button class="env-btn" data-service="apple" onclick="toggleEnv(this, 'apple')">Sandbox</button>
-            </div>
+                <div class="env-toggle">
+                  <button class="env-btn active" data-service="apple" onclick="toggleEnv(this, 'apple')">Live</button>
+                  <button class="env-btn" data-service="apple" onclick="toggleEnv(this, 'apple')">Sandbox</button>
+                </div>
 
-            <div class="cred-fields-grid">
-              <div class="cred-field-group">
-                <label id="apple-email-label">Apple ID Email</label>
-                <input type="email" class="gf-input" placeholder="Enter Apple ID Email">
-              </div>
-              <div class="cred-field-group">
-                <label id="apple-password-label">Apple ID Password</label>
-                <input type="password" class="gf-input" placeholder="Enter Password">
-              </div>
-              <div class="cred-field-group">
-                <label id="apple-teamid-label">Team ID</label>
-                <input type="text" class="gf-input" placeholder="Enter Team ID">
-              </div>
-              <div class="cred-field-group">
-                <label id="apple-apikey-label">App Store Connect API Key</label>
-                <input type="text" class="gf-input" placeholder="Enter API Key">
-              </div>
-            </div>
-            <div class="mt-2 text-muted small">
-              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
-            </div>
+                <div class="cred-fields-grid">
+                  <div class="cred-field-group">
+                    <label id="apple-email-label">Apple ID Email</label>
+                    <input type="email" class="gf-input" placeholder="Enter Apple ID Email">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="apple-password-label">Apple ID Password</label>
+                    <input type="password" class="gf-input" placeholder="Enter Password">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="apple-teamid-label">Team ID</label>
+                    <input type="text" class="gf-input" placeholder="Enter Team ID">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="apple-apikey-label">App Store Connect API Key</label>
+                    <input type="text" class="gf-input" placeholder="Enter API Key">
+                  </div>
+                </div>
+                <div class="mt-2 text-muted small">
+                  <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+                </div>
 
-            <div class="service-nav-buttons">
-              <div class="service-nav-left">
-                <button class="btn-outline-roja me-2" onclick="switchTab('mongo')"><i class="fas fa-arrow-left"></i> Back</button>
-                <button class="btn-outline-roja" onclick="switchTab('github')">Next <i class="fas fa-arrow-right"></i></button>
-              </div>
-              <div class="service-nav-right">
-                <button class="btn-green-roja" onclick="saveAndContinue('apple')">
-                  <i class="fas fa-save"></i> Save &amp; Continue
-                </button>
+                <div class="accordion-actions">
+                  <button class="btn-green-roja" id="apple-save-btn" onclick="saveCredential('apple')">
+                    <i class="fas fa-save"></i> <span id="apple-save-label">Save Live</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- ==================== GITHUB TAB ==================== -->
-        <div class="service-panel" id="panel-github">
-          <div class="service-card">
-            <div class="service-header">
-              <div class="service-title">
-                GitHub
-                <span class="badge-field-count">4 fields</span>
-              </div>
-              <div class="service-status">
-                <span class="status-dot gray" id="github-status-dot"></span>
-                <span id="github-status-text">Not Started</span>
-              </div>
-            </div>
+          <!-- ===== GITHUB ===== -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-github" aria-expanded="false" aria-controls="accordion-github" onclick="updateAccordionStatus('github')">
+                <span class="accordion-icon github"><i class="fab fa-github"></i></span>
+                <span class="accordion-title">
+                  <span class="service-name">GitHub</span>
+                  <span class="service-category">Repository</span>
+                </span>
+                <span class="accordion-status" id="github-status-badge">
+                  <span class="status-badge pending">Pending</span>
+                </span>
+              </button>
+            </h2>
+            <div id="accordion-github" class="accordion-collapse collapse" data-bs-parent="#credentialAccordion">
+              <div class="accordion-body">
+                <div class="service-header">
+                  <div class="service-title">
+                    <span class="badge-field-count">4 fields</span>
+                  </div>
+                  <div class="service-status">
+                    <span class="status-dot gray" id="github-status-dot"></span>
+                    <span id="github-status-text">Not Started</span>
+                  </div>
+                </div>
 
-            <div class="env-toggle">
-              <button class="env-btn active" data-service="github" onclick="toggleEnv(this, 'github')">Live</button>
-              <button class="env-btn" data-service="github" onclick="toggleEnv(this, 'github')">Sandbox</button>
-            </div>
+                <div class="env-toggle">
+                  <button class="env-btn active" data-service="github" onclick="toggleEnv(this, 'github')">Live</button>
+                  <button class="env-btn" data-service="github" onclick="toggleEnv(this, 'github')">Sandbox</button>
+                </div>
 
-            <div class="cred-fields-grid">
-              <div class="cred-field-group">
-                <label id="github-username-label">GitHub Username</label>
-                <input type="text" class="gf-input" placeholder="Enter Username">
-              </div>
-              <div class="cred-field-group">
-                <label id="github-token-label">Personal Access Token</label>
-                <input type="password" class="gf-input" placeholder="Enter Token">
-              </div>
-              <div class="cred-field-group">
-                <label id="github-repo-label">Repository Name</label>
-                <input type="text" class="gf-input" placeholder="Enter Repository">
-              </div>
-              <div class="cred-field-group">
-                <label id="github-org-label">Organization</label>
-                <input type="text" class="gf-input" placeholder="Enter Organization">
-              </div>
-            </div>
-            <div class="mt-2 text-muted small">
-              <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
-            </div>
+                <div class="cred-fields-grid">
+                  <div class="cred-field-group">
+                    <label id="github-username-label">GitHub Username</label>
+                    <input type="text" class="gf-input" placeholder="Enter Username">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="github-token-label">Personal Access Token</label>
+                    <input type="password" class="gf-input" placeholder="Enter Token">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="github-repo-label">Repository Name</label>
+                    <input type="text" class="gf-input" placeholder="Enter Repository">
+                  </div>
+                  <div class="cred-field-group">
+                    <label id="github-org-label">Organization</label>
+                    <input type="text" class="gf-input" placeholder="Enter Organization">
+                  </div>
+                </div>
+                <div class="mt-2 text-muted small">
+                  <i class="fas fa-info-circle me-1"></i> Both Live &amp; Sandbox required
+                </div>
 
-            <div class="service-nav-buttons">
-              <div class="service-nav-left">
-                <button class="btn-outline-roja me-2" onclick="switchTab('apple')"><i class="fas fa-arrow-left"></i> Back</button>
-              </div>
-              <div class="service-nav-right">
-                <button class="btn-green-roja" onclick="showReviewAndSubmit()">
-                  <i class="fas fa-save"></i> Save &amp; Continue
-                </button>
+                <div class="accordion-actions">
+                  <button class="btn-green-roja" id="github-save-btn" onclick="saveCredential('github')">
+                    <i class="fas fa-save"></i> <span id="github-save-label">Save Live</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
 
-        <!-- ===== REVIEW & SUBMIT SECTION (Redesigned) ===== -->
+        <!-- ===== OVERALL SAVE & CONTINUE BUTTON ===== -->
+        <div class="overall-actions">
+          <button class="btn-save-continue" id="overallSaveContinue" onclick="showReviewSection()" disabled>
+            <i class="fas fa-arrow-right"></i> Save &amp; Continue
+          </button>
+        </div>
+
+        <!-- ===== REVIEW SECTION (appears when all services are complete) ===== -->
         <div class="review-section" id="reviewSection">
-          <!-- Header -->
+          <!-- Review Header -->
           <div class="review-header">
             <div class="review-header-left">
               <div class="review-icon"><i class="fas fa-clipboard-check"></i></div>
               <div>
                 <div class="review-title">Final Review — All Credentials</div>
-                <div class="review-subtitle"><span id="reviewServiceCount">2</span> services · <span id="reviewFieldCount">28</span> fields (Live + Sandbox)</div>
+                <div class="review-subtitle"><span id="reviewCompleteCount">0</span> of <span id="reviewTotalCount">6</span> services completed</div>
               </div>
             </div>
             <div class="review-header-right">
-              <div class="review-badge"><i class="fas fa-check-circle"></i> Both envs</div>
-              <div class="review-count"><span id="reviewCompletedCount">0</span> of <span id="reviewTotalCount">6</span> services completed</div>
+              <div class="review-badge"><i class="fas fa-check-circle"></i> <span id="reviewEnvCount">0</span> / 12 environments</div>
             </div>
           </div>
 
@@ -1534,151 +1636,58 @@
             <span class="small">Final submission. Both Live and Sandbox credentials included. Once submitted all fields become read-only.</span>
           </div>
 
-          <!-- Service Cards -->
-          <div id="reviewServiceList">
-            <!-- Chirp IBV - Example -->
-            <div class="review-service-card" data-service="chirp">
-              <div class="review-service-header">
-                <div class="review-service-name">
-                  <div>
-                    <span class="rs-name">Chirp IBV</span>
-                    <span class="rs-category">Banking</span>
-                  </div>
-                </div>
-                <div class="review-service-status">
-                  <i class="fas fa-check-circle"></i>
-                  <span class="status-badge">Both envs</span>
-                </div>
-              </div>
-
-              <!-- Live Credentials -->
-              <div class="review-cred-group">
-                <div class="group-label">
-                  LIVE CREDENTIALS
-                  <span class="env-tag live">previously saved</span>
-                </div>
-                <div class="review-cred-fields">
-                  <div class="review-cred-field">
-                    <span class="field-label">API Key</span>
-                    <span class="field-value">qazxcd45tgbnhy678</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Secret Key</span>
-                    <span class="field-value">okmhny65tgbvfr43e</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Username</span>
-                    <span class="field-value">liveusername</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Password</span>
-                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Sandbox Credentials -->
-              <div class="review-cred-group">
-                <div class="group-label">
-                  SANDBOX CREDENTIALS
-                  <span class="env-tag sandbox">test environment</span>
-                </div>
-                <div class="review-cred-fields">
-                  <div class="review-cred-field">
-                    <span class="field-label">API Key</span>
-                    <span class="field-value">sandbox_api_key_12345</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Secret Key</span>
-                    <span class="field-value">sandbox_secret_key_67890</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Username</span>
-                    <span class="field-value">sandboxuser</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Password</span>
-                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Credit Integration - Example -->
-            <div class="review-service-card" data-service="credit">
-              <div class="review-service-header">
-                <div class="review-service-name">
-                  <div>
-                    <span class="rs-name">Credit Integration</span>
-                    <span class="rs-category">EQUIFAX</span>
-                  </div>
-                </div>
-                <div class="review-service-status">
-                  <i class="fas fa-check-circle"></i>
-                  <span class="status-badge">Both envs</span>
-                </div>
-              </div>
-
-              <div class="review-cred-group">
-                <div class="group-label">
-                  LIVE CREDENTIALS
-                  <span class="env-tag live">previously saved</span>
-                </div>
-                <div class="review-cred-fields">
-                  <div class="review-cred-field">
-                    <span class="field-label">Client ID</span>
-                    <span class="field-value">eqfx_live_client_001</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Client Secret</span>
-                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">API Key</span>
-                    <span class="field-value">eqfx_api_live_xyz789</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Secret Key</span>
-                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="review-cred-group">
-                <div class="group-label">
-                  SANDBOX CREDENTIALS
-                  <span class="env-tag sandbox">test environment</span>
-                </div>
-                <div class="review-cred-fields">
-                  <div class="review-cred-field">
-                    <span class="field-label">Client ID</span>
-                    <span class="field-value">eqfx_sandbox_client_002</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Client Secret</span>
-                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">API Key</span>
-                    <span class="field-value">eqfx_api_sandbox_abc123</span>
-                  </div>
-                  <div class="review-cred-field">
-                    <span class="field-label">Secret Key</span>
-                    <span class="field-value encrypted"><i class="fas fa-lock lock-icon"></i> ••••••••</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <!-- ===== REVIEW SUB TABS ===== -->
+          <div class="review-sub-tabs" id="reviewSubTabs">
+            <button class="review-sub-tab active" data-review-tab="credit" onclick="switchReviewSubTab('credit')">
+              <span class="sub-tab-status" id="review-sub-credit-status"></span>
+              <span class="tab-label">Credit Integration</span>
+            </button>
+            <button class="review-sub-tab" data-review-tab="chirp" onclick="switchReviewSubTab('chirp')">
+              <span class="sub-tab-status" id="review-sub-chirp-status"></span>
+              <span class="tab-label">Chirp IBV</span>
+            </button>
+            <button class="review-sub-tab" data-review-tab="email" onclick="switchReviewSubTab('email')">
+              <span class="sub-tab-status" id="review-sub-email-status"></span>
+              <span class="tab-label">Email Service</span>
+            </button>
+            <button class="review-sub-tab" data-review-tab="mongo" onclick="switchReviewSubTab('mongo')">
+              <span class="sub-tab-status" id="review-sub-mongo-status"></span>
+              <span class="tab-label">MongoDB Atlas</span>
+            </button>
+            <button class="review-sub-tab" data-review-tab="apple" onclick="switchReviewSubTab('apple')">
+              <span class="sub-tab-status" id="review-sub-apple-status"></span>
+              <span class="tab-label">Apple Developer</span>
+            </button>
+            <button class="review-sub-tab" data-review-tab="github" onclick="switchReviewSubTab('github')">
+              <span class="sub-tab-status" id="review-sub-github-status"></span>
+              <span class="tab-label">GitHub</span>
+            </button>
           </div>
 
-          <!-- Footer -->
-          <div class="review-footer">
-            <div class="review-footer-left">
+          <!-- ===== REVIEW SERVICE DETAIL PANELS ===== -->
+          <div id="reviewDetailContainer">
+            <!-- Credit Integration Detail -->
+            <div class="review-service-detail active" id="review-detail-credit"></div>
+            <!-- Chirp IBV Detail -->
+            <div class="review-service-detail" id="review-detail-chirp"></div>
+            <!-- Email Service Detail -->
+            <div class="review-service-detail" id="review-detail-email"></div>
+            <!-- MongoDB Atlas Detail -->
+            <div class="review-service-detail" id="review-detail-mongo"></div>
+            <!-- Apple Developer Detail -->
+            <div class="review-service-detail" id="review-detail-apple"></div>
+            <!-- GitHub Detail -->
+            <div class="review-service-detail" id="review-detail-github"></div>
+          </div>
+
+          <!-- Review Actions -->
+          <div class="review-actions">
+            <div class="review-actions-left">
               <span class="security-badge"><i class="fas fa-lock"></i> All data encrypted at rest</span>
               <span class="security-badge"><i class="fas fa-shield-alt"></i> Secure transmission</span>
             </div>
-            <div class="review-footer-right">
-              <button class="btn-back-roja" onclick="hideReviewAndGoBack()">
+            <div class="review-actions-right">
+              <button class="btn-back-roja" onclick="hideReviewSection()">
                 <i class="fas fa-arrow-left"></i> Go Back &amp; Edit
               </button>
               <button class="btn-submit-roja" onclick="submitAllCredentials()" id="submitAllBtn">
@@ -1766,7 +1775,6 @@
           <span class="fw-500">1 delegate service still awaiting access. Please grant access to our team to continue.</span>
         </div>
 
-        <!-- Delegate Access Progress -->
         <div class="mt-4 pt-3 border-top">
           <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
             <span class="fw-500">Delegate Access Progress</span>
@@ -1779,7 +1787,7 @@
       </div>
     </div>
   </div>
-  
+
 </div>
 
 <!-- ====== FOOTER ====== -->
@@ -1799,6 +1807,7 @@
     </div>
   </div>
 </footer>
+
 <!-- ===== SCRIPTS ===== -->
 <script>
   // Track service completion status
@@ -1818,6 +1827,15 @@
     mongo: 'MongoDB Atlas',
     apple: 'Apple Developer',
     github: 'GitHub'
+  };
+
+  const serviceCategories = {
+    credit: 'EQUIFAX',
+    chirp: 'Banking',
+    email: 'MAILGUN',
+    mongo: 'Database',
+    apple: 'App Store',
+    github: 'Repository'
   };
 
   const fieldLabels = {
@@ -1915,9 +1933,9 @@
     }
   };
 
-  let currentTab = 'credit';
-  let reviewShown = false;
   let currentMainTab = 'credential';
+  let currentReviewSubTab = 'credit';
+  let reviewVisible = false;
 
   // Switch main tabs
   function switchMainTab(tabId) {
@@ -1928,14 +1946,150 @@
     currentMainTab = tabId;
   }
 
-  // Switch credential tabs
-  function switchTab(tabId) {
-    document.querySelectorAll('.service-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('panel-' + tabId).classList.add('active');
-    document.querySelectorAll('.cred-tab').forEach(t => t.classList.remove('active'));
-    document.querySelector(`.cred-tab[data-tab="${tabId}"]`).classList.add('active');
-    currentTab = tabId;
-    updateProgress();
+  // Show review section
+  function showReviewSection() {
+    const reviewSection = document.getElementById('reviewSection');
+    if (reviewSection) {
+      reviewSection.classList.add('visible');
+      reviewVisible = true;
+      updateReviewSubTabs();
+      updateReviewDetail(currentReviewSubTab);
+      updateReviewStats();
+      // Scroll to review section
+      setTimeout(() => {
+        reviewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  }
+
+  // Hide review section
+  function hideReviewSection() {
+    const reviewSection = document.getElementById('reviewSection');
+    if (reviewSection) {
+      reviewSection.classList.remove('visible');
+      reviewVisible = false;
+    }
+  }
+
+  // Switch review sub tabs
+  function switchReviewSubTab(tabId) {
+    document.querySelectorAll('.review-sub-tab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.review-sub-tab[data-review-tab="${tabId}"]`).classList.add('active');
+    currentReviewSubTab = tabId;
+    updateReviewDetail(tabId);
+  }
+
+  // Update review detail panel
+  function updateReviewDetail(service) {
+    const container = document.getElementById('review-detail-' + service);
+    if (!container) return;
+
+    const status = serviceStatus[service];
+    const hasLive = status.live;
+    const hasSandbox = status.sandbox;
+    const isComplete = hasLive && hasSandbox;
+    
+    const liveFields = fieldLabels[service]?.live || {};
+    const sandboxFields = fieldLabels[service]?.sandbox || {};
+
+    let statusText = 'Pending';
+    let statusClass = 'missing';
+    if (isComplete) {
+      statusText = 'Both envs';
+      statusClass = 'complete';
+    } else if (hasLive || hasSandbox) {
+      statusText = 'In Progress';
+      statusClass = 'incomplete';
+    }
+
+    let html = `
+      <div class="detail-header">
+        <div class="detail-title">
+          ${serviceNames[service]}
+          <span class="detail-category">${serviceCategories[service] || ''}</span>
+        </div>
+        <div class="detail-status">
+          <span class="status-badge ${statusClass}">${statusText}</span>
+        </div>
+      </div>
+    `;
+
+    // Live Credentials
+    html += `
+      <div class="review-cred-group">
+        <div class="group-label">
+          LIVE CREDENTIALS
+          <span class="env-tag ${hasLive ? 'live' : 'missing'}">${hasLive ? 'saved' : 'missing'}</span>
+        </div>
+        ${hasLive ? `
+        <div class="review-cred-fields">
+          ${Object.keys(liveFields).map(key => `
+            <div class="review-cred-field">
+              <span class="field-label">${liveFields[key]}</span>
+              <span class="field-value ${key.includes('secret') || key.includes('password') || key.includes('token') ? 'encrypted' : ''}">
+                ${key.includes('secret') || key.includes('password') || key.includes('token') ? '<i class="fas fa-lock lock-icon"></i> ••••••••' : 'saved_value'}
+              </span>
+            </div>
+          `).join('')}
+        </div>
+        ` : `
+        <div class="review-cred-fields">
+          <div class="review-cred-field">
+            <span class="field-label" style="color:#dc2626;">No credentials saved</span>
+            <span class="field-value missing">—</span>
+          </div>
+        </div>
+        `}
+      </div>
+    `;
+
+    // Sandbox Credentials
+    html += `
+      <div class="review-cred-group">
+        <div class="group-label">
+          SANDBOX CREDENTIALS
+          <span class="env-tag ${hasSandbox ? 'sandbox' : 'missing'}">${hasSandbox ? 'saved' : 'missing'}</span>
+        </div>
+        ${hasSandbox ? `
+        <div class="review-cred-fields">
+          ${Object.keys(sandboxFields).map(key => `
+            <div class="review-cred-field">
+              <span class="field-label">${sandboxFields[key]}</span>
+              <span class="field-value ${key.includes('secret') || key.includes('password') || key.includes('token') ? 'encrypted' : ''}">
+                ${key.includes('secret') || key.includes('password') || key.includes('token') ? '<i class="fas fa-lock lock-icon"></i> ••••••••' : 'saved_value'}
+              </span>
+            </div>
+          `).join('')}
+        </div>
+        ` : `
+        <div class="review-cred-fields">
+          <div class="review-cred-field">
+            <span class="field-label" style="color:#dc2626;">No credentials saved</span>
+            <span class="field-value missing">—</span>
+          </div>
+        </div>
+        `}
+      </div>
+    `;
+
+    container.innerHTML = html;
+  }
+
+  // Update review sub tabs status indicators
+  function updateReviewSubTabs() {
+    for (const service in serviceStatus) {
+      const status = serviceStatus[service];
+      const dot = document.getElementById('review-sub-' + service + '-status');
+      if (dot) {
+        if (status.live && status.sandbox) {
+          dot.className = 'sub-tab-status complete';
+        } else if (status.live || status.sandbox) {
+          dot.className = 'sub-tab-status incomplete';
+        } else {
+          dot.className = 'sub-tab-status missing';
+        }
+      }
+    }
   }
 
   // Toggle environment buttons with label updates
@@ -1948,7 +2102,7 @@
     
     const env = btn.textContent.trim().toLowerCase();
     updateFieldLabels(service, env);
-    
+    updateSaveButtonLabel(service, env);
     updateProgress();
   }
 
@@ -1958,10 +2112,10 @@
     if (!labels || !labels[env]) return;
     
     const envLabels = labels[env];
-    const panel = document.getElementById('panel-' + service);
-    if (!panel) return;
+    const accordionBody = document.querySelector(`#accordion-${service} .accordion-body`);
+    if (!accordionBody) return;
     
-    const fields = panel.querySelectorAll('.cred-field-group');
+    const fields = accordionBody.querySelectorAll('.cred-field-group');
     fields.forEach(field => {
       const label = field.querySelector('label');
       if (!label) return;
@@ -1975,122 +2129,97 @@
     });
   }
 
-  // Show Review & Submit section
-  function showReviewAndSubmit() {
-    // Mark GitHub as completed
-    const tab = document.querySelector(`.cred-tab[data-tab="github"]`);
-    if (tab) {
-      tab.classList.add('completed');
-      const dot = tab.querySelector('.tab-status-dot');
-      if (dot) {
-        dot.classList.remove('pending');
-        dot.classList.add('complete');
-      }
+  // Update Save button label based on active environment
+  function updateSaveButtonLabel(service, env) {
+    const label = document.getElementById(service + '-save-label');
+    if (label) {
+      label.textContent = env === 'live' ? 'Save Live' : 'Save Sandbox';
     }
-
-    const statusDot = document.getElementById('github-status-dot');
-    const statusText = document.getElementById('github-status-text');
-    if (statusDot) statusDot.className = 'status-dot green';
-    if (statusText) statusText.textContent = 'Completed';
-
-    if (serviceStatus.github) {
-      serviceStatus.github.live = true;
-      serviceStatus.github.sandbox = true;
-    }
-
-    showToast('Credentials saved successfully for GitHub');
-
-    // Show review section
-    const reviewSection = document.getElementById('reviewSection');
-    if (reviewSection) {
-      reviewSection.classList.add('visible');
-      reviewShown = true;
-      updateReviewData();
-    }
-
-    updateProgress();
-
-    // Scroll to review section
-    setTimeout(() => {
-      reviewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 300);
   }
 
-  // Hide review and go back
-  function hideReviewAndGoBack() {
-    const reviewSection = document.getElementById('reviewSection');
-    if (reviewSection) {
-      reviewSection.classList.remove('visible');
-      reviewShown = false;
-    }
-    // Go back to the last active tab
-    const tabs = ['credit', 'chirp', 'email', 'mongo', 'apple', 'github'];
-    switchTab(tabs[tabs.length - 1]);
-  }
-
-  // Update review data
-  function updateReviewData() {
-    let completed = 0;
-    let totalFields = 0;
-    const services = Object.keys(serviceStatus);
-    
-    services.forEach(service => {
-      // Count fields for each service
-      const labels = fieldLabels[service];
-      if (labels) {
-        const liveFields = Object.keys(labels.live || {}).length;
-        const sandboxFields = Object.keys(labels.sandbox || {}).length;
-        totalFields += liveFields + sandboxFields;
-      }
-      
-      if (serviceStatus[service].live && serviceStatus[service].sandbox) {
-        completed++;
+  // Save credential for a service
+  function saveCredential(service) {
+    const envBtns = document.querySelectorAll(`.env-btn[data-service="${service}"]`);
+    let activeEnv = 'live';
+    envBtns.forEach(btn => {
+      if (btn.classList.contains('active')) {
+        activeEnv = btn.textContent.trim().toLowerCase();
       }
     });
 
-    document.getElementById('reviewCompletedCount').textContent = completed;
-    document.getElementById('reviewTotalCount').textContent = services.length;
-    document.getElementById('reviewServiceCount').textContent = services.length;
-    document.getElementById('reviewFieldCount').textContent = totalFields;
-  }
-
-  // Save and continue for regular tabs
-  function saveAndContinue(service) {
-    const tab = document.querySelector(`.cred-tab[data-tab="${service}"]`);
-    if (tab) {
-      tab.classList.add('completed');
-      const dot = tab.querySelector('.tab-status-dot');
-      if (dot) {
-        dot.classList.remove('pending');
-        dot.classList.add('complete');
-      }
+    if (serviceStatus[service]) {
+      serviceStatus[service][activeEnv] = true;
     }
+
+    const btn = document.querySelector(`.env-btn[data-service="${service}"].active`);
+    if (btn) {
+      btn.classList.remove('active');
+      btn.classList.add('completed');
+    }
+
+    updateAccordionStatus(service);
 
     const statusDot = document.getElementById(service + '-status-dot');
     const statusText = document.getElementById(service + '-status-text');
-    if (statusDot) statusDot.className = 'status-dot green';
-    if (statusText) statusText.textContent = 'Completed';
-
-    if (serviceStatus[service]) {
-      serviceStatus[service].live = true;
-      serviceStatus[service].sandbox = true;
-    }
-
-    showToast('Credentials saved successfully for ' + serviceNames[service]);
-
-    if (reviewShown) {
-      updateReviewData();
-    }
-
-    const tabs = ['credit', 'chirp', 'email', 'mongo', 'apple', 'github'];
-    const currentIdx = tabs.indexOf(service);
-    if (currentIdx < tabs.length - 1) {
-      setTimeout(() => {
-        switchTab(tabs[currentIdx + 1]);
-      }, 300);
+    
+    if (serviceStatus[service].live && serviceStatus[service].sandbox) {
+      if (statusDot) statusDot.className = 'status-dot green';
+      if (statusText) statusText.textContent = 'Completed';
+      showToast('Both Live and Sandbox credentials saved for ' + serviceNames[service]);
+    } else {
+      if (statusDot) statusDot.className = 'status-dot yellow';
+      if (statusText) statusText.textContent = activeEnv === 'live' ? 'Live Saved' : 'Sandbox Saved';
+      showToast(activeEnv === 'live' ? 'Live credentials saved for ' + serviceNames[service] : 'Sandbox credentials saved for ' + serviceNames[service]);
     }
 
     updateProgress();
+    updateOverallSaveButton();
+    if (reviewVisible) {
+      updateReviewSubTabs();
+      updateReviewDetail(currentReviewSubTab);
+      updateReviewStats();
+    }
+  }
+
+  // Update accordion header status badge
+  function updateAccordionStatus(service) {
+    const badge = document.getElementById(service + '-status-badge');
+    if (!badge) return;
+
+    const status = serviceStatus[service];
+    if (!status) return;
+
+    if (status.live && status.sandbox) {
+      badge.innerHTML = '<span class="status-badge both-done"><i class="fas fa-check-circle me-1"></i>Both Done</span>';
+    } else if (status.live) {
+      badge.innerHTML = '<span class="status-badge live-done"><i class="fas fa-check-circle me-1"></i>Live Done</span>';
+    } else if (status.sandbox) {
+      badge.innerHTML = '<span class="status-badge sandbox-done"><i class="fas fa-check-circle me-1"></i>Sandbox Done</span>';
+    } else {
+      badge.innerHTML = '<span class="status-badge pending">Pending</span>';
+    }
+  }
+
+  // Update overall Save & Continue button
+  function updateOverallSaveButton() {
+    const btn = document.getElementById('overallSaveContinue');
+    let allCompleted = true;
+    let completed = 0;
+    
+    for (const service in serviceStatus) {
+      if (serviceStatus[service].live && serviceStatus[service].sandbox) {
+        completed++;
+      } else {
+        allCompleted = false;
+      }
+    }
+    
+    btn.disabled = !allCompleted;
+    if (allCompleted) {
+      btn.innerHTML = '<i class="fas fa-arrow-right"></i> Review &amp; Continue';
+    } else {
+      btn.innerHTML = '<i class="fas fa-arrow-right"></i> Save &amp; Continue';
+    }
   }
 
   // Update progress
@@ -2099,34 +2228,19 @@
     let totalEnvs = 0;
 
     for (const service in serviceStatus) {
+      const status = serviceStatus[service];
       const envBtns = document.querySelectorAll(`.env-btn[data-service="${service}"]`);
-      const completedEnvs = document.querySelectorAll(`.env-btn[data-service="${service}"].active, .env-btn[data-service="${service}"].completed`);
+      const completedEnvs = document.querySelectorAll(`.env-btn[data-service="${service}"].completed`);
       
-      if (envBtns.length === 2 && completedEnvs.length === 2) {
-        const tab = document.querySelector(`.cred-tab[data-tab="${service}"]`);
-        if (tab) {
-          tab.classList.add('completed');
-          const dot = tab.querySelector('.tab-status-dot');
-          if (dot) {
-            dot.classList.remove('pending');
-            dot.classList.add('complete');
-          }
-        }
-        const statusDot = document.getElementById(service + '-status-dot');
-        const statusText = document.getElementById(service + '-status-text');
-        if (statusDot) statusDot.className = 'status-dot green';
-        if (statusText) statusText.textContent = 'Completed';
-        
-        if (serviceStatus[service]) {
-          serviceStatus[service].live = true;
-          serviceStatus[service].sandbox = true;
-        }
+      if (status.live && status.sandbox) {
         completed++;
       }
+      
+      totalEnvs += envBtns.length;
     }
 
     const allEnvBtns = document.querySelectorAll('.env-btn');
-    const completedEnvs = document.querySelectorAll('.env-btn.active, .env-btn.completed');
+    const completedEnvs = document.querySelectorAll('.env-btn.completed');
     const total = allEnvBtns.length;
     const progress = total > 0 ? Math.round((completedEnvs.length / total) * 100) : 0;
 
@@ -2145,9 +2259,24 @@
       progressCount.innerHTML = completed + ' / ' + totalServices + ' <span class="text-muted" style="font-size:0.8rem;">completed</span>';
     }
 
-    if (reviewShown) {
-      updateReviewData();
+    updateOverallSaveButton();
+  }
+
+  // Update review stats
+  function updateReviewStats() {
+    let completed = 0;
+    let totalEnvs = 0;
+    for (const service in serviceStatus) {
+      if (serviceStatus[service].live && serviceStatus[service].sandbox) {
+        completed++;
+      }
+      if (serviceStatus[service].live) totalEnvs++;
+      if (serviceStatus[service].sandbox) totalEnvs++;
     }
+    
+    document.getElementById('reviewCompleteCount').textContent = completed;
+    document.getElementById('reviewTotalCount').textContent = Object.keys(serviceStatus).length;
+    document.getElementById('reviewEnvCount').textContent = totalEnvs;
   }
 
   // Submit all credentials
@@ -2165,7 +2294,6 @@
       return;
     }
     
-    // Show success message
     const submitBtn = document.getElementById('submitAllBtn');
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
     submitBtn.disabled = true;
@@ -2226,11 +2354,15 @@
 
   // Init
   document.addEventListener('DOMContentLoaded', function() {
-    updateProgress();
-    for (const service in fieldLabels) {
+    for (const service in serviceStatus) {
+      updateAccordionStatus(service);
       updateFieldLabels(service, 'live');
+      updateSaveButtonLabel(service, 'live');
     }
-    updateReviewData();
+    updateProgress();
+    updateReviewSubTabs();
+    updateReviewDetail('credit');
+    updateReviewStats();
   });
 </script>
 
